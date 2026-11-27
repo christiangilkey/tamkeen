@@ -19030,6 +19030,96 @@
   "f": "web/js/game/farm.js"
  },
  {
+  "id": "c3215b79",
+  "k": "Farm",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "4a7be86d",
+  "k": "Your barn",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "6896091d",
+  "k": "Your field: tap a plot",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "505d6a6a",
+  "k": "Seeds",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "a0250e49",
+  "k": "Water next",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "665e4aaf",
+  "k": "Tap a plot. Every planting, watering and harvest asks one of your words.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "2217b969",
+  "k": "Watering chain",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "796afc60",
+  "k": "{0} need water",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "a03e99cd",
+  "k": "{0} ripe",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "ee6328a7",
+  "k": "{0} empty",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "33a00880",
+  "k": "Out of season",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "35e07873",
+  "k": "No seeds yet: the seed stand sells them for glow.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "96fab344",
+  "k": "Pick a seed below first.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "3fb0654e",
+  "k": "Resting until its season comes back.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "65939c6d",
+  "k": "Watered today: it grows again tomorrow.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "4eb0f25a",
+  "k": "Harvest the {0}",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "540a52db",
+  "k": "Not quite, but it's harvested all the same.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "ff8554f1",
+  "k": "Nothing needs water right now.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
   "id": "16d82f9f",
   "k": "Grain",
   "f": "web/js/game/farmuses.js"

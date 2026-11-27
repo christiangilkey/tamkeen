@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Fattoria
+4a7be86d	Il tuo fienile
+6896091d	Il tuo campo: tocca un appezzamento
+505d6a6a	Semi
+a0250e49	Innaffia il prossimo
+665e4aaf	Tocca un appezzamento. Ogni semina, innaffiatura e raccolto ti chiede una delle tue parole.
+2217b969	Catena di innaffiatura
+796afc60	{0} hanno bisogno d'acqua
+a03e99cd	{0} mature
+ee6328a7	{0} vuoti
+33a00880	Fuori stagione
+35e07873	Ancora nessun seme: la bancarella dei semi li vende per bagliore.
+96fab344	Prima scegli un seme qui sotto.
+3fb0654e	Riposa finché non torna la sua stagione.
+65939c6d	Innaffiata oggi: ricresce domani.
+4eb0f25a	Raccogli: {0}
+540a52db	Non proprio, ma è raccolto lo stesso.
+ff8554f1	Per ora niente ha bisogno d'acqua.

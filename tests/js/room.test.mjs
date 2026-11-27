@@ -130,7 +130,9 @@ test("the owner's taps: a door goes straight through; outside, a tap on the crea
 test("the big tiles send the creature to their place in the village (or home)", () => {
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   for (const [tile, spot] of [["shop", "cloth"], ["creatures", "room"], ["garden", "fruit"], ["battle", "hall"], ["fishing", "pier"]]) {
-    const line = h.split(/\r?\n/).find((l) => l.includes(`$("#g-${tile}").onclick = `)) || "";
+    const lines = h.split(/\r?\n/);
+    const i = lines.findIndex((l) => l.includes(`$("#g-${tile}").onclick = `));
+    const line = i < 0 ? "" : lines.slice(i, i + 4).join("\n"); // (the Garden tile's handler spans a few lines: it opens the farm page too)
     assert.ok(line.includes(`teleportTo("${spot}")`) || line.includes(`: "${spot}")`), tile); // (Garden: the farm with prototype "farm", else the fruit stall)
   }
 });

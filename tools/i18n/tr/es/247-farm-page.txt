@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Granja
+4a7be86d	Tu granero
+6896091d	Tu campo: toca una parcela
+505d6a6a	Semillas
+a0250e49	Regar la siguiente
+665e4aaf	Toca una parcela. Cada siembra, riego y cosecha te pregunta una de tus palabras.
+2217b969	Cadena de riego
+796afc60	{0} necesitan agua
+a03e99cd	{0} maduras
+ee6328a7	{0} vacías
+33a00880	Fuera de temporada
+35e07873	Aún no tienes semillas: el puesto de semillas las vende por brillo.
+96fab344	Primero elige una semilla abajo.
+3fb0654e	Descansa hasta que vuelva su temporada.
+65939c6d	Regada hoy: vuelve a crecer mañana.
+4eb0f25a	Cosechar: {0}
+540a52db	No exactamente, pero se ha cosechado igual.
+ff8554f1	Ahora no hace falta regar nada.

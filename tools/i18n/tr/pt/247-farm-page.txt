@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Quinta
+4a7be86d	O teu celeiro
+6896091d	O teu campo: toca num canteiro
+505d6a6a	Sementes
+a0250e49	Regar a seguinte
+665e4aaf	Toca num canteiro. Cada plantação, rega e colheita pergunta-te uma das tuas palavras.
+2217b969	Cadeia de rega
+796afc60	{0} precisam de água
+a03e99cd	{0} maduras
+ee6328a7	{0} vazios
+33a00880	Fora de época
+35e07873	Ainda não tens sementes: a barraca de sementes vende-as por brilho.
+96fab344	Primeiro escolhe uma semente em baixo.
+3fb0654e	Descansa até voltar a sua época.
+65939c6d	Regada hoje: volta a crescer amanhã.
+4eb0f25a	Colher: {0}
+540a52db	Não exatamente, mas foi colhida na mesma.
+ff8554f1	Agora nada precisa de água.

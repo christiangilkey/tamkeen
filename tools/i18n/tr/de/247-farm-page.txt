@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Bauernhof
+4a7be86d	Deine Scheune
+6896091d	Dein Feld: tippe auf ein Beet
+505d6a6a	Samen
+a0250e49	Nächstes gießen
+665e4aaf	Tippe auf ein Beet. Jedes Pflanzen, Gießen und Ernten fragt eines deiner Wörter ab.
+2217b969	Gießkette
+796afc60	{0} brauchen Wasser
+a03e99cd	{0} reif
+ee6328a7	{0} leer
+33a00880	Nicht in der Saison
+35e07873	Noch keine Samen: Der Samenstand verkauft sie gegen Glimmer.
+96fab344	Wähle zuerst unten einen Samen.
+3fb0654e	Ruht, bis seine Saison zurückkommt.
+65939c6d	Heute gegossen: Morgen wächst es weiter.
+4eb0f25a	Ernten: {0}
+540a52db	Nicht ganz, aber geerntet ist es trotzdem.
+ff8554f1	Gerade braucht nichts Wasser.

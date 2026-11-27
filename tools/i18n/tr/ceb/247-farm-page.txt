@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Uma
+4a7be86d	Imong kamalig
+6896091d	Imong uma: tuplia ang usa ka plot
+505d6a6a	Mga liso
+a0250e49	Bisbisi ang sunod
+665e4aaf	Tuplia ang usa ka plot. Matag tanom, bisbis ug ani mangutana og usa sa imong mga pulong.
+2217b969	Kadena sa pagbisbis
+796afc60	{0} nanginahanglan og tubig
+a03e99cd	{0} hinog na
+ee6328a7	{0} walay sulod
+33a00880	Dili panahon niini
+35e07873	Wala pay liso: ang tindahan sa liso namaligya niini baylo sa sanag.
+96fab344	Pili una og liso sa ubos.
+3fb0654e	Nagpahulay hangtod mobalik ang panahon niini.
+65939c6d	Nabisbisan na karon: motubo na usab ugma.
+4eb0f25a	Anihon ang {0}
+540a52db	Dili kaayo, apan naani gihapon.
+ff8554f1	Walay nanginahanglan og tubig karon.

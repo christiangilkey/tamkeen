@@ -17,6 +17,7 @@ import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, 
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { openFarm } from "./farmpage.js";
 import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
@@ -116,7 +117,7 @@ export function habitat() {
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
-        ${tile("shop", "nav_shop", "Shop")}${tile("garden", "structure/word_sprout_2", "Garden")}
+        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farm") : tile("garden", "structure/word_sprout_2", "Garden")}
         ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
@@ -292,7 +293,10 @@ export function habitat() {
   // Creatures home to its room. The page opens as before; closed, there it stands.
   $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
   $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
-  $("#g-garden").onclick = () => { teleportTo(feature("farm") ? "farm" : "fruit"); go("garden"); }; // (the farm, with its buildings: prototype "farm")
+  $("#g-garden").onclick = () => { // (the farm, with its buildings: prototype "farm"; with "farm_page" the tile is Farm and opens the farm page)
+    teleportTo(feature("farm") ? "farm" : "fruit");
+    if (feature("farm_page")) openFarm({ changed: () => paintHud() }); else go("garden");
+  };
   $("#g-battle").onclick = () => teleportTo("hall") || openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
   // The aquarium, under the Fishing tile once a fish has been caught: the fish kept in it, swimming. A tap opens the
   // Basket, where fish go in and out. It is drawn again only when what is in the tank has changed.
@@ -1655,6 +1659,7 @@ export function habitat() {
     if (inFarm() && !pressed && moving === null) {
       const [fw, fh] = fieldSize(game);
       const sp = plotAt(x, y, fw, fh);
+      if (sp && feature("farm_page")) { sfx("tick"); openFarm({ changed: () => paintHud() }); return; } // (the field: the farm page, where it is all done)
       if (sp) { tapSpot(sp.c, sp.r); return; }
     }
     // A decoration tapped: move it (the creature carries it) or put it away.

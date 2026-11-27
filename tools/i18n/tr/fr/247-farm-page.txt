@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Ferme
+4a7be86d	Ta grange
+6896091d	Ton champ : touche une parcelle
+505d6a6a	Graines
+a0250e49	Arroser la suivante
+665e4aaf	Touche une parcelle. Chaque plantation, arrosage et récolte te demande un de tes mots.
+2217b969	Chaîne d'arrosage
+796afc60	{0} ont besoin d'eau
+a03e99cd	{0} mûres
+ee6328a7	{0} vides
+33a00880	Hors saison
+35e07873	Pas encore de graines : le stand de graines les vend contre de la lueur.
+96fab344	Choisis d'abord une graine en bas.
+3fb0654e	Se repose jusqu'au retour de sa saison.
+65939c6d	Arrosée aujourd'hui : elle repousse demain.
+4eb0f25a	Récolter : {0}
+540a52db	Pas tout à fait, mais c'est récolté quand même.
+ff8554f1	Rien n'a besoin d'eau pour l'instant.

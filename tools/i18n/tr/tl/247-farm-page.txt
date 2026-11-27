@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Bukid
+4a7be86d	Ang kamalig mo
+6896091d	Ang bukid mo: i-tap ang isang taniman
+505d6a6a	Mga buto
+a0250e49	Diligan ang susunod
+665e4aaf	I-tap ang isang taniman. Bawat pagtatanim, pagdidilig at pag-aani ay nagtatanong ng isa sa mga salita mo.
+2217b969	Sunod-sunod na dilig
+796afc60	{0} kailangan ng tubig
+a03e99cd	{0} hinog na
+ee6328a7	{0} bakante
+33a00880	Hindi panahon nito
+35e07873	Wala ka pang buto: ibinebenta ito ng tindahan ng binhi kapalit ng liwanag.
+96fab344	Pumili muna ng buto sa ibaba.
+3fb0654e	Nagpapahinga hanggang bumalik ang panahon nito.
+65939c6d	Nadiligan na ngayon: tutubo ulit bukas.
+4eb0f25a	Anihin ang {0}
+540a52db	Hindi masyado, pero naani pa rin.
+ff8554f1	Walang kailangang diligan ngayon.

@@ -1,0 +1,19 @@
+# The farm page (prototype farm_page, the owner 2026-11-27).
+c3215b79	Granja
+4a7be86d	El teu graner
+6896091d	El teu camp: toca una parcel·la
+505d6a6a	Llavors
+a0250e49	Rega la següent
+665e4aaf	Toca una parcel·la. Cada plantada, regada i collita et pregunta una de les teves paraules.
+2217b969	Cadena de reg
+796afc60	{0} necessiten aigua
+a03e99cd	{0} madures
+ee6328a7	{0} buides
+33a00880	Fora de temporada
+35e07873	Encara no tens llavors: la parada de llavors les ven per brill.
+96fab344	Primer tria una llavor de sota.
+3fb0654e	Reposa fins que torni la seva temporada.
+65939c6d	Regada avui: tornarà a créixer demà.
+4eb0f25a	Cull: {0}
+540a52db	No del tot, però s'ha collit igualment.
+ff8554f1	Ara no cal regar res.

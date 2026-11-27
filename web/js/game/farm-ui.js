@@ -192,7 +192,7 @@ export function plantCard(key, { harvest = () => {} } = {}) {
 
 // ---------- watering: one due word on the question card ----------
 let words = null; // {vocab, at}: the words the farm asks (the game's word choice, as the pond's), kept a few minutes
-async function farmWords(game) {
+export async function farmWords(game) {
   if (words && Date.now() - words.at < 5 * 60 * 1000) return words.vocab;
   let vocab = [];
   let log = {};

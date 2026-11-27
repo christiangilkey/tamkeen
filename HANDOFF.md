@@ -10147,6 +10147,15 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   stage (sfx "water"); a wrong watering answer drizzles. Under the scene the crop's water days.)
   A tap on the field (habitat.js `tapSpot`, farmmap `plotAt`) goes to the nearest spot, before anything over it, and
   opens its card at once while the creature walks over.
+- **The farm page** (prototype `farm_page`, `web/js/game/farmpage.js`, the owner 2026-11-27, from his approved mockup):
+  Home's Garden tile becomes Farm and opens a full-screen page (`.live-wrap.farm-wrap`, like the pond), and so does a tap
+  on the village's field. The season, glow and barn at the top; "need water / ripe / empty"; the field drawn big (about
+  four plots across a phone, wider fields scroll sideways; a near miss goes to the nearest plot) with your creature
+  walking to the plot it tends; the watering chain (5 pips and a rising note, `sfx("chainN")`: a sound, never pay); the
+  seed tray (choose a seed, then tap empty plots); "Water next" (the nearest thirsty plot) and the seed stand. Every
+  planting, watering and harvest asks one word on the page's own question panel (stepped pixel corners, `.px-corner`),
+  then plays its moment on the plot (the card's frames, `farm/card.png`); a harvest gets reveal.js's rarity reveal.
+  Right or wrong it is done (a wrong watering gives the half water, as in the village); with no word to ask, at once.
 - **Look:** `tools/game_art/farmart.py`, placed in Aseprite (sources `game/art-src/farm/`): `web/game-art/farm/`
   crops.png (5 frames a crop: seed, sprout, growing, ripe, wilted), icons.png, soil.png (dry, watered), gate.png,
   seedstand.png. habitat.js `farmScene` draws soil, crops, a water drop over a thirsty plant, a twinkle over a ripe
