@@ -18,7 +18,7 @@
 
 import { LEGENDARY, TIERS, chances } from "./loot.js";
 import { dayNumber, weekNumber } from "./rules.js";
-import { BUILD_SPOTS, UPGRADE_SPOTS, canPlace, spotXY } from "./farmmap.js";
+import { BUILD_SPOTS, UPGRADE_SPOTS, canPlace, nearestFree, spotXY } from "./farmmap.js";
 
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
@@ -295,7 +295,9 @@ export function buildingsOn(state) {
   const out = [];
   plots.forEach((p, i) => {
     if (!p || !p.tier || !FARM_KIND[p.id]) return;
-    const at = p.at && Number.isFinite(p.at.x) && Number.isFinite(p.at.y) ? p.at : BUILD_SPOTS[i] || BUILD_SPOTS[0];
+    const saved = p.at && Number.isFinite(p.at.x) && Number.isFinite(p.at.y) ? p.at : BUILD_SPOTS[i] || BUILD_SPOTS[0];
+    // (where the farm's layout now has the field, the barn or another building: the nearest open spot instead)
+    const at = nearestFree(saved, [...out, ...UPGRADE_SPOTS]);
     out.push({ i, id: p.id, kind: FARM_KIND[p.id], tier: p.tier, x: at.x, y: at.y });
   });
   return out;
@@ -482,7 +484,14 @@ export const decorById = (id) => DECOR.find((d) => d.id === id) || null;
 /** The farm's decorations: [{i, id, x, y}]. */
 export function decorOn(state) {
   const f = farmOf(state);
-  return (Array.isArray(f.decor) ? f.decor : []).map((d, i) => ({ i, ...d })).filter((d) => decorById(d.id));
+  const out = [];
+  const others = [...buildingsOn(state).map((b) => ({ x: b.x, y: b.y })), ...UPGRADE_SPOTS];
+  (Array.isArray(f.decor) ? f.decor : []).forEach((d, i) => {
+    if (!decorById(d.id)) return;
+    const at = nearestFree({ x: Number(d.x) || 0, y: Number(d.y) || 0 }, [...others, ...out]); // (as buildingsOn: after a layout change)
+    out.push({ ...d, i, x: at.x, y: at.y });
+  });
+  return out;
 }
 /** Everything standing on the farm a new thing mustn't stand on: buildings, decorations, the upgrades. */
 const standing = (state, skip = null) => [...buildingsOn(state).map((b) => ({ x: b.x, y: b.y })),
@@ -496,7 +505,7 @@ export function buyDecor(state, glow, id, now = new Date()) {
   if (glow.glow < d.cost) return `You need ${Math.ceil(d.cost - glow.glow)} more glow.`;
   const others = standing(state);
   let at = null;
-  for (let y = 136; y >= 40 && !at; y -= 12) for (let x = 24; x <= 560 && !at; x += 16) if (canPlace(x, y, others)) at = { x, y };
+  for (let x = 560; x >= 24 && !at; x -= 16) for (let y = 136; y >= 40 && !at; y -= 12) if (canPlace(x, y, others)) at = { x, y }; // (nearest the entrance first)
   if (!at) return "There's no open patch of grass left. Move something first.";
   glow.glow -= d.cost;
   if (!Array.isArray(f.decor)) f.decor = [];

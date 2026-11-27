@@ -10117,11 +10117,15 @@ Chat's side-session notes, `habitat-revamp-plan.md`.
 The owner's design: `C:\Users\chris\Documents\arabic-tts\tamkeen-plans\farming-plan.md` (decided in the Temkeen Main
 Chat). Slice 1 of 5 is built; slices 2 (the garden's buildings move onto the farm) and 3 (the Star Shrine) come next
 from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature cards) are other sessions' or later.
-- **Where:** a gate at the yard's left edge, beside the cottage (only with the prototype), leads west to the farm, a
-  view of its own (`view = "farm"`, saved like "room", "yard" and "hall"). `web/js/game/farmmap.js`: 32 x 9 tiles, the
-  camera follows the creature; the barn (top left: tap it, the creature walks to its door, the barn opens), the seed
-  stand under it, the fenced field (fence terrain round it, a gap at the bottom middle, redrawn as it grows), a path
-  along the bottom to the gate back. The room right of the field is kept for slice 2's buildings.
+- **Where:** the yard's left edge (its gate, or any tap or arrow key near the edge) leads west to the farm, a view of
+  its own (`view = "farm"`, for the visit only; every launch starts in the cottage), and the farm's right edge leads
+  back. `web/js/game/farmmap.js`: 36 x 9 tiles, the camera follows the creature. Laid out by its entrance (the owner,
+  2026-11-27: "less space the player needs to walk"): the barn at the top right (tap it, the creature walks to its
+  door), the seed stand beside it, the buildings' six spots below them, the fenced field just west (fence terrain
+  round it, a gap at the bottom middle) growing WEST as the fence grows (`FIELD.right` fixed, `fieldLeft(w)`; spot
+  "c,r" counts c from the field's right edge, so planted spots stay put as it grows; old saves' plantings show
+  mirrored, the same size). The upgrades stand west of the biggest field. A building or decoration whose saved spot
+  the layout now covers is shown at the nearest open spot (`farmmap.nearestFree`, in `buildingsOn` / `decorOn`).
 - **Rules:** `web/js/game/farm.js` (pure), saved in `state.farm` = {fence, plots {"c,r": {crop, days, last, planted,
   lastWater, wet}}, seeds, barn {"crop:tier": n}, rareWeek, dex, at}. 37 crops: 8 a season, wheat and basil all year,
   three rare ones (one a week as the rare seed packet). Seasons turn on Mondays, the same for everyone
@@ -10152,7 +10156,7 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
 - **Slice 2, the garden's buildings on the farm** (with the prototype; without it the garden is as before). No plots:
   `idle.build` takes any slot, each kind opens by its own milestone or a key (`useKey(state, id)` with the farm;
   `idle.keyed` = kinds opened with one, the union of both copies in merge.js / gamemerge.py), and stands anywhere on
-  the farm: the slot's `at` (default `farmmap.BUILD_SPOTS`, right of the field; "Move it" on its card, then a tap,
+  the farm: the slot's `at` (default `farmmap.BUILD_SPOTS`, by the entrance; "Move it" on its card, then a tap,
   `farm.placeBuilding` / `farmmap.canPlace`: never in the field as big as it can grow, the barn, the stand, the gate,
   or on another). Old saves keep every building at its tier in its slot. The Ink Well shows as the **Spelling Bee
   Hive** (sections.buildingName / structureArt: `game-art/farm/bee_hive_<tier>.png`); the Star Loom isn't built on the

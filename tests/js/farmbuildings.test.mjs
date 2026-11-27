@@ -90,14 +90,13 @@ test("Echo Shell: listening today waters the thirsty plants, wilted ones first",
 });
 
 test("Page Lantern: on a reading day a plant near it grows two days for one watering; Memory Stone: better harvest luck", () => {
-  const s = game([slot("page_lantern", 1, spotXY(1, 1))]);
-  s.idle.plots[0].at = { x: spotXY(1, 1).x, y: spotXY(1, 1).y + 60 };
+  const s = game([slot("page_lantern", 1, BUILD_SPOTS[0])]); // (its first spot by the entrance: beside the field's east columns)
   buySeeds(s, s.idle, "wheat", 1, day(0));
-  plant(s, "1,1", "wheat", day(0));
-  assert.ok(nearTier(s, "lantern", "1,1") > 0);
+  plant(s, "0,2", "wheat", day(0));
+  assert.ok(nearTier(s, "lantern", "0,2") > 0);
   s.day = { key: dayKey(day(0)), read: 600 };
-  assert.equal(water(s, "1,1", true, day(0)).lantern, true);
-  assert.equal(plantState(s, "1,1", day(0)).days, 2);
+  assert.equal(water(s, "0,2", true, day(0)).lantern, true);
+  assert.equal(plantState(s, "0,2", day(0)).days, 2);
   assert.equal(stoneLuck(game()), 1);
   assert.ok(stoneLuck(game([slot("memory_stone", 2)])) > 1.3);
 });
@@ -123,4 +122,14 @@ test("habitat.js: buildings on the farm (tap: collect or its card; Move it), the
   assert.ok(h.includes('window.removeEventListener("tamkeen-farm-move", onMove);'));
   assert.ok(h.includes("if (!p.open || !inYard() || farmOn()) continue;"));
   assert.ok(h.includes('teleportTo(feature("farm") ? "farm" : "fruit")'));
+});
+
+test("an old save's building or decoration standing where the new layout puts the field or the barn moves to the nearest open spot", async () => {
+  const { canPlace: ok } = await import("../../web/js/game/farmmap.js");
+  const s = game([slot("word_sprout", 2, { x: spotXY(1, 1).x, y: spotXY(1, 1).y })]); // (inside the field now)
+  const [b] = buildingsOn(s);
+  assert.ok(ok(b.x, b.y, []), "moved somewhere it can stand");
+  assert.ok(Math.hypot(b.x - spotXY(1, 1).x, b.y - spotXY(1, 1).y) < 260, "near where it was");
+  const fine = game([slot("word_sprout", 2, BUILD_SPOTS[2])]);
+  assert.deepEqual(buildingsOn(fine).map((x) => [x.x, x.y]), [[BUILD_SPOTS[2].x, BUILD_SPOTS[2].y]], "one standing where it can stays put");
 });
