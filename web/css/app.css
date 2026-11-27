@@ -20,7 +20,7 @@
 /* The app's own words: Commissioner (SIL Open Font License, licenses/commissioner.txt), the variable font with its
    weights (100-900) and its "flair" axis (FLAR 0-100: plain for small text, about 50 for headings, 100 for celebrated
    numbers; see --flair-head). Latin, extended Latin and Cyrillic; other alphabets keep the fonts after it in --ui-font.
-   Rubik (licenses/rubik.txt) still sets headings and big numbers until the owner picks the heading font (DESIGN.md). */
+   Headings are in Literata (below); the game's numbers and celebrations in --fun-font (DESIGN.md section 4). */
 @font-face {
   font-family: "Commissioner";
   src: url("../fonts/Commissioner-latin.woff2") format("woff2");
@@ -44,21 +44,30 @@
   font-display: swap;
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
+/* Headings and the words studied in Latin and Cyrillic letters: Literata (SIL Open Font License, licenses/literata.txt),
+   the owner's pick (2026-11-27), a serif made for long reading on screens; weights 400-700. */
 @font-face {
-  font-family: "Rubik";
-  src: url("../fonts/Rubik-latin.woff2") format("woff2");
-  font-weight: 300 900;
+  font-family: "Literata";
+  src: url("../fonts/Literata-latin.woff2") format("woff2");
+  font-weight: 400 700;
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "Rubik";
-  src: url("../fonts/Rubik-latin-ext.woff2") format("woff2");
-  font-weight: 300 900;
+  font-family: "Literata";
+  src: url("../fonts/Literata-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
   font-display: swap;
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
-    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("../fonts/Literata-cyrillic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
 /* The handwritten note by the Library's + button (media.css .fab-note): Caveat (SIL Open Font License,
@@ -129,13 +138,16 @@
   --ease-out: cubic-bezier(.2, .7, .2, 1);
   --t-quick: 180ms;
 
-  /* Fonts. The app's text: Commissioner. Headings and celebrated numbers: Rubik, until the owner picks the
-     heading font (DESIGN.md section 4). The studied text: its own script's font (--ar-font, set per language below). */
+  /* Fonts (DESIGN.md section 4, the owner 2026-11-27: a serious voice and a fun one). Serious: Commissioner for the app's
+     text, Literata for headings and the studied words in Latin and Cyrillic letters. Fun: --fun-font, for the game's
+     panels, rewards and celebrated numbers (Commissioner at full flair until the owner picks one). The studied text in
+     other scripts: its own script's font (--ar-font, set per language below). */
   --ui-font: "Commissioner", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
     Roboto, "Helvetica Neue", Arial, sans-serif;
-  --display-font: "Rubik", var(--ui-font);
+  --display-font: "Literata", Georgia, "Times New Roman", serif;
+  --fun-font: var(--ui-font);
   --ar-size: 26px;
-  --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
+  --ar-font: "Literata", Georgia, "Times New Roman", serif;
 
   /* The game's own palette (pixel art keeps its colours; these are the few the game draws in CSS). */
   --coin: #946500; --gem: #0d6fb3; --streak: #c4480f; --goal: #0b875a; --glow: #0e8797; --pearl: #7a5fc7;
@@ -213,11 +225,13 @@ a { color: var(--teal); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { display: block; }
 h1, h2, h3 { margin: 0 0 var(--s-8); line-height: var(--lh-head); }
-/* Rubik: page titles and the numbers worth celebrating; a medium weight so it looks confident, not like a toy.
-   Smaller headings and labels are in Commissioner. Numbers keep a fixed width so a changing count doesn't jiggle. */
-h1, h2, .display-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .xp-num, .xp-pop-ring b, .xp-pop-total, .review-banner strong,
-.caught-up-title, .caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
-  font-family: var(--display-font); font-variant-numeric: tabular-nums;
+/* Page titles and section headings: Literata (the serious voice). Smaller headings and labels are in Commissioner. */
+h1, h2, .display-font, .review-banner strong, .caught-up-title { font-family: var(--display-font); }
+/* The numbers worth celebrating and the game's counts: the fun voice, at full flair. Numbers keep a fixed width so a
+   changing count doesn't jiggle. */
+.fun-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .xp-num, .xp-pop-ring b, .xp-pop-total, .caught-up-mark,
+.rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
+  font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-variant-numeric: tabular-nums;
 }
 h1, h2 { font-weight: 600; letter-spacing: -.005em; }
 h1 { font-size: var(--fs-26); }
@@ -246,7 +260,7 @@ p { margin: 0 0 var(--s-12); }
 html:lang(ko) { --ui-font: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", "Noto Sans CJK KR", system-ui, -apple-system, Roboto, sans-serif; }
 /* (back to the default inside study text in these, when the whole page is in Japanese, say: i18n.js) */
 :lang(es), :lang(fr), :lang(it), :lang(tl), :lang(pt), :lang(ca), :lang(ceb), :lang(ru), :lang(en), :lang(de) {
-  --ar-font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", Roboto, Arial, sans-serif;
+  --ar-font: "Literata", Georgia, "Times New Roman", serif; /* (Latin and Cyrillic study text: Literata, the owner's pick) */
 }
 .ar { font-family: var(--ar-font); unicode-bidi: plaintext; }
 [hidden] { display: none !important; }
@@ -2682,7 +2696,7 @@ html.sel-sheets select { pointer-events: none; }
 .cu-tile { position: relative; display: grid; gap: var(--s-4); text-align: start; padding: var(--s-16) var(--s-16) var(--s-16); border-radius: var(--r-s); border: 1px solid var(--line);
   background: var(--surface); color: var(--ink); cursor: pointer; overflow: hidden; }
 .cu-tile:hover:not(:disabled) { border-color: var(--teal); }
-.cu-n { font-family: var(--display-font); font-size: var(--fs-26); font-weight: 700; line-height: var(--lh-head); color: var(--ink); }
+.cu-n { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-26); font-weight: 700; line-height: var(--lh-head); color: var(--ink); }
 .cu-range { font-weight: 600; font-size: var(--fs-14); }
 .cu-state { display: inline-flex; align-items: center; gap: var(--s-4); font-size: var(--fs-12); color: var(--ink-2); }
 .cu-meter { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--surface-2); }
@@ -3064,7 +3078,7 @@ html.sel-sheets select { pointer-events: none; }
 /* Coins, gems and the goal streak: a pixel icon and its number on one line (the icon carries the colour). */
 .hud-wallet { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s-8) var(--s-32); } /* (centred: the owner, 2026-11-27) */
 .hud-count { gap: var(--s-8); min-height: 36px; padding: 0 var(--s-8); margin-inline: calc(-1 * var(--s-8)); border: 0; background: transparent;
-  font-family: var(--display-font); font-size: var(--fs-20); font-weight: 700; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
+  font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-20); font-weight: 700; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
 .hud-count:hover:not(:disabled) { background: var(--surface-2); }
 .hud-count b { font-weight: 700; }
 .hud-count.cur-coin, .hud-count.cur-gem, .hud-count.cur-streak { color: var(--ink); }
@@ -3451,7 +3465,7 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
   background: color-mix(in srgb, var(--el) 22%, var(--surface)); }
 .cr-stage .cr-egg { align-self: center; }
 .cr-name { display: flex; flex-direction: column; align-items: center; }
-.cr-name strong { font-family: var(--display-font); font-size: var(--fs-26); line-height: var(--lh-head); max-width: 100%; overflow-wrap: anywhere; }
+.cr-name strong { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-26); line-height: var(--lh-head); max-width: 100%; overflow-wrap: anywhere; }
 .cr-no { font-variant-numeric: tabular-nums; }
 .cr-tags { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s-8); }
 .cr-tag { padding: var(--s-4) var(--s-12); border-radius: var(--r-pill); corner-shape: round; background: var(--surface); font-size: var(--fs-12); font-weight: 600; line-height: var(--lh-text); }
@@ -3751,6 +3765,16 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
 .fish-catch { width: min(520px, 100%); display: flex; flex-direction: column; align-items: center; gap: var(--s-12); padding: var(--s-16); box-sizing: border-box;
   border-radius: var(--r-l); background: var(--game-night); text-align: center; animation: fish-rise .25s ease-out both; }
 @keyframes fish-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* Game panels and reward pop-ups: the stepped pixel corner (the owner's yes, 2026-11-27), instead of a squircle. A 9px
+   frame drawn in Aseprite (game/art-src/ui/panel_step.aseprite, and its dark twin), shown at 4x: plum outline, gold rim,
+   3px stepped corners; its middle fills the panel. The study side keeps its squircles. */
+.game-sheet, .fish-catch {
+  border-radius: 0; background: transparent; box-shadow: none; image-rendering: pixelated;
+  border: 12px solid transparent; border-image: url("../game-art/ui/panel_step.png") 3 fill / 12px stretch;
+}
+.fish-catch { border-image-source: url("../game-art/ui/panel_step_dark.png"); } /* (always on the dark pond) */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .game-sheet { border-image-source: url("../game-art/ui/panel_step_dark.png"); } }
+:root[data-theme="dark"] .game-sheet { border-image-source: url("../game-art/ui/panel_step_dark.png"); }
 .fish-catch-row { display: flex; align-items: center; justify-content: center; gap: var(--s-16); }
 .fish-catch-pic { display: grid; place-items: center; padding: var(--s-8) var(--s-12); border-radius: var(--r-s); line-height: 0;
   background: color-mix(in srgb, var(--tier, var(--game-grey)) 20%, var(--game-night-2)); }
@@ -3948,7 +3972,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .cv-result { display: grid; gap: var(--s-12); justify-items: center; padding: var(--s-16); border-radius: var(--r-s); background: var(--surface);
   border: 1px solid var(--line); margin-bottom: var(--s-16); }
 .cv-result-n { display: grid; justify-items: center; }
-.cv-result-n b { font-family: var(--display-font); font-size: var(--fs-48); line-height: var(--lh-head); color: var(--teal); font-variant-numeric: tabular-nums; }
+.cv-result-n b { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-48); line-height: var(--lh-head); color: var(--teal); font-variant-numeric: tabular-nums; }
 .cv-result-n span { color: var(--ink-2); }
 .cv-result .cv-goals { justify-self: center; width: min(100%, 440px); }
 .cv-wait { text-align: center; color: var(--ink-2); padding: var(--s-16); }
@@ -4019,7 +4043,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .pron-none { color: var(--ink-2); }
 .pron-head { display: flex; align-items: center; gap: var(--s-16); flex-wrap: wrap; }
 .pron-big { display: grid; justify-items: center; min-width: 76px; }
-.pron-big b { font-family: var(--display-font); font-size: var(--fs-34); line-height: var(--lh-head); font-variant-numeric: tabular-nums; }
+.pron-big b { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-34); line-height: var(--lh-head); font-variant-numeric: tabular-nums; }
 .pron-big span { font-size: var(--fs-12); color: var(--ink-2); }
 .pron-big.good b { color: var(--teal); }
 .pron-big.fair b { color: var(--warn); }

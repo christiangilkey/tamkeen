@@ -72,13 +72,16 @@ its sprites). Each has one job.
 
 ## 4. Type
 
+Two voices (the owner, 2026-11-27: "a fun font and a serious font separation"; no pixel font):
+
 | Role | Font | Notes |
 |---|---|---|
-| The app's text | **Commissioner** (SIL OFL; Latin, Latin-ext, Cyrillic, Greek) | Replaces Figtree, which has no Cyrillic and is the common AI default. Bundle the woff2 subsets and add its licence to `licenses/` |
-| Headings and big numbers | Commissioner, with its **flair** axis turned up | Flair is the font's playful side: 0 for small text, about 50 for headings, 100 for celebrated numbers |
-| Studied text | Each script's own font (Noto Naskh Arabic, Vazirmatn for Persian, the system CJK and Thai fonts…) | Always one step larger than the UI text around it |
-| Game rewards and numbers | **To be chosen** (candidate: Pixelify Sans, OFL, has Cyrillic) | The owner picks from a specimen |
-| A serif for headwords and headings | **To be chosen** (candidate: Literata, OFL, has Cyrillic) | The owner picks from a specimen |
+| **Serious:** the app's text | **Commissioner** (SIL OFL; Latin, Latin-ext, Cyrillic) | Replaced Figtree, which has no Cyrillic and is the common AI default. `--ui-font` |
+| **Serious:** headings and headwords | **Literata** (SIL OFL; Latin, Latin-ext, Cyrillic), the owner's pick | Page titles and section headings; replaced Rubik. `--display-font` |
+| Studied text | Each script's own font: Literata for Latin and Cyrillic letters, Noto Naskh Arabic, Vazirmatn for Persian, the system CJK, Thai and Devanagari fonts | Always one step larger than the UI text around it. `--ar-font` (set per language) |
+| **Fun:** the game's numbers, rewards and celebrations | **To be chosen** from a specimen (Commissioner at full flair, Unbounded, Exo 2; all OFL with Cyrillic) | Only on the game side and on rewards, never on study screens. `--fun-font` (Commissioner at flair 100 until he picks) |
+
+Commissioner's **flair** axis is its playful side: 0 for small text, 100 where the fun font is Commissioner.
 
 **The scale. No other sizes:** `12` captions · `14` supporting text · `16` body · `20` section heading ·
 `26` page title · `34` the hero word or number · `48` a celebrated number (level up, streak).
@@ -114,8 +117,9 @@ outline with `clip-path` and redraws it when the element changes size. Clipping 
 squircled element draws its outline and its focus ring inside the same shape. Nothing may look broken while the helper
 loads; plain rounded corners are the fallback.
 
-**Game panels and reward pop-ups:** a **stepped pixel corner** (shown to the owner 2026-11-27; awaiting his yes) in
-the game's palette, instead of a squircle.
+**Game panels and reward pop-ups:** a **stepped pixel corner** (the owner's yes, 2026-11-27) in the game's palette,
+instead of a squircle: a 9px frame drawn in Aseprite (`game/art-src/ui/panel_step.aseprite` and its dark twin), shown at
+4x through `border-image` (`web/game-art/ui/panel_step*.png`), with no shadow. The study side keeps its squircles.
 
 **Depth:** one shadow, `--shadow-float`, only on things that float above the page (popups, menus, sheets, toasts).
 Nothing in the page itself has a shadow.

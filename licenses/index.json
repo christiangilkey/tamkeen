@@ -35,7 +35,7 @@
   {"name": "German word table and common-word list: today's spelling and capitals, from Wiktionary (optional download)", "license": "ODbL 1.0; CC BY-SA 4.0", "file": "german-sources.txt"},
   {"name": "Vazirmatn font (Persian)", "license": "SIL Open Font License 1.1", "file": "vazirmatn.txt"},
   {"name": "Commissioner font (the app's text)", "license": "SIL Open Font License 1.1", "file": "commissioner.txt"},
-  {"name": "Rubik font (headings and numbers)", "license": "SIL Open Font License 1.1", "file": "rubik.txt"},
+  {"name": "Literata font (headings and studied words)", "license": "SIL Open Font License 1.1", "file": "literata.txt"},
   {"name": "Caveat font (the handwritten note by the Library's + button)", "license": "SIL Open Font License 1.1", "file": "caveat.txt"},
   {"name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)", "license": "CC BY-SA 4.0", "file": "korean-sources.txt"},
   {"name": "Latin word forms and common words, from Wiktionary and Project Gutenberg counts (optional download)", "license": "CC BY-SA 4.0", "file": "latin-sources.txt"},
