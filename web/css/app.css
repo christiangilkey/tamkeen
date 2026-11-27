@@ -937,72 +937,79 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--teal-tint); }
 @media (max-width: 560px) { .vi-body { padding-left: 0; } }
 
 /* ---------- friends ---------- */
-.nav-count { display: inline-block; min-width: 18px; padding: 0 5px; margin-left: 4px; border-radius: 99px; corner-shape: round; background: var(--alert); color: var(--teal-ink); font-size: var(--fs-12); line-height: 18px; text-align: center; font-weight: 600; }
-.tabbar .nav-count { position: absolute; top: 2px; margin-left: 14px; }
-.friends-page .card { margin-bottom: 12px; }
+.nav-count { display: inline-block; min-width: 18px; padding: 0 var(--s-4); margin-left: var(--s-4); border-radius: var(--r-pill); corner-shape: round; background: var(--alert); color: var(--teal-ink); font-size: var(--fs-12); line-height: 18px; text-align: center; font-weight: 600; }
+.tabbar .nav-count { position: absolute; top: 2px; margin-left: var(--s-16); }
+.friends-page .card { margin-bottom: var(--s-12); }
+/* Friends, guilds and the class: each list is a section on the page (a heading, then rows with lines between them),
+   not a framed card (DESIGN.md); my own profile stays one object, framed. */
+.friends-page section.card:not(.me-card), .friends-page .card.empty-state, .friends-page form.card.add-friend {
+  background: transparent; border: 0; border-radius: 0; padding: 0; margin-bottom: var(--s-32); }
+.friends-page section.card:not(.me-card) > .item-row:last-child { border-bottom: 1px solid var(--line); }
 .add-friend label { white-space: nowrap; }
-.friend-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); }
+.friend-row { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-8) 0; border-top: 1px solid var(--line); }
 .friend-row:first-of-type { border-top: none; }
-.friend-row .avatar { width: 34px; height: 34px; border-radius: 50%; corner-shape: round; display: grid; place-items: center; background: var(--teal-tint); color: var(--teal); font-weight: 700; flex: none; }
+.friend-row .avatar { width: 34px; height: 34px; border-radius: 50%; corner-shape: round; display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); font-weight: 700; flex: none; }
 .friend-row .name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
-.empty-state { text-align: center; padding: 28px 18px; }
+.empty-state { text-align: center; padding: var(--s-32) var(--s-16); }
 
 /* ---------- friends: study cards ---------- */
 .friend-row { display: block; }
-.friend-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.friend-head button .nav-count { margin-left: 6px; }
-.study { margin: 8px 0 2px 44px; }
-.friends-page #my-card .study { margin-left: 0; }
-.study-card { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); }
-.study-card img, .study-card .ph { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex: none; background: var(--surface); }
+.friend-head { display: flex; align-items: center; gap: var(--s-12); flex-wrap: wrap; }
+.friend-head button .nav-count { margin-left: var(--s-8); }
+.study { margin: var(--s-8) 0 var(--s-4) var(--s-48); }
+.friends-page #my-card .study { margin-inline-start: 0; }
+.study-card { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-8) var(--s-12); border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface-2); }
+.study-card img, .study-card .ph { width: 56px; height: 56px; border-radius: var(--r-s); object-fit: cover; flex: none; background: var(--surface); }
 .study-text { flex: 1; min-width: 0; }
 .study-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .study-sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .study-actions { flex: none; }
-.study-note { margin-top: 6px; padding: 6px 12px; border-left: 3px solid var(--teal); color: var(--ink); font-style: italic; overflow-wrap: anywhere; }
-.music-frame { width: 100%; height: 152px; border: 0; border-radius: 12px; margin-top: 8px; }
+.study-note { margin-top: var(--s-8); padding: var(--s-8) var(--s-12); border-left: 3px solid var(--teal); color: var(--ink); font-style: italic; overflow-wrap: anywhere; }
+.music-frame { width: 100%; height: 152px; border: 0; border-radius: var(--r-s); margin-top: var(--s-8); }
 .music-frame.apple { height: 175px; }
-.study-label { margin-bottom: 4px; }
-.study-item + .study-item { margin-top: 6px; }
+.study-label { margin-bottom: var(--s-4); }
+.study-item + .study-item { margin-top: var(--s-8); }
 .study-card.poster img { width: 44px; height: 64px; }
-.se-help { margin: 0; padding: 10px 14px; }
-.se-help ul { margin: 6px 0; padding-left: 18px; }
-.se-help li { margin: 4px 0; }
-.se-slot { display: flex; flex-direction: column; gap: 6px; }
-.se-bar { gap: 6px; }
+.se-help { margin: 0; padding: var(--s-12) var(--s-16); }
+.se-help ul { margin: var(--s-8) 0; padding-left: var(--s-16); }
+.se-help li { margin: var(--s-4) 0; }
+.se-slot { display: flex; flex-direction: column; gap: var(--s-8); }
+.se-bar { gap: var(--s-8); }
 .se-num { width: 14px; text-align: center; flex: none; }
-.se-filled { display: flex; align-items: center; gap: 6px; }
+.se-filled { display: flex; align-items: center; gap: var(--s-8); }
 .se-filled .study-item { flex: 1; min-width: 0; }
-.chat-note { text-align: center; padding: 4px 10px; border-bottom: 1px solid var(--line); flex: none; }
+.chat-note { text-align: center; padding: var(--s-4) var(--s-12); border-bottom: 1px solid var(--line); flex: none; }
 .msg.vanish { opacity: 0; transform: scale(.96); transition: opacity .3s ease, transform .3s ease; }
 .study-editor .se-tabs button.active { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
-.se-results { display: flex; flex-direction: column; gap: 4px; max-height: 260px; overflow-y: auto; }
-.se-result { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0; padding: 6px 10px; width: 100%; }
+.se-results { display: flex; flex-direction: column; gap: var(--s-4); max-height: 260px; overflow-y: auto; }
+.se-result { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0; padding: var(--s-8) var(--s-12); width: 100%; }
 .se-result .t { font-weight: 600; }
 @media (max-width: 640px) { .study { margin-left: 0; } }
 
 /* ---------- chat ---------- */
 .chat { display: flex; flex-direction: column; height: 100%; min-height: 0; max-width: 820px; margin: 0 auto; width: 100%; }
-.chat-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--surface); flex: none; }
-.chat-head .avatar { width: 34px; height: 34px; border-radius: 50%; corner-shape: round; display: grid; place-items: center; background: var(--teal-tint); color: var(--teal); font-weight: 700; }
-.chat-list { flex: 1; min-height: 0; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 6px; overscroll-behavior: contain; }
-.chat-day { align-self: center; margin: 8px 0 2px; }
+.chat-head { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) var(--s-16); border-bottom: 1px solid var(--line); background: var(--surface); flex: none; }
+.chat-head .avatar { width: 34px; height: 34px; border-radius: 50%; corner-shape: round; display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); font-weight: 700; }
+.chat-list { flex: 1; min-height: 0; overflow-y: auto; padding: var(--s-16); display: flex; flex-direction: column; gap: var(--s-8); overscroll-behavior: contain; }
+.chat-day { align-self: center; margin: var(--s-8) 0 var(--s-4); }
 .msg { max-width: min(78%, 520px); display: flex; flex-direction: column; }
 .msg.mine { align-self: flex-end; align-items: flex-end; }
 .msg.theirs { align-self: flex-start; align-items: flex-start; }
-.msg-body { padding: 8px 12px; border-radius: 16px; background: var(--surface-2); overflow-wrap: anywhere; white-space: pre-wrap; }
-.msg.mine .msg-body { background: var(--teal); color: var(--teal-ink); border-bottom-right-radius: 4px; }
-.msg.theirs .msg-body { border-bottom-left-radius: 4px; }
-.msg-meta { color: var(--ink-2); margin-top: 1px; display: flex; align-items: center; gap: 4px; font-size: 11px; }
-.msg-del { border: none; background: transparent; min-height: 0; padding: 0 4px; color: var(--ink-2); font-size: 11px; opacity: 0; }
+/* Messages: theirs on the page's surface with a hairline, mine in the quiet teal; the corner at the speaker's side
+   square (which side follows the writing direction). */
+.msg-body { padding: var(--s-8) var(--s-12); border-radius: var(--r-l); background: var(--surface); border: 1px solid var(--line); overflow-wrap: anywhere; white-space: pre-wrap; }
+.msg.mine .msg-body { background: var(--teal-tint); color: var(--ink); border-color: transparent; border-end-end-radius: 0; }
+.msg.theirs .msg-body { border-end-start-radius: 0; }
+.msg-meta { color: var(--ink-2); margin-top: 1px; display: flex; align-items: center; gap: var(--s-4); font-size: var(--fs-12); }
+.msg-del { border: none; background: transparent; min-height: 0; padding: 0 var(--s-4); color: var(--ink-2); font-size: var(--fs-12); opacity: 0; }
 .msg:hover .msg-del, .msg-del:focus { opacity: 1; }
 @media (hover: none) { .msg-del { opacity: .6; } }
-.voice-btn { border-radius: 99px; corner-shape: round; white-space: nowrap; }
+.voice-btn { white-space: nowrap; }
 .share-card { min-width: 200px; white-space: normal; }
 .share-title { font-weight: 600; }
-.share-words { font-family: var(--ar-font); font-size: 20px; line-height: 1.8; margin: 2px 0 6px; }
-.msg.mine .share-card .muted { color: inherit; opacity: .8; }
-.chat-compose { display: flex; align-items: center; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--surface); flex: none; }
+.share-words { font-family: var(--ar-font); font-size: var(--fs-20); line-height: var(--lh-text); margin: var(--s-4) 0 var(--s-8); }
+.msg.mine .share-card .muted { color: var(--ink-2); }
+.chat-compose { display: flex; align-items: center; gap: var(--s-8); padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--surface); flex: none; }
 .chat-compose input[type=text] { flex: 1; min-width: 0; }
 .chat-compose #mic { border-radius: 50%; corner-shape: round; width: 40px; height: 40px; padding: 0; flex: none; }
 .rec-dot { width: 10px; height: 10px; border-radius: 50%; corner-shape: round; background: var(--danger); animation: rec-pulse 1s ease-in-out infinite; }
@@ -1189,28 +1196,28 @@ html[dir="rtl"] .continue-bar > i { margin-inline-start: 0; } /* (fills from the
 
 /* ---------- people: photos, online dots, guild tags ---------- */
 .avatar { position: relative; width: 36px; height: 36px; border-radius: 50%; corner-shape: round; display: inline-grid; place-items: center; flex: none;
-  background: var(--teal-tint); color: var(--teal); font-weight: 700; }
+  background: var(--surface-2); color: var(--ink-2); font-weight: 700; }
 .avatar img { width: 100%; height: 100%; border-radius: 50%; corner-shape: round; object-fit: cover; display: block; }
-.avatar.large { width: 64px; height: 64px; font-size: 26px; }
+.avatar.large { width: 64px; height: 64px; font-size: var(--fs-26); }
 .presence { position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 50%; corner-shape: round; border: 2px solid var(--surface); background: var(--ink-2); }
-.presence.on { background: #22c55e; }
-.presence.off { background: #9a94a3; }
+.presence.on { background: var(--teal); }
+.presence.off { background: var(--ink-2); }
 .avatar.large .presence { width: 16px; height: 16px; border-width: 3px; right: 1px; bottom: 1px; }
-.guild-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; }
-.guild-tag { font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 1px 7px; border-radius: 6px; background: var(--hl); color: var(--gold-ink); }
+.guild-tags { display: inline-flex; gap: var(--s-4); flex-wrap: wrap; }
+.guild-tag { font-size: var(--fs-12); font-weight: 700; letter-spacing: .04em; padding: 1px var(--s-8); border-radius: var(--r-s); background: var(--hl); color: var(--gold-ink); }
 .friend-row .avatar, .chat-head .avatar { width: 36px; height: 36px; }
-.me-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.me-head { display: flex; align-items: center; gap: var(--s-16); flex-wrap: wrap; }
 .me-photo { padding: 0; border: none; background: transparent; border-radius: 50%; corner-shape: round; min-height: 0; }
 .me-photo:hover:not(:disabled) { background: transparent; filter: brightness(1.08); }
-.me-name { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.me-name { font-size: var(--fs-20); font-weight: 700; display: flex; align-items: center; gap: var(--s-8); flex-wrap: wrap; }
 
 /* ---------- guilds ---------- */
-.guild { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
-.guild-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.guild-name { font-size: 16px; }
-.guild-badge { min-width: 44px; height: 30px; padding: 0 9px; border-radius: 9px; display: inline-grid; place-items: center; flex: none;
-  background: var(--brand-grad); color: var(--gold); font-weight: 800; font-size: 12px; letter-spacing: .05em; }
-.guild-members { margin-top: 8px; }
+.guild { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-12) var(--s-16); }
+.guild-head { display: flex; align-items: center; gap: var(--s-12); flex-wrap: wrap; }
+.guild-name { font-size: var(--fs-16); }
+.guild-badge { min-width: 44px; height: 30px; padding: 0 var(--s-8); border-radius: var(--r-s); display: inline-grid; place-items: center; flex: none;
+  background: var(--brand-grad); color: var(--gold); font-weight: 700; font-size: var(--fs-12); letter-spacing: .05em; }
+.guild-members { margin-top: var(--s-8); }
 .guild-form { margin: var(--s-4) 0 var(--s-8); }
 .guild-edit:empty, #guild-form:empty { display: none; }
 
@@ -1850,9 +1857,9 @@ button.today-chip { cursor: pointer; font: inherit; }
 @media (max-width: 560px) { .plot-act { flex-basis: 100%; justify-content: flex-start; } }
 
 /* ---------- friends list: the game bar next to a name (language, league, XP today, flashcard streak, favourite creature) ---------- */
-.game-bar { display: inline-flex; align-items: center; gap: 8px; padding: 2px 4px 2px 10px; border: 1px solid var(--line); border-radius: 99px; corner-shape: round; background: var(--surface-2); font-size: 12px; white-space: nowrap; flex: none; }
+.game-bar { display: inline-flex; align-items: center; gap: var(--s-8); padding: var(--s-4) var(--s-4) var(--s-4) var(--s-12); border: 1px solid var(--line); border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); font-size: var(--fs-12); white-space: nowrap; flex: none; }
 /* Every part is a button that explains itself: plain text in the pill, a soft round highlight when pointed at. */
-.game-bar > button:not(.gb-creature) { min-height: 0; padding: 2px 4px; margin: 0 -4px; border: 0; border-radius: 99px; corner-shape: round; background: transparent; color: inherit; font-size: inherit; gap: 3px; }
+.game-bar > button:not(.gb-creature) { min-height: 0; padding: var(--s-4) var(--s-4); margin: 0 calc(-1 * var(--s-4)); border: 0; border-radius: var(--r-pill); corner-shape: round; background: transparent; color: inherit; font-size: inherit; gap: var(--s-4); }
 .game-bar > button:not(.gb-creature):hover:not(:disabled) { background: var(--surface); }
 .game-bar > button:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
 .gb-lang { font-weight: 600; }
@@ -1863,18 +1870,18 @@ button.today-chip { cursor: pointer; font: inherit; }
 .gb-big { display: flex; justify-content: center; }
 .gb-league { display: inline-flex; }
 .gb-league .px-icon { vertical-align: middle; }
-.gb-xp { display: inline-flex; align-items: center; gap: 3px; font-variant-numeric: tabular-nums; }
+.gb-xp { display: inline-flex; align-items: center; gap: var(--s-4); font-variant-numeric: tabular-nums; }
 .gb-xp b { font-weight: 700; }
-.gb-xp .small { color: var(--ink-2); font-size: 11px; }
+.gb-xp .small { color: var(--ink-2); font-size: var(--fs-12); }
 .gb-xp.none { opacity: .55; }
 .gb-creature { min-height: 0; padding: 0; width: 40px; height: 40px; border-radius: 50%; corner-shape: round; overflow: hidden; background: var(--surface); border: 1px solid var(--line); display: inline-grid; place-items: center; }
 .gb-creature:hover { border-color: var(--teal); }
 .gb-creature .portrait { display: block; }
-.fav-btn { margin-top: 4px; align-self: flex-start; }
+.fav-btn { margin-top: var(--s-4); align-self: flex-start; }
 .fav-btn.on { color: var(--teal); border-color: var(--teal); }
-.me-head .game-bar { margin-right: 4px; }
+.me-head .game-bar { margin-right: var(--s-4); }
 @media (max-width: 640px) {
-  .game-bar { order: 5; margin-left: 44px; }
+  .game-bar { order: 5; margin-left: var(--s-48); }
   .friend-head .game-bar ~ button { order: 6; }
 }
 
@@ -2137,9 +2144,9 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .study-card.busy { opacity: .6; pointer-events: none; }
 
 /* ---------- send to a friend: the toolbar button, and the card a sent item becomes in a chat ---------- */
-.send-media { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 28px; min-width: 28px; padding: 2px 6px; }
-.media-card .media-kind { text-transform: uppercase; letter-spacing: .04em; font-size: 11px; opacity: .75; }
-.media-card .share-action { gap: 6px; margin-top: 6px; }
+.send-media { display: inline-flex; align-items: center; justify-content: center; gap: var(--s-4); min-height: 28px; min-width: 28px; padding: var(--s-4) var(--s-8); }
+.media-card .media-kind { text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-12); opacity: .75; }
+.media-card .share-action { gap: var(--s-8); margin-top: var(--s-8); }
 .media-card button.accept { background: var(--teal); border-color: var(--teal); color: var(--teal-ink); }
 .msg.mine .media-card .muted { color: inherit; opacity: .8; }
 
@@ -2150,35 +2157,35 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 /* The fold arrow stays in the card's top-right corner, open or folded, on any screen width; the
    header keeps room for it so it never sits on the name or the tags. */
 .me-card { position: relative; }
-.me-card .me-head { padding-right: 44px; }
+.me-card .me-head { padding-right: var(--s-48); }
 .me-card .me-toggle { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; corner-shape: round; }
 .me-toggle .chev { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(2px) rotate(-135deg); transition: transform .15s ease; }
 .me-card.collapsed .me-toggle .chev { transform: translateY(-2px) rotate(45deg); }
 .me-card.collapsed #my-card, .me-card.collapsed #edit-card, .me-card.collapsed #photo-remove, .me-card.collapsed .me-id .muted { display: none; }
 
 /* ---------- Friends tab: segmented control, one row layout for people and guilds, confirm boxes ---------- */
-.friends-title { margin: 0 0 12px; }
-.segmented { display: flex; gap: 4px; padding: 4px; margin: 0 auto 14px; max-width: 460px; border-radius: 14px; background: var(--surface-2); }
-.seg-btn { flex: 1; min-height: 38px; border: none; border-radius: 10px; background: transparent; color: var(--ink-2); font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.friends-title { margin: 0 0 var(--s-12); }
+.segmented { display: flex; gap: var(--s-4); padding: var(--s-4); margin: 0 auto var(--s-16); max-width: 460px; border-radius: var(--r-s); background: var(--surface-2); }
+.seg-btn { flex: 1; min-height: 38px; border: none; border-radius: var(--r-s); background: transparent; color: var(--ink-2); font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: var(--s-8); }
 @media (hover: hover) { .seg-btn:hover:not(:disabled) { background: transparent; color: var(--ink); } }
 .seg-btn:hover:not(:disabled):not(.on) { background: transparent; }
 .seg-btn.on, .seg-btn.on:hover:not(:disabled) { background: var(--surface); color: var(--ink); }
 .seg-btn .nav-count { margin-left: 0; }
-.friends-page .sec-title { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; font-weight: 700; }
-.friends-page .sec-title .new-guild { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
+.friends-page .sec-title { display: flex; align-items: center; gap: var(--s-8); margin: 0; font-size: var(--fs-20); font-weight: 700; }
+.friends-page .sec-title .new-guild { margin-inline-start: auto; display: inline-flex; align-items: center; gap: var(--s-8); font-size: var(--fs-14); font-weight: 600; }
 .item-row { border-top: 1px solid var(--line); }
-.item-row:first-of-type, .sec-title + .item-row, .friend-find + .item-row { border-top: none; }
+.item-row:first-of-type, .friend-find + .item-row { border-top: none; }
 .item-row[hidden], .seg-pane[hidden] { display: none; }
-.item-main { display: flex; align-items: center; gap: 12px; padding: 10px 0; min-height: 60px; }
+.item-main { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) 0; min-height: 60px; }
 .item-main.openable { cursor: pointer; }
 .item-lead { flex: none; display: inline-grid; place-items: center; width: 40px; }
-.item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.item-name { display: flex; align-items: center; gap: 6px; min-width: 0; font-weight: 600; }
+.item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.item-name { display: flex; align-items: center; gap: var(--s-8); min-width: 0; font-weight: 600; }
 .item-name .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .item-status { color: var(--ink-2); }
 .item-status.on { color: var(--teal); }
 .item-game { flex: none; }
-.item-actions { flex: none; display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.item-actions { flex: none; display: flex; align-items: center; gap: var(--s-8); margin-left: auto; }
 .row-act { position: relative; width: 38px; height: 38px; min-height: 0; padding: 0; border-radius: 50%; corner-shape: round; display: inline-grid; place-items: center; background: transparent; border: 1px solid var(--line); color: var(--ink); }
 @media (hover: hover) { .row-act:hover:not(:disabled) { border-color: var(--teal); background: transparent; } }
 .row-act:hover:not(:disabled) { background: transparent; }
@@ -2192,28 +2199,28 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .chev-act.open .ic { transform: rotate(-90deg); }
 .me-card .me-toggle .ic { transform: rotate(-90deg); }
 .me-card.collapsed .me-toggle .ic { transform: rotate(90deg); }
-.guild-emblem { min-width: 40px; height: 40px; padding: 0 6px; border-radius: 12px; display: inline-grid; place-items: center; background: var(--surface-2); color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
-.guild-members { padding: 0 0 6px 52px; }
+.guild-emblem { min-width: 40px; height: 40px; padding: 0 var(--s-8); border-radius: var(--r-s); display: inline-grid; place-items: center; background: var(--surface-2); color: var(--ink); font-size: var(--fs-12); font-weight: 700; letter-spacing: .04em; }
+.guild-members { padding: 0 0 var(--s-8) var(--s-48); }
 .guild-members .item-row:first-of-type { border-top: 1px solid var(--line); }
-.item-row > .study { margin-left: 52px; margin-bottom: 10px; }
-.guild-members .item-row > .study { margin-left: 52px; }
-.add-friend { display: flex; flex-direction: column; gap: 10px; }
-.add-row { display: flex; gap: 8px; }
+.item-row > .study { margin-inline-start: var(--s-48); margin-bottom: var(--s-12); }
+.guild-members .item-row > .study { margin-left: var(--s-48); }
+.add-friend { display: flex; flex-direction: column; gap: var(--s-12); }
+.add-row { display: flex; gap: var(--s-8); }
 .add-row input { flex: 1; min-width: 0; }
 .add-row .tag-input { flex: none; width: 90px; text-transform: uppercase; }
-.guild-form { display: flex; flex-direction: column; gap: 10px; padding: 6px 0 12px; }
-.confirm-buttons { display: flex; gap: 10px; margin-top: 18px; }
+.guild-form { display: flex; flex-direction: column; gap: var(--s-12); padding: var(--s-8) 0 var(--s-12); }
+.confirm-buttons { display: flex; gap: var(--s-12); margin-top: var(--s-16); }
 .confirm-buttons button { flex: 1; min-height: 44px; }
-button.danger-solid { background: var(--danger); border-color: var(--danger); color: #fff; }
+button.danger-solid { background: var(--danger); border-color: var(--danger); color: var(--teal-ink); }
 @media (max-width: 640px) {
-  .item-main { flex-wrap: wrap; row-gap: 6px; }
+  .item-main { flex-wrap: wrap; row-gap: var(--s-8); }
   /* The name keeps at least this much room; actions that don't fit beside it move to their own line, still on the right. */
   .item-text { flex: 1 1 150px; }
-  .item-game { order: 5; flex-basis: 100%; padding-left: 52px; }
+  .item-game { order: 5; flex-basis: 100%; padding-left: var(--s-48); }
   .item-game .game-bar { margin-left: 0; } /* the row's own indent is enough (the older friend-head rule adds another) */
   .item-actions { order: 6; }
   .item-row > .study, .guild-members .item-row > .study { margin-left: 0; }
-  .guild-members { padding-left: 12px; }
+  .guild-members { padding-left: var(--s-12); }
   .row-act { width: 36px; height: 36px; }
   .add-row { flex-direction: column; }
   .add-row .tag-input { width: 100%; }
