@@ -498,6 +498,8 @@ body.rv-open { overflow: hidden; }
 
 /* ----- the back: the meaning and the translation small under the answer; tap to edit, hold to light up -----
    (review.js drawAnswer / openEditor / holdWord) */
+/* (no meaning yet: the line shows faintly, "What it means", for a tap to type one) */
+.rv-ans-meaning.empty { font-weight: 400; font-style: italic; opacity: .6; }
 .rv-ans-meaning { margin-top: -4px; font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: 1.35; color: var(--ink-2); max-width: 26em; overflow-wrap: anywhere; }
 .rv-ans-trans { margin-top: -2px; font-size: clamp(14px, 3.8vw, 16px); line-height: 1.5; color: var(--ink-2); opacity: .85; max-width: 30em; overflow-wrap: anywhere; }
 .rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans {
