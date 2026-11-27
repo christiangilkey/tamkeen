@@ -103,11 +103,11 @@ export function habitat() {
     <div class="habitat-scene"><canvas width="${W * RES}" height="${H * RES}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
       <button type="button" class="habitat-name" title="Its name and how it grows"></button>
       <span class="habitat-about" hidden></span>
-      <button type="button" class="goal-ring" id="g-goal" title="Today's goal: tap to change it"></button>
       <div class="pet-word" hidden><b></b><span></span></div><div class="pet-word muffle-say" hidden><b></b><span></span></div><span class="hab-hungry" hidden></span></div>
     <div class="habitat-hud">
-      <button type="button" class="hud-lv" id="g-lv" title="Your level: tap to see how XP works"><span class="hud-lv-n">Lv <b id="g-level"></b></span>
+      <div class="hud-top"><button type="button" class="hud-lv" id="g-lv" title="Your level: tap to see how XP works"><span class="hud-lv-n">Lv <b id="g-level"></b></span>
         <span class="hud-bar thin"><i id="g-xpbar"></i></span></button>
+        <button type="button" class="goal-ring" id="g-goal" title="Today's goal: tap to change it"></button></div>
       <div class="hud-wallet">
         <button type="button" class="hud-count cur-coin" id="g-coins" title="Coins: tap to see how to get them, hold to learn more">${icon("coin")}<b></b></button>
         <button type="button" class="hud-count cur-gem" id="g-gems" title="Gems: tap to see how to get them, hold to learn more">${icon("gem")}<b></b></button>
@@ -884,7 +884,8 @@ export function habitat() {
   const msay = $(".muffle-say");
   let msayFor = null, msayUntil = 0;
   /** The Muffle at a point outside, or null. */
-  const muffleAt = (x, y) => folkHere().find((f) => Math.abs(x - f.x) < 11 && y <= f.y + 3 && y >= f.y - 28) || null;
+  const muffleAt = (x, y) => folkHere().find((f) => Math.abs(x - f.x) < 8 && y <= f.y + 2 && y >= f.y - 24) || null;
+  let pressedMuffle = null; // (the Muffle under the finger when the press began: only it can answer the tap)
   /** A Muffle says something: its words you know show, the rest in its forgotten script (the owner's rule). */
   function muffleSpeak(f) {
     loadLearned();
@@ -1071,8 +1072,6 @@ export function habitat() {
     ringCache = { key, back: make(true), front: make(false) };
     return ringCache;
   }
-  const goalLabel = $("#g-goal");
-  let labelAt = "";
 
   function tick(dt, now) {
     const look = refreshLook();
@@ -1361,15 +1360,8 @@ export function habitat() {
       }
     }
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
-    // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
-    const at = `${(((cx - cam()) / W) * 100).toFixed(2)}|${(((feet + (RING.dy + 6) * k) / H) * 100).toFixed(2)}`;
-    goalLabel.classList.toggle("no-tap", outside()); // (outside, taps are for the world: the owner, "keeps bringing up the daily goal box")
-    if (at !== labelAt) {
-      labelAt = at;
-      const [lx, ly] = at.split("|");
-      goalLabel.style.left = `${lx}%`;
-      goalLabel.style.top = `${ly}%`;
-    }
+    // (the ring's "4 / 10 min" is a chip in the bar below the window, beside the level: nothing in the scene under
+    // its feet takes a tap; the owner, "the 0/10 min thing under my creature ... I accidentally click on it all the time")
 
     if (!say.hidden) placeSay(look);
     for (let i = floats.length - 1; i >= 0; i--) {
@@ -1670,7 +1662,7 @@ export function habitat() {
     const hit = list.filter((d) => {
       const img = decorArt[d.id];
       if (!img) return false;
-      return Math.abs(x - d.x) <= img.width / 2 && y <= d.y + 3 && y >= d.y - img.height;
+      return Math.abs(x - d.x) <= img.width * 0.35 && y <= d.y + 2 && y >= d.y - img.height * 0.9; // (squarely on it)
     });
     return hit.sort((a, b) => b.y - a.y)[0] || null;
   }
@@ -1719,6 +1711,7 @@ export function habitat() {
     if (e.button) return;
     heldDown = false;
     const p = scenePoint(e);
+    pressedMuffle = outside() ? (muffleAt(p.x, p.y) || {}).id || null : null;
     clearTimeout(holdTimer);
     if (onCreature(p.x, p.y)) holdTimer = setTimeout(() => { heldDown = true; openEvolution(game, go); }, HOLD_MS);
   });
@@ -1750,7 +1743,8 @@ export function habitat() {
     const piece = roomOn() && !pressed && !onCreature(x, y) ? decorAt(x, y) : null;
     if (piece) { decorMenu(piece); return; }
     // A Muffle tapped: it says something (muffles.js).
-    const mf = outside() && !pressed ? muffleAt(x, y) : null;
+    const under = outside() && !pressed ? muffleAt(x, y) : null;
+    const mf = under && under.id === pressedMuffle ? under : null; // (a press that began on open ground walks, whoever wanders under it)
     if (mf && mf.id === "custodian") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; } // (the hall's: sign up)
     if (mf && farmOn() && mf.id === "cook") { sfx("tick"); openCookbook({ changed: () => paintHud() }); return; } // (slice 4: the Cookbook)
     const order = mf && farmOn() ? ordersToday(game).find((o) => o.folk === mf.id && !o.done) : null;
@@ -1759,10 +1753,6 @@ export function habitat() {
     // (the cook's pot: her Cookbook too)
     const cookF = farmOn() && outside() && !inHall() && !inFarm() ? folk.find((x) => x.id === "cook") : null;
     if (cookF && !pressed && Math.abs(x - (cookF.x + 11)) < 9 && y > cookF.y - 14 && y < cookF.y + 4) { sfx("tick"); openCookbook({ changed: () => paintHud() }); return; }
-    // The ring's front, below the feet: the goal (not outside, where a tap by the creature is for walking).
-    const rk = creatureScale();
-    const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);
-    if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // On the farm (farmmap.js): a spot of the field (the creature walks there, then plant, water or harvest), the barn,
     // the seed stand, the fence (how big the field is, and growing it), the gate back to the yard.
     if (inFarm() && !pressed && moving !== null) { // (a building's or a decoration's "Move it": this tap says where it stands)
@@ -1774,7 +1764,7 @@ export function habitat() {
       return;
     }
     if (inFarm() && !pressed) {
-      const bt = buildingsOn(game).find((b) => { const im = yimg(structureArt(b.id, b.tier).file); const w = im ? im.width : 32, hh = im ? im.height : 32; return Math.abs(x - b.x) < w / 2 && y > b.y - hh && y < b.y + 4; });
+      const bt = buildingsOn(game).find((b) => { const im = yimg(structureArt(b.id, b.tier).file); const w = im ? im.width : 32, hh = im ? im.height : 32; return Math.abs(x - b.x) < w * 0.35 && y > b.y - hh * 0.9 && y < b.y + 3; }); // (squarely on it)
       const stood = !bt && farmStanding().find(([id, at]) => { const pic = id.startsWith("decor:") ? decorPic(id.slice(6)) : id === "scarecrow" ? yimg(PROPS.scarecrow.art) : yimg(`farm/${id}.png`); const w2 = pic ? pic.width : 16, h2 = pic ? pic.height : 16; return Math.abs(x - at.x) < w2 / 2 && y > at.y - h2 && y < at.y + 4; });
       if (stood) { // (slice 5: the windmill grinds; a decoration moves or goes away; the rest say what they do)
         const [id, at] = stood;
