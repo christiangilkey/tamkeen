@@ -1,0 +1,508 @@
+{
+ "_about": "Listening progress (synced as \"listening\"), cleaned and merged the same by app/listening.py and web/js/listening.js. Written from the Python (tests/test_listening.py checks it still matches).",
+ "clean": [
+  {
+   "in": null,
+   "out": {}
+  },
+  {
+   "in": "x",
+   "out": {}
+  },
+  {
+   "in": [],
+   "out": {}
+  },
+  {
+   "in": {},
+   "out": {}
+  },
+  {
+   "in": {
+    "bad uid": {
+     "ts": 5
+    },
+    "ok_1": {
+     "ts": 5
+    },
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx": {
+     "ts": 5
+    },
+    "ünï": {
+     "ts": 5
+    }
+   },
+   "out": {
+    "ok_1": {
+     "kind": "audio",
+     "ts": 5,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": 0,
+     "done": 0,
+     "pos": 50
+    }
+   },
+   "out": {}
+  },
+  {
+   "in": {
+    "a": {
+     "ts": 1700000000123.9,
+     "pos": 431.7,
+     "dur": 1200.2,
+     "kind": "audio",
+     "title": "  Episode 2 ",
+     "sub": "Sample podcast"
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 1700000000123,
+     "pos": 431,
+     "dur": 1200,
+     "frac": 0,
+     "done": 0,
+     "title": "Episode 2",
+     "sub": "Sample podcast"
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": 10,
+     "kind": "page",
+     "frac": 0.35
+    },
+    "b": {
+     "ts": 10,
+     "kind": "page",
+     "frac": 1.7
+    },
+    "c": {
+     "ts": 10,
+     "frac": -2
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "page",
+     "ts": 10,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0.35,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    },
+    "b": {
+     "kind": "page",
+     "ts": 10,
+     "pos": 0,
+     "dur": 0,
+     "frac": 1,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    },
+    "c": {
+     "kind": "audio",
+     "ts": 10,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": "12",
+     "pos": "40",
+     "done": true,
+     "kind": "movie"
+    }
+   },
+   "out": {}
+  },
+  {
+   "in": {
+    "a": {
+     "done": 1700000000000,
+     "kind": "video"
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "video",
+     "ts": 0,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 1700000000000,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": 3,
+     "title": "عععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععع",
+     "sub": 7
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 3,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "عععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععععع",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": 3,
+     "title": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 3,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "in": {
+    "a": {
+     "ts": -5,
+     "done": 0
+    }
+   },
+   "out": {}
+  },
+  {
+   "in": {
+    "a": "not a record",
+    "b": null,
+    "c": {
+     "ts": 4
+    }
+   },
+   "out": {
+    "c": {
+     "kind": "audio",
+     "ts": 4,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  }
+ ],
+ "merge": [
+  {
+   "mine": {},
+   "theirs": {},
+   "out": {}
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 10,
+     "pos": 100,
+     "dur": 900
+    }
+   },
+   "theirs": {},
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 10,
+     "pos": 100,
+     "dur": 900,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {},
+   "theirs": {
+    "a": {
+     "ts": 10,
+     "pos": 100,
+     "dur": 900
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 10,
+     "pos": 100,
+     "dur": 900,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 10,
+     "pos": 100,
+     "dur": 900,
+     "title": "mine"
+    }
+   },
+   "theirs": {
+    "a": {
+     "ts": 20,
+     "pos": 300,
+     "dur": 900,
+     "title": "theirs"
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 20,
+     "pos": 300,
+     "dur": 900,
+     "frac": 0,
+     "done": 0,
+     "title": "theirs",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 30,
+     "pos": 50,
+     "dur": 900
+    }
+   },
+   "theirs": {
+    "a": {
+     "ts": 20,
+     "pos": 890,
+     "dur": 900,
+     "done": 19
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 30,
+     "pos": 50,
+     "dur": 900,
+     "frac": 0,
+     "done": 19,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 20,
+     "pos": 5,
+     "dur": 900
+    }
+   },
+   "theirs": {
+    "a": {
+     "ts": 20,
+     "pos": 7,
+     "dur": 900
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 20,
+     "pos": 7,
+     "dur": 900,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 20,
+     "kind": "page",
+     "frac": 0.9
+    }
+   },
+   "theirs": {
+    "a": {
+     "ts": 25,
+     "kind": "page",
+     "frac": 0.2
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "page",
+     "ts": 25,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0.9,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "done": 5,
+     "kind": "video"
+    }
+   },
+   "theirs": {
+    "b": {
+     "ts": 9,
+     "kind": "video",
+     "pos": 20,
+     "dur": 60
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "video",
+     "ts": 0,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 5,
+     "title": "",
+     "sub": ""
+    },
+    "b": {
+     "kind": "video",
+     "ts": 9,
+     "pos": 20,
+     "dur": 60,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "a": {
+     "ts": 20,
+     "title": "Zeta"
+    }
+   },
+   "theirs": {
+    "a": {
+     "ts": 20,
+     "title": "Alpha"
+    }
+   },
+   "out": {
+    "a": {
+     "kind": "audio",
+     "ts": 20,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "Zeta",
+     "sub": ""
+    }
+   }
+  },
+  {
+   "mine": {
+    "x": {
+     "ts": 1
+    },
+    "y": {
+     "done": 2
+    }
+   },
+   "theirs": {
+    "x": {
+     "ts": 1
+    },
+    "y": {
+     "done": 3
+    },
+    "z": {
+     "ts": 0
+    }
+   },
+   "out": {
+    "x": {
+     "kind": "audio",
+     "ts": 1,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 0,
+     "title": "",
+     "sub": ""
+    },
+    "y": {
+     "kind": "audio",
+     "ts": 0,
+     "pos": 0,
+     "dur": 0,
+     "frac": 0,
+     "done": 3,
+     "title": "",
+     "sub": ""
+    }
+   }
+  }
+ ]
+}

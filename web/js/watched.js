@@ -1,11 +1,14 @@
 // Which videos have been watched to the end on this device (YouTube videos and Instagram reels), for the
 // "Watched" label in the brand's purple at the top right of their picture in the Library and on the Reels
-// page (the owner's wish). Kept in this browser only, like Home's "Continue" (progress.js). Shared by the
-// desktop app, the phone and the web app.
+// page (the owner's wish), and everything else finished (a podcast to its end, a page or book read). Kept in this
+// browser, and shared with the user's other devices like progress.js (listensync.js). Shared by the desktop app,
+// the phone and the web app.
+
+import { noteChanged } from "./progress.js";
 
 const KEY = "watched";
 const OLD_REELS = "reels:watched";  // the Reels page's own list before this one (taken over the first time)
-const KEPT = 3000;                  // the newest this many are remembered
+export const KEPT = 20000;                 // the newest this many are remembered (finished on any device: they add up)
 
 function load() {
   try {
@@ -28,6 +31,18 @@ export function markWatched(id) {
   if (list[list.length - 1] === key) return;
   const next = [...list.filter((x) => x !== key), key].slice(-KEPT);
   try { localStorage.setItem(KEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
+  noteChanged(key);
+}
+
+/** Note these finished on another device (listensync.js): not noted as changed here, so not sent back. Returns how
+ *  many were new here. */
+export function takeWatched(ids) {
+  const list = load();
+  const have = new Set(list);
+  const fresh = [...new Set((ids || []).map(String))].filter((x) => !have.has(x));
+  if (!fresh.length) return 0;
+  try { localStorage.setItem(KEY, JSON.stringify([...fresh, ...list].slice(-KEPT))); } catch { /* storage unavailable */ }
+  return fresh.length;
 }
 
 /** Has playback at `t` seconds reached the end of something `dur` seconds long? Its last 5%, but never more

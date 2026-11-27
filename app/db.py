@@ -164,6 +164,13 @@ CREATE TABLE IF NOT EXISTS known_lexemes (
     updated_at REAL NOT NULL
 );
 
+-- What has been listened to, watched and read, and how far, by episode uid (app/listening.py): what the pages
+-- send (POST /api/listening) and what the sync brings from the user's other devices. data is the record as JSON.
+CREATE TABLE IF NOT EXISTS listening (
+    uid  TEXT PRIMARY KEY,
+    data TEXT NOT NULL
+);
+
 -- AI word definitions, cached per (word, marked sentence, explanation language).
 CREATE TABLE IF NOT EXISTS definitions (
     key        TEXT PRIMARY KEY,

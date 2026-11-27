@@ -4,7 +4,7 @@
 import { test, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { atEnd, markWatched, watchedIds, watchedPill } from "../../web/js/watched.js";
+import { KEPT, atEnd, markWatched, watchedIds, watchedPill } from "../../web/js/watched.js";
 
 // A stand-in for the browser's localStorage.
 const store = new Map();
@@ -35,10 +35,13 @@ test("watched videos are remembered, each once, the newest kept", () => {
   markWatched(5); // again: moves to the end, not twice
   assert.deepEqual([...watchedIds()], ["7", "5"]);
   assert.ok(watchedIds().has("5"));
-  for (let i = 0; i < 3100; i++) markWatched(1000 + i);
+  // (finished on any of the user's devices, so they add up: 20000 are kept, listensync.js)
+  assert.equal(KEPT, 20000);
+  store.set("watched", JSON.stringify(Array.from({ length: KEPT }, (_, i) => String(1000 + i))));
+  for (let i = 0; i < 100; i++) markWatched(1000 + KEPT + i);
   const ids = watchedIds();
-  assert.equal(ids.size, 3000);
-  assert.ok(ids.has("4099") && !ids.has("7") && !ids.has("1000"));
+  assert.equal(ids.size, KEPT);
+  assert.ok(ids.has(String(1000 + KEPT + 99)) && !ids.has("1000") && !ids.has("1099") && ids.has("1100"));
 });
 
 test("the Reels page's old list of watched reels is taken over once", () => {

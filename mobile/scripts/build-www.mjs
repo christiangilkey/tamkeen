@@ -168,6 +168,8 @@ const SHARED = [
   "js/coursedata.js",
   "js/libraryhome.js",
   "js/tabnames.js",
+  "js/listening.js",
+  "js/listensync.js",
   "js/components/continuecard.js",
   "js/components/homemap.js",
   "js/coursepacks.js",

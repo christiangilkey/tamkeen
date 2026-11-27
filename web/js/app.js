@@ -21,6 +21,7 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
 import { applyTabNames } from "./tabnames.js";
+import { startListenSync } from "./listensync.js";
 import { applyPageSize, isAbsurdPageSize, PAGE_SIZE_DEFAULT } from "./textsize.js";
 import { initScrollHints } from "./scrollhint.js";
 import { installSelectSheets } from "./components/selectsheet.js";
@@ -772,6 +773,7 @@ async function boot() {
   mountXpBadge(document.querySelector(".topbar")); // the game's level and XP, at the end (game/xpbadge.js)
   startBadge();
   startSyncPace();
+  startListenSync(api, on); // what was listened to, watched and read reaches the user's other devices (listensync.js)
   // DLI students: their DLI language's podcasts, with transcripts, once unlocked (dlicontent.js)
   import("./dlicontent.js").then(({ startDli }) => startDli()).catch(() => {});
   // After each sync, pass on the creature game's state in case another device saved a newer one.

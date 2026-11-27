@@ -1,7 +1,7 @@
 """Sync engine: merge the local library with the copy in the user's Google Drive.
 
 Drive layout (hidden app folder, shared by desktop and Android):
-    library.json.gz      feeds, episodes, vocab, vocab folders, definitions, seen words (merged record by record)
+    library.json.gz      feeds, episodes, vocab, vocab folders, definitions, seen words, what was heard (merged record by record)
     t_<episode>.json.gz  one transcript per episode (written once per transcription)
     a_<episode>.ogg      compressed copy of the exact audio that was transcribed
     v_<episode>.<ext>    the user's own video files ("My videos"; see app/videos.py)
@@ -24,7 +24,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, pictures, reels, studygoal, tashkeel, videos, youtube
+from .. import (aikeys, arabic, audio, controller, db, events, grammar, languages, learning, listening, pages, paths, pictures, reels, studygoal,
+               tashkeel, videos, youtube)
 from ..lessons import clean_state as clean_lessons, merge_state as merge_lessons
 from . import gamemerge
 from .drive import Drive
@@ -122,12 +123,14 @@ def snapshot(device_id: str) -> dict[str, Any]:
         reviews: dict[str, list[list[int]]] = {}
         for r in conn.execute("SELECT vocab_uid, t, rating, day, ms FROM reviews ORDER BY vocab_uid, t"):
             reviews.setdefault(r[0], []).append([r[1], r[2], r[3], r[4]])
+        heard = listening.load(conn)
     return {"format": FORMAT_VERSION, "device": device_id, "feeds": feeds, "episodes": episodes,
             "vocab": vocab, "folders": folders, "definitions": defs, "lexemes": lexemes, "reviews": reviews,
             "game": db.get_setting("game_state"),
             "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
             "sites": pages.clean_sites(db.get_setting("browser_sites")),
             "grammar": grammar.clean_progress(db.get_setting("grammar_progress")),
+            "listening": heard,
             "lessons": clean_lessons(db.get_setting("lesson_state")),
             "controller": controller.clean(db.get_setting("controller_map")),
             "goal": studygoal.clean(db.get_setting("study_goal")),
@@ -153,6 +156,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["channels"] = lib.get("channels") or []  # nor one from before channels could be followed
     content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
     content["grammar"] = grammar.clean_progress(lib.get("grammar"))  # nor one from before the grammar courses
+    content["listening"] = listening.clean_state(lib.get("listening"))  # nor one from before what was heard was shared
     content["controller"] = controller.clean(lib.get("controller"))  # nor one from before controllers could be mapped
     content["goal"] = studygoal.clean(lib.get("goal"))  # nor one from before the long-term goal
     content["goals"] = studygoal.clean_all(lib.get("goals"))  # nor one from before goals per language
@@ -407,6 +411,13 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(merged, ensure_ascii=False),))
                 result.merged["grammar"] = len(merged)
+
+        # What has been listened to, watched and read, and how far (app/listening.py): item by item, the one used last
+        # wins, and "finished" is kept from either copy. The pages take it in after the sync (web/js/listensync.js).
+        heard = remote.get("listening")
+        if isinstance(heard, dict) and heard:
+            if changed := listening.merge_into(conn, heard):
+                result.merged["listening"] = changed
 
     # The game controller's buttons (app/controller.py): the mapping changed last wins.
     pad = remote.get("controller")

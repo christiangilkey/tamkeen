@@ -28,6 +28,7 @@ import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./lang
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
 import { applyTabNames } from "./tabnames.js";
+import { startListenSync } from "./listensync.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
@@ -1660,6 +1661,7 @@ async function boot() {
   window.addEventListener("pagehide", () => { flushSync(); });
   window.addEventListener("tamkeen:review-closed", () => { flushSync(); }); // a review session ended: send it now
   startNudges(() => check());
+  startListenSync(api, on); // what was listened to, watched and read reaches the user's other devices (listensync.js)
   let lastDone = new Set(lib.episodes.filter((e) => e.transcript_rev).map((e) => e.uid));
   onSync((s) => {
     emit("sync", s);

@@ -56,7 +56,8 @@ export const audio = {
 
 // ---------- library (in memory, persisted after each change) ----------
 
-export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [], lexemes: [], reviews: {} };
+// listening: what has been listened to, watched and read, and how far, by episode uid (web/js/listening.js; synced)
+export const lib = { feeds: [], episodes: [], vocab: [], folders: [], definitions: [], lexemes: [], reviews: {}, listening: {} };
 let saveTimer = 0;
 
 export async function loadLibrary() {

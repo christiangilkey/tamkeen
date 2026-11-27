@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** What you've listened to, watched and read is now shared between your devices through your Google Drive, with how far you got. Something finished on your phone now counts as finished on the computer too (the Library said **Listened to 0** before). Everything a device had before is sent the first time it syncs, and finished items are never dropped.
+
 ## v0.77.0 — 2026-11-27
 
 - **Changed:** **A calmer, clearer look, step one.** A new font for the app's text, **Commissioner** (it has Russian letters, which the old one lacked), body text a little larger, and smoother corners. More screens follow, one by one.
