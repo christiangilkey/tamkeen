@@ -42,7 +42,7 @@ const VILLAGE = [
   "ggccccccccccgHooooHgLSSSSSSLggswwwww",
   "ggccccccccccgHHoHHHgLLLSSLLLggswwwww",
   "ggccccccccccgggcgggggggccgggggswwwww",
-  "ggccccccccccdddcdddddddccdddddswwwww",
+  "ggccccccccccdddcdddddddccdddddbbbbbw",
   "ddccccccccccddddddddddddddddddbbbbbw",
   "ggccccccccccggggggggggggggggggswwwww",
   "ggggggggggggggggggggggggggggggswwwww",
@@ -60,6 +60,7 @@ const PROPS_HERE = [
   { id: "well", x: 26, y: 5 }, { id: "bench", x: 22, y: 6 }, { id: "vendor_cart_flowers", x: 30, y: 7 }, { id: "lamp_post", x: 32, y: 7 },
   { id: "sign_tavern", x: 37, y: 4 }, { id: "barrel", x: 39, y: 2 }, { id: "banner", x: 40, y: 4 }, { id: "banner", x: 47, y: 4 },
   { id: "crate", x: 48, y: 7 }, { id: "lamp_post", x: 48, y: 4 },
+  { id: "crate", x: 50, y: 5 }, // (the pier, two planks wide: a crate at its landward end; the chair and rod at its far end)
 ];
 // Little things lying on the ground (battlemap.DECALS): v = which picture of its strip; x, y = world px of its top left.
 const DECALS_HERE = [
@@ -85,8 +86,12 @@ export const STATIONS = [
   { id: "flowers", opens: "mine", job: "florist", x: 31 * TILE, y: 6 * TILE + 8, rect: [30 * TILE, 6 * TILE - 4, 32 * TILE, 8 * TILE + 4] },
   { id: "tavern", opens: "tavern", job: "barkeep", x: 35 * TILE + 8, y: 4 * TILE + 8, rect: [33 * TILE, 0, 39 * TILE, 4 * TILE + 4] },
   { id: "hall", opens: "gyms", job: "herald", x: 44 * TILE, y: 4 * TILE + 8, rect: [40 * TILE, 0, 48 * TILE, 4 * TILE + 4] },
-  { id: "pier", opens: "pond", job: "fisher", x: 53 * TILE + 8, y: 6 * TILE + 12, rect: [50 * TILE, 5 * TILE, 56 * TILE, 8 * TILE] },
+  // (the pier: only the chair, its rod and the ripples open the pond; the rest of the dock is walked on)
+  { id: "pier", opens: "pond", job: "fisher", x: 51 * TILE + 4, y: 6 * TILE + 4, rect: [51 * TILE + 8, 3 * TILE + 8, 53 * TILE + 12, 6 * TILE] },
 ];
+/** The pier's fishing spot: the chair (its feet's middle), facing the water, and the ripples where its line goes in. */
+export const PIER_CHAIR = { x: 52 * TILE + 8, y: 5 * TILE + 14 };
+export const PIER_RIPPLES = { x: 52 * TILE + 7, y: 4 * TILE + 4 };
 /** A station by its id. */
 export const stationById = (id) => STATIONS.find((s) => s.id === id) || null;
 /** Where the creature stands to go in at the door, and where it comes out to. */

@@ -81,3 +81,16 @@ test("the creature faces the way it walks across, and keeps facing that way when
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.match(h, /Math\.abs\(dx\) > 2 \|\| \(Math\.abs\(dx\) > 0\.4 && Math\.abs\(dx\) >= Math\.abs\(dy\)\)/);
 });
+
+test("the pier: two planks wide; only its chair, rod and ripples open the pond, the rest of the dock is walked on", async () => {
+  const { PIER_CHAIR, PIER_RIPPLES, stationAt, yardMap } = await import("../../web/js/game/yard.js");
+  const m = yardMap();
+  const at = (x, y) => m.tiles[y * m.cols + x];
+  for (let x = 50; x <= 54; x++) { assert.equal(at(x, 5), "bridge"); assert.equal(at(x, 6), "bridge"); }
+  assert.equal((stationAt(PIER_RIPPLES.x, PIER_RIPPLES.y) || {}).id, "pier", "the ripples");
+  assert.equal((stationAt(PIER_CHAIR.x, PIER_CHAIR.y - 12) || {}).id, "pier", "the chair and its rod");
+  assert.notEqual((stationAt(50 * 16 + 8, 6 * 16 + 8) || {}).id, "pier", "the dock's landward end just walks");
+  const { readFileSync } = await import("node:fs");
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.ok(h.includes('yimg("village/pier_chair.png")') && h.includes("PIER_RIPPLES.x"), "drawn in the scene, so the night and the rain fall on them too");
+});

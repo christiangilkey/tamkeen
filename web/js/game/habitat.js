@@ -49,7 +49,7 @@ import { TANK_X } from "./homecard.js";
 import { feature } from "../prototype.js";
 import { ROOM, blockedCells, cellKey, clampToFloor, depthScale, findPath, isIndoor, roomLayout, savedView, saveView, tapIn } from "./room.js";
 import { SHRINE } from "./yard.js";
-import { COTTAGE, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, cameraFor, decorSpot, plotSpot, stationAt, stationById, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
+import { COTTAGE, PIER_CHAIR, PIER_RIPPLES, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, cameraFor, decorSpot, plotSpot, stationAt, stationById, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
 import { DECALS, PROPS, ROOFS, ROOF_EXTRAS, SHEETS, TILE, drawCorners, roofRows } from "./battlemap.js";
 
 const [W, H] = HABITAT.size;
@@ -808,6 +808,24 @@ export function habitat() {
         if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (sparkle + i) % FX_FRAMES.ready, at.x, y + img.height / 2);
         if (art.glowIcon) ctx.drawImage(art.glowIcon, at.x - 8, y - 14 + Math.round(Math.sin(now / 300 + i) * 2));
       } });
+    }
+    // the pier's fishing spot: ripples where the line goes in (rings now and then, a fish's shadow passing), the chair
+    // and its rod (tap either: the creature walks to the chair and the pond opens)
+    if (inYard()) {
+      out.push({ y: PIER_RIPPLES.y - 8, draw: () => {
+        for (let k = 0; k < 2; k++) {
+          const t = ((now / 1800) + k * 0.5) % 1, r = 2 + t * 7;
+          ctx.globalAlpha = 0.55 * (1 - t);
+          ctx.strokeStyle = "#cfefff"; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.ellipse(PIER_RIPPLES.x, PIER_RIPPLES.y, r, r * 0.45, 0, 0, Math.PI * 2); ctx.stroke();
+        }
+        const f = (now / 1000) % 9; // a fish's shadow slipping by, now and then
+        if (f < 1.6) { ctx.globalAlpha = 0.28 * Math.sin((f / 1.6) * Math.PI); ctx.fillStyle = "#06162c";
+          ctx.beginPath(); ctx.ellipse(PIER_RIPPLES.x - 10 + f * 12, PIER_RIPPLES.y + 2, 4, 1.6, 0, 0, Math.PI * 2); ctx.fill(); }
+        ctx.globalAlpha = 1;
+      } });
+      const chair = yimg("village/pier_chair.png");
+      if (chair) out.push({ y: PIER_CHAIR.y, draw: () => ctx.drawImage(chair, PIER_CHAIR.x - 16, PIER_CHAIR.y - chair.height + 3) });
     }
     // the mailbox: its flag up when a friend's gift has come (tap it: the creature fetches it)
     const mail = things.some((it) => it.kind === "gift");

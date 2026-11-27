@@ -222,8 +222,30 @@ def gate_open():
     return finish(sp)
 
 
+
+def pier_chair():
+    """The pier's fishing spot (the owner: "a fishing pole next to a chair on the dock"): a wooden chair seen from behind,
+    facing the water, a rod leaning on it with its line out over the water, and a bucket beside it. 32 x 40; its feet
+    at the bottom, the rod's tip at the top middle (where the ripples are)."""
+    sp = Sprite(32, 40, "pier_chair")
+    sp.ground_shadow(15, 37.5, 9, 2)
+    for x in (9, 18):  # the back legs and uprights
+        post(sp, x, 22, 37, PLANK, 1)
+    top_boards(sp, 8, 20, 29, 31, PLANK, 1)  # the seat
+    for y in (23, 26):  # the backrest's slats, seen from behind
+        rect(sp, 9, y, 19, y + 1, PLANK[4], 2)
+        rect(sp, 9, y + 1, 19, y + 1, PLANK[2], 2)
+    line(sp, [(20, 34), (23, 18), (17, 2)], lambda t: PLANK[5] if t < 0.5 else PLANK[3], part=3)  # the rod, leaning, its tip out
+    line(sp, [(17, 2), (16, 6)], hx("#d8e0ea"), part=3)  # the line dropping to the water
+    cylinder(sp, 23, 28, 31, 37, IRON, part=4)  # the bucket
+    rect(sp, 23, 31, 28, 31, IRON[6], 4)
+    rect(sp, 24, 32, 27, 32, WATER[4], 4)
+    return finish(sp)
+
+
 OUTPUTS = {"structure/word_sprout_1": lambda: sprout_a(1), "structure/word_sprout_2": lambda: sprout_a(2),
-           "structure/word_sprout_3": lambda: sprout_a(3), "farm/gate": gate_open}
+           "structure/word_sprout_3": lambda: sprout_a(3), "farm/gate": gate_open,
+           "village/pier_chair": pier_chair}
 
 
 def build(aseprite=False):
