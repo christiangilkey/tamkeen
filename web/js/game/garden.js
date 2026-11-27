@@ -10,7 +10,7 @@ import { FOODS, STRUCTURES, TYPES } from "./data.js";
 import { formOf, isGrown } from "./genome.js";
 import { dayKey } from "./rules.js";
 import {
-  BOOST_MINUTES, FEEDS_PER_DAY, STARDUST_BOOST, build, buyGemWithGlow, buySupply, collect, feed, garden, gemGlowPrice, gemsBoughtToday,
+  BOOST_MINUTES, FEEDS_PER_DAY, build, buyGemWithGlow, buySupply, collect, feed, garden, gemGlowPrice, gemsBoughtToday,
   hearts, incubate, release, stardustGain, tick, upgrade, useBoost, useKey,
 } from "./idle.js";
 import { feature } from "../prototype.js";
@@ -20,7 +20,7 @@ import { icon as lineIcon } from "../icons.js";
 import { openEarned } from "./info.js";
 import { portrait } from "./battle-ui.js";
 import { FARM_JOBS, buildOptions, buildingName, gardenFacts, plotRows, structureArt, supplyBlocks } from "./sections.js";
-import { farmBuildings } from "./idle.js";
+import { farmBuildings, stardustBoost } from "./idle.js";
 import { amount, art, block, details, fact, fmt, grid, row, tile } from "./screenparts.js";
 
 const structure = (id) => STRUCTURES.find((s) => s.id === id);
@@ -137,7 +137,7 @@ export function gardenPanel(body, game, changed, go = () => {}) {
 function releaseHelp(game) {
   details((d) => ({
     title: "Release a creature", pic: art({ file: "icon/stardust.png", w: 16, h: 16 }, 96),
-    facts: [fact("Stardust now", `${icon("stardust")}${fmt(garden(game).stardust)}`), fact("Each one", `+${Math.round(STARDUST_BOOST * 100)}%`)],
+    facts: [fact("Stardust now", `${icon("stardust")}${fmt(garden(game).stardust)}`), fact("Each one", `+${Math.round(stardustBoost() * 100)}%`)],
     text: "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep stardust: each one makes every building faster for good, so the next garden grows much quicker. More fully grown buildings at the time means more stardust.",
     buttons: [{ word: "Close", run: () => d.close() }],
   }));

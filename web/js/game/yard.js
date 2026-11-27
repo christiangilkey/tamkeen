@@ -90,6 +90,8 @@ export const STATIONS = [
 export const stationById = (id) => STATIONS.find((s) => s.id === id) || null;
 /** Where the creature stands to go in at the door, and where it comes out to. */
 export const YARD_DOOR_SPOT = { x: COTTAGE.door.tx * TILE + TILE / 2, y: (COTTAGE.door.ty + 1) * TILE + 6 };
+/** The Star Shrine (prototype "farm", farm-ui.js openShrine): by the cottage, once there is stardust; its foot's middle. */
+export const SHRINE = { x: 9 * TILE + 8, y: 4 * TILE + 10 };
 /** Where its feet may be outside. */
 export const YARD_WALK = { x0: 8, x1: WORLD_W - 8, y0: 10, y1: H - 4 };
 /** Where an egg sits outside. */

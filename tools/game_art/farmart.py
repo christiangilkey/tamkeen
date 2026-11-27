@@ -13,6 +13,7 @@ Files (web/game-art/farm/, sources in game/art-src/farm/):
     gate.png       32 x 32             the farm's gate in the yard (a wooden gate, a little sign with a sprout)
     seedstand.png  32 x 32             the seed stand by the barn
     bee_hive_N.png 32 x 32 (48 x 48 at tier 3)  the Spelling Bee Hive, tiers 1-3 (the Ink Well's place, plan slice 2)
+    shrine_N.png   48 x 48             the Star Shrine by the cottage, grander with stardust (plan slice 3)
 """
 
 from __future__ import annotations
@@ -508,6 +509,66 @@ def beehive(tier: int) -> Image.Image:
     return cv.im
 
 
+STONE_S = [hexc("4a4a5e"), hexc("6e6e86"), hexc("9696ae"), hexc("c4c4d8")]
+STAR = [hexc("c08a28"), hexc("ffe680"), hexc("fff8c8"), hexc("ffffff")]
+
+
+def star(cv: C, cx, cy, r):
+    """A five-pointed star, lit gold, with a soft glow round it."""
+    pts = []
+    for i in range(10):
+        a = -math.pi / 2 + i * math.pi / 5
+        rr = r if i % 2 == 0 else r * 0.45
+        pts.append((cx + math.cos(a) * rr, cy + math.sin(a) * rr))
+    for y in range(int(cy - r) - 1, int(cy + r) + 2):
+        for x in range(int(cx - r) - 1, int(cx + r) + 2):
+            inside, j = False, len(pts) - 1
+            for i in range(len(pts)):
+                xi, yi = pts[i]; xj, yj = pts[j]
+                if (yi > y + 0.5) != (yj > y + 0.5) and x + 0.5 < (xj - xi) * (y + 0.5 - yi) / (yj - yi) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                cv.put(x, y, STAR[2] if x + y < cx + cy - 1 else STAR[1])
+    cv.put(cx - 1, cy - 1, STAR[3])
+
+
+def shrine(tier: int) -> Image.Image:
+    """The Star Shrine (the owner's plan, slice 3), 48 x 48, grander as stardust grows: 1 a stone pedestal with a star
+    floating over it; 2 a pedestal under a stone arch, runes glowing; 3 a little temple of two pillars and a roof, the
+    star bigger, flowers at its foot."""
+    cv = C(48, 48)
+    b = 46
+    cv.rect(14, b - 3, 33, b, STONE_S[1]); cv.rect(14, b - 3, 33, b - 3, STONE_S[2]); cv.rect(33, b - 3, 33, b, STONE_S[0])  # the step
+    cv.rect(18, b - 13, 29, b - 4, STONE_S[2]); cv.rect(18, b - 13, 18, b - 4, STONE_S[3]); cv.rect(29, b - 13, 29, b - 4, STONE_S[0])  # the pedestal
+    cv.rect(16, b - 15, 31, b - 13, STONE_S[3]); cv.rect(16, b - 13, 31, b - 13, STONE_S[1])
+    for (x, y) in ((21, b - 9), (24, b - 7), (26, b - 10)):
+        cv.put(x, y, hexc("8ad8ff") if tier > 1 else STONE_S[1])  # runes (glowing from tier 2)
+    if tier >= 2:
+        for x in (8, 37):
+            cv.rect(x, b - 30, x + 3, b - 1, STONE_S[2]); cv.rect(x, b - 30, x, b - 1, STONE_S[3]); cv.rect(x + 3, b - 30, x + 3, b - 1, STONE_S[0])
+        for i in range(31):  # the arch
+            x = 8 + i
+            y = b - 31 - round(math.sin(i / 30 * math.pi) * 6)
+            cv.rect(x, y, x, y + 2, STONE_S[2]); cv.put(x, y, STONE_S[3])
+    if tier >= 3:
+        for i in range(12):  # the roof over the arch
+            y = b - 39 - i // 2
+            cv.rect(5 + i, y, 42 - i, y, hexc("3e4a7a") if i % 2 else hexc("56649a"))
+        for (x, c) in ((12, "ff7ab0"), (35, "8ac0ff"), (15, "ffe680"), (32, "ffe680")):
+            cv.line(x, b, x, b - 3, LEAF[1]); cv.ell(x + 0.5, b - 4, 1.3, 1.3, hexc(c))
+    sy = b - 22 - (2 if tier == 3 else 0)
+    star(cv, 24, sy, 4 + tier)
+    cv.outline()
+    r = 4 + tier  # its glow, after the outline: a light dotted halo
+    for y in range(sy - r - 4, sy + r + 5):
+        for x in range(24 - r - 4, 24 + r + 5):
+            d = math.hypot(x + 0.5 - 24, y + 0.5 - sy)
+            if r + 1.5 < d < r + 4 and (x + y) % 2 == 0 and not cv.get(x, y)[3]:
+                cv.put(x, y, (255, 246, 190, 150))
+    return cv.im
+
+
 def sheet() -> tuple[Image.Image, Image.Image]:
     crops = Image.new("RGBA", (FW * 5, FH * len(CROPS)), (0, 0, 0, 0))
     icons = Image.new("RGBA", (16 * len(CROPS), 16), (0, 0, 0, 0))
@@ -522,7 +583,8 @@ def sheet() -> tuple[Image.Image, Image.Image]:
 def made() -> dict[str, Image.Image]:
     crops, icons = sheet()
     return {"crops": crops, "icons": icons, "soil": soil(), "gate": gate(), "seedstand": seedstand(),
-            "bee_hive_1": beehive(1), "bee_hive_2": beehive(2), "bee_hive_3": beehive(3)}
+            "bee_hive_1": beehive(1), "bee_hive_2": beehive(2), "bee_hive_3": beehive(3),
+            "shrine_1": shrine(1), "shrine_2": shrine(2), "shrine_3": shrine(3)}
 
 
 def build(aseprite: bool) -> None:
@@ -568,7 +630,7 @@ def preview(out: str) -> None:
         sheet_im.alpha_composite(icons.crop((i * 16, 0, i * 16 + 16, 16)).resize((16 * sc, 16 * sc), Image.NEAREST), (x0 + (FW * 5 + 4) * sc, y0 + 4 * sc))
     y = half * FH * sc
     x = 0
-    for n in ("soil", "gate", "seedstand", "bee_hive_1", "bee_hive_2", "bee_hive_3"):
+    for n in ("soil", "gate", "seedstand", "bee_hive_1", "bee_hive_2", "bee_hive_3", "shrine_1", "shrine_2", "shrine_3"):
         im = pics[n]
         sheet_im.alpha_composite(im.resize((im.width * sc, im.height * sc), Image.NEAREST), (x, y + 4))
         x += im.width * sc + 20

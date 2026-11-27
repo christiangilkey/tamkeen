@@ -7,7 +7,7 @@
 // are info.js's EARNED, opened from the popup's "Tell me more".
 
 import { FOODS, SUPPLIES } from "./data.js";
-import { STARDUST_BOOST } from "./idle.js";
+import { stardustBoost } from "./idle.js";
 import { BOTH_COINS, FULLY_GROWN_COINS } from "./rules.js";
 
 const gemSupplies = SUPPLIES.filter((s) => s.gems);
@@ -74,7 +74,7 @@ export const CURRENCIES = {
       { text: "Release a fully grown creature in the garden: 1, and 1 more for every 2 fully grown buildings.", from: [["idle.js", "release"], ["idle.js", "stardustGain"]] },
     ],
     use: [
-      { text: `It is never spent: each one makes your garden ${Math.round(STARDUST_BOOST * 100)}% faster, for good.`, from: [["idle.js", "rateOf"]] },
+      { text: `It is never spent: each one makes your garden ${Math.round(stardustBoost() * 100)}% faster, for good.`, from: [["idle.js", "rateOf"]] },
     ],
     more: null, open: { tab: "garden", word: "Open the garden" },
   },

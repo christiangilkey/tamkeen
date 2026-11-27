@@ -16,7 +16,8 @@ import { CROPS, beesToday, buildingsOn, cropById as cropOf, farmJobs, farmOf, fi
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, farmBlocked, farmCamera, farmMap, spotXY, tapFarm } from "./farmmap.js";
-import { askToWater, harvestLine, openBarn, openFence, openSeedStand, pickSeed, plantCard } from "./farm-ui.js";
+import { askToWater, harvestLine, openBarn, openFence, openSeedStand, openShrine, pickSeed, plantCard } from "./farm-ui.js";
+import { shrineTier } from "./idle.js";
 import { states as reviewStates } from "../review/deck.js";
 import { openModal } from "../components/modal.js";
 import { icon as lineIcon } from "../icons.js";
@@ -45,6 +46,7 @@ import { TIERS } from "./loot.js";
 import { TANK_X } from "./homecard.js";
 import { feature } from "../prototype.js";
 import { ROOM, blockedCells, cellKey, clampToFloor, depthScale, findPath, isIndoor, roomLayout, savedView, saveView, tapIn } from "./room.js";
+import { SHRINE } from "./yard.js";
 import { COTTAGE, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, cameraFor, decorSpot, plotSpot, stationAt, stationById, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
 import { DECALS, PROPS, ROOFS, ROOF_EXTRAS, SHEETS, TILE, drawCorners, roofRows } from "./battlemap.js";
 
@@ -464,6 +466,7 @@ export function habitat() {
   /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
   const yardStanding = () => [
     ...yardDecor(),
+    ...(inYard() && shrineTier(game) ? [{ id: "shrine", x: SHRINE.x, y: SHRINE.y }] : []),
     ...(farmOn() ? [] : garden(game).plots.flatMap((p, i) => (p.open ? [{ id: `plot${i}`, ...plotSpot(PLOTS[i].x) }] : []))), // (prototype "farm": on the farm)
   ];
   /** The outdoor decorations on the yard's field, each at its spot (not one being carried). */
@@ -744,6 +747,13 @@ export function habitat() {
       }
     }
     if (inFarm()) farmScene(out, now, sparkle);
+    if (inYard() && shrineTier(game)) { // the Star Shrine (slice 3), once there is stardust
+      const pic = yimg(`farm/shrine_${shrineTier(game)}.png`);
+      if (pic) out.push({ y: SHRINE.y, draw: () => {
+        ctx.drawImage(pic, SHRINE.x - 24, SHRINE.y - pic.height + 2);
+        if (art.ready && Math.floor(now / 1800) % 2 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, SHRINE.x + 6, SHRINE.y - 30);
+      } });
+    }
     if (inYard() && farmOn()) { // the gate to the farm, at the yard's left edge
       const gate = yimg("farm/gate.png");
       if (gate) out.push({ y: FARM_DOOR.y - 6, draw: () => ctx.drawImage(gate, FARM_DOOR.x - 16, FARM_DOOR.y - 6 - gate.height) });
@@ -1404,6 +1414,7 @@ export function habitat() {
   function useThing(what) {
     if (what.startsWith("spot:")) { useSpot(what.slice(5)); return; }
     if (what === "barn") { sfx("tick"); openBarn(); return; }
+    if (what === "shrine") { sfx("tick"); openShrine(); return; }
     if (what === "seeds") { sfx("tick"); openSeedStand({ changed: () => paintHud() }); return; }
     if (what === "farmgate") { sfx("tick"); goThrough("farm"); return; }
     if (what === "register") { // at the hall's counter: the custodian says something, and the gym register opens
@@ -1706,6 +1717,10 @@ export function habitat() {
       return;
     }
     // Outside, the cottage's door: straight in (even with the creature standing in front of it).
+    if (inYard() && !pressed && shrineTier(game) && Math.abs(x - SHRINE.x) < 18 && y > SHRINE.y - 44 && y < SHRINE.y + 4) { // the Star Shrine
+      if (isEgg()) useThing("shrine"); else walkTo({ x: SHRINE.x, y: SHRINE.y + 10 }, "use:shrine");
+      return;
+    }
     if (inYard() && farmOn() && !pressed && Math.abs(x - FARM_DOOR.x) < 18 && y > FARM_DOOR.y - 38 && y < FARM_DOOR.y + 6) { // the farm's gate
       if (isEgg()) useThing("farmgate"); else walkTo(FARM_DOOR, "use:farmgate");
       return;

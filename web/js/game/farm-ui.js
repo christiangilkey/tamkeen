@@ -9,7 +9,7 @@ import { t } from "../i18n.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { plan, states } from "../review/deck.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
-import { garden } from "./idle.js";
+import { garden, shrineRate, shrineTier, stardustBoost } from "./idle.js";
 import { answerQuestion, markDue, pickQuestion, weekNumber } from "./rules.js";
 import { pondWords } from "./fishing.js";
 import { TIERS } from "./loot.js";
@@ -248,6 +248,35 @@ export async function askToWater(key) {
       sfx(correct ? "common" : "surprise");
       setTimeout(() => { m.close(); resolve(typeof r === "string" ? null : { correct, ...r }); }, correct ? 900 : 2200);
     }
+  });
+}
+
+/** The Star Shrine's card (slice 3): what stardust does now, the glow it makes (the Star Loom's), how a release
+ * works, and the talents it helps (talents.js SHRINE_TALENT_LINES, the talents session's, when it is there). */
+export function openShrine() {
+  const game = getGame();
+  let talentLines = [];
+  import("./talents.js").then((m) => { talentLines = Array.isArray(m.SHRINE_TALENT_LINES) ? m.SHRINE_TALENT_LINES : []; d.redraw(); }).catch(() => {});
+  const d = details(() => {
+    const g = garden(game);
+    const tier = Math.max(1, shrineTier(game));
+    const more = h(`<div class="farm-list"></div>`);
+    for (const line of ["Stardust is never spent. You gain it by releasing a fully grown creature.",
+      "The shrine also weaves the Star Loom's steady glow, straight into your glow.",
+      "A release starts your buildings and glow over. It never touches your farm: its land, crops, barn and seeds stay.", ...talentLines]) {
+      const li = h(`<p class="gs-detail-text"></p>`);
+      li.textContent = t(line);
+      more.append(li);
+    }
+    return {
+      title: "Star Shrine",
+      pic: `<img class="px-icon gs-art" alt="" width="96" height="96" src="${ART}shrine_${tier}.png">`,
+      facts: [fact("Stardust", `<span>${fmt(g.stardust)}</span>`), fact("Each one", `<span>+${Math.round(stardustBoost() * 100)}% ${t("glow")}</span>`),
+        fact("An hour", amount("glow", shrineRate(game)))],
+      text: "Your stardust lives here. Each one makes all your glow faster, for good, and the shrine grows grander as you gather more.",
+      more,
+      buttons: [{ word: "Close", run: () => d.close() }],
+    };
   });
 }
 

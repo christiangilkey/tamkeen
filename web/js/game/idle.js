@@ -21,7 +21,10 @@ import { feature } from "../prototype.js";
 
 export const OFFLINE_HOURS = 8;        // how much glow can pile up while you are away
 export const AUTO_GOALS = 10;          // daily goals reached before glow collects itself
-export const STARDUST_BOOST = 0.5;     // each stardust: +50% glow, for good
+export const STARDUST_BOOST = 0.5;     // each stardust: +50% glow, for good...
+export const STARDUST_BOOST_FARM = 0.2; // ...+20% with the farm and its Star Shrine (prototype "farm"; the owner's plan)
+/** What each stardust adds to glow now. */
+export const stardustBoost = () => (feature("farm") ? STARDUST_BOOST_FARM : STARDUST_BOOST);
 export const FEEDS_PER_DAY = 3;
 export const MAX_BOND = 10;            // two points per heart, five hearts
 export const BOOST_MINUTES = 20;
@@ -78,10 +81,34 @@ export function rateOf(state, plot, now = new Date()) {
   const c = state.creature;
   const habit = s.trait ? 1 + Math.min(1, c.traits[s.trait] || 0) : 1.5;          // the habit this building likes
   const goal = state.day.done && state.day.key === dayKey(now) ? 1.5 : 1;         // today's goal reached
-  return s.rate * TIER_RATE[plot.tier] * habit * goal * (1 + STARDUST_BOOST * g.stardust) * (1 + 0.04 * hearts(c));
+  if (s.id === "star_loom" && farmBuildings()) return 0; // (its glow is the Star Shrine's now: shrineRate)
+  return s.rate * TIER_RATE[plot.tier] * habit * goal * (1 + stardustBoost() * g.stardust) * (1 + 0.04 * hearts(c));
 }
 
-export const totalRate = (state, now = new Date()) => garden(state).plots.reduce((sum, p) => sum + rateOf(state, p, now), 0);
+// ---------- the Star Shrine (prototype "farm", the plan's slice 3) ----------
+// By the cottage, once there is stardust. The Star Loom folds into it: the shrine makes the Loom's steady glow,
+// grander as stardust grows (tier 1 at 1 stardust, 2 at 3, 3 at 6), never lower than the best Star Loom the garden
+// has had (`idle.loomTier`, so an old save's Loom carries into it). Its glow goes straight to the bank (nothing to
+// gather). A release resets the buildings and glow, never the farm or the shrine (stardust is kept).
+export const SHRINE_AT = [0, 1, 3, 6];
+/** The shrine's tier (0: no shrine yet). */
+export function shrineTier(state) {
+  if (!farmBuildings()) return 0;
+  const g = garden(state);
+  const dust = SHRINE_AT.reduce((t, need, i) => (i && g.stardust >= need ? i : t), 0);
+  return dust ? Math.max(dust, Math.min(3, Number(g.loomTier) || 0)) : 0;
+}
+/** Glow per hour the shrine makes (the Star Loom's rate at the shrine's tier, everyone's steady glow). */
+export function shrineRate(state, now = new Date()) {
+  const tier = shrineTier(state);
+  if (!tier) return 0;
+  const loom = STRUCTURES.find((s) => s.id === "star_loom");
+  const g = garden(state);
+  const goal = state.day.done && state.day.key === dayKey(now) ? 1.5 : 1;
+  return loom.rate * TIER_RATE[tier] * 1.5 * goal * (1 + stardustBoost() * g.stardust) * (1 + 0.04 * hearts(state.creature));
+}
+
+export const totalRate = (state, now = new Date()) => garden(state).plots.reduce((sum, p) => sum + rateOf(state, p, now), 0) + shrineRate(state, now);
 export const automated = (state) => (state.stats.goals || 0) >= AUTO_GOALS;
 
 /**
@@ -99,6 +126,12 @@ export function tick(state, now = new Date()) {
   const hours = g.at ? Math.max(0, Math.min(OFFLINE_HOURS, (t - g.at) / 3600)) : 0;
   g.at = t;
   const auto = automated(state);
+  if (farmBuildings()) { // (the Star Shrine: an old Star Loom's tier carries into it; its glow goes straight to the bank)
+    g.loomTier = Math.max(Number(g.loomTier) || 0, ...g.plots.filter((p) => p.id === "star_loom").map((p) => p.tier || 0));
+    const shrine = shrineRate(state, now) * hours;
+    g.glow += shrine;
+    out.made += shrine;
+  }
   for (const p of g.plots) {
     const rate = rateOf(state, p, now);
     if (!rate) continue;
