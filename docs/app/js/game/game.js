@@ -294,6 +294,8 @@ export function sfx(kind) {
   else if (kind === "surprise") { tone(392, 0, 0.12, "sawtooth", 0.04); tone(784, 0.12, 0.25, "triangle"); }
   else if (kind === "tick") tone(1500, 0, 0.03, "square", 0.02);
   else if (kind === "pet") { tone(700, 0, 0.08); tone(940, 0.07, 0.12); }
+  else if (kind === "plant") { tone(196, 0, 0.09, "triangle"); tone(523, 0.1, 0.12, "sine", 0.05); } // (the farm: a seed in, a sprout up)
+  else if (kind === "water") [1175, 988, 880, 784, 698].forEach((f, i) => tone(f, i * 0.07, 0.09, "sine", 0.035)); // (the can poured)
 }
 
 // ---------- particles and pops ----------

@@ -53,9 +53,8 @@ export async function render(view) {
     <div id="home-creator" class="home-creator" hidden></div>
     <section class="hero">
       <div class="hero-top">
-        <img class="hero-logo" src="${new URL("../../icons/icon-256.png", import.meta.url).href}" alt="" width="56" height="56">
         <div><div class="hero-ar ar" ${langAttrs(studyLanguage())}>${esc(ar)}</div><div class="hero-en">${en}</div></div>
-        <div class="hero-streak" id="hero-streak" role="img" hidden>${icon("flame", 30)}<span></span></div>
+        <div class="hero-streak" id="hero-streak" role="img" hidden>${icon("flame", 20)}<span></span></div>
       </div>
       <div class="hero-main" id="main"><div class="hero-loading">…</div></div>
     </section>
@@ -103,7 +102,7 @@ export async function render(view) {
   if (items.length) {
     const first = items[0];
     const btn = h(`<a class="continue-btn" href="#/episode/${first.id}">
-      <span class="continue-play">▶</span>
+      <span class="continue-play" aria-hidden="true">${icon("play", 24)}</span>
       <span class="continue-text">
         <span class="continue-verb">${KIND_VERB[first.kind] || "Continue"}</span>
         <span class="continue-title" dir="auto"></span>
@@ -117,8 +116,8 @@ export async function render(view) {
     // At most two more: three choices in total.
     if (items.length > 1) more.append(h(`<h2 class="home-h">Also in progress</h2>`));
     for (const item of items.slice(1)) {
-      const row = h(`<a class="continue-row card" href="#/episode/${item.id}">
-        <span class="continue-ico">${icon(KIND_ICON[item.kind] || "video", 22)}</span>
+      const row = h(`<a class="continue-row" href="#/episode/${item.id}">
+        <span class="continue-ico">${icon(KIND_ICON[item.kind] || "video", 20)}</span>
         <span class="continue-text"><span class="t" dir="auto"></span>
           <span class="small muted">${esc(leftLabel(item))}</span></span>
         <span class="continue-bar"><i style="width:${Math.round(fraction(item) * 100)}%"></i></span>
@@ -133,11 +132,11 @@ export async function render(view) {
       <div class="caught-up-sub">Pick something to learn from, then tap any word in it to see what it means.</div>
     </div>`));
     more.append(h(`<div class="home-choices">
-      <a class="choice card" href="#/library?show=courses"><span class="choice-ico">${icon("learn", 24)}</span><span><strong>Start with a lesson</strong>
-        <span class="small muted">Short lessons that teach the basics</span></span></a>
-      <a class="choice card" href="#/library?show=youtube"><span class="choice-ico">${icon("video", 24)}</span><span><strong>Watch a video</strong>
+      <a class="choice" href="#/library?show=courses"><span class="choice-ico">${icon("learn", 20)}</span><span><strong>New to the language? Start with Basics</strong>
+        <span class="small muted">The first words and a little grammar, to get you ready for real content</span></span></a>
+      <a class="choice" href="#/library?show=youtube"><span class="choice-ico">${icon("video", 20)}</span><span><strong>Watch a video</strong>
         <span class="small muted">YouTube videos with captions you can tap</span></span></a>
-      <a class="choice card" href="#/discover"><span class="choice-ico">${icon("podcast", 24)}</span><span><strong>Listen to a podcast</strong>
+      <a class="choice" href="#/discover"><span class="choice-ico">${icon("podcast", 20)}</span><span><strong>Listen to a podcast</strong>
         <span class="small muted"></span></span></a>
     </div>`));
     more.querySelector('a[href="#/discover"] .muted').textContent = t("Popular {0} podcasts", t(name));
@@ -148,11 +147,11 @@ export async function render(view) {
       <div class="caught-up-sub">Nothing left unfinished. Pick something new whenever you like.</div>
     </div>`));
     more.append(h(`<div class="home-choices">
-      <a class="choice card" href="#/library"><span class="choice-ico">${icon("library", 24)}</span><span><strong>Open your library</strong>
+      <a class="choice" href="#/library"><span class="choice-ico">${icon("library", 20)}</span><span><strong>Open your library</strong>
         <span class="small muted">Podcasts, videos and web pages</span></span></a>
-      <a class="choice card" href="#/vocab"><span class="choice-ico">${icon("vocab", 24)}</span><span><strong>Look over your vocab</strong>
+      <a class="choice" href="#/vocab"><span class="choice-ico">${icon("vocab", 20)}</span><span><strong>Look over your vocab</strong>
         <span class="small muted">The words you've saved</span></span></a>
-      <a class="choice card" href="#/friends"><span class="choice-ico">${icon("friends", 24)}</span><span><strong>See what friends are studying</strong>
+      <a class="choice" href="#/friends"><span class="choice-ico">${icon("friends", 20)}</span><span><strong>See what friends are studying</strong>
         <span class="small muted">Messages and shared words</span></span></a>
     </div>`));
   }
@@ -179,10 +178,10 @@ export async function render(view) {
     const today = words.filter((v) => v.created_at * 1000 >= midnight.getTime()).length;
     const box = view.querySelector("#today");
     if (box) {
-      box.append(h(`<div class="today-chips">
-        <span class="today-chip${today ? " lit" : ""}">${icon("vocab", 14)} ${today} word${today === 1 ? "" : "s"} saved today</span>
-        <span class="today-chip">${words.length} in your vocab</span>
-      </div>`));
+      box.append(h(`<p class="today-line">
+        <span>${today} word${today === 1 ? "" : "s"} saved today</span>
+        <span>${words.length} in your vocab</span>
+      </p>`));
     }
   } catch { /* vocab unavailable: the summary is optional */ }
 }

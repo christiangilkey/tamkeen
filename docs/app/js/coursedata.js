@@ -147,20 +147,33 @@ export function varietiesOffered(lang, courses, grammar) {
   return out.length > 1 ? out : [];
 }
 
-/** The kind of Arabic shown: the one chosen before (`remembered`) while it is still offered, else MSA (""). */
+/** The kind of Arabic shown: the one chosen before (`remembered`) while it is still offered, else MSA (""), or the
+ * first dialect when MSA isn't offered (a DLI student's Basics: dialectsOnly). */
 export function varietyChoice(offered, remembered) {
-  return (offered || []).some((v) => v.id && v.id === remembered) ? remembered : "";
+  const list = offered || [];
+  if (list.some((v) => v.id && v.id === remembered)) return remembered;
+  return list.length && !list.some((v) => !v.id) ? list[0].id : "";
 }
 
 /**
- * Which of the Library's Courses tabs opens ("grammar", "basics" or "dli"; "" when the language has none).
- * `basics` / `grammar`: whether the language has that course; `dli`: whether the learner's DLI material
- * shows (components/dlipanel.js dliShown). A link that asks for one (`asked`, #/library?tab=basics)
- * comes first, then the tab the learner chose earlier in this visit (`chosen`), then Grammar (the
- * owner's choice), or Basics when there is no grammar course, or DLI when there is neither.
+ * A DLI student's Basics (prototype "dli_basics"; the owner, 2026-11-27: "if a student is a dli student it should get
+ * rid of courses except for the dialects in arabic"): their DLI course already teaches the standard language, so Basics
+ * keeps only the Arabic dialects (Levantine, Egyptian…). `offered` is varietiesOffered's list; [] when no dialect is
+ * published, and then Basics has nothing for them.
  */
-export function courseTabChoice({ basics = false, grammar = false, dli = false, asked = "", chosen = "" } = {}) {
-  const can = { basics: !!basics, grammar: !!grammar, dli: !!dli };
+export function dialectsOnly(offered) {
+  return (offered || []).filter((v) => v.id);
+}
+
+/**
+ * Which of the Library's Basics tabs opens ("grammar" or "basics", the First 1000 words; "" when the language has
+ * neither). `basics` / `grammar`: whether the language has that course. A link that asks for one (`asked`,
+ * #/library?tab=basics) comes first, then the tab the learner chose earlier in this visit (`chosen`), then Grammar
+ * (the owner's choice), or Basics when there is no grammar course. (DLI material was a third tab here until
+ * 2026-11-27; it is the Library's own DLI entry now, and pages/library.js sends ?tab=dli there.)
+ */
+export function courseTabChoice({ basics = false, grammar = false, asked = "", chosen = "" } = {}) {
+  const can = { basics: !!basics, grammar: !!grammar };
   for (const tab of [asked, chosen]) if (Object.prototype.hasOwnProperty.call(can, tab) && can[tab]) return tab;
-  return can.grammar ? "grammar" : can.basics ? "basics" : can.dli ? "dli" : "";
+  return can.grammar ? "grammar" : can.basics ? "basics" : "";
 }

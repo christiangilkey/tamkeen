@@ -21,7 +21,7 @@ import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
 import { courseIndex, coursePanel } from "../components/coursepanel.js";
 import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpanel.js";
-import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
+import { VARIETY_KEY, basicsId, courseTabChoice, dialectsOnly, varietiesOffered, varietyChoice } from "../coursedata.js";
 import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
@@ -113,14 +113,15 @@ const BOOKS_FEED = "local:books";
 // (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed, or a list
 // of the learner's own audiobook files (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has
 // only them.
-// "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
-// (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
+// "Basics" (key "courses", kept so links and saved choices still work) comes first, and the Library opens on it until another kind
+// is chosen (lastKind): a total beginner's first step before native content, never "the app's course" (the owner, 2026-11-27):
+// the language's first 1000 words (components/coursepanel.js) and short grammar lessons (grammarpanel.js).
 // "Conversation" is next: speaking practice with the learner's AI (components/conversepanel.js). Like
-// Courses it has no episodes: its own panel takes the place of the list.
+// Basics it has no episodes: its own panel takes the place of the list.
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
-// + button. Courses and Conversation are never empty.
+// + button. Basics and Conversation are never empty.
 const KINDS = [
-  { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
+  { key: "courses", label: "Basics", icon: "learn", href: "#/library?show=courses", when: () => !noBasics() },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
@@ -145,6 +146,10 @@ const KINDS = [
   // Lesson bundles: a teacher's PDF or Word file with its audio, as a passage, tracks and questions (components/lessonpanel.js).
   // Called "My files" and last, with My videos and My audio (the owner, 2026-11-17); its key stays "lessons".
   { key: "lessons", label: "My files", icon: "list", href: "#/library?show=lessons" },
+  // DLI students' material (their DLI language's chapters and ICPT decks, components/dlipanel.js): its own entry, for
+  // those who have it for the language being learned (the owner, 2026-11-27: "Its own DLI entry", out of Basics, beside
+  // the Classroom). Asked each time the list is drawn (`when`): the settings it reads may not be there when this loads.
+  { key: "dli", label: "DLI", icon: "lock", href: "#/library?show=dli", when: () => dliShown(studyLanguage()) },
   // The Classroom a DLI teacher and their students share (prototype "classroom"): for them only, as the Class tab is.
   // (Decided when the app opens, from what the online service last said: a new teacher or student sees it next time.)
   ...(classroomShown() ? [{ key: "classroom", label: "Classroom", icon: "folder", href: "#/library?show=classroom" }] : []),
@@ -168,13 +173,21 @@ function keyNote(kind) {
 }
 
 /** Kinds with a panel of their own instead of a list of episodes. */
-const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons" || k === "classroom";
+const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons" || k === "classroom" || k === "dli";
+/** A DLI student has their DLI course for the language itself, so Basics goes (prototype "dli_basics"), except that a
+ *  DLI Arabic student keeps it for the dialects (showCourses: dialectsOnly). */
+const dliStudent = () => feature("dli_basics") && dliShown(studyLanguage());
+const noBasics = () => dliStudent() && studyLanguage() !== "ar";
+/** Is `key` a kind this learner has (the DLI entry is only for those with DLI material)? */
+const isKind = (key) => KINDS.some((x) => x.key === key && (!x.when || x.when()));
+/** Where the Library opens with nothing chosen: Basics, or Podcasts for someone without Basics. */
+const firstKind = () => (isKind("courses") ? "courses" : "podcasts");
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
   let k = null;
   try { k = localStorage.getItem(LAST_KIND_KEY); } catch { /* storage off */ }
-  return KINDS.some((x) => x.key === k) ? k : "courses";
+  return isKind(k) ? k : firstKind();
 }
 // The arrow from an empty kind's message to the + button: one line in the line icons' style, a gentle
 // curve that ends going sideways into the button (the button carries it, so it is beside it wherever
@@ -248,8 +261,10 @@ export async function render(view, { feedId: routeFeed, query }) {
   // Which kind is showing: what the address or the feed says (a feed's own address is set in
   // renderStrips). The Library tab itself (plain #/library) opens on the kind chosen last time (the
   // owner: "having it default to courses each time is annoying"), or Courses the first time.
-  let kind = KINDS.some((k) => k.key === query.get("show")) ? query.get("show") : feedId ? "podcasts"
-    : [...query.keys()].length ? "courses" : lastKind();
+  // (DLI was a tab of Basics until 2026-11-27: its old address, ?show=courses&tab=dli, opens the DLI entry.)
+  if (query.get("show") === "courses" && query.get("tab") === "dli" && isKind("dli")) query.set("show", "dli");
+  let kind = isKind(query.get("show")) ? query.get("show") : feedId ? "podcasts"
+    : [...query.keys()].length ? firstKind() : lastKind();
   const filter = query.get("status") || "";
   // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
   const channel = query.get("channel") || "";
@@ -294,17 +309,16 @@ export async function render(view, { feedId: routeFeed, query }) {
           </label>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
-            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Words</span></button>
-            <button type="button" role="tab" data-tab="dli" hidden>${icon("lock", 18)} <span>DLI</span></button>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span class="words-label">First 1000 words</span></button>
           </div>
           <div class="course" id="course" hidden></div>
           <div class="course grammar" id="grammar" hidden></div>
-          <div class="course dli" id="dli" hidden></div>
           <p class="course-note" id="no-courses" hidden></p>
         </div>
         <div class="lib-converse" id="lib-converse" hidden></div>
         <div class="lib-lessons" id="lib-lessons" hidden></div>
         <div class="lib-classroom" id="lib-classroom" hidden></div>
+        <div class="lib-dli" id="lib-dli" hidden></div>
         <div id="lib-head"></div>
         <div class="lib-chips" id="lib-chips" hidden></div>
         <div class="upload-status" id="upload-status" hidden>
@@ -342,6 +356,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     const list = $("#feed-list");
     list.innerHTML = "";
     for (const k of KINDS) {
+      if (k.when && !k.when()) continue;
       const own = k.feed ? feeds.find((x) => x.url === k.feed) : null;
       const href = k.href ? k.href : own ? `#/feed/${own.id}` : `#/library?show=${k.key}`;
       const el = h(`<a class="feed-item${k.key === kind ? " active" : ""}" href="${href}">
@@ -526,6 +541,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     root.classList.toggle("converse-kind", kind === "conversation");
     root.classList.toggle("lessons-kind", kind === "lessons");
     root.classList.toggle("classroom-kind", kind === "classroom");
+    root.classList.toggle("dli-kind", kind === "dli");
     root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
@@ -536,6 +552,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (kind === "conversation") { showConversation(); return; }
     if (kind === "lessons") { showLessons(); return; }
     if (kind === "classroom") { showClassroom(); return; }
+    if (kind === "dli") { showDli(); return; }
     const note = keyNote(kind);
     if (note) head.append(note);
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
@@ -1276,9 +1293,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   // Learning Arabic, with a dialect course published: a drop-down above the tabs picks Standard Arabic
   // (MSA, the default) or a dialect (coursedata.js varietiesOffered; the choice is kept on this device).
   // Each kind has its own Grammar and Basics courses ("ar-lev", "en-ar-lev"), in the same panels.
-  // DLI students (Settings → Languages): a third tab, DLI, with the material of their DLI language while
-  // they study it (components/dlipanel.js).
-  let closeCourse = null, closeGrammar = null, closeDli = null, grammarChoice = null, coursesAsked = false;
+  let closeCourse = null, closeGrammar = null, grammarChoice = null, coursesAsked = false;
   let variety = "", basicsCourse = "";
   const courseLang = studyLanguage();
   const showCourseTab = (tab) => {
@@ -1289,8 +1304,6 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     $("#course").hidden = tab !== "basics";
     $("#grammar").hidden = tab !== "grammar";
-    $("#dli").hidden = tab !== "dli";
-    if (tab === "dli" && !closeDli) closeDli = dliPanel($("#dli"), courseLang);
     if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang, { course: basicsCourse });
     if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), courseLang, grammarChoice);
   };
@@ -1310,6 +1323,12 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   // ----- the Classroom a DLI teacher and their students share (components/classroompanel.js, prototype "classroom") -----
   let closeClassroom = null;
+  // ----- DLI: a DLI student's material for the language being learned (components/dlipanel.js) -----
+  let closeDli = null;
+  function showDli() {
+    $("#lib-dli").hidden = false;
+    if (!closeDli) closeDli = dliPanel($("#lib-dli"), courseLang);
+  }
   function showClassroom() {
     $("#lib-classroom").hidden = false;
     if (!closeClassroom) closeClassroom = classroomPanel($("#lib-classroom"), courseLang);
@@ -1324,7 +1343,14 @@ export async function render(view, { feedId: routeFeed, query }) {
     coursesAsked = true;
     Promise.all([courseIndex(), grammarIndex()]).then(([courses, grammar]) => {
       if (!root.isConnected) return;
-      const offered = varietiesOffered(courseLang, courses, grammar);
+      const all = varietiesOffered(courseLang, courses, grammar);
+      const offered = dliStudent() ? dialectsOnly(all) : all;
+      if (dliStudent() && !offered.length) { // (no dialect published: nothing in Basics for a DLI student)
+        const note = $("#no-courses");
+        note.hidden = false;
+        note.textContent = "There is nothing in Basics for this language yet.";
+        return;
+      }
       const pick = $("#variety-pick");
       pick.innerHTML = offered.map((v) => `<option value="${esc(v.id)}">${esc(v.name)}</option>`).join("");
       $("#course-variety").hidden = !offered.length;
@@ -1344,33 +1370,32 @@ export async function render(view, { feedId: routeFeed, query }) {
   async function openCourses(courses, grammar) {
     if (closeCourse) closeCourse();
     if (closeGrammar) closeGrammar();
-    if (closeDli) closeDli();
-    closeCourse = closeGrammar = closeDli = null;
+    closeCourse = closeGrammar = null;
     $("#course").innerHTML = "";
     $("#grammar").innerHTML = "";
-    $("#dli").innerHTML = "";
-    $("#course").hidden = $("#grammar").hidden = $("#dli").hidden = true;
+    $("#course").hidden = $("#grammar").hidden = true;
     const want = variety;
     basicsCourse = basicsId(courseLang, variety);
     const basics = !!(courses && courses.courses && courses.courses[basicsCourse]);
     const choice = await grammarFor(courseLang, variety, grammar).catch(() => null);
     if (!root.isConnected || want !== variety) return; // (another kind was picked meanwhile)
     grammarChoice = choice;
-    const dli = dliShown(courseLang);
     const note = $("#no-courses");
-    note.hidden = !!(basics || choice || dli);
-    if (!basics && !choice && !dli) {
+    note.hidden = !!(basics || choice);
+    if (!basics && !choice) {
       $("#course-tabs").hidden = true;
-      note.textContent = "There are no courses for this language yet.";
+      note.textContent = "There is nothing in Basics for this language yet.";
       return;
     }
     root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
+    // "First 1000 words", or as many as the list has (a dialect's is 300).
+    const planned = basics ? Number(courses.courses[basicsCourse].planned) || 1000 : 1000;
+    root.querySelector('#course-tabs [data-tab="basics"] .words-label').textContent = t("First {0} words", planned);
     root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !choice;
-    root.querySelector('#course-tabs [data-tab="dli"]').hidden = !dli;
     $("#course-tabs").hidden = false;
     let chosen = "";
     try { chosen = sessionStorage.getItem("courseTab") || ""; } catch { /* storage off */ }
-    showCourseTab(courseTabChoice({ basics, grammar: !!choice, dli, asked: query.get("tab") || "", chosen }));
+    showCourseTab(courseTabChoice({ basics, grammar: !!choice, asked: query.get("tab") || "", chosen }));
   }
 
   // ----- wiring -----
@@ -1609,9 +1634,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
-      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
-    { target: "#course-tabs", title: "Your courses",
-      text: "Words teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
+      text: "Switch between Basics, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
+    { target: "#course-tabs", title: "Basics, for a start",
+      text: "New to the language? First 1000 words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

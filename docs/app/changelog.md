@@ -14,6 +14,26 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.77.0 — 2026-11-27
+
+- **Changed:** **A calmer, clearer look, step one.** A new font for the app's text, **Commissioner** (it has Russian letters, which the old one lacked), body text a little larger, and smoother corners. More screens follow, one by one.
+- **Changed:** Night and rain now fall on everything outside (buildings, stalls, Muffles and your creature), not just the ground; lamps and the Star Shrine glow through the dark.
+- **Changed:** The **Word Sprout** is a new tree whose leaves carry the Muffles' letters. A fence with an open gate now runs between the yard and the farm.
+- **Changed:** **The pier** is wider, with a chair and a fishing rod at its end and ripples in the water: tap those to fish. A tap elsewhere on the pier just walks there.
+- **Changed:** A Muffle's word shows once you've **looked it up** in the player or a reader (drawn white), not only once you've saved it; other forms of the word count too. The first thing a Muffle says after you open the app no longer shows only symbols.
+- **Changed:** The Muffles' forgotten script no longer has symbols that look like real letters.
+- **Changed:** The XP explainer is short; every amount is still there under **All the numbers**.
+- **Changed:** The farm is laid out by its entrance (the field, barn, seed stand and buildings close to where you come in), and the field grows to the left.
+- **Changed:** Your creature starts in its cottage each time the app opens; its name shows only in the cottage; walking off the yard's left edge goes straight onto the farm. The habitat's old arrows are gone.
+- **Fixed:** On a phone the page no longer shifts sideways (the top bar was too wide), and Muffles' speech bubbles stay inside the window.
+- **Changed** Library: "Courses" is now **Basics**, a first step for total beginners on the way to real podcasts, videos and books; its word list is now called "First 1000 words" ("First 300 words" for an Arabic dialect). Old links and the last tab you chose still open it.
+- **Changed** Library: DLI students' material (their DLI language's chapters and ICPT decks) has its own **DLI** entry in the Library, beside the Classroom, instead of a tab inside Basics. Old links to it still work.
+- Farm: planting a seed now asks one of your words, as watering does (right or wrong, it is planted). Planting and watering each have their own little scene and sound on a new question card.
+- Farm: tapping a spot in the field opens it straight away, and a near miss counts for the nearest spot.
+- Muffle orders in the market now pay 5 coins each (three a day) instead of glow, and still wake a word.
+- The daily goal's "0 / 10 min" moved out of the picture to a chip beside the level bar, so taps meant for walking don't open it.
+- The creature walks twice as fast, straight to where you tap, without walking on the spot when it gets there.
+
 ## v0.76.0 — 2026-11-26
 
 - **New:** **A home and a village.** The habitat window is now your creature's cozy cottage: tap the floor and it walks there, round the furniture, and indoor decorations stand inside. Out of its door is a yard seen from above and a path into the village: a market with six stalls, a pier for fishing, a tavern, and the championship hall (step inside and sign up for the gym leaders at the counter). The Muffles, the village's hooded folk, work the stalls, walk about, cook, play music and dance. They speak the language you're learning, and each word shows only once you know it; the rest is their forgotten script. Home's big tiles now send your creature to its place in the village.

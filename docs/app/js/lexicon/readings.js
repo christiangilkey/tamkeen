@@ -368,7 +368,7 @@ if (typeof document !== "undefined" && !document.getElementById("readings-css"))
   style.id = "readings-css";
   style.textContent = `
     ruby { ruby-position: over; }
-    ruby > rt { font-size: max(0.5em, 9px); font-weight: 400; line-height: 1; user-select: none; color: var(--muted, #888); letter-spacing: 0; }
+    ruby > rt { font-size: max(0.5em, 9px); font-weight: 400; line-height: 1; user-select: none; color: var(--ink-2, #888); letter-spacing: 0; }
     ruby > rt::before { content: attr(data-r); }
     :lang(zh) ruby > rt { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.45em, 9px); }
     rt.th { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.5em, 10px); white-space: nowrap; }
@@ -377,7 +377,7 @@ if (typeof document !== "undefined" && !document.getElementById("readings-css"))
     ruby > .hiw { display: inline-block; line-height: 1.5; }
     rt.ko { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: max(0.42em, 9px); white-space: nowrap; }
     ruby > .kow { display: inline-block; line-height: 1.5; }
-    rt.tone1 { color: #e0464e; } rt.tone2 { color: #e8901c; } rt.tone3 { color: #2fa84f; } rt.tone4 { color: #3b7ddd; } rt.tone5 { color: var(--muted, #888); }
+    rt.tone1 { color: #e0464e; } rt.tone2 { color: #e8901c; } rt.tone3 { color: #2fa84f; } rt.tone4 { color: #3b7ddd; } rt.tone5 { color: var(--ink-2, #888); }
     .readings-row { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
     .transcript:lang(ja), .transcript:lang(zh), .captions:lang(ja), .captions:lang(zh) { line-height: 2.1; }
     /* Thai stacks vowels and tone marks above its letters: the line needs room for those and the reading. */

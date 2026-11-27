@@ -101,11 +101,11 @@ export function grammarPanel(box, lang, choice) {
   const rich = (s) => richHtml(s, esc, target);
 
   async function load() {
-    box.innerHTML = `<div class="course-note muted">Loading the course…</div>`;
+    box.innerHTML = `<div class="course-note muted">Loading…</div>`;
     course = await loadCourse(id);
     if (!alive) return;
     if (!course) {
-      box.innerHTML = `<div class="course-note">The grammar course couldn't be loaded. Check your connection and try again.</div>`;
+      box.innerHTML = `<div class="course-note">The grammar lessons couldn't be loaded. Check your connection and try again.</div>`;
       return;
     }
     await refreshProgress();
@@ -244,7 +244,7 @@ export function grammarPanel(box, lang, choice) {
       const provider = PROVIDERS[cfg.provider];
       const model = provider && provider.models.find((x) => x.id === cfg.model);
       const cents = costCents(course, model, into);
-      cost = cents == null ? "" : cents < 1 ? "It costs less than 1 US cent for the whole course." : `It costs about ${Math.ceil(cents)} US cents for the whole course.`;
+      cost = cents == null ? "" : cents < 1 ? "It costs less than 1 US cent for all the lessons." : `It costs about ${Math.ceil(cents)} US cents for all the lessons.`;
       text = `These lessons are written in ${from}. Tamkeen can put them into ${lang2} for you with your AI key (${esc(model ? model.name : cfg.model)}): only the explanations are translated, the ${esc(taught)} stays exactly as checked. Each lesson is made once and kept on this device.`;
       go = `<button type="button" class="primary g-yes">${icon("sparkle", 16)} <span>Make them in ${lang2}</span></button>`;
     }

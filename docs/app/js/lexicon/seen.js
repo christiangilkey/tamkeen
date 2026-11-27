@@ -53,6 +53,24 @@ function repaint() {
 }
 
 /** Mark lexemes (what lexemesFor / lexemeOf return) as seen. */
+/**
+ * Which of `words` (one line's words, in `lang`, as languages.wordRanges cuts them) the reader has seen: a Set of their
+ * indexes. A word counts when its lexeme is in the seen list (drawn white, not purple, in the player, reader, books
+ * and reels), matched as the texts match it (words.lexemesFor), so another form counts too (vendo when vender was
+ * seen) where the language's form table is downloaded. Waits for the list and the dictionaries; an empty Set when
+ * they can't be had (the Muffles' first line then waits for this instead of showing only their script).
+ */
+export async function seenOf(words, lang) {
+  const out = new Set();
+  try {
+    await loadKnown();
+    const dicts = (await dictionaries(lang)) || [];
+    const found = lexemesFor(words, lang, dicts) || [];
+    found.forEach((l, i) => { if (l && l.key && known.has(l.key)) out.add(i); });
+  } catch { /* nothing known to have been seen */ }
+  return out;
+}
+
 export async function markLexemes(items) {
   items = (items || []).filter((it) => it && it.key);
   const fresh = [];

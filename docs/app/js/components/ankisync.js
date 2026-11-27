@@ -33,7 +33,7 @@ function bringIntoView(box) {
   setTimeout(() => {
     go();
     if (part.isConnected && part.animate) {
-      part.animate([{ boxShadow: "0 0 0 3px var(--accent)" }, { boxShadow: "0 0 0 3px transparent" }], { duration: 1500, easing: "ease-out" });
+      part.animate([{ boxShadow: "0 0 0 3px var(--teal)" }, { boxShadow: "0 0 0 3px transparent" }], { duration: 1500, easing: "ease-out" });
     }
   }, 600);
 }

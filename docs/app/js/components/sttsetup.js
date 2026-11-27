@@ -218,7 +218,7 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {}, ow
         paintState();
         note.textContent = key ? "Saved. Press “Test the key” to check it." : borrowed() ? "Using your OpenAI key from Word definitions." : "Key removed.";
       }
-      note.style.color = "var(--accent)";
+      note.style.color = "var(--teal)";
     } catch (err) {
       note.textContent = `The key couldn't be saved: ${err.message}`;
       note.style.color = "var(--danger)";
@@ -251,7 +251,7 @@ export function sttSetup(section, { test, usage, onUsage, changed = () => {}, ow
       refused = false;
       out.textContent = `✓ Works (${info.label} answered in ${Number(seconds).toFixed(1)} s). ${phone
         ? "“Transcribe” on this phone now starts straight away." : "New transcriptions will be written by " + info.label + "."}`;
-      out.style.color = "var(--accent)";
+      out.style.color = "var(--teal)";
     } catch (err) {
       out.textContent = err.message;
       out.style.color = "var(--danger)";

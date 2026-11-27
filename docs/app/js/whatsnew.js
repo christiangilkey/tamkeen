@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.77.0",
+  "A calmer, clearer look, with a new font");
+notes("0.77.0",
+  "Library: Courses is now Basics, and DLI has its own place");
+notes("0.77.0",
+  "Farm: planting asks a word too, and taps work first time");
+notes("0.77.0",
+  "Your creature walks twice as fast, and starts at home");
+notes("0.77.0",
+  "Muffles show words you've looked up, and their orders pay coins");
+notes("0.77.0",
+  "A new Word Sprout, a fence with a gate, and a longer pier");
 notes("0.76.0",
   "A cozy cottage and a village to explore, with the Muffles");
 notes("0.76.0",
@@ -330,7 +342,7 @@ notes("0.46.0",
   "What is Tamkeen is now three pages: How to use Tamkeen, What makes Tamkeen special, and Supporting studies");
 
 notes("0.45.0",
-  "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch");
+  "Iraqi Arabic: pick Iraqi in Basics for its own grammar and words, with the Baghdad g and ch");
 notes("0.45.0",
   "Thai transcripts on your computer now use Pathumma, with about a quarter fewer mistakes on everyday talk");
 notes("0.45.0",
@@ -356,7 +368,7 @@ notes("0.44.0",
   "Transcribing shows a scan bar and a writing bar, each with its percentage");
 
 notes("0.43.0",
-  "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics");
+  "Arabic dialects: pick Levantine, Egyptian, Gulf or Moroccan in Basics for their own grammar and words");
 
 notes("0.43.0",
   "18 new hand-drawn creatures: three for each element, original, cyberpunk and fantasy",
@@ -394,10 +406,10 @@ notes("0.38.0",
   "The basics courses highlight each word in the right place",
   "XP for hearing grammar examples and adding Basics words",
   "Problems you can fix open one clear popup with a button to the fix",
-  "Courses open on Grammar first");
+  "Basics opens on Grammar first");
 
 notes("0.37.0",
-  "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
+  "Basics in the Library: the 1000 most common words of your language, with sentences and natural audio",
   "A grammar course, explained step by step",
   "Scan words: photograph a vocab list or a single word and add it as cards",
   "Spotify karaoke was removed from the browser extension");

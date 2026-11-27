@@ -25,7 +25,7 @@ const KINDS = {
     how: () => [
       [t("Where the sentences come from"), t("Tamkeen downloads a collection of real sentences for the language you are learning, once (0.1 to 4 MB). They come from Tatoeba, a shared collection of sentences translated by volunteers, and from the usage examples in Wiktionary, each with its English translation.")],
       [t("How one is chosen"), t("For each card, Tamkeen looks for sentences that use the word in any of its forms. It prefers one that fits the meaning you saved and is not too long, and above all one where every other word is a word you have already met, so you can read it. Then it says: “Every other word in this sentence is one you know.”")],
-      [t("Dialects"), t("Learning Arabic with a dialect course chosen in Library → Courses, the sentences come from that dialect where there are any.")],
+      [t("Dialects"), t("Learning Arabic with a dialect chosen in Library → Basics, the sentences come from that dialect where there are any.")],
       [t("Private and free"), t("It all happens on your device: nothing is sent anywhere and nothing is paid. After the download it works offline.")],
       [t("Its limits"), t("It can only find sentences that exist: a rare word may have none, and then the card has no sentence until you write one. The translations are in English.")],
       [t("With AI instead"), t("Your AI writes a new short sentence for the word, at your level, with a translation in your own language. It works for any word, needs your AI key and costs a fraction of a cent.")],

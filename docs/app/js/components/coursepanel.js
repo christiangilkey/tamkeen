@@ -69,7 +69,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     onSaved: () => { refreshCards().then(() => { if (repaint) repaint(); onCards(); }); } });
 
   async function load() {
-    box.innerHTML = `<div class="course-note muted">Loading the course…</div>`;
+    box.innerHTML = `<div class="course-note muted">Loading…</div>`;
     try {
       const r = await fetch(url(`${id}/course.json`), { cache: "no-cache" });
       if (!r.ok) throw new Error(r.status === 404 ? "none" : "unreachable");
@@ -78,8 +78,8 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     } catch (e) {
       box.innerHTML = `<div class="course-note"></div>`;
       box.firstChild.textContent = e.message === "none"
-        ? `A basics course for ${name} is on its way. Until then, add words with “Add words” on the Vocab page.`
-        : "The course couldn't be loaded. Check your connection and try again.";
+        ? `Basics for ${name} is on its way. Until then, add words with “Add words” on the Vocab page.`
+        : "This couldn't be loaded. Check your connection and try again.";
       return;
     }
     await refreshCards();
@@ -141,7 +141,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       ? `<p class="small muted course-credit">The audio is a computer voice (${esc(course.voice.name || "text to speech")}).
       Meanings and translations are in English for now.</p>`
       // (a course without audio: no voice said it well enough, as for Moroccan)
-      : `<p class="small muted course-credit">This course has no audio: no computer voice says it well enough yet.
+      : `<p class="small muted course-credit">These words have no audio: no computer voice says them well enough yet.
       Meanings and translations are in English for now.</p>`));
   }
 

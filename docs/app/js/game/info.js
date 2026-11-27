@@ -60,7 +60,16 @@ const EARNED = {
     return {
       title: "XP", pic: "xp",
       now: `You have ${fmt(game.xp)} XP and are level ${lv.level}. The next level is ${fmt(lv.need - lv.into)} XP away.`,
+      // (the owner, 2026-11-26: "waaaay too long": a few lines first, every amount behind "All the numbers")
       get: [
+        "Look up and save words, review your flashcards, and do grammar lessons.",
+        `Reach your daily goal: ${DAILY_COMPLETE_XP}, the biggest reward of the day.`,
+        "Battles: right answers, and a win.",
+        "A little every day pays more than one long session.",
+      ],
+      use: ["It fills your level bar (each level pays 5 coins) and grows your creature. It is never spent."],
+      where: null,
+      details: [
         "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and each word you look up in the same study session builds a combo of up to double, with no hurry: the session ends only when you've been away from the app for 10 minutes, or at midnight.",
         "Save a word to your vocab: 20.",
         "Finish a grammar lesson: 40 to 80 the first time, more for more right answers, and 15 to 30 when you do it again (each lesson pays once a day).",
@@ -72,13 +81,8 @@ const EARNED = {
         "Vocab reviewer: each card you answer pays a quarter of what looking up a word pays (usually 1 to 4, sometimes 8 to 12, now and then 25 to 50), the same whether you remembered it or not, so there is nothing to gain by fibbing.",
         `Finish a battle and clear your flashcards on the same day: ${BOTH_XP} more, once a day.`,
         "Doing the same thing many times in one day pays less and less, so a little every day beats one long session.",
+        `Each level needs more XP than the last (this one needs ${fmt(lv.need)}).`,
       ],
-      use: [
-        `It fills your level bar. Each new level pays 5 coins, and each level needs more XP than the last (this one needs ${fmt(lv.need)}).`,
-        "It grows the creature in your habitat: it hatches, grows into a juvenile and then becomes fully grown.",
-        "XP is never spent. It only goes up.",
-      ],
-      where: "Nowhere to spend it: it works by itself.",
       go: [{ label: "How your creature grows", pic: "evolve", tab: "evolve" }],
     };
   },
@@ -215,6 +219,7 @@ export function openEarned(id, game, go, opts = {}) {
   body.append(h(`<div><strong>How you get it</strong>${list(c.get)}</div>`));
   body.append(h(`<div><strong>What it does</strong>${list(c.use)}</div>`));
   if (c.where) body.append(h(`<div><strong>Where</strong><p class="info-where">${c.where}</p></div>`));
+  if (c.details) body.append(h(`<details class="info-details" style="font-size:14px"><summary style="cursor:pointer;font-weight:600">All the numbers</summary>${list(c.details)}</details>`));
   if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l,
     run: () => (l.info ? openEarned(l.info, game, go, opts) : l.tab === "evolve" ? openEvolution(game, go, opts) : go(l.tab)) }))));
 }

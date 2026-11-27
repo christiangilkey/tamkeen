@@ -167,7 +167,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     const box = $("#vo-dialects");
     if (!box) return;
     box.textContent = voiceMode(cur()) === "azure"
-      ? "Arabic dialect words are read by a voice from that dialect: words from the Levantine course by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Courses, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
+      ? "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
       : phone ? "This device's voice and the desktop app's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure."
       : "This device's voice and the computer's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure.";
   }
@@ -239,7 +239,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     try {
       await save({ tts_key_azure: key, tts_region_azure: region });
       note.textContent = key && region ? "Saved. Press “Test the key” to check it." : key ? "Saved. Now the region, as Azure shows it next to the key." : "Key removed.";
-      note.style.color = "var(--accent)";
+      note.style.color = "var(--teal)";
     } catch (err) {
       note.textContent = `The key couldn't be saved: ${err.message}`;
       note.style.color = "var(--danger)";
@@ -322,7 +322,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       refused = false;
       out.textContent = `✓ Works (Azure answered in ${((Date.now() - began) / 1000).toFixed(1)} s). ${offered.length
         ? `${offered.length} ${byName} voices in this region.` : `Azure has no ${byName} voice in this region.`} Testing uses none of your characters.`;
-      out.style.color = "var(--accent)";
+      out.style.color = "var(--teal)";
       paintVoices();
     } catch (err) {
       refused = !!err.keyRejected;

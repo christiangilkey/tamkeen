@@ -1,14 +1,14 @@
-Figtree font (the app's English text), Fontsource package 5.2.10 (https://github.com/erikdkennedy/figtree)
+Commissioner font (the app's text), Google Fonts, version v24 (https://github.com/kosbarts/Commissioner)
 
-Tamkeen shows its own words (buttons, menus, lists) in Figtree (web/fonts/Figtree-latin*.woff2): the variable
-font as Google Fonts serves it, cut into its Latin and extended-Latin letters (taken from the Fontsource package);
-nothing else is changed. The Font Software has no Reserved Font Name.
+Tamkeen shows its own words (buttons, menus, lists, headings) in Commissioner (web/fonts/Commissioner-*.woff2): the
+variable font as Google Fonts serves it (weight 100-900 and the "flair" axis), in its Latin, extended-Latin and
+Cyrillic parts; nothing else is changed. The Font Software has no Reserved Font Name.
 
-Copyright 2022 The Figtree Project Authors (https://github.com/erikdkennedy/figtree)
+Copyright 2019 The Commissioner Project Authors (https://github.com/kosbarts/Commissioner)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
+https://openfontlicense.org
 
 
 -----------------------------------------------------------
@@ -24,7 +24,7 @@ with others.
 
 The OFL allows the licensed fonts to be used, studied, modified and
 redistributed freely as long as they are not sold by themselves. The
-fonts, including any derivative works, can be bundled, embedded,
+fonts, including any derivative works, can be bundled, embedded, 
 redistributed and/or sold with any software provided that any reserved
 names are not used by derivative works. The fonts and derivatives,
 however, cannot be released under any other type of license. The

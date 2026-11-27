@@ -1,4 +1,4 @@
-// Swipe left/right between the bottom-tab sections, and a highlight "blob" in the tab bar that
+// Swipe left/right between the bottom-tab sections, and a highlight (a short teal line) in the tab bar that
 // slides between tabs: it follows your finger during a swipe and glides when you tap a tab.
 //
 // How a swipe works: once a touch is clearly horizontal the page follows the finger; letting
@@ -39,7 +39,7 @@ function placeBlob(index, progress = 0, animate = true) {
   // Stretch a little mid-way, like something soft being dragged.
   const stretch = 1 + 0.35 * Math.sin(Math.PI * p);
   blob.style.opacity = "1";
-  blob.style.transform = `translate(${x - 26}px, ${from.y - 14}px) scaleX(${stretch})`;
+  blob.style.transform = `translate(${x - 26}px, 0) scaleX(${stretch})`; // (a short line along the bar's top edge)
 }
 
 function scrollsSideways(el) {

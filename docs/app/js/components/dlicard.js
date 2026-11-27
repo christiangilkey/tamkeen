@@ -18,7 +18,7 @@ import { learningList, setLearning, switchTo } from "./langswitch.js";
 import { confirmBox } from "./modal.js";
 
 /** Where the material shows: Library → Courses → DLI (pages/library.js). */
-export const DLI_PLACE = "#/library?show=courses&tab=dli";
+export const DLI_PLACE = "#/library?show=dli";
 
 const settings = () => (state.status && state.status.settings) || {};
 
@@ -26,7 +26,7 @@ const settings = () => (state.status && state.status.settings) || {};
 async function offerLanguage(code) {
   const name = t(dliLanguageName(code));
   if (!(await confirmBox(t("Add {0} to the languages you're learning?", name),
-    t("Your DLI content shows in Library → Courses while you study {0}. You switch languages at the top of the screen.", name),
+    t("Your DLI content shows in Library → DLI while you study {0}. You switch languages at the top of the screen.", name),
     { ok: t("Add {0}", name) }))) return false;
   await setLearning(code, true);
   return true;
@@ -103,8 +103,8 @@ export function dliCard(body) {
     if (st.unlocked) {
       $(".dli-where").textContent = !st.language ? t("Choose your DLI language above to see its content.")
         : step ? t("One more step below, then your DLI content opens.")
-        : studyLanguage() === st.language ? t("Your DLI content is in Library → Courses → DLI.")
-        : t("Your DLI content is in Library → Courses → DLI, while you're studying {0}.", name);
+        : studyLanguage() === st.language ? t("Your DLI content is in Library → DLI.")
+        : t("Your DLI content is in Library → DLI, while you're studying {0}.", name);
       $(".dli-go").hidden = !st.language || missing || step;
     }
     const sharing = $(".dli-sharing");
@@ -212,21 +212,21 @@ if (typeof document !== "undefined" && !document.getElementById("dli-css")) {
   style.textContent = `
     .dli-sub { display: block; margin-top: 2px; }
     .dli-student-title { font-weight: 600; }
-    .dli-student input { accent-color: var(--accent); width: 18px; height: 18px; flex: none; }
+    .dli-student input { accent-color: var(--teal); width: 18px; height: 18px; flex: none; }
     .dli-more[hidden], .dli-part[hidden], .dli-card [hidden] { display: none; }
-    .dli-part { border-top: 1px solid var(--border); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .dli-part { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
     .dli-part h3, .dli-part .set-hint { margin: 0; }
     .dli-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
     .dli-chip { min-height: 44px; border-radius: 12px; font-weight: 600; }
-    .dli-chip.on, .dli-chip.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-    .dli-card button.link { display: inline; min-height: 0; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 650; white-space: normal; }
+    .dli-chip.on, .dli-chip.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
+    .dli-card button.link { display: inline; min-height: 0; padding: 0; border: 0; background: none; color: var(--teal); font: inherit; font-weight: 650; white-space: normal; }
     .dli-card button.link:hover:not(:disabled) { background: none; text-decoration: underline; }
     .dli-pw-row { display: flex; gap: 8px; }
     .dli-pw-row input { flex: 1; min-width: 0; min-height: 44px; font-size: 16px; }
     .dli-pw-row button { min-height: 44px; flex: none; }
     .dli-wrong { color: var(--danger); margin: 0; }
-    .dli-lock { display: inline-flex; color: var(--accent); }
-    .dli-where { flex: 1 1 100%; color: var(--muted); font-size: 14px; }
+    .dli-lock { display: inline-flex; color: var(--teal); }
+    .dli-where { flex: 1 1 100%; color: var(--ink-2); font-size: 14px; }
     .dli-open .set-actions { margin-top: 2px; justify-content: center; }
     .dli-open .dli-go { min-width: 220px; justify-content: center; }
   `;

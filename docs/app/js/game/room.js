@@ -101,6 +101,31 @@ export function freeSpot(p, blocked, A = ROOM.walk) {
   return best ? pointOf(best.c, best.r, A) : pointOf(start.c, start.r, A);
 }
 
+/** Is the straight line from p to q clear of blocked squares (looked at every 2 px)? */
+export function clearLine(p, q, blocked, A = ROOM.walk) {
+  const n = Math.max(1, Math.ceil(Math.hypot(q.x - p.x, q.y - p.y) / 2));
+  for (let i = 1; i < n; i++) {
+    const t = i / n;
+    if (blocked.has(cellKey({ x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t }, A))) return false;
+  }
+  return true;
+}
+/** A path pulled straight: from where it stands, on to the furthest point it can walk to in a straight line, and so
+ * on, so it never zigzags along the grid or turns back for its last few pixels (the grid's corners sit 6 px apart).
+ * The last point is kept exactly. */
+export function straighten(a, pts, blocked, A = ROOM.walk) {
+  const out = [];
+  let from = a, i = 0;
+  while (i < pts.length) {
+    let j = pts.length - 1;
+    while (j > i && !clearLine(from, pts[j], blocked, A)) j--;
+    out.push(pts[j]);
+    from = pts[j];
+    i = j + 1;
+  }
+  return out;
+}
+
 /** The way from `a` to `b` round the furniture: a list of points ending at `b` (or at the nearest free spot to it).
  * Steps go along rows, columns and diagonals; the list is thinned to its corners. */
 export function findPath(a, b, blocked, A = ROOM.walk) {
@@ -125,7 +150,7 @@ export function findPath(a, b, blocked, A = ROOM.walk) {
       }
       const end = blocked.has(key(cellOf(b, A).c, cellOf(b, A).r)) ? freeSpot(b, blocked, A) : clampToFloor(b, A);
       if (pts.length) pts[pts.length - 1] = end; else pts.push(end);
-      return pts;
+      return straighten(a, pts, blocked, A);
     }
     for (let dc = -1; dc <= 1; dc++) {
       for (let dr = -1; dr <= 1; dr++) {
@@ -157,13 +182,14 @@ export function tapIn(x, y) {
   return y >= ROOM.floorTop ? "floor" : "wall";
 }
 
-// ---------- where the creature is (this device only: which side of its door, and where it stands) ----------
-const KEY = "tamkeen.game.roomView";
+// ---------- where the creature is (this visit only: which side of its door) ----------
 const VIEWS = ["room", "yard", "hall", "farm"];
-/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), remembered on this device. */
+let here = "room"; // (every launch starts in its room, in the cottage: the owner, "When starting the game the creature
+// should always start inside the cottage"; going back to Home in the same visit finds it where it was)
+/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), for this visit. */
 export function savedView() {
-  try { const v = localStorage.getItem(KEY); return VIEWS.includes(v) ? v : "room"; } catch { return "room"; }
+  return here;
 }
 export function saveView(view) {
-  try { localStorage.setItem(KEY, VIEWS.includes(view) ? view : "room"); } catch { /* not kept: it starts in its room */ }
+  here = VIEWS.includes(view) ? view : "room";
 }

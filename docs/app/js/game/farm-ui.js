@@ -12,7 +12,8 @@ import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { FEEDS_PER_DAY, garden, shrineRate, shrineTier, stardustBoost } from "./idle.js";
 import { SHRINE_LINES } from "./shrinelines.js";
 import { TYPES } from "./data.js";
-import { formOf } from "./genome.js";
+import { describe, formOf } from "./genome.js";
+import { composeCreature } from "./render.js";
 import { LINES, knownKeys, readLine } from "./muffles.js";
 import { warmPorridge } from "./talents.js";
 import * as social from "../social.js";
@@ -153,20 +154,15 @@ export function pickSeed(key, { changed = () => {}, planted = () => {} } = {}) {
         pic: cropIcon(c, 32), name: t(c.name), dim: !ok,
         sub: ok ? `${daysLine(c)} · ${t("You have {0}", f.seeds[c.id])}` : t("Its season: {0}", t(SEASON_NAME[c.season])),
         end: ok ? `<span class="farm-plant">${t("Plant")}</span>` : "",
-        open: ok ? () => {
-          const err = plant(game, key, c.id);
-          if (err) { toast(t(err), { error: true }); return; }
-          sfx("tick");
-          saveGame();
-          changed();
+        open: ok ? () => { // one word on the question card, then it is planted (right or wrong)
           d.close();
-          planted(c);
+          askToPlant(key, c).then((done) => { if (done) { changed(); planted(c); } });
         } : null,
       }));
     }
     return {
       title: "Plant a seed",
-      text: have.length ? "Pick a seed for this spot. Water it each day with a word, and it ripens." : "You have no seeds. The seed stand by the barn sells them for glow.",
+      text: have.length ? "Pick a seed for this spot: plant it with a word, water it each day with a word, and it ripens." : "You have no seeds. The seed stand by the barn sells them for glow.",
       more,
       buttons: [{ word: "Close", run: () => d.close() }, ...(have.length ? [] : [{ word: "Seed stand", primary: true, run: () => { d.close(); openSeedStand({ changed }); } }])],
     };
@@ -209,64 +205,185 @@ async function farmWords(game) {
   return words.vocab;
 }
 
+// ---------- the farm's question card: a little scene, one word, then the action's own moment ----------
+const CARD_W = 96, CARD_H = 48;          // the scene, in pixels (drawn three times over, crisp)
+const PLOT_AT = { x: 58, y: 24 };        // the plot's soil, top left
+const pics = {};
+const pic = (file) => {
+  if (!(file in pics)) { pics[file] = null; const im = new Image(); im.onload = () => { pics[file] = im; }; im.src = new URL(`../../game-art/${file}`, import.meta.url).href; }
+  return pics[file];
+};
+let creatureFrame = null, creatureFor = ""; // (your creature, composed once per look)
+
 /**
- * Water a plant: one due word asked on the question card. Right: it has its water for today; wrong: a little (two
- * make a watering), and the right answer is shown. Resolves to {correct, grew, ripe, revived} or null (no word could
- * be asked, or the card was closed).
+ * The question card for a farm job: `kind` "plant" (the seed `crop` goes into empty spot `key`) or "water". A little
+ * scene at the top (the spot, its crop at its stage, your creature with its trowel or watering can), the crop's
+ * progress under it, the word and four answers. `act(correct)` does the job and returns what happened; then the
+ * scene plays that job's own moment (planting: a hole dug, the seed dropped in, the earth patted down, a sprout;
+ * watering: the can poured, the soil darkening, the plant perking up; a wrong answer: a drizzle and the right word).
+ * Resolves to act's result, or null if closed first.
+ */
+function farmCard({ kind, key, crop, q, act }) {
+  const game = getGame();
+  const before = plantState(game, key);
+  return new Promise((resolve) => {
+    let answered = false, result = null, alive = true;
+    const m = openModal({ title: "", cls: "farm-q-back", cross: false, onClose: () => { alive = false; if (!answered) resolve(null); } });
+    const panel = h(`<div class="lbq farm-q">
+      <button type="button" class="farm-q-x ghost icon" aria-label="Close" title="Close (Esc)">✕</button>
+      <canvas class="farm-q-scene" width="${CARD_W * 3}" height="${CARD_H * 3}" aria-hidden="true"></canvas>
+      <div class="farm-q-title"></div>
+      <div class="farm-q-progress"></div>
+      <div class="lbq-ask"></div>
+      <div class="lbq-prompt"></div>
+      <div class="lbq-options"></div>
+      <div class="lbq-verdict" hidden></div>
+    </div>`);
+    panel.querySelector(".farm-q-x").onclick = () => m.close();
+    panel.querySelector(".farm-q-title").textContent = kind === "plant" ? t("Plant the {0}", t(crop.name).toLowerCase()) : t("Water the {0}", t(crop.name).toLowerCase());
+    const progress = panel.querySelector(".farm-q-progress");
+    progress.textContent = kind === "plant" ? daysLine(crop) : t("Water day {0} of {1}", Math.min(before.days + 1, before.need), before.need);
+    panel.querySelector(".lbq-ask").textContent = t("Which of your words means this?");
+    const prompt = panel.querySelector(".lbq-prompt");
+    prompt.textContent = q.prompt;
+    setLang(prompt, detectLanguage(q.prompt));
+    const buttons = q.options.map((text, i) => {
+      const bt = h(`<button type="button" class="lbq-opt"><span class="lbq-text" dir="auto" translate="no"></span></button>`);
+      const el = bt.querySelector(".lbq-text");
+      el.textContent = text;
+      setLang(el, detectLanguage(text));
+      bt.onclick = () => choose(i);
+      panel.querySelector(".lbq-options").append(bt);
+      return bt;
+    });
+    m.body.replaceChildren(panel);
+
+    // the scene
+    const canvas = panel.querySelector(".farm-q-scene");
+    const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+    const look = describe(game.creature);
+    const egg = formOf(game.creature).id === "egg";
+    const lookKey = JSON.stringify(look);
+    if (!egg && lookKey !== creatureFor) { creatureFor = lookKey; creatureFrame = null; composeCreature(look, { eyes: "open", mouth: "smile" }).then((c) => { creatureFrame = c; }).catch(() => {}); }
+    let moment = null; // {kind: "plant" | "water" | "drizzle", t0, grew}
+    const row = CROPS.indexOf(crop);
+    function draw(now) {
+      if (!alive) return;
+      ctx.setTransform(3, 0, 0, 3, 0, 0);
+      ctx.clearRect(0, 0, CARD_W, CARD_H);
+      const grass = pic("battle/terrain/grass_fill.png"), soil = pic("farm/soil.png"), crops = pic("farm/crops.png"), fx = pic("farm/card.png");
+      if (grass) for (let y = 0; y < CARD_H; y += 16) for (let x = 0; x < CARD_W; x += 16) ctx.drawImage(grass, ((x / 16 + y / 8) % 4) * 16, 0, 16, 16, x, y, 16, 16);
+      const t1 = moment ? now - moment.t0 : 0;
+      const wet = (before && before.watered) || (moment && moment.kind === "water" && t1 > 700);
+      if (soil) ctx.drawImage(soil, wet ? 16 : 0, 0, 16, 16, PLOT_AT.x, PLOT_AT.y, 16, 16);
+      // the crop: none yet when planting until its sprout pops up; when watering, its stage (one up once it grew)
+      let stage = kind === "plant" ? (moment && t1 > 2000 ? 0 : -1) : before.stage + (moment && moment.grew && t1 > 1100 ? 1 : 0);
+      stage = Math.min(3, stage);
+      if (crops && stage >= 0 && row >= 0) {
+        const pop = kind === "plant" && t1 < 2300 ? Math.round((2300 - t1) / 100) : 0; // (the sprout rises out of the earth)
+        const perk = kind === "water" && moment && moment.kind === "water" && t1 > 1100 && t1 < 1400 ? -1 : 0;
+        ctx.save();
+        ctx.beginPath(); ctx.rect(PLOT_AT.x - 4, 0, 24, PLOT_AT.y + 16); ctx.clip();
+        ctx.drawImage(crops, stage * 16, row * 24, 16, 24, PLOT_AT.x, PLOT_AT.y - 11 + pop + perk, 16, 24);
+        ctx.restore();
+      }
+      // your creature beside it (not an egg: it can't hold a can)
+      if (creatureFrame) ctx.drawImage(creatureFrame, 0, 0, creatureFrame.width, creatureFrame.height, 6, CARD_H - 46 + Math.round(Math.sin(now / 400)), 46, 46);
+      // the tools and what happens (game-art/farm/card.png: 32 x 32 frames, the plot at 8, 16 in each)
+      const frame = (i) => { if (fx) ctx.drawImage(fx, i * 32, 0, 32, 32, PLOT_AT.x - 8, PLOT_AT.y - 16, 32, 32); };
+      if (!moment) frame(kind === "plant" ? (Math.floor(now / 600) % 2 ? 0 : 2) : 6);
+      else if (moment.kind === "plant") {
+        if (t1 < 900) frame(Math.floor(t1 / 150) % 2);           // digging
+        else if (t1 < 1300) frame(2);                            // the seed drops
+        else if (t1 < 1500) frame(3);                            // in the hole
+        else if (t1 < 2000) frame(4 + (Math.floor(t1 / 120) % 2)); // patted down
+        else if (t1 < 2600) frame(13);                           // a sprout, and a sparkle
+      } else if (moment.kind === "water") {
+        if (t1 < 1300) { frame(7); frame(8 + (Math.floor(t1 / 110) % 3)); }
+        else if (t1 < 1900) frame(13);
+        else frame(6);
+      } else if (moment.kind === "drizzle") frame(11 + (Math.floor(t1 / 200) % 2));
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+
+    function choose(i) {
+      if (answered) return;
+      answered = true;
+      const correct = i === q.answer;
+      for (const bt of buttons) bt.disabled = true;
+      buttons[q.answer].classList.add("right");
+      if (!correct) buttons[i].classList.add("wrong");
+      answerQuestion(game, q.uid, correct);
+      result = act(correct);
+      saveGame();
+      const verdict = panel.querySelector(".lbq-verdict");
+      verdict.hidden = false;
+      verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
+      const now = performance.now();
+      if (kind === "plant") {
+        moment = { kind: "plant", t0: now };
+        verdict.textContent = correct ? t("Right! It's planted.") : t("Not quite, but it's planted all the same.");
+        sfx("tick"); setTimeout(() => sfx("tick"), 300);
+        setTimeout(() => { if (alive) sfx("plant"); }, 2000);
+        progress.textContent = daysLine(crop);
+      } else if (correct) {
+        moment = { kind: "water", t0: now, grew: !!(result && result.grew) };
+        const more = (result && result.more) || 0;
+        verdict.textContent = more ? t("Right! It and {0} more have their water for today.", more) : t("Right! It has its water for today.");
+        sfx("water");
+        const after = plantState(game, key);
+        if (after) progress.textContent = after.ripe ? t("Ripe! Tap it to harvest.") : t("Water day {0} of {1} · come back tomorrow", after.days, after.need);
+      } else {
+        moment = { kind: "drizzle", t0: now };
+        verdict.textContent = t("Not quite: a little water. One more answer waters it.");
+        sfx("surprise");
+      }
+      setTimeout(() => { m.close(); resolve(result); }, kind === "plant" ? (correct ? 2800 : 3400) : correct ? 2100 : 2600);
+    }
+  });
+}
+
+/**
+ * Water a plant: one due word asked on the farm's question card. Right: it has its water for today; wrong: a little
+ * (two make a watering), and the right answer is shown. Resolves to {correct, grew, ripe, revived} or null (no word
+ * could be asked, or the card was closed).
  */
 export async function askToWater(key) {
   const game = getGame();
   const vocab = await farmWords(game);
   const q = pickQuestion(game, vocab, Math.random, new Date());
   if (!q) { toast(t("Save a few more words first: watering asks one of them.")); return null; }
-  const c = (plantState(game, key) || {}).crop;
-  return new Promise((resolve) => {
-    let answered = false;
-    const m = openModal({ title: "", cls: "farm-q-back", onClose: () => { if (!answered) resolve(null); } });
-    const panel = h(`<div class="lbq fishq farm-q">
-      <div class="lbq-head"><span class="lbq-move"></span></div>
-      <div class="lbq-ask"></div>
-      <div class="lbq-prompt"></div>
-      <div class="lbq-options"></div>
-      <div class="lbq-foot"><span class="lbq-verdict" hidden></span></div>
-    </div>`);
-    const head = panel.querySelector(".lbq-move");
-    head.innerHTML = c ? cropIcon(c, 32) : "";
-    head.append(document.createTextNode(c ? t("Water the {0}", t(c.name).toLowerCase()) : t("Water it")));
-    panel.querySelector(".lbq-ask").textContent = t("Which of your words means this?");
-    const prompt = panel.querySelector(".lbq-prompt");
-    prompt.textContent = q.prompt;
-    setLang(prompt, detectLanguage(q.prompt));
-    const buttons = q.options.map((text, i) => {
-      const b = h(`<button type="button" class="lbq-opt"><span class="lbq-text" dir="auto" translate="no"></span></button>`);
-      const el = b.querySelector(".lbq-text");
-      el.textContent = text;
-      setLang(el, detectLanguage(text));
-      b.onclick = () => choose(i);
-      panel.querySelector(".lbq-options").append(b);
-      return b;
-    });
-    m.body.replaceChildren(panel);
-    function choose(i) {
-      if (answered) return;
-      answered = true;
-      const correct = i === q.answer;
-      for (const b of buttons) b.disabled = true;
-      buttons[q.answer].classList.add("right");
-      if (!correct) buttons[i].classList.add("wrong");
-      answerQuestion(game, q.uid, correct);
-      const r = water(game, key, correct);
-      const more = correct && typeof r === "object" ? waterAround(game, key) : []; // (slice 5: the watering can)
-      saveGame();
-      const verdict = panel.querySelector(".lbq-verdict");
-      verdict.hidden = false;
-      verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
-      verdict.textContent = correct ? (more.length ? t("Right! It and {0} more have their water for today.", more.length) : t("Right! It has its water for today."))
-        : t("Not quite: a little water. One more answer waters it.");
-      sfx(correct ? "common" : "surprise");
-      setTimeout(() => { m.close(); resolve(typeof r === "string" ? null : { correct, ...r }); }, correct ? 900 : 2200);
-    }
-  });
+  const st = plantState(game, key);
+  if (!st) return null;
+  let answer = null;
+  const r = await farmCard({ kind: "water", key, crop: st.crop, q, act: (correct) => {
+    const out = water(game, key, correct);
+    const more = correct && typeof out === "object" ? waterAround(game, key) : []; // (slice 5: the watering can)
+    answer = correct;
+    return typeof out === "string" ? null : { ...out, more: more.length };
+  } });
+  return r ? { correct: answer, ...r } : null;
+}
+
+/**
+ * Plant seed `crop` in empty spot `key` with one word on the farm's question card (the owner: "Planting a seed should
+ * take a vocab question to answer"). Right or wrong it is planted (a wrong answer shows the right word): the seed is
+ * never lost and nobody gets stuck. With no word to ask, it is planted straight away. Resolves to true once planted.
+ */
+export async function askToPlant(key, crop) {
+  const game = getGame();
+  const sow = () => {
+    const err = plant(game, key, crop.id);
+    if (err) { toast(t(err), { error: true }); return null; }
+    return { planted: true };
+  };
+  const vocab = await farmWords(game);
+  const q = pickQuestion(game, vocab, Math.random, new Date());
+  if (!q) { const r = sow(); if (r) { saveGame(); sfx("plant"); } return !!r; }
+  const r = await farmCard({ kind: "plant", key, crop, q, act: () => sow() });
+  return !!r;
 }
 
 /** The Star Shrine's card (slice 3): what stardust does now, the glow it makes (the Star Loom's), how a release
@@ -449,7 +566,7 @@ export function openOrder(order, folkName, { changed = () => {} } = {}) {
       title: t("{0}'s order", folkName),
       pic: cropIcon(order.crop, 64),
       facts: [fact("Wants", `<span>${order.n} × ${t(order.crop.name)}</span>`), fact("You have", `<span>${fmt(have(game, order.crop.id))}</span>`),
-        fact("Pays", amount("glow", order.glow))],
+        fact("Pays", amount("coins", order.coins))],
       text: "Fill a Muffle's order and one of their forgotten words wakes up: it shows in their speech from now on.",
       note: can ? "" : t("Grow some more first: the order waits until tomorrow."),
       buttons: [{ word: "Close", run: () => d.close() }, { word: "Give", primary: true, disabled: !can, run: () => {
