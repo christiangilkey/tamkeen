@@ -352,6 +352,8 @@ export function habitat() {
   };
   $(".scene-arrow.prev").onclick = () => moveTo(-1);
   $(".scene-arrow.next").onclick = () => moveTo(1);
+  // (the cottage and the village have no other habitats: the arrows belong to the old side-on scenes)
+  if (feature("habitat_room")) { $(".scene-arrow.prev").hidden = true; $(".scene-arrow.next").hidden = true; }
 
   /** The day's goal: three sizes, the one in use lit. */
   function goalBox() {
@@ -1136,7 +1138,7 @@ export function habitat() {
       const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
       for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
     }
-    if (dark) { ctx.fillStyle = `rgba(20, 12, 48, ${dark})`; ctx.fillRect(0, 0, W, H); }
+    if (dark && !outside()) { ctx.fillStyle = `rgba(20, 12, 48, ${dark})`; ctx.fillRect(0, 0, W, H); } // (outside: over everything, below)
     if (doorT > 0) doorT -= dt;
     if (inRoom() && art.room) {
       ctx.drawImage(art.room, 0, 0);
@@ -1330,6 +1332,9 @@ export function habitat() {
     ctx.restore();
     for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
     for (const it of yardItems) if (it.y > feet) it.draw(); // (and on the field)
+    // Night outside falls on everything on the field alike (the ground, the buildings, the props, the Muffles, the
+    // creature), as in the battles; inside the hall the lamps are lit (less dark).
+    if (dark && outside()) { ctx.fillStyle = `rgba(20, 12, 48, ${inHall() ? dark * 0.45 : dark})`; ctx.fillRect(cam(), 0, W, H); }
     if (outside() && !inHall() && farmOn()) { ctx.save(); ctx.translate(cam(), 0); seasonOverlay(now); ctx.restore(); } // (prototype "farm")
     if (lanternNight()) { // (Lantern soup: the glow, and now and then a Muffle comes to say a word)
       const g2 = ctx.createRadialGradient(pet.x, feet - 10, 2, pet.x, feet - 10, 34);

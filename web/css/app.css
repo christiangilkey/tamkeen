@@ -4286,3 +4286,4 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }
 /* The Cropdex (prototype "farm"): a crop not grown yet, faint. */
 .farm-dex-none { opacity: .35; }
+.scene-arrow[hidden] { display: none; } /* (the cottage and village: no other habitats to switch to) */
