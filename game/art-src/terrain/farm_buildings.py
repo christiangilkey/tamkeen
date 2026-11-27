@@ -62,6 +62,174 @@ def word_sprout(tier):
     raise ValueError(tier)
 
 
+
+# ---------- the Word Sprout, rethought (the owner: "The Word Sprout sprite especially is just bad"): three ideas ----------
+# It is the building that drops seeds for the words you look up. Each idea grows taller and fuller per tier and wears
+# the Muffles' own letters (game-art/muffle/glyphs.png: twelve 8 x 9 glyphs) as its words.
+_GLYPHS = None
+
+
+def glyph(sp: Sprite, x, y, k, col, part, shade=None):
+    """Glyph `k` of the Muffles' script, its lit pixels in `col` (a darker `shade` one pixel down-right, for depth)."""
+    global _GLYPHS
+    if _GLYPHS is None:
+        _GLYPHS = np.array(Image.open(ROOT / "web/game-art/muffle/glyphs.png").convert("RGBA"))
+    cell = _GLYPHS[0:7, (k % 12) * 8:(k % 12) * 8 + 7]
+    for j in range(cell.shape[0]):
+        for i in range(cell.shape[1]):
+            if cell[j, i, 3] > 0:
+                if shade is not None:
+                    sp.set(x + i + 1, y + j + 1, shade, part)
+    for j in range(cell.shape[0]):
+        for i in range(cell.shape[1]):
+            if cell[j, i, 3] > 0:
+                sp.set(x + i, y + j, col, part)
+
+
+def small_glyph(sp: Sprite, x, y, k, col, part):
+    """A glyph at half size (every other pixel), for leaves too small for a whole one."""
+    global _GLYPHS
+    if _GLYPHS is None:
+        _GLYPHS = np.array(Image.open(ROOT / "web/game-art/muffle/glyphs.png").convert("RGBA"))
+    cell = _GLYPHS[0:7, (k % 12) * 8:(k % 12) * 8 + 7]
+    for j in range(0, 7, 2):
+        for i in range(0, 7, 2):
+            if cell[j, i, 3] > 0:
+                sp.set(x + i // 2, y + j // 2, col, part)
+
+
+def seed_pod(sp: Sprite, x, y, part):
+    """A hanging seed pod: a stalk, then a little gold-brown teardrop."""
+    sp.set(x, y, LEAF[3], part)
+    stamp(sp.obj, x - 1, y + 1, [".h.", "hfd", ".d."], {"h": BLOSSOM[2], "f": BLOSSOM[1], "d": BLOSSOM[0]})
+    for (i, j) in ((0, 1), (-1, 2), (0, 2), (1, 2), (0, 3)):
+        sp.part[y + j, x + i] = part
+
+
+def sprout_a(tier):
+    """Idea A, the Glyph Tree: a young tree whose leaf clusters each carry a pale letter, seed pods hanging under them,
+    one fallen on the grass."""
+    size = 48 if tier == 3 else 32
+    if tier == 1:
+        sp = Sprite(32, 32, "ws_a1")
+        sp.ground_shadow(18, 29.5, 8, 2)
+        cylinder(sp, 15, 16, 17, 29, BARK, part=1)
+        for i, (x, y, rx, ry) in enumerate(((12, 15, 5, 4), (20, 13, 5, 4), (16, 9, 5, 4))):
+            blob(sp, x, y, rx, ry, LEAF[1:], rough=0.3, part=2 + i, seed=i, lo=-0.3, hi=1.35)
+        glyph(sp, 13, 6, 3, LEAF[8], 6)
+        seed_pod(sp, 19, 17, 7)
+        return finish(sp)
+    clumps = ([(16, 11, 8, 6), (9, 16, 6, 5), (23, 16, 6, 5), (16, 18, 7, 5)] if tier == 2 else
+              [(24, 11, 10, 8), (14, 17, 8, 7), (34, 17, 8, 7), (18, 26, 8, 6), (30, 26, 8, 6), (24, 19, 10, 8)])
+    trunk = (15, 17, 20) if tier == 2 else (22, 26, 30)
+    sp = crown_tree(f"ws_a{tier}", size, size, clumps, LEAF, trunk, [], fruit=None)
+    letters = [(12, 6, 0), (18, 13, 5)] if tier == 2 else [(20, 5, 0), (9, 13, 5), (30, 12, 8), (21, 18, 2), (13, 22, 10), (29, 23, 3)]
+    for (x, y, k) in letters:
+        glyph(sp, x, y, k, BLOSSOM[2], 20, shade=LEAF[2])
+    pods = [(10, 21), (22, 22)] if tier == 2 else [(12, 30), (24, 32), (35, 30)]
+    for i, (x, y) in enumerate(pods):
+        seed_pod(sp, x, y, 30 + i)
+    gx = 6 if tier == 2 else 8  # one fallen on the grass
+    stamp(sp.obj, gx, size - 4, ["hf", "fd"], {"h": BLOSSOM[2], "f": BLOSSOM[1], "d": BLOSSOM[0]})
+    return finish(sp)
+
+
+def scroll_frond(sp: Sprite, base, tip, curl, part, letters=True):
+    """A fern frond from `base` to `tip`, rolled at its end into a little paper scroll (PAPER) with ink marks."""
+    line(sp, [base, tip], lambda t: LEAF[3 if t < 0.5 else 5], width=2, part=part)
+    (x, y) = tip
+    sx = x + curl
+    rect(sp, sx - 3, y - 4, sx + 3, y + 1, PAPER[4], part + 1)  # the scroll: a small sheet, rolled at both ends
+    rect(sp, sx - 3, y - 4, sx + 3, y - 4, PAPER[5], part + 1)
+    for yy in range(y - 4, y + 2):
+        sp.set(sx - 4, yy, PAPER[2], part + 1)
+        sp.set(sx + 4, yy, PAPER[1], part + 1)
+    if letters:  # two lines of ink
+        for xx in (sx - 2, sx - 1, sx + 1):
+            sp.set(xx, y - 2, hx("#3a2e48"), part + 1)
+        for xx in (sx - 2, sx, sx + 1, sx + 2):
+            sp.set(xx, y, hx("#3a2e48"), part + 1)
+    for k in range(1, 4):  # little leaflets along it
+        t = k / 4
+        lx, ly = int(base[0] + (tip[0] - base[0]) * t), int(base[1] + (tip[1] - base[1]) * t)
+        sp.set(lx - 1, ly, LEAF[5], part)
+        sp.set(lx + 1, ly - 1, LEAF[6], part)
+
+
+def sprout_b(tier):
+    """Idea B, the Scroll Fern: a fern in a clay pot whose fronds unroll like little paper scrolls with words on them;
+    more fronds and taller each tier, a seed or two on the rim."""
+    size = 48 if tier == 3 else 32
+    sp = Sprite(size, size, f"ws_b{tier}")
+    cx = size // 2
+    sp.ground_shadow(cx + 2, size - 2.5, size * 0.28, 2.2)
+    pot_top = size - 10
+    cylinder(sp, lambda y: cx - 6 + (y - pot_top) // 4, lambda y: cx + 6 - (y - pot_top) // 4, pot_top, size - 3, TERRA, part=1)
+    rect(sp, cx - 7, pot_top - 1, cx + 7, pot_top, TERRA[5], 1)
+    rect(sp, cx - 6, pot_top, cx + 6, pot_top, hx("#2e1c12"), 1)
+    n = {1: 2, 2: 3, 3: 5}[tier]
+    reach = {1: 13, 2: 18, 3: 28}[tier]
+    for i in range(n):
+        a = -0.95 + 1.9 * i / max(1, n - 1)
+        tip = (int(cx + a * (reach * 0.55)), int(pot_top - reach * (1 - abs(a) * 0.3)))
+        scroll_frond(sp, (cx + int(a * 3), pot_top - 1), tip, 2 if a >= 0 else -2, 2 + i * 2)
+    if tier == 3:
+        glyph(sp, cx - 3, pot_top + 1, 6, TERRA[6], 40)
+    stamp(sp.obj, cx + 5, pot_top - 2, ["hf", "fd"], {"h": BLOSSOM[2], "f": BLOSSOM[1], "d": BLOSSOM[0]})
+    return finish(sp)
+
+
+def sprout_c(tier):
+    """Idea C, the Letter Bulbs: tall stalks from a low mound, each topped with a fat seed bulb that wears a letter;
+    the biggest bulb split open, its seeds falling."""
+    size = 48 if tier == 3 else 32
+    sp = Sprite(size, size, f"ws_c{tier}")
+    cx = size // 2
+    sp.ground_shadow(cx + 2, size - 2.5, size * 0.3, 2.2)
+    blob(sp, cx, size - 4, size * 0.26, 3.2, MOSS, flat_bottom=size - 3, part=1)
+    stalks = {1: [(0, 14)], 2: [(-5, 16), (5, 20)], 3: [(-10, 22), (0, 32), (10, 26)]}[tier]
+    for i, (dx, hgt) in enumerate(stalks):
+        x, top = cx + dx, size - 5 - hgt
+        line(sp, [(x, size - 5), (x + (1 if dx < 0 else -1 if dx > 0 else 0), top + 5)], LEAF[4], width=1, part=2 + i * 3)
+        sp.set(x - 1, size - 9, LEAF[5], 2 + i * 3)
+        sp.set(x + 1, size - 11, LEAF[6], 2 + i * 3)
+        r = 4.5 if hgt >= 20 else 3.8
+        blob(sp, x, top + 1, r, r * 1.15, BLOSSOM + [hx("#fff8d0")], part=3 + i * 3, lo=-0.5, hi=1.4)
+        small_glyph(sp, int(x - 1), int(top - 1), (i * 4 + 1) % 12, hx("#5e3a12"), 4 + i * 3)
+        if i == len(stalks) - 1 and tier >= 2:  # the ripest: split, seeds falling
+            for (sx, sy) in ((x + 5, top + 6), (x + 6, top + 10), (x + 4, top + 14)):
+                stamp(sp.obj, sx, sy, ["f", "d"], {"f": BLOSSOM[1], "d": BLOSSOM[0]})
+    return finish(sp)
+
+
+WORD_SPROUT_IDEAS = {"A: Glyph Tree": sprout_a, "B: Scroll Fern": sprout_b, "C: Letter Bulbs": sprout_c}
+
+
+def sprout_preview(out: str) -> None:
+    """The three Word Sprout ideas, tiers 1 to 3 left to right, each with today's Word Sprout and the village's well
+    beside them, by day and by night."""
+    sc, cell, H = 4, 64, 60
+    W = cell * 5
+    rows = []
+    for name, fn in WORD_SPROUT_IDEAS.items():
+        pics = [Image.open(ROOT / "web/game-art/structure/word_sprout_3.png").convert("RGBA")] + [Image.fromarray(fn(t)) for t in (1, 2, 3)]
+        for night in (False, True):
+            g = ground(W, H)
+            well = Image.open(ROOT / "web/game-art/battle/terrain/prop_well.png").convert("RGBA")
+            g.alpha_composite(well, ((cell - well.width) // 2, H - well.height - 4))
+            for i, p in enumerate(pics):
+                g.alpha_composite(p, (cell * (i + 1) + (cell - p.width) // 2, H - p.height - 4))
+            if night:
+                g.alpha_composite(Image.new("RGBA", (W, H), (20, 12, 48, round(0.55 * 255))))
+            rows.append(g)
+    gap = 3
+    sheet = Image.new("RGBA", (W * sc, len(rows) * (H + gap) * sc), (24, 22, 32, 255))
+    for k, r in enumerate(rows):
+        sheet.alpha_composite(r.resize((W * sc, H * sc), Image.NEAREST), (0, k * (H + gap) * sc))
+    sheet.save(out)
+    print("word sprout ideas ->", out, sheet.size)
+
+
 def skep(sp: Sprite, cx, base, rx, ry, part):
     """A straw bee skep: a dome of coiled straw bands (HAY), lit from the top left, a dark door at its foot."""
     blob(sp, cx, base - ry * 0.45, rx, ry, HAY[:8], rough=0.08, flat_bottom=base, seed=part, lo=-0.4, hi=1.15, part=part)
@@ -432,4 +600,7 @@ def preview(out: str) -> None:
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 2 and sys.argv[1] == "sprouts":
+        sprout_preview(sys.argv[2])
+        raise SystemExit
     preview(sys.argv[2] if len(sys.argv) > 2 and sys.argv[1] == "preview" else "farm_buildings_preview.png")
