@@ -353,13 +353,12 @@ test("the online database's check (supabase/v9-fishing.sql) allows what the app 
   assert.ok(JSON.stringify(publicAquarium(s, T0)).length < 1500);
 });
 
-test("the habitat draws the aquarium on its own and answers a tap on it (not from inside the gifts' or the glow's code)", () => {
-  // (2df7fda6 had both blocks a few lines off: the tank only showed while a gift waited, and its tap did nothing)
+test("the habitat draws the aquarium in the room on its own and answers a tap on it (not from inside the gifts' or the glow's code)", () => {
+  // (2df7fda6 had both blocks a few lines off: the tank only showed while a gift waited, and its tap did nothing;
+  // since the room the tank stands in it: roomTank)
   const src = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
-  assert.match(src, /drawTinyFish\([^\n]*\n {4}\}\n {4}\/\/ A friend's gift and an egg from the incubator[^\n]*\n {4}for \(const th of things\) \{/,
-    "the tank is drawn before the loop over gifts and eggs, not inside it");
-  assert.match(src, /TANK_X\) < 16[^\n]*\{ go\("basket"\); return; \}\n {4}\/\/ A building with glow waiting/,
-    "a tap on the tank is looked for before the buildings, not inside collecting glow");
+  assert.ok(src.includes("const roomTank = () => (fishingOf(game).caught > 0 ?"), "in the room once a fish is caught");
+  assert.match(src, /if \(roomTank\(\)\.length && Math\.abs\(x - TANK_IN\.x\) < 18/, "its own tap: the creature walks over, then the basket");
   const data = readFileSync(new URL("../../web/js/game/data.js", import.meta.url), "utf8");
   assert.ok(data.indexOf("Fishing (fishdata.js)") < data.indexOf("const listed = new Set(out.map"), "the fishing art is listed before the arenas' leftovers are worked out");
 });

@@ -120,7 +120,7 @@ test("habitat.js: buildings on the farm (tap: collect or its card; Move it), the
   assert.ok(h.includes("for (const b of buildingsOn(game))"));
   assert.ok(h.includes('window.addEventListener("tamkeen-farm-move", onMove);'));
   assert.ok(h.includes('window.removeEventListener("tamkeen-farm-move", onMove);'));
-  assert.ok(h.includes("if (!p.open || !inYard() || farmOn()) continue;"));
+  assert.ok(!h.includes("structure/plot.png"), "the yard's old plots are gone (the buildings stand on the farm)");
   assert.ok(h.includes('teleportTo(feature("farm") ? "farm" : "fruit")'));
 });
 

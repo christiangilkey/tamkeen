@@ -58,7 +58,7 @@ test("habitat.js: the yard only with the prototype, outside the door; no neon ci
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.match(h, /const outside = \(\) => roomOn\(\) && view !== "room"/);
   assert.match(h, /if \(outside\(\)\) drawYard\(now\);/);
-  assert.match(h, /else if \(inRoom\(\)\) drawHills\(hour\);/);
+  assert.match(h, /if \(outside\(\)\) drawYard\(now\);\n {4}else drawHills\(hour\);/, "outside the yard, inside the room (the old side-on scenes are gone)");
   assert.doesNotMatch(h, /YARD_DOOR\b/);
 });
 
