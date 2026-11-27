@@ -25,7 +25,7 @@ jobs:
       - name: System libraries (for PyGObject)
         run: sudo apt-get update && sudo apt-get install -y libgirepository1.0-dev libcairo2-dev pkg-config
       - run: pip install -r requirements-dev.txt
-      - run: pytest -q
+      - run: pytest -q -o faulthandler_timeout=90  # a test stuck for 90 s prints where it is stuck
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
