@@ -303,17 +303,16 @@ function farmCard({ kind, key, crop, q, act, vocab = [] }) {
       if (creatureFrame) ctx.drawImage(creatureFrame, 0, 0, creatureFrame.width, creatureFrame.height, 6, CARD_H - 46 + Math.round(Math.sin(now / 400)), 46, 46);
       // the tools and what happens (game-art/farm/card.png: 32 x 32 frames, the plot at 8, 16 in each)
       const frame = (i) => { if (fx) ctx.drawImage(fx, i * 32, 0, 32, 32, PLOT_AT.x - 8, PLOT_AT.y - 16, 32, 32); };
-      if (!moment) frame(kind === "plant" ? (Math.floor(now / 600) % 2 ? 0 : 2) : 6);
+      if (!moment) { if (kind === "plant") frame(Math.floor(now / 600) % 2 ? 0 : 2); } // (the trowel and the seed, waiting)
       else if (moment.kind === "plant") {
         if (t1 < 900) frame(Math.floor(t1 / 150) % 2);           // digging
         else if (t1 < 1300) frame(2);                            // the seed drops
         else if (t1 < 1500) frame(3);                            // in the hole
         else if (t1 < 2000) frame(4 + (Math.floor(t1 / 120) % 2)); // patted down
         else if (t1 < 2600) frame(13);                           // a sprout, and a sparkle
-      } else if (moment.kind === "water") {
-        if (t1 < 1300) { frame(7); frame(8 + (Math.floor(t1 / 110) % 3)); }
-        else if (t1 < 1900) frame(13);
-        else frame(6);
+      } else if (moment.kind === "water") { // the splash (the owner's pick: farm/splash.png, 48 x 48 frames, the soil at 16, 26)
+        const sp = pic("farm/splash.png");
+        if (sp && t1 < 1700) ctx.drawImage(sp, Math.min(13, Math.floor(t1 / 110)) * 48, 0, 48, 48, PLOT_AT.x - 16, PLOT_AT.y - 26, 48, 48);
       } else if (moment.kind === "drizzle") frame(11 + (Math.floor(t1 / 200) % 2));
       requestAnimationFrame(draw);
     }

@@ -7,8 +7,8 @@ import { PROTOTYPES } from "../../web/js/prototype.js";
 
 const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
 
-test("a prototype, off for everyone else", () => {
-  assert.equal(PROTOTYPES.farm_page.released, false);
+test("released for everybody in v0.78.0; the code still asks its switch", () => {
+  assert.equal(PROTOTYPES.farm_page.released, true, "released for everybody in v0.78.0");
   const h = src("habitat.js");
   assert.match(h, /feature\("farm_page"\) \? tile\("garden", "farm\/seedstand", "Farming"\)/, "Home's Garden tile is Farming with it (the owner's word)");
   assert.match(h, /if \(feature\("farm_page"\)\) openFarm\(/, "and opens the farm page");
@@ -71,4 +71,10 @@ test("after an answer, the right word is said (as battles and the pond say it), 
   assert.match(fn, /farmPlayer\.said\(v, "word"\)/);
   assert.match(src("farmpage.js"), /answerQuestion\(game, q\.uid, correct\);\n {6}sayAnswer\(q, vocab\);/);
   assert.match(ui, /answerQuestion\(game, q\.uid, correct\);\n {6}sayAnswer\(q, vocab\);/);
+});
+
+test("watering plays the splash the owner picked (farm/splash.png, with its Aseprite source) on the farm page and the farm's card", () => {
+  for (const f of ["farmpage.js", "farm-ui.js"]) assert.match(src(f), /pic\("farm\/splash\.png"\)/, f);
+  assert.ok(readFileSync(new URL("../../game/art-src/terrain/aseprite/farm_splash.aseprite", import.meta.url)).length > 0);
+  assert.ok(readFileSync(new URL("../../web/game-art/farm/splash.png", import.meta.url)).length > 0);
 });

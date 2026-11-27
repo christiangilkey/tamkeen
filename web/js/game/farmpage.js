@@ -176,7 +176,10 @@ export function openFarm({ changed = () => {} } = {}) {
       if (m && fx) {
         const frame = (i) => ctx.drawImage(fx, i * 32, 0, 32, 32, p.x - 16, p.y - 20, 32, 32);
         if (m.kind === "plant") { if (t1 < 900) frame(Math.floor(t1 / 150) % 2); else if (t1 < 1300) frame(2); else if (t1 < 1500) frame(3); else if (t1 < 1900) frame(4 + (Math.floor(t1 / 120) % 2)); else if (t1 < 2500) frame(13); }
-        else if (m.kind === "water") { if (t1 < 1300) { frame(7); frame(8 + (Math.floor(t1 / 110) % 3)); } else if (t1 < 1900) frame(13); }
+        else if (m.kind === "water") { // the splash (the owner's pick): a big drop, its crown and ripples, then sparkles (farm/splash.png: 48 x 48 frames, the soil at 16, 26)
+          const sp = pic("farm/splash.png");
+          if (sp && t1 < 1700) ctx.drawImage(sp, Math.min(13, Math.floor(t1 / 110)) * 48, 0, 48, 48, p.x - 24, p.y - 34, 48, 48);
+        }
         else if (m.kind === "drizzle") frame(11 + (Math.floor(t1 / 200) % 2));
         else if (m.kind === "harvest") { frame(13); ctx.fillStyle = "#ffe680"; for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2, d = Math.min(1, t1 / 600) * 14; ctx.fillRect(Math.round(p.x + Math.cos(a) * d), Math.round(p.y - 6 + Math.sin(a) * d * 0.7), 1, 1); } }
       }
