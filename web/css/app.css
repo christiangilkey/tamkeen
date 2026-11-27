@@ -264,6 +264,14 @@ h1, h2, .display-font, .review-banner strong, .caught-up-title { font-family: va
 .caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
   font-family: var(--ui-font); font-variation-settings: "FLAR" var(--flair-num); font-variant-numeric: tabular-nums;
 }
+/* Every word on the game's screens is in the pixel font (the owner, 2026-11-27: "All the fonts on the game screen
+   should be pixel sans"): the habitat on Home with its counters, tiles and aquarium, the game sheets (shop,
+   creatures, battles, the farm's and the garden's panels), the full-screen games (farm, fishing, live battles), the
+   pond's catch, the tavern, raids and old games. Headings too. A studied word keeps its own script's font (.ar). */
+.habitat, .game-sheet-wrap, .live-wrap, .fish-catch, .home-tavern, .home-raid, .home-oldgame,
+:is(.habitat, .game-sheet-wrap, .live-wrap, .fish-catch, .home-tavern, .home-raid, .home-oldgame) :is(h1, h2, h3, h4, .display-font) {
+  font-family: var(--fun-font);
+}
 h1, h2 { font-weight: 600; letter-spacing: -.005em; }
 h1 { font-size: var(--fs-26); }
 h2 { font-size: var(--fs-20); }

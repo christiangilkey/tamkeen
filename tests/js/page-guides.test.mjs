@@ -24,7 +24,7 @@ test("every screen gives the ? its guide", () => {
   assert.match(read("web/js/components/tour.js"), /if \(!guides\.some\(\(g\) => g\.root === root\)\) pageGuide\(page, root, steps\);/);
 });
 
-test("the ? is in the top bar of every version, and in the reviewer", () => {
+test("the ? is in the top bar of every version, and in the reviewer's settings (How to review)", () => {
   assert.match(read("web/js/app.js"), /mountHelpButton\(document\.querySelector\("\.topbar"\)\);/);
   assert.match(read("mobile/src/js/app.js"), /mountHelpButton\(document\.querySelector\("\.topbar"\), refresh\);/);
   assert.match(read("mobile/scripts/build-www.mjs"), /"js\/components\/helpbutton\.js",/);

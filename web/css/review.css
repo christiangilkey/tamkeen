@@ -103,7 +103,7 @@ body.rv-open { overflow: hidden; }
 }
 .rv-progress.bump i { animation: rv-bump .4s ease; }
 @keyframes rv-bump { 40% { filter: brightness(1.5); transform: scaleY(1.5); } }
-.rv-left { flex: none; font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; opacity: .92; min-width: 3.2em; text-align: end; }
+.rv-left { flex: none; font-size: var(--fs-16); font-weight: 600; font-variant-numeric: tabular-nums; opacity: .92; min-width: 3.2em; text-align: end; }
 /* The session clock (review/cardtimer.js): quiet, beside the cards left. */
 .rv-clock { flex: none; display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; opacity: .78; }
 .rv-clock[hidden] { display: none; }
@@ -119,6 +119,8 @@ body.rv-open { overflow: hidden; }
   box-shadow: 0 16px 40px rgba(0, 0, 0, .4); display: flex; flex-direction: column; gap: 12px;
 }
 .rv-settings[hidden] { display: none; }
+/* The tour, first in the settings (the owner, 2026-11-27: a calmer top bar, so the cards left can be bigger). */
+.rv-settings .rv-help { align-self: stretch; }
 .rv-settings h3 { margin: 0; font-size: 14px; }
 .rv-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
 .rv-chips button { min-width: 44px; border-radius: 99px; corner-shape: round; }
@@ -532,7 +534,6 @@ body.rv-open { overflow: hidden; }
 /* (iPhone: a box inside a part that can't be selected can't be typed in either, unless it says it can) */
 .rv-back textarea, .rv-back input { -webkit-user-select: text; user-select: text; }
 @media (prefers-reduced-motion: reduce) { .rv-tok.rv-held { animation: none; } .rv-tok { transition: none; } }
-.rv-top .rv-help { font-size: 18px; font-weight: 700; line-height: 1; }
 
 /* ----- luck: every remembered card rolls for a reward (game/loot.js; the reveal is game/reveal.js, app.css) -----
    What an answer earned is shown in the card's empty top corner, across from its status badge and under the

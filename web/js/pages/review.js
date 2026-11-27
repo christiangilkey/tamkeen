@@ -205,10 +205,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <span class="rv-left"></span>
       <button type="button" class="rv-streak" title="Luck" aria-label="Luck" translate="no" hidden></button>
       <button type="button" class="rv-undo" title="Take back the last answer (Z)" aria-label="Undo the last answer" disabled>${ICON.undo}</button>
-      <button type="button" class="rv-help" title="How to review" aria-label="How to review">?</button>
       <button type="button" class="rv-gear" title="Reviewer settings" aria-label="Reviewer settings">${ICON.gear}</button>
     </header>
     <div class="rv-settings" hidden>
+      <button type="button" class="rv-help" title="How to review">How to review</button>
       <div>
         <h3>New words a day</h3>
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
@@ -1631,6 +1631,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     { target: ".rv-x", title: "Close", text: "Stop for now. Your answers so far are kept." },
   ]);
   $(".rv-help").onclick = () => showGuide();
+  // (the owner, 2026-11-27: a calmer top bar; the tour sits at the top of the settings now, which close for it)
+  $(".rv-help").addEventListener("click", () => { settings.hidden = true; });
 
   document.body.append(el);
   document.body.classList.add("rv-open");
