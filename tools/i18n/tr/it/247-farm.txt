@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Estate
+36da4648	Autunno
+24615d93	Inverno
+bb26310a	Tutto l'anno
+e3936435	{0}: domani inizia una nuova stagione
+10c460f8	{0}: una nuova stagione tra {1} giorni
+785f548d	Matura dopo 1 giorno d'acqua
+56135aa4	Matura dopo {0} giorni d'acqua
+0622a419	Il seme raro della settimana
+b5d77b6d	Bancarella dei semi
+f94ab88e	Semi per il tuo campo, comprati con il bagliore. Ogni stagione ha le sue colture; quelle di tutto l'anno crescono in qualsiasi settimana.
+fa97e84a	Hai {0} di bagliore.
+93ccce4c	Hai {0}
+823de556	Comprato questa settimana
+ea76edf0	Ancora niente. I raccolti maturi che raccogli aspettano qui.
+156037dd	Fienile
+34ed6aeb	I tuoi raccolti aspettano qui per tutto il tempo che vuoi: nel fienile non si rovina niente. Un bordo colorato indica un raccolto più raro.
+99ae3f92	Il tuo campo
+b7152342	Dimensione
+6195e691	Nessuno: è già grande al massimo
+24995752	Ogni tratto di recinto aggiunge al tuo campo una fila o una colonna di posti da piantare.
+2705311a	Allarga il campo
+b6ba21da	La sua stagione: {0}
+612687a2	Pianta
+5266b4ae	Pianta un seme
+65f6b54b	Scegli un seme per questo posto. Annaffialo ogni giorno con una parola e maturerà.
+bb998ff8	Non hai semi. La bancarella dei semi vicino al fienile li vende per bagliore.
+8a0708f8	È maturo. Raccoglilo nel tuo fienile.
+6c2a3fee	Fuori dalla sua stagione riposa, e ricresce quando torna la stagione: {0}.
+bb9045fb	Oggi ha già avuto la sua acqua. Torna domani: cresce in giorni diversi, non tutto in una volta.
+479838e5	Ha sete: toccalo per annaffiarlo con una parola.
+0a06b370	Giorni d'acqua
+62255f56	Stagione
+1b665f2b	Raccogli
+1591bd33	Prima salva qualche parola in più: per annaffiare ne viene chiesta una.
+0c9cfa4d	Annaffia: {0}
+02646771	Annaffia
+c987038f	Giusto! Ha la sua acqua per oggi.
+02ce020c	Quasi: un po' d'acqua. Ancora una risposta e sarà annaffiato.
+a0ba18ef	{0} × {1} ({2}) al fienile
+2b6b12b0	{0} × {1} al fienile
+617fec0e	Carota
+9b117f7f	Ravanello
+54907d18	Lattuga
+1df70ef4	Piselli
+cd9830ae	Patata
+6c06b27f	Cipolla
+393d46da	Fragola
+7fd14c67	Cavolo
+85cd2366	Pomodoro
+4d9bf1f6	Peperone
+66d641ba	Fagioli
+2270b487	Cetriolo
+50efb42d	Mais
+3a148039	Girasole
+cf4c8275	Mirtillo
+26e65e89	Melone
+860e263f	Barbabietola
+7cf8b9cb	Zucchina
+355ca668	Patata dolce
+5d8de7a7	Mirtillo rosso
+6154ab77	Zucca
+0de47448	Uva
+8a9ddaf8	Melo
+1c9f772e	Rapa
+65eadffb	Cavolo riccio
+c4c431fb	Porro
+8ed9f4c1	Pastinaca
+364d8c0e	Aglio
+5358d5c3	Bacca di neve
+74cd95fe	Cavoletti di Bruxelles
+3d0ca322	Pero
+21365a52	Basilico
+ede47468	Albero di carambola
+bcdd9052	Fiore di luna
+1dfcfd30	Carota arcobaleno
+77da6116	Il tuo campo è già grande al massimo.
+fca736af	Quei semi non sono in vendita.
+91fee64c	Quel seme raro non è in vendita questa settimana.
+b5b91b68	Hai già avuto la bustina di seme raro di questa settimana.
+f500403b	Quei semi sono fuori stagione.
+62fad64e	Quel posto non fa parte del tuo campo.
+70bf0b22	Lì sta già crescendo qualcosa.
+cdb822b2	Non hai nessuno di quei semi.
+dea37270	Lì non cresce niente.
+f90dcd4c	È maturo: raccoglilo.
+0f5d203b	Riposa finché non torna la sua stagione.
+cc2037ab	Oggi ha già avuto la sua acqua.
+ebcb609c	Non è ancora maturo.
+bdcb00b8	Si è ripreso.
+22ee2f8e	Maturo! Toccalo per raccoglierlo.

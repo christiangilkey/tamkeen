@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Sommer
+36da4648	Herbst
+24615d93	Winter
+bb26310a	Ganzjährig
+e3936435	{0}: morgen beginnt eine neue Jahreszeit
+10c460f8	{0}: in {1} Tagen beginnt eine neue Jahreszeit
+785f548d	Reift nach 1 Tag mit Wasser
+56135aa4	Reift nach {0} Tagen mit Wasser
+0622a419	Der seltene Samen dieser Woche
+b5d77b6d	Samenstand
+f94ab88e	Samen für dein Feld, gekauft mit Glimmer. Jede Jahreszeit hat eigene Pflanzen; ganzjährige wachsen in jeder Woche.
+fa97e84a	Du hast {0} Glimmer.
+93ccce4c	Du hast {0}
+823de556	Diese Woche gekauft
+ea76edf0	Noch nichts. Reife Ernten, die du einholst, warten hier.
+156037dd	Scheune
+34ed6aeb	Deine Ernten warten hier, so lange du willst: In der Scheune verdirbt nichts. Ein farbiger Rand zeigt eine seltenere Ernte.
+99ae3f92	Dein Feld
+b7152342	Größe
+6195e691	Keine: Es ist so groß, wie es geht
+24995752	Jedes Zaunstück gibt deinem Feld eine weitere Reihe oder Spalte mit Beeten.
+2705311a	Feld vergrößern
+b6ba21da	Seine Jahreszeit: {0}
+612687a2	Pflanzen
+5266b4ae	Einen Samen pflanzen
+65f6b54b	Wähle einen Samen für dieses Beet. Gieß ihn jeden Tag mit einem Wort, dann reift er.
+bb998ff8	Du hast keine Samen. Der Samenstand bei der Scheune verkauft sie für Glimmer.
+8a0708f8	Es ist reif. Ernte es in deine Scheune.
+6c2a3fee	Es ruht außerhalb seiner Jahreszeit und wächst wieder, wenn {0} zurückkommt.
+bb9045fb	Es hat heute schon Wasser bekommen. Komm morgen wieder: Es wächst an verschiedenen Tagen, nicht alles auf einmal.
+479838e5	Es hat Durst: Tippe darauf, um es mit einem Wort zu gießen.
+0a06b370	Gießtage
+62255f56	Jahreszeit
+1b665f2b	Ernten
+1591bd33	Speichere zuerst noch ein paar Wörter: Beim Gießen wird eins davon abgefragt.
+0c9cfa4d	Gießen: {0}
+02646771	Gießen
+c987038f	Richtig! Es hat sein Wasser für heute.
+02ce020c	Nicht ganz: ein bisschen Wasser. Noch eine Antwort, dann ist es gegossen.
+a0ba18ef	{0} × {1} ({2}) in die Scheune
+2b6b12b0	{0} × {1} in die Scheune
+617fec0e	Karotte
+9b117f7f	Radieschen
+54907d18	Salat
+1df70ef4	Erbsen
+cd9830ae	Kartoffel
+6c06b27f	Zwiebel
+393d46da	Erdbeere
+7fd14c67	Kohl
+85cd2366	Tomate
+4d9bf1f6	Paprika
+66d641ba	Bohnen
+2270b487	Gurke
+50efb42d	Mais
+3a148039	Sonnenblume
+cf4c8275	Heidelbeere
+26e65e89	Melone
+860e263f	Rote Bete
+7cf8b9cb	Kürbis
+355ca668	Süßkartoffel
+5d8de7a7	Cranberry
+6154ab77	Riesenkürbis
+0de47448	Weintrauben
+8a9ddaf8	Apfelbaum
+1c9f772e	Rübe
+65eadffb	Grünkohl
+c4c431fb	Lauch
+8ed9f4c1	Pastinake
+364d8c0e	Knoblauch
+5358d5c3	Schneebeere
+74cd95fe	Rosenkohl
+3d0ca322	Birnbaum
+21365a52	Basilikum
+ede47468	Sternfruchtbaum
+bcdd9052	Mondblume
+1dfcfd30	Regenbogenkarotte
+77da6116	Dein Feld ist so groß, wie es geht.
+fca736af	Diese Samen sind nicht zu kaufen.
+91fee64c	Dieser seltene Samen ist diese Woche nicht im Angebot.
+b5b91b68	Du hast das seltene Samenpäckchen dieser Woche schon bekommen.
+f500403b	Diese Samen haben gerade keine Saison.
+62fad64e	Das gehört nicht zu deinem Feld.
+70bf0b22	Dort wächst schon etwas.
+cdb822b2	Du hast keine dieser Samen.
+dea37270	Dort wächst nichts.
+f90dcd4c	Es ist reif: Ernte es.
+0f5d203b	Es ruht, bis seine Jahreszeit zurückkommt.
+cc2037ab	Es hat heute schon Wasser bekommen.
+ebcb609c	Es ist noch nicht reif.
+bdcb00b8	Es ist wieder munter.
+22ee2f8e	Reif! Tippe darauf, um zu ernten.

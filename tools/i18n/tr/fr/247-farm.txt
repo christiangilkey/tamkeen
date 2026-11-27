@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Été
+36da4648	Automne
+24615d93	Hiver
+bb26310a	Toute l'année
+e3936435	{0} : nouvelle saison demain
+10c460f8	{0} : nouvelle saison dans {1} jours
+785f548d	Mûrit après 1 jour d'arrosage
+56135aa4	Mûrit après {0} jours d'arrosage
+0622a419	La graine rare de la semaine
+b5d77b6d	Stand de graines
+f94ab88e	Des graines pour votre champ, achetées avec de la lueur. Chaque saison a ses cultures ; celles de toute l'année poussent n'importe quelle semaine.
+fa97e84a	Vous avez {0} de lueur.
+93ccce4c	Vous avez {0}
+823de556	Acheté cette semaine
+ea76edf0	Rien pour l'instant. Les récoltes mûres que vous cueillez attendent ici.
+156037dd	Grange
+34ed6aeb	Vos récoltes attendent ici aussi longtemps que vous voulez : rien ne s'abîme dans la grange. Un bord coloré indique une récolte plus rare.
+99ae3f92	Votre champ
+b7152342	Taille
+6195e691	Aucun : il est déjà au plus grand
+24995752	Chaque section de clôture ajoute à votre champ une rangée ou une colonne d'emplacements à planter.
+2705311a	Agrandir le champ
+b6ba21da	Sa saison : {0}
+612687a2	Planter
+5266b4ae	Planter une graine
+65f6b54b	Choisissez une graine pour cet emplacement. Arrosez-la chaque jour avec un mot, et elle mûrira.
+bb998ff8	Vous n'avez pas de graines. Le stand de graines près de la grange en vend contre de la lueur.
+8a0708f8	C'est mûr. Récoltez-le dans votre grange.
+6c2a3fee	Hors de sa saison, il se repose et repousse quand revient la saison : {0}.
+bb9045fb	Il a eu son eau aujourd'hui. Revenez demain : il pousse sur plusieurs jours, pas tout d'un coup.
+479838e5	Il a soif : touchez-le pour l'arroser avec un mot.
+0a06b370	Jours d'arrosage
+62255f56	Saison
+1b665f2b	Récolter
+1591bd33	Enregistrez d'abord quelques mots de plus : l'arrosage en demande un.
+0c9cfa4d	Arroser : {0}
+02646771	Arroser
+c987038f	Bravo ! Il a son eau pour aujourd'hui.
+02ce020c	Pas tout à fait : un peu d'eau. Encore une réponse et il sera arrosé.
+a0ba18ef	{0} × {1} ({2}) à la grange
+2b6b12b0	{0} × {1} à la grange
+617fec0e	Carotte
+9b117f7f	Radis
+54907d18	Laitue
+1df70ef4	Petits pois
+cd9830ae	Pomme de terre
+6c06b27f	Oignon
+393d46da	Fraise
+7fd14c67	Chou
+85cd2366	Tomate
+4d9bf1f6	Poivron
+66d641ba	Haricots
+2270b487	Concombre
+50efb42d	Maïs
+3a148039	Tournesol
+cf4c8275	Myrtille
+26e65e89	Melon
+860e263f	Betterave
+7cf8b9cb	Courge
+355ca668	Patate douce
+5d8de7a7	Canneberge
+6154ab77	Citrouille
+0de47448	Raisin
+8a9ddaf8	Pommier
+1c9f772e	Navet
+65eadffb	Chou kale
+c4c431fb	Poireau
+8ed9f4c1	Panais
+364d8c0e	Ail
+5358d5c3	Baie des neiges
+74cd95fe	Choux de Bruxelles
+3d0ca322	Poirier
+21365a52	Basilic
+ede47468	Carambolier
+bcdd9052	Fleur de lune
+1dfcfd30	Carotte arc-en-ciel
+77da6116	Votre champ est déjà au plus grand.
+fca736af	Ces graines ne sont pas à vendre.
+91fee64c	Cette graine rare n'est pas en vente cette semaine.
+b5b91b68	Vous avez déjà eu le sachet de graine rare de la semaine.
+f500403b	Ces graines ne sont pas de saison.
+62fad64e	Cet endroit ne fait pas partie de votre champ.
+70bf0b22	Quelque chose pousse déjà ici.
+cdb822b2	Vous n'avez aucune de ces graines.
+dea37270	Rien ne pousse ici.
+f90dcd4c	C'est mûr : récoltez-le.
+0f5d203b	Il se repose jusqu'au retour de sa saison.
+cc2037ab	Il a eu son eau aujourd'hui.
+ebcb609c	Ce n'est pas encore mûr.
+bdcb00b8	Il a repris des forces.
+22ee2f8e	Mûr ! Touchez-le pour le récolter.

@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Verano
+36da4648	Otoño
+24615d93	Invierno
+bb26310a	Todo el año
+e3936435	{0}: mañana empieza una nueva estación
+10c460f8	{0}: una nueva estación en {1} días
+785f548d	Madura tras 1 día de riego
+56135aa4	Madura tras {0} días de riego
+0622a419	La semilla rara de esta semana
+b5d77b6d	Puesto de semillas
+f94ab88e	Semillas para tu campo, compradas con brillo. Cada estación tiene sus cultivos; los de todo el año crecen cualquier semana.
+fa97e84a	Tienes {0} de brillo.
+93ccce4c	Tienes {0}
+823de556	Comprado esta semana
+ea76edf0	Nada todavía. Aquí esperan los cultivos maduros que cosechas.
+156037dd	Granero
+34ed6aeb	Tus cosechas esperan aquí todo el tiempo que quieras: en el granero nada se estropea. Un borde de color indica una cosecha más rara.
+99ae3f92	Tu campo
+b7152342	Tamaño
+6195e691	Ninguno: ya es lo más grande posible
+24995752	Cada tramo de valla da a tu campo otra fila o columna de huecos para plantar.
+2705311a	Agrandar el campo
+b6ba21da	Su estación: {0}
+612687a2	Plantar
+5266b4ae	Planta una semilla
+65f6b54b	Elige una semilla para este hueco. Riégala cada día con una palabra y madurará.
+bb998ff8	No tienes semillas. El puesto de semillas junto al granero las vende por brillo.
+8a0708f8	Está madura. Coséchala en tu granero.
+6c2a3fee	Descansa fuera de su estación y vuelve a crecer cuando llegue {0}.
+bb9045fb	Ya la has regado hoy. Vuelve mañana: crece en días distintos, no todo de golpe.
+479838e5	Tiene sed: tócala para regarla con una palabra.
+0a06b370	Días de riego
+62255f56	Estación
+1b665f2b	Cosechar
+1591bd33	Guarda primero algunas palabras más: para regar se pregunta una de ellas.
+0c9cfa4d	Regar: {0}
+02646771	Regar
+c987038f	¡Correcto! Ya tiene su agua de hoy.
+02ce020c	Casi: un poco de agua. Una respuesta más y quedará regada.
+a0ba18ef	{0} × {1} ({2}) al granero
+2b6b12b0	{0} × {1} al granero
+617fec0e	Zanahoria
+9b117f7f	Rábano
+54907d18	Lechuga
+1df70ef4	Guisantes
+cd9830ae	Patata
+6c06b27f	Cebolla
+393d46da	Fresa
+7fd14c67	Repollo
+85cd2366	Tomate
+4d9bf1f6	Pimiento
+66d641ba	Judías
+2270b487	Pepino
+50efb42d	Maíz
+3a148039	Girasol
+cf4c8275	Arándano
+26e65e89	Melón
+860e263f	Remolacha
+7cf8b9cb	Calabacín
+355ca668	Batata
+5d8de7a7	Arándano rojo
+6154ab77	Calabaza
+0de47448	Uvas
+8a9ddaf8	Manzano
+1c9f772e	Nabo
+65eadffb	Col rizada
+c4c431fb	Puerro
+8ed9f4c1	Chirivía
+364d8c0e	Ajo
+5358d5c3	Baya de nieve
+74cd95fe	Coles de Bruselas
+3d0ca322	Peral
+21365a52	Albahaca
+ede47468	Carambolo
+bcdd9052	Flor de luna
+1dfcfd30	Zanahoria arcoíris
+77da6116	Tu campo ya es lo más grande posible.
+fca736af	Esas semillas no están a la venta.
+91fee64c	Esa semilla rara no está a la venta esta semana.
+b5b91b68	Ya tienes el sobre de semilla rara de esta semana.
+f500403b	Esas semillas están fuera de temporada.
+62fad64e	Eso no forma parte de tu campo.
+70bf0b22	Ahí ya está creciendo algo.
+cdb822b2	No tienes ninguna de esas semillas.
+dea37270	Ahí no crece nada.
+f90dcd4c	Está madura: coséchala.
+0f5d203b	Descansa hasta que vuelva su estación.
+cc2037ab	Ya la has regado hoy.
+ebcb609c	Aún no está madura.
+bdcb00b8	Se ha vuelto a animar.
+22ee2f8e	¡Madura! Tócala para cosechar.

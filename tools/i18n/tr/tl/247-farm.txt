@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Tag-init
+36da4648	Taglagas
+24615d93	Taglamig
+bb26310a	Buong taon
+e3936435	{0}: bagong panahon bukas
+10c460f8	{0}: bagong panahon sa loob ng {1} araw
+785f548d	Nahihinog pagkatapos ng 1 araw ng pagdidilig
+56135aa4	Nahihinog pagkatapos ng {0} araw ng pagdidilig
+0622a419	Bihirang binhi ngayong linggo
+b5d77b6d	Tindahan ng binhi
+f94ab88e	Mga binhi para sa bukid mo, binibili gamit ang liwanag. May sariling pananim ang bawat panahon; ang pang-buong-taon ay tumutubo kahit anong linggo.
+fa97e84a	May {0} liwanag ka.
+93ccce4c	May {0} ka
+823de556	Nabili ngayong linggo
+ea76edf0	Wala pa. Dito maghihintay ang mga hinog na pananim na aanihin mo.
+156037dd	Kamalig
+34ed6aeb	Dito naghihintay ang mga ani mo, gaano man katagal: walang nasisira sa kamalig. Ang may kulay na gilid ay mas bihirang ani.
+99ae3f92	Ang bukid mo
+b7152342	Laki
+6195e691	Wala: pinakamalaki na ito
+24995752	Bawat bahagi ng bakod ay nagdadagdag ng isa pang hanay o kolum ng mapagtataniman sa bukid mo.
+2705311a	Palakihin ang bukid
+b6ba21da	Panahon nito: {0}
+612687a2	Itanim
+5266b4ae	Magtanim ng binhi
+65f6b54b	Pumili ng binhi para sa puwestong ito. Diligan ito araw-araw gamit ang isang salita, at mahihinog ito.
+bb998ff8	Wala kang binhi. Nagbebenta ng mga ito kapalit ng liwanag ang tindahan ng binhi sa tabi ng kamalig.
+8a0708f8	Hinog na ito. Anihin ito papunta sa kamalig mo.
+6c2a3fee	Nagpapahinga ito sa labas ng panahon nito at tutubo ulit pagbalik ng {0}.
+bb9045fb	Nadiligan na ito ngayong araw. Bumalik bukas: tumutubo ito sa iba't ibang araw, hindi sabay-sabay.
+479838e5	Nauuhaw ito: i-tap para diligan gamit ang isang salita.
+0a06b370	Mga araw ng dilig
+62255f56	Panahon
+1b665f2b	Anihin
+1591bd33	Mag-save muna ng ilan pang salita: isa sa mga ito ang itatanong sa pagdidilig.
+0c9cfa4d	Diligan ang {0}
+02646771	Diligan ito
+c987038f	Tama! Nadiligan na ito para ngayong araw.
+02ce020c	Malapit na: kaunting tubig. Isa pang sagot at madidiligan na ito.
+a0ba18ef	{0} × {1} ({2}) sa kamalig
+2b6b12b0	{0} × {1} sa kamalig
+617fec0e	Karot
+9b117f7f	Labanos
+54907d18	Letsugas
+1df70ef4	Gisantes
+cd9830ae	Patatas
+6c06b27f	Sibuyas
+393d46da	Strawberry
+7fd14c67	Repolyo
+85cd2366	Kamatis
+4d9bf1f6	Sili
+66d641ba	Sitaw
+2270b487	Pipino
+50efb42d	Mais
+3a148039	Mirasol
+cf4c8275	Blueberry
+26e65e89	Melon
+860e263f	Beet
+7cf8b9cb	Squash
+355ca668	Kamote
+5d8de7a7	Cranberry
+6154ab77	Kalabasa
+0de47448	Ubas
+8a9ddaf8	Puno ng mansanas
+1c9f772e	Singkamas
+65eadffb	Kale
+c4c431fb	Leek
+8ed9f4c1	Parsnip
+364d8c0e	Bawang
+5358d5c3	Snowberry
+74cd95fe	Brussels sprouts
+3d0ca322	Puno ng peras
+21365a52	Balanoy
+ede47468	Puno ng balimbing
+bcdd9052	Bulaklak ng buwan
+1dfcfd30	Karot na bahaghari
+77da6116	Pinakamalaki na ang bukid mo.
+fca736af	Hindi ibinebenta ang mga binhing iyan.
+91fee64c	Hindi ibinebenta ngayong linggo ang bihirang binhing iyan.
+b5b91b68	Nakuha mo na ang pakete ng bihirang binhi ngayong linggo.
+f500403b	Hindi panahon ngayon ng mga binhing iyan.
+62fad64e	Hindi iyan bahagi ng bukid mo.
+70bf0b22	May tumutubo na riyan.
+cdb822b2	Wala kang ganyang binhi.
+dea37270	Walang tumutubo riyan.
+f90dcd4c	Hinog na: anihin ito.
+0f5d203b	Nagpapahinga ito hanggang bumalik ang panahon nito.
+cc2037ab	Nadiligan na ito ngayong araw.
+ebcb609c	Hindi pa ito hinog.
+bdcb00b8	Sumigla ulit ito.
+22ee2f8e	Hinog na! I-tap para anihin.

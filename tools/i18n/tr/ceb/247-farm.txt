@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Ting-init
+36da4648	Tinglarag
+24615d93	Tingtugnaw
+bb26310a	Tibuok tuig
+e3936435	{0}: bag-ong panahon ugma
+10c460f8	{0}: bag-ong panahon sulod sa {1} ka adlaw
+785f548d	Mahinog human sa 1 ka adlaw nga bisibisi
+56135aa4	Mahinog human sa {0} ka adlaw nga bisibisi
+0622a419	Talagsaong liso karong semanaha
+b5d77b6d	Tindahan sa liso
+f94ab88e	Mga liso alang sa imong uma, paliton gamit ang sanag. Ang matag panahon adunay kaugalingong mga tanom; ang pang-tibuok tuig motubo bisan unsang semanaha.
+fa97e84a	Aduna kay {0} ka sanag.
+93ccce4c	Aduna kay {0}
+823de556	Napalit karong semanaha
+ea76edf0	Wala pa. Ang hinog nga tanom nga imong anihon maghulat dinhi.
+156037dd	Kamalig
+34ed6aeb	Ang imong mga ani maghulat dinhi, bisan unsa ka dugay: walay madunot sa kamalig. Ang kolor nga ngilit nagpasabot og mas talagsaong ani.
+99ae3f92	Imong uma
+b7152342	Gidak-on
+6195e691	Wala: kini na ang pinakadako
+24995752	Ang matag bahin sa koral magdugang og laing laray o kolum sa mga dapit nga matamnan sa imong uma.
+2705311a	Padak-a ang uma
+b6ba21da	Ang panahon niini: {0}
+612687a2	Itanom
+5266b4ae	Pagtanom og liso
+65f6b54b	Pagpili og liso alang niining dapita. Bisibisi kini matag adlaw gamit ang usa ka pulong, ug kini mahinog.
+bb998ff8	Wala kay liso. Ang tindahan sa liso tupad sa kamalig nagbaligya niini baylo sa sanag.
+8a0708f8	Hinog na kini. Anihon kini ug ibutang sa imong kamalig.
+6c2a3fee	Mopahulay kini gawas sa panahon niini ug motubo pag-usab inig balik sa {0}.
+bb9045fb	Nabisibisi na kini karong adlawa. Balik ugma: motubo kini sa lainlaing adlaw, dili tanan dungan.
+479838e5	Giuhaw kini: i-tap aron bisibisihan gamit ang usa ka pulong.
+0a06b370	Mga adlaw sa bisibisi
+62255f56	Panahon
+1b665f2b	Anihon
+1591bd33	Pagtipig una og pipila pa ka pulong: ang pagbisibisi mangutana og usa niini.
+0c9cfa4d	Bisibisi ang {0}
+02646771	Bisibisi kini
+c987038f	Sakto! Nabisibisi na kini karong adlawa.
+02ce020c	Dili pa gyud: gamay nga tubig. Usa pa ka tubag ug mabisibisan na kini.
+a0ba18ef	{0} × {1} ({2}) ngadto sa kamalig
+2b6b12b0	{0} × {1} ngadto sa kamalig
+617fec0e	Karot
+9b117f7f	Labanos
+54907d18	Letsugas
+1df70ef4	Gisantes
+cd9830ae	Patatas
+6c06b27f	Sibuyas
+393d46da	Strawberry
+7fd14c67	Repolyo
+85cd2366	Kamatis
+4d9bf1f6	Sili
+66d641ba	Bataw
+2270b487	Pipino
+50efb42d	Mais
+3a148039	Mirasol
+cf4c8275	Blueberry
+26e65e89	Melon
+860e263f	Beet
+7cf8b9cb	Squash
+355ca668	Kamote
+5d8de7a7	Cranberry
+6154ab77	Kalabasa
+0de47448	Ubas
+8a9ddaf8	Kahoy sa mansanas
+1c9f772e	Singkamas
+65eadffb	Kale
+c4c431fb	Leek
+8ed9f4c1	Parsnip
+364d8c0e	Ahos
+5358d5c3	Snowberry
+74cd95fe	Brussels sprouts
+3d0ca322	Kahoy sa peras
+21365a52	Balanoy
+ede47468	Kahoy sa balimbing
+bcdd9052	Bulak sa bulan
+1dfcfd30	Karot nga balangaw
+77da6116	Pinakadako na ang imong uma.
+fca736af	Dili ibaligya kana nga mga liso.
+91fee64c	Dili ibaligya karong semanaha kana nga talagsaong liso.
+b5b91b68	Nakuha na nimo ang pakete sa talagsaong liso karong semanaha.
+f500403b	Dili panahon karon sa maong mga liso.
+62fad64e	Dili kana bahin sa imong uma.
+70bf0b22	Aduna nay nagtubo diha.
+cdb822b2	Wala kay bisan usa niana nga mga liso.
+dea37270	Walay nagtubo diha.
+f90dcd4c	Hinog na: anihon kini.
+0f5d203b	Nagpahulay kini hangtod mobalik ang panahon niini.
+cc2037ab	Nabisibisi na kini karong adlawa.
+ebcb609c	Dili pa kini hinog.
+bdcb00b8	Milagsik na usab kini.
+22ee2f8e	Hinog na! I-tap aron anihon.

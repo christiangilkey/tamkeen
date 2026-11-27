@@ -18040,6 +18040,466 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "7c92fc5c",
+  "k": "Summer",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "36da4648",
+  "k": "Autumn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "24615d93",
+  "k": "Winter",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "bb26310a",
+  "k": "All year",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "e3936435",
+  "k": "{0}: a new season tomorrow",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "10c460f8",
+  "k": "{0}: a new season in {1} days",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "785f548d",
+  "k": "Ripens after 1 day of water",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "56135aa4",
+  "k": "Ripens after {0} days of water",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "0622a419",
+  "k": "This week's rare seed",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b5d77b6d",
+  "k": "Seed stand",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "f94ab88e",
+  "k": "Seeds for your field, bought with glow. Each season has its own crops; all-year ones grow any week.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "fa97e84a",
+  "k": "You have {0} glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "93ccce4c",
+  "k": "You have {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "823de556",
+  "k": "Bought this week",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ea76edf0",
+  "k": "Nothing yet. Ripe crops you harvest wait here.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "156037dd",
+  "k": "Barn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "34ed6aeb",
+  "k": "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "99ae3f92",
+  "k": "Your field",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b7152342",
+  "k": "Size",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "dcd480d3",
+  "k": "Next section",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6195e691",
+  "k": "None: it's as big as it gets",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "24995752",
+  "k": "Each fence section gives your field another row or column of spots to plant.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "710d27b3",
+  "k": "You need {0} more glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "2705311a",
+  "k": "Grow the field",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b6ba21da",
+  "k": "Its season: {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "612687a2",
+  "k": "Plant",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "5266b4ae",
+  "k": "Plant a seed",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "65f6b54b",
+  "k": "Pick a seed for this spot. Water it each day with a word, and it ripens.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "bb998ff8",
+  "k": "You have no seeds. The seed stand by the barn sells them for glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "8a0708f8",
+  "k": "It's ripe. Harvest it into your barn.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6c2a3fee",
+  "k": "It rests out of its season and grows again when {0} comes back.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "bb9045fb",
+  "k": "It has had its water today. Come back tomorrow: it grows on different days, not all at once.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "479838e5",
+  "k": "It's thirsty: tap it to water it with a word.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "0a06b370",
+  "k": "Water days",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "62255f56",
+  "k": "Season",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "1b665f2b",
+  "k": "Harvest",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "1591bd33",
+  "k": "Save a few more words first: watering asks one of them.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "0c9cfa4d",
+  "k": "Water the {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "02646771",
+  "k": "Water it",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "bfd6bf51",
+  "k": "Which of your words means this?",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "c987038f",
+  "k": "Right! It has its water for today.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "02ce020c",
+  "k": "Not quite: a little water. One more answer waters it.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a0ba18ef",
+  "k": "{0} × {1} ({2}) to the barn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "2b6b12b0",
+  "k": "{0} × {1} to the barn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "617fec0e",
+  "k": "Carrot",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "9b117f7f",
+  "k": "Radish",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "54907d18",
+  "k": "Lettuce",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "1df70ef4",
+  "k": "Peas",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "cd9830ae",
+  "k": "Potato",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "6c06b27f",
+  "k": "Onion",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "393d46da",
+  "k": "Strawberry",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "7fd14c67",
+  "k": "Cabbage",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "85cd2366",
+  "k": "Tomato",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "4d9bf1f6",
+  "k": "Pepper",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "66d641ba",
+  "k": "Beans",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "2270b487",
+  "k": "Cucumber",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "50efb42d",
+  "k": "Corn",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "3a148039",
+  "k": "Sunflower",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "cf4c8275",
+  "k": "Blueberry",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "26e65e89",
+  "k": "Melon",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "860e263f",
+  "k": "Beet",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "7cf8b9cb",
+  "k": "Squash",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "355ca668",
+  "k": "Sweet potato",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "5d8de7a7",
+  "k": "Cranberry",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "6154ab77",
+  "k": "Pumpkin",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "0de47448",
+  "k": "Grapes",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "8a9ddaf8",
+  "k": "Apple tree",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "1c9f772e",
+  "k": "Turnip",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "65eadffb",
+  "k": "Kale",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "c4c431fb",
+  "k": "Leek",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "8ed9f4c1",
+  "k": "Parsnip",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "364d8c0e",
+  "k": "Garlic",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "5358d5c3",
+  "k": "Snowberry",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "74cd95fe",
+  "k": "Brussels sprouts",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "3d0ca322",
+  "k": "Pear tree",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "21365a52",
+  "k": "Basil",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "ede47468",
+  "k": "Starfruit tree",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "bcdd9052",
+  "k": "Moonflower",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "1dfcfd30",
+  "k": "Rainbow carrot",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "77da6116",
+  "k": "Your field is as big as it gets.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "fca736af",
+  "k": "Those seeds aren't for sale.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "91fee64c",
+  "k": "That rare seed isn't on sale this week.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "b5b91b68",
+  "k": "You've had this week's rare seed packet.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "f500403b",
+  "k": "Those seeds are out of season.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "62fad64e",
+  "k": "That isn't part of your field.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "70bf0b22",
+  "k": "Something is growing there already.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "cdb822b2",
+  "k": "You have none of those seeds.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "dea37270",
+  "k": "Nothing is growing there.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "f90dcd4c",
+  "k": "It's ripe: harvest it.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "0f5d203b",
+  "k": "It's resting until its season comes back.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "cc2037ab",
+  "k": "It has had its water today.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "ebcb609c",
+  "k": "It isn't ripe yet.",
+  "f": "web/js/game/farm.js"
+ },
+ {
   "id": "94627c74",
   "k": "Neon lagoon",
   "f": "web/js/game/fishdata.js"
@@ -18457,11 +18917,6 @@
  {
   "id": "22f5f1c5",
   "k": "Tap the water to cast. A bigger shadow is a luckier fish.",
-  "f": "web/js/game/fishing-ui.js"
- },
- {
-  "id": "bfd6bf51",
-  "k": "Which of your words means this?",
   "f": "web/js/game/fishing-ui.js"
  },
  {
@@ -19665,11 +20120,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "710d27b3",
-  "k": "You need {0} more glow.",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "b9305778",
   "k": "How hearts work",
   "f": "web/js/game/garden.js"
@@ -20177,6 +20627,16 @@
  {
   "id": "fc37a7ab",
   "k": "No mail today.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "bdcb00b8",
+  "k": "It perked up again.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "22ee2f8e",
+  "k": "Ripe! Tap it to harvest.",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -23752,11 +24212,6 @@
  {
   "id": "8488f780",
   "k": "The next section",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "dcd480d3",
-  "k": "Next section",
   "f": "web/js/padmap.js"
  },
  {

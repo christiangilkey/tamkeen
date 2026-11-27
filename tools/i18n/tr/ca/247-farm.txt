@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Estiu
+36da4648	Tardor
+24615d93	Hivern
+bb26310a	Tot l'any
+e3936435	{0}: demà, una nova estació
+10c460f8	{0}: una nova estació d'aquí a {1} dies
+785f548d	Madura després d'1 dia de reg
+56135aa4	Madura després de {0} dies de reg
+0622a419	La llavor rara d'aquesta setmana
+b5d77b6d	Parada de llavors
+f94ab88e	Llavors per al teu camp, comprades amb brill. Cada estació té els seus cultius; els de tot l'any creixen qualsevol setmana.
+fa97e84a	Tens {0} de brill.
+93ccce4c	Tens {0}
+823de556	Comprat aquesta setmana
+ea76edf0	Encara res. Els cultius madurs que culls t'esperen aquí.
+156037dd	Graner
+34ed6aeb	Les teves collites t'esperen aquí tant de temps com vulguis: al graner no es fa malbé res. Una vora de color indica una collita més rara.
+99ae3f92	El teu camp
+b7152342	Mida
+6195e691	Cap: ja és tan gran com pot ser
+24995752	Cada tram de tanca dona al teu camp una fila o columna més de llocs per plantar.
+2705311a	Fes créixer el camp
+b6ba21da	La seva estació: {0}
+612687a2	Planta
+5266b4ae	Planta una llavor
+65f6b54b	Tria una llavor per a aquest lloc. Rega-la cada dia amb una paraula, i madurarà.
+bb998ff8	No tens llavors. La parada de llavors al costat del graner les ven per brill.
+8a0708f8	Ja és madur. Cull-lo i porta'l al graner.
+6c2a3fee	Descansa fora de la seva estació i torna a créixer quan torna {0}.
+bb9045fb	Avui ja l'has regat. Torna demà: creix en dies diferents, no tot de cop.
+479838e5	Té set: toca'l per regar-lo amb una paraula.
+0a06b370	Dies de reg
+62255f56	Estació
+1b665f2b	Cull
+1591bd33	Primer desa unes quantes paraules més: per regar se te'n pregunta una.
+0c9cfa4d	Regar: {0}
+02646771	Rega-ho
+c987038f	Correcte! Ja té l'aigua d'avui.
+02ce020c	No del tot: una mica d'aigua. Una resposta més i quedarà regat.
+a0ba18ef	{0} × {1} ({2}) al graner
+2b6b12b0	{0} × {1} al graner
+617fec0e	Pastanaga
+9b117f7f	Rave
+54907d18	Enciam
+1df70ef4	Pèsols
+cd9830ae	Patata
+6c06b27f	Ceba
+393d46da	Maduixa
+7fd14c67	Col
+85cd2366	Tomàquet
+4d9bf1f6	Pebrot
+66d641ba	Mongetes
+2270b487	Cogombre
+50efb42d	Blat de moro
+3a148039	Gira-sol
+cf4c8275	Nabiu
+26e65e89	Meló
+860e263f	Remolatxa
+7cf8b9cb	Carabassa
+355ca668	Moniato
+5d8de7a7	Nabiu vermell
+6154ab77	Carabassa gegant
+0de47448	Raïm
+8a9ddaf8	Pomera
+1c9f772e	Nap
+65eadffb	Col arrissada
+c4c431fb	Porro
+8ed9f4c1	Xirivia
+364d8c0e	All
+5358d5c3	Baia de neu
+74cd95fe	Cols de Brussel·les
+3d0ca322	Perera
+21365a52	Alfàbrega
+ede47468	Arbre de carambola
+bcdd9052	Flor de lluna
+1dfcfd30	Pastanaga d'arc de Sant Martí
+77da6116	El teu camp ja és tan gran com pot ser.
+fca736af	Aquestes llavors no estan a la venda.
+91fee64c	Aquesta llavor rara no està a la venda aquesta setmana.
+b5b91b68	Ja has rebut el paquet de llavors rares d'aquesta setmana.
+f500403b	Aquestes llavors no són de temporada.
+62fad64e	Això no forma part del teu camp.
+70bf0b22	Ja hi creix alguna cosa.
+cdb822b2	No tens cap d'aquestes llavors.
+dea37270	Allà no hi creix res.
+f90dcd4c	Ja és madur: cull-lo.
+0f5d203b	Descansa fins que torni la seva estació.
+cc2037ab	Avui ja l'has regat.
+ebcb609c	Encara no és madur.
+bdcb00b8	Ha tornat a revifar.
+22ee2f8e	Madur! Toca'l per collir-lo.

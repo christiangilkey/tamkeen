@@ -10111,3 +10111,34 @@ Chat's side-session notes, `habitat-revamp-plan.md`.
   its door and in. The custodian (a Muffle, `scene: "hall"`, cap and spectacles) stands behind the counter: tap the
   counter or the custodian and the creature walks up, the custodian says a line (place "hall"), and the gym register
   opens (`gyms-ui.js openGyms`). The door at the bottom goes back out, in front of the hall. No rain indoors.
+
+## The farm (prototype `farm`, 2026-11-26; on main, not released)
+
+The owner's design: `C:\Users\chris\Documents\arabic-tts\tamkeen-plans\farming-plan.md` (decided in the Temkeen Main
+Chat). Slice 1 of 5 is built; slices 2 (the garden's buildings move onto the farm) and 3 (the Star Shrine) come next
+from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature cards) are other sessions' or later.
+- **Where:** a gate at the yard's left edge, beside the cottage (only with the prototype), leads west to the farm, a
+  view of its own (`view = "farm"`, saved like "room", "yard" and "hall"). `web/js/game/farmmap.js`: 32 x 9 tiles, the
+  camera follows the creature; the barn (top left: tap it, the creature walks to its door, the barn opens), the seed
+  stand under it, the fenced field (fence terrain round it, a gap at the bottom middle, redrawn as it grows), a path
+  along the bottom to the gate back. The room right of the field is kept for slice 2's buildings.
+- **Rules:** `web/js/game/farm.js` (pure), saved in `state.farm` = {fence, plots {"c,r": {crop, days, last, planted,
+  lastWater, wet}}, seeds, barn {"crop:tier": n}, rareWeek, dex, at}. 37 crops: 8 a season, wheat and basil all year,
+  three rare ones (one a week as the rare seed packet). Seasons turn on Mondays, the same for everyone
+  (`weekNumber % 4`). Seeds cost glow (8 x days, rare 60 x days). The field starts 3 x 3 and grows a column or a row
+  per fence section (150 glow, x1.45 each), to 12 x 6 (the plan said "about 12 x 12"; the world is 9 tiles high).
+  Watering: one due word (rules.pickQuestion over fishing.pondWords, recorded with answerQuestion); right = the day's
+  water, wrong = half (two make a watering, and the right answer is shown); one watering a day; a crop ripens after
+  water on `days` DIFFERENT days. A day missed: wilted (its progress kept); one watering revives it. Out of season it
+  rests (no water asked, no wilting). Harvest: rarity from loot.js `chances` (Common .. Legendary, `rollTier`; never
+  counted in the flashcards' luck record), 1-6 of it into the barn; `dex` keeps the rarest of each crop grown.
+- **Screens:** `web/js/game/farm-ui.js` (the game's details boxes, screenparts.js): seed stand, barn, the field's
+  fence, seed picker, a plant's card, the watering card (the battles' `.lbq` question card in a box).
+- **Look:** `tools/game_art/farmart.py`, placed in Aseprite (sources `game/art-src/farm/`): `web/game-art/farm/`
+  crops.png (5 frames a crop: seed, sprout, growing, ripe, wilted), icons.png, soil.png (dry, watered), gate.png,
+  seedstand.png. habitat.js `farmScene` draws soil, crops, a water drop over a thirsty plant, a twinkle over a ripe
+  one; `seasonOverlay` shows the season outside (blossom, motes, leaves, snow) with the prototype.
+- **Sync:** merge.js `joinFarm` / gamemerge.py `_join_farm`: the copy changed later wins, whole (a fixture case).
+- Tests: `tests/js/farm.test.mjs`. Translations: `tools/i18n/tr/<code>/247-farm.txt` (all machine-made).
+- Not yet (later slices of the plan): neighbour help, watering-can tiers, greenhouse, scarecrow luck, barn sizes, the
+  sprinkler, food/bait/recipes/orders/selling, the Cropdex screen, friends' harvest board.

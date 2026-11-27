@@ -1,0 +1,92 @@
+# The farm (prototype farm, slice 1): farm.js, farm-ui.js, habitat.js.
+7c92fc5c	Verão
+36da4648	Outono
+24615d93	Inverno
+bb26310a	O ano todo
+e3936435	{0}: uma nova estação amanhã
+10c460f8	{0}: uma nova estação em {1} dias
+785f548d	Amadurece após 1 dia de rega
+56135aa4	Amadurece após {0} dias de rega
+0622a419	A semente rara da semana
+b5d77b6d	Barraca de sementes
+f94ab88e	Sementes para o seu campo, compradas com brilho. Cada estação tem as suas plantações; as do ano todo crescem em qualquer semana.
+fa97e84a	Você tem {0} de brilho.
+93ccce4c	Você tem {0}
+823de556	Comprado esta semana
+ea76edf0	Nada ainda. As plantas maduras que você colhe esperam aqui.
+156037dd	Celeiro
+34ed6aeb	Suas colheitas esperam aqui pelo tempo que você quiser: nada estraga no celeiro. Uma borda colorida indica uma colheita mais rara.
+99ae3f92	Seu campo
+b7152342	Tamanho
+6195e691	Nenhum: já está do maior tamanho possível
+24995752	Cada trecho de cerca dá ao seu campo mais uma fileira ou coluna de lugares para plantar.
+2705311a	Aumentar o campo
+b6ba21da	Sua estação: {0}
+612687a2	Plantar
+5266b4ae	Plante uma semente
+65f6b54b	Escolha uma semente para este lugar. Regue-a todo dia com uma palavra, e ela amadurece.
+bb998ff8	Você não tem sementes. A barraca de sementes perto do celeiro vende sementes por brilho.
+8a0708f8	Está madura. Colha para o seu celeiro.
+6c2a3fee	Fora da sua estação ela descansa, e volta a crescer quando a estação voltar: {0}.
+bb9045fb	Já foi regada hoje. Volte amanhã: ela cresce em dias diferentes, não tudo de uma vez.
+479838e5	Está com sede: toque para regá-la com uma palavra.
+0a06b370	Dias de rega
+62255f56	Estação
+1b665f2b	Colher
+1591bd33	Salve mais algumas palavras primeiro: para regar, uma delas é perguntada.
+0c9cfa4d	Regar: {0}
+02646771	Regar
+c987038f	Certo! Já tem sua água de hoje.
+02ce020c	Quase: um pouco de água. Mais uma resposta e ela fica regada.
+a0ba18ef	{0} × {1} ({2}) para o celeiro
+2b6b12b0	{0} × {1} para o celeiro
+617fec0e	Cenoura
+9b117f7f	Rabanete
+54907d18	Alface
+1df70ef4	Ervilhas
+cd9830ae	Batata
+6c06b27f	Cebola
+393d46da	Morango
+7fd14c67	Repolho
+85cd2366	Tomate
+4d9bf1f6	Pimentão
+66d641ba	Feijão
+2270b487	Pepino
+50efb42d	Milho
+3a148039	Girassol
+cf4c8275	Mirtilo
+26e65e89	Melão
+860e263f	Beterraba
+7cf8b9cb	Abobrinha
+355ca668	Batata-doce
+5d8de7a7	Oxicoco
+6154ab77	Abóbora
+0de47448	Uvas
+8a9ddaf8	Macieira
+1c9f772e	Nabo
+65eadffb	Couve
+c4c431fb	Alho-poró
+8ed9f4c1	Pastinaca
+364d8c0e	Alho
+5358d5c3	Baga-da-neve
+74cd95fe	Couve-de-bruxelas
+3d0ca322	Pereira
+21365a52	Manjericão
+ede47468	Caramboleira
+bcdd9052	Flor-da-lua
+1dfcfd30	Cenoura arco-íris
+77da6116	Seu campo já está do maior tamanho possível.
+fca736af	Essas sementes não estão à venda.
+91fee64c	Essa semente rara não está à venda esta semana.
+b5b91b68	Você já pegou o pacote de semente rara desta semana.
+f500403b	Essas sementes estão fora de estação.
+62fad64e	Isso não faz parte do seu campo.
+70bf0b22	Já tem algo crescendo aí.
+cdb822b2	Você não tem nenhuma dessas sementes.
+dea37270	Nada está crescendo aí.
+f90dcd4c	Está madura: colha.
+0f5d203b	Está descansando até a sua estação voltar.
+cc2037ab	Já foi regada hoje.
+ebcb609c	Ainda não está madura.
+bdcb00b8	Ela se animou de novo.
+22ee2f8e	Madura! Toque para colher.
