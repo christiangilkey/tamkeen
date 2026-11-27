@@ -138,23 +138,23 @@ button, .btn { min-height: 44px; } /* a fingertip (DESIGN.md) */
   .top-install ~ .top-search span:not(.top-ico) { display: none; }
 }
 
-/* The web app's "Updated to version …" (app.js versionBanner): a small brand-teal pill at the top left, for a few seconds. */
+/* The web app's "Updated to version …" (app.js versionBanner): a small toast at the top left, for a few seconds. */
 .version-banner { position: fixed; left: 12px; z-index: 75; display: flex; align-items: center; gap: var(--s-12); max-width: calc(100vw - 24px);
-  padding: var(--s-8) var(--s-8) var(--s-8) var(--s-16); border-radius: var(--r-pill); corner-shape: round; background: #0b8693; color: #fff; font-size: var(--fs-14); font-weight: 600;
+  padding: var(--s-8) var(--s-8) var(--s-8) var(--s-16); border-radius: var(--r-pill); corner-shape: round; background: var(--ink); color: var(--paper); box-shadow: var(--shadow-float); font-size: var(--fs-14); font-weight: 600;
   animation: version-in .3s ease-out both; }
-.version-banner a { color: #fff; text-decoration: underline; font-weight: 600; white-space: nowrap; }
+.version-banner a { color: inherit; text-decoration: underline; font-weight: 600; white-space: nowrap; }
 /* "What's new": a button that opens the list of new features under the banner (app.js versionBanner) */
 .version-banner:has(.version-banner-row) { flex-direction: column; align-items: stretch; gap: var(--s-8); }
 .version-banner-row { display: flex; align-items: center; gap: var(--s-12); }
 .version-banner-more { display: inline-flex; align-items: center; gap: var(--s-4); background: transparent; border: 0; padding: 0; min-height: 0;
-  color: #fff; font: inherit; font-weight: 600; text-decoration: underline; white-space: nowrap; cursor: pointer; }
+  color: inherit; font: inherit; font-weight: 600; text-decoration: underline; white-space: nowrap; cursor: pointer; }
 .version-banner-more .ic { transform: rotate(90deg); transition: transform .15s; }
 .version-banner-more[aria-expanded="true"] .ic { transform: rotate(-90deg); }
 .version-banner-list { margin: 0; padding: 0 var(--s-4) var(--s-4) var(--s-24); max-width: 360px; font-size: var(--fs-14); line-height: var(--lh-text); }
 .version-banner-list li { margin: var(--s-4) 0; }
 .version-banner-list[hidden] { display: none; }
-.version-banner-close { background: transparent; border: 0; color: #fff; padding: var(--s-4); min-height: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; }
-.version-banner-close:hover:not(:disabled) { background: rgba(255, 255, 255, .18); }
+.version-banner-close { background: transparent; border: 0; color: inherit; padding: var(--s-4); min-height: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; }
+.version-banner-close:hover:not(:disabled) { background: color-mix(in srgb, var(--paper) 18%, transparent); }
 .version-banner.leaving { opacity: 0; transform: translateY(-6px); transition: opacity .35s, transform .35s; }
 @keyframes version-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .version-banner { animation: none; } .version-banner.leaving { transition: none; } }
