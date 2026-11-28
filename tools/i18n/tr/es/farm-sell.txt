@@ -1,0 +1,3 @@
+1e70cdfb	Semillas para plantar
+027d7df0	Nada todavía. Aquí esperan los cultivos maduros que cosechas. Las semillas que compras están en la bandeja bajo el campo.
+db81e8c5	Tus cosechas esperan aquí todo el tiempo que quieras: en el granero nada se estropea. Un borde de color indica una cosecha más rara. Toca una para dársela de comer a tu criatura, hacer cebo o venderla.

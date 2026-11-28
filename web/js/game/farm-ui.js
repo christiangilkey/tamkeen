@@ -91,27 +91,30 @@ export function openSeedStand({ changed = () => {} } = {}) {
   });
 }
 
-/** The barn: every harvest waiting, by rarity (nothing in it spoils). */
-export function openBarn() {
+/** The barn: every harvest waiting, by rarity (nothing in it spoils). Sell from here too (the owner, 2026-11-28:
+ * selling shouldn't depend on finding the fruit stall): the same sell() as the stall. */
+export function openBarn({ changed = () => {} } = {}) {
   const game = getGame();
   details((d) => {
     const list = barnList(game);
+    const again = () => { changed(); d.redraw(); };
     const more = h(`<div class="farm-barn"></div>`);
     for (const it of list) {
       const tier = TIERS[it.tier];
       const cell = h(`<button type="button" class="farm-barn-item" style="--tier:${tier.colour}">${cropIcon(it.crop, 32)}<span class="farm-barn-n">×${fmt(it.n)}</span></button>`);
       cell.title = `${t(it.crop.name)} · ${t(tier.name)}`;
-      cell.onclick = () => barnItem(`${it.crop.id}:${it.tier}`, { changed: () => d.redraw() }); // (slice 4: feed it, or make bait)
+      cell.onclick = () => barnItem(`${it.crop.id}:${it.tier}`, { changed: again }); // (feed it, make bait, or sell it)
       more.append(cell);
     }
-    if (!list.length) more.append(h(`<p class="farm-empty">${t("Nothing yet. Ripe crops you harvest wait here.")}</p>`));
+    if (!list.length) more.append(h(`<p class="farm-empty">${t("Nothing yet. Ripe crops you harvest wait here. The seeds you buy are in the tray under the field.")}</p>`));
     return {
       title: "Barn",
-      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
+      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature, make bait or sell it.",
       facts: [fact("In the barn", `<span>${fmt(barnCount(game))} / ${fmt(barnCap(game))}</span>`), fact("Honey", `<span>${fmt(farmOf(game).honey || 0)}</span>`),
         fact("Bait", `<span>${fmt(farmOf(game).bait || 0)}</span>`), fact("Flour", `<span>${fmt(farmOf(game).flour || 0)}</span>`)],
       more,
-      buttons: [{ word: "Cropdex", run: () => openCropdex() }, { word: "Harvest board", primary: true, run: () => openHarvestBoard() }],
+      buttons: [{ word: "Cropdex", run: () => openCropdex() }, { word: "Harvest board", primary: !list.length, run: () => openHarvestBoard() },
+        ...(list.length ? [{ word: "Sell", primary: true, run: () => openFruitStall({ changed: again }) }] : [])],
     };
   });
 }
@@ -459,12 +462,14 @@ function barnItem(key, { changed = () => {} } = {}) {
       title: c.name,
       pic: cropIcon(c, 64),
       facts: [fact("You have", `<span>${fmt(n)}</span>`), fact("Rarity", `<span style="color:${TIERS[tier].colour}">${t(TIERS[tier].name)}</span>`),
-        fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
+        fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Sells for", amount("glow", sellPrice(c, Number(tier) || 0))),
+        fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
       text: fav ? "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only)."
         : "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
       buttons: [
         ...(id === "wheat" && level(game, "windmill") ? [{ word: "Grind", run: () => { const r = grind(game, n); if (typeof r === "string") { toast(t(r), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } }] : []),
         { word: "Make bait", run: () => { const err = makeBait(game, key); if (err) { toast(t(err), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
+        { word: "Sell", run: () => { const got = sell(game, garden(game), key, 1); if (typeof got === "string") { toast(t(got), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
         { word: "Feed", primary: true, run: () => {
           const r = feedCrop(game, key, null, new Date(), FEEDS_PER_DAY);
           if (typeof r === "string") { toast(t(r), { error: true }); return; }

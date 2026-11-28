@@ -1,0 +1,3 @@
+1e70cdfb	Sementes para plantar
+027d7df0	Nada ainda. As plantas maduras que você colhe esperam aqui. As sementes que você compra ficam na bandeja embaixo do campo.
+db81e8c5	Suas colheitas esperam aqui pelo tempo que você quiser: nada estraga no celeiro. Uma borda colorida indica uma colheita mais rara. Toque em uma para dar de comer à sua criatura, fazer isca ou vender.

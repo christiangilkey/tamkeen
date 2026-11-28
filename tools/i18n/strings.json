@@ -18255,8 +18255,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "ea76edf0",
-  "k": "Nothing yet. Ripe crops you harvest wait here.",
+  "id": "027d7df0",
+  "k": "Nothing yet. Ripe crops you harvest wait here. The seeds you buy are in the tray under the field.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18265,8 +18265,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "34422d5c",
-  "k": "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
+  "id": "db81e8c5",
+  "k": "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature, make bait or sell it.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18297,6 +18297,11 @@
  {
   "id": "e19d99b7",
   "k": "Harvest board",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "fa3cf2ad",
+  "k": "Sell",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18535,6 +18540,11 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "156c1d9b",
+  "k": "Sells for",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "9b33c28f",
   "k": "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only).",
   "f": "web/js/game/farm-ui.js"
@@ -18637,11 +18647,6 @@
  {
   "id": "ae29a856",
   "k": "You have no egg to feed it to.",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "fa3cf2ad",
-  "k": "Sell",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -19212,6 +19217,11 @@
  {
   "id": "ee6328a7",
   "k": "{0} empty",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "1e70cdfb",
+  "k": "Seeds to plant",
   "f": "web/js/game/farmpage.js"
  },
  {
@@ -20272,11 +20282,6 @@
  {
   "id": "3bade34e",
   "k": "Length",
-  "f": "web/js/game/fishscreen.js"
- },
- {
-  "id": "156c1d9b",
-  "k": "Sells for",
   "f": "web/js/game/fishscreen.js"
  },
  {

@@ -46,6 +46,7 @@ export function openFarm({ changed = () => {} } = {}) {
     <div class="farmp-chain" aria-hidden="true"><span></span><i></i><i></i><i></i><i></i><i></i><b translate="no"></b></div>
     <div class="farmp-foot">
       <div class="farmp-tools">
+        <p class="farmp-tray-head"></p>
         <div class="farmp-tray" role="listbox" aria-label="Seeds"></div>
         <div class="farmp-actions"><button type="button" class="primary farmp-next"></button><button type="button" class="farmp-stand"></button><button type="button" class="farmp-review" hidden></button></div>
         <p class="farmp-hint"></p>
@@ -115,6 +116,9 @@ export function openFarm({ changed = () => {} } = {}) {
     if (ripe) chip("ripe", lineIcon("sparkle", 16), t("{0} ripe", ripe));
     if (empty) chip("", lineIcon("plus", 16), t("{0} empty", empty));
     $(".farmp-next").disabled = !thirsty;
+    // (the seeds to plant, labelled as seeds: they show their crop's picture, and the owner took them for harvests;
+    // harvests are in the barn, the basket at the top)
+    $(".farmp-tray-head").textContent = t("Seeds to plant");
     const tray = $(".farmp-tray");
     tray.replaceChildren();
     const f = farmOf(game);

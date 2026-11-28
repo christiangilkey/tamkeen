@@ -1,0 +1,3 @@
+1e70cdfb	Graines à planter
+027d7df0	Rien pour l'instant. Les récoltes mûres que vous cueillez attendent ici. Les graines que vous achetez sont dans le plateau sous le champ.
+db81e8c5	Vos récoltes attendent ici aussi longtemps que vous voulez : rien ne s'abîme dans la grange. Un bord coloré indique une récolte plus rare. Touchez-en une pour la donner à manger à votre créature, en faire des appâts ou la vendre.

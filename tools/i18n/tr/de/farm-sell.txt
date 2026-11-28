@@ -1,0 +1,3 @@
+1e70cdfb	Samen zum Pflanzen
+027d7df0	Noch nichts. Reife Ernten, die du einholst, warten hier. Die Samen, die du kaufst, liegen in der Ablage unter dem Feld.
+db81e8c5	Deine Ernten warten hier, so lange du willst: In der Scheune verdirbt nichts. Ein farbiger Rand zeigt eine seltenere Ernte. Tippe auf eine, um sie deinem Wesen zu füttern, Köder daraus zu machen oder sie zu verkaufen.
