@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Un nuovo aspetto in tutta l'app, con nuovi caratteri
+7c51be50	Home ora è Giochi, e Biblioteca ora è Contenuti
+12fc5eea	Contenuti si apre su una mappa di tutto, in base a quanto usi
+ab85d320	Fattoria: una schermata intera della fattoria, e ogni parola viene detta ad alta voce
+7854c5d2	Una sola fila di filtri invece di due
+3024bd08	Il villaggio: niente si sovrappone e le immagini si caricano bene

@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Un aspecto nuevo en toda la app, con letras nuevas
+7c51be50	Inicio ahora es Juegos, y Biblioteca ahora es Contenido
+12fc5eea	Contenido se abre con un mapa de todo, según lo que más usas
+ab85d320	Granja: una pantalla de granja completa, y cada palabra se dice en voz alta
+7854c5d2	Una sola fila de filtros en vez de dos
+3024bd08	El pueblo: nada se superpone y las imágenes cargan bien

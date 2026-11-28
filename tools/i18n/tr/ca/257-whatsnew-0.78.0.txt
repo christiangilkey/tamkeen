@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Un aspecte nou a tota l'app, amb lletres noves
+7c51be50	Inici ara és Jocs, i Biblioteca ara és Contingut
+12fc5eea	Contingut s'obre amb un mapa de tot, a la mida del que fas servir
+ab85d320	Granja: una pantalla de granja sencera, i cada paraula es diu en veu alta
+7854c5d2	Una sola fila de filtres en lloc de dues
+3024bd08	El poble: res no se superposa, i les imatges es carreguen bé

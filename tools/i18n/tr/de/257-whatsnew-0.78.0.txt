@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Ein frischer Look in der ganzen App, mit neuen Schriften
+7c51be50	Start heißt jetzt Spiele, und Bibliothek heißt jetzt Inhalte
+12fc5eea	Inhalte öffnen sich mit einer Karte von allem, so groß wie du es nutzt
+ab85d320	Hof: ein ganzer Hof-Bildschirm, und jedes Wort wird vorgesprochen
+7854c5d2	Eine Filterzeile statt zwei
+3024bd08	Das Dorf: nichts überlappt, und Bilder laden zuverlässig

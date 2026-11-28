@@ -33330,6 +33330,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "4aed4e5f",
+  "k": "A fresh look across the whole app, with new fonts",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7c51be50",
+  "k": "Home is now Games, and Library is now Content",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "12fc5eea",
+  "k": "Content opens on a map of everything, sized by what you use",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ab85d320",
+  "k": "Farming: a full farm screen, and each word is said aloud",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7854c5d2",
+  "k": "One row of filters instead of two",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "3024bd08",
+  "k": "The village: nothing overlaps, and pictures load reliably",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "095e0224",
   "k": "A calmer, clearer look, with a new font",
   "f": "web/js/whatsnew.js"

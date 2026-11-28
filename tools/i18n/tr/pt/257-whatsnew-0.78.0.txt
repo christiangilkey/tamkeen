@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Um visual novo no app todo, com novas fontes
+7c51be50	Início agora é Jogos, e Biblioteca agora é Conteúdo
+12fc5eea	Conteúdo abre com um mapa de tudo, do tamanho do seu uso
+ab85d320	Fazenda: uma tela de fazenda inteira, e cada palavra é dita em voz alta
+7854c5d2	Uma fileira de filtros em vez de duas
+3024bd08	A vila: nada se sobrepõe e as imagens carregam direito

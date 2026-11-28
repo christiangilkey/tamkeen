@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Bagong itsura sa buong app, may mga bagong font
+7c51be50	Ang Home ay Mga laro na, at ang Library ay Nilalaman na
+12fc5eea	Bumubukas ang Nilalaman sa mapa ng lahat, ayon sa iyong ginagamit
+ab85d320	Pagsasaka: buong screen ng bukid, at binibigkas ang bawat salita
+7854c5d2	Isang hanay ng filter sa halip na dalawa
+3024bd08	Ang nayon: walang nagpapatong, at maayos na naglo-load ang mga larawan

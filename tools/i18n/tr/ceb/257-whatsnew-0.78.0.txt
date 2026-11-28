@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Bag-ong hitsura sa tibuok app, uban sa bag-ong mga font
+7c51be50	Ang Home kay Mga dula na, ug ang Library kay Sulod na
+12fc5eea	Ang Sulod moabli sa mapa sa tanan, sumala sa imong gigamit
+ab85d320	Pag-uma: tibuok nga screen sa umahan, ug ang matag pulong gisulti og kusog
+7854c5d2	Usa ka laray sa mga filter imbes duha
+3024bd08	Ang baryo: walay nagsapaw, ug ang mga hulagway maayong mo-load

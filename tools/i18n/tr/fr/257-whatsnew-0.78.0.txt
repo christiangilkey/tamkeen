@@ -1,0 +1,7 @@
+# What is new in v0.78.0 (web/js/whatsnew.js).
+4aed4e5f	Un nouveau style dans toute l'appli, avec de nouvelles polices
+7c51be50	Accueil devient Jeux, et Bibliothèque devient Contenu
+12fc5eea	Contenu s'ouvre sur une carte de tout, à la taille de ton usage
+ab85d320	Ferme : un écran de ferme complet, et chaque mot est prononcé
+7854c5d2	Une seule rangée de filtres au lieu de deux
+3024bd08	Le village : plus rien ne se chevauche, et les images se chargent bien
