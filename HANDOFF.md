@@ -10330,15 +10330,18 @@ and "Side by side on computer stacked on phone and four meanings only for spot c
   (`farmpage.js`), with cards waiting, the reviewer comes up by itself: UNDER the game on a phone, half the height each
   (the owner, 2026-11-28: the flashcards at the bottom, the game on top, so Remembered / Not remembered are in thumb
   reach; `review.css` gives `.rp-dock` `order: 2` below 900 px, though it comes first in the page), beside it on a
-  computer (900 px and wider, the cards on the left, as before). Spot checks and the memory-calls chip stay in the
-  game's part. A turned card casts the line / walks the creature to the next job; each answer lands the
+  computer (900 px and wider, the cards on the left, as before). The memory-calls chip stays in the game's part; a
+  spot check covers the cards (below). A turned card casts the line / walks the creature to the next job; each answer lands the
   fish on the line (`reviewCatch`: rarity by `farm.rollTier` at the pond's luck x the meter's, Legendary at most, not
   in the flashcards' luck record) or does the next farm job (`reviewTend`: harvest a ripe crop, else water a thirsty
   one, a full watering either way, else plant the tray's seed). The same for "Remembered" and "Not remembered". An
   answer taken back with Undo and given again acts once (`redo`). The pond's own taps and keys wait meanwhile.
   "Quick play" puts the reviewer away (the game's own questions); "Review your cards here (n)" brings it back.
-- **Spot checks** (`game/spotcheck.js`): about 1 "Remembered" card in 6, asked 2 cards later in a game panel over the
-  scene (the word, four meanings, 3 s, keys 1-4); the cards wait, faded, while it is open (`hold`). Right: "Sharp!",
+- **Spot checks** (`game/spotcheck.js`): about 1 "Remembered" card in 6, asked 2 cards later on a plain solid cover over the
+  whole of the cards, edge to edge (`.rp-check` in `.rp-dock`, `inset: 0`, `--surface`, the cards' font; the owner,
+  2026-11-28: "The spot checks should cover the card section, not the game section ... a clean cover"), the game left
+  as it is (the word, four meanings, 3 s, keys 1-4); the cards wait under it, hidden (`hold`, `.rp-held > .rv-docked`),
+  and come back when it is answered. Right: "Sharp!",
   the next catch or harvest x1.5 luck. Wrong or out of time: `regrade` turns that answer into "Not remembered" by
   taking it back (rating 0, which both sync engines keep) and adding a "Not remembered" a moment later, and the card
   comes back a few cards on. Nothing else changes (its roll and XP stay).

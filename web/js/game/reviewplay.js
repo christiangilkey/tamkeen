@@ -39,7 +39,7 @@ export async function cardsWaiting() {
 /**
  * Dock the reviewer on a game page.
  *   wrap   the page (its .live-wrap): the reviewer goes in at its start, over the game on a phone, beside it on a computer
- *   foot   the part under the game's scene: the game's line (the meter, what it is doing, Quick play) and the checks go there
+ *   foot   the part under the game's scene: the game's line (the meter, what it is doing, Quick play) goes there
  *   kind   "fish" or "farm": what a passed check makes luckier, in its words
  *   turn(word)          a card is turned; returns a few words for what the game does ("The line flies out…"), or ""
  *   act(answer, luck)   an answer (onAnswer's, below): one game moment at `luck` (the meter's, and a passed check's);
@@ -62,10 +62,13 @@ export async function dockReview({ wrap, foot, kind, turn, act, ended }) {
     <span class="rp-doing" role="status"></span>
     <button type="button" class="rp-quick">Quick play</button>
   </div>`);
-  const box = h(`<div class="rp-check px-corner" role="group" aria-label="Spot check" hidden></div>`);
+  // a spot check covers the cards, all of them, while it is open; the game beside them stays as it is (the owner,
+  // 2026-11-28: "The spot checks should cover the card section, not the game section ... a clean cover")
+  const box = h(`<div class="rp-check" role="group" aria-label="Spot check" hidden></div>`);
   wrap.classList.add("rp-on");
   wrap.prepend(dock);
-  foot.append(bar, box);
+  foot.append(bar);
+  dock.append(box);
 
   let closed = false;
   let sharp = false;      // a check was passed: the next catch or harvest is luckier
@@ -99,7 +102,7 @@ export async function dockReview({ wrap, foot, kind, turn, act, ended }) {
     if (!checking) { const c = dueCheck(waiting, answers); if (c) setTimeout(() => ask(c.word), 450); }
   }
 
-  /** A spot check on `word`: its four meanings in the game's panel; the cards wait for it (openReview's `hold`). */
+  /** A spot check on `word`: its four meanings over the cards; the cards wait for it under it (openReview's `hold`). */
   function ask(word) {
     const q = closed || checking ? null : checkFor(word, vocab);
     if (!q) return;
@@ -120,9 +123,8 @@ export async function dockReview({ wrap, foot, kind, turn, act, ended }) {
       return b;
     });
     checking = { q, word, buttons, done: false, shownAt: performance.now(), timer: 0 };
-    bar.hidden = true;
     box.hidden = false;
-    dock.classList.add("rp-held"); // (the cards wait, dimmed, while it is open)
+    dock.classList.add("rp-held"); // (the cards wait, out of sight under it, while it is open)
     sfx("tick");
     const c = checking;
     c.timer = setInterval(() => {
@@ -159,7 +161,6 @@ export async function dockReview({ wrap, foot, kind, turn, act, ended }) {
       dock.classList.remove("rp-held");
       if (closed) return;
       box.hidden = true;
-      bar.hidden = false;
       const next = dueCheck(waiting, answers);
       if (next) setTimeout(() => ask(next.word), 300);
     }, ok ? 900 : 1700);

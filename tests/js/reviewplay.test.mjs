@@ -208,3 +208,16 @@ test("stacked on a phone, side by side on a computer; the cards keep their own l
   assert.match(r, /if \(!dock\) try \{ history\.pushState/, "the back button closes the game's page, as before");
   assert.match(r, /return \{ close: \(\) => close\(\), regrade, el \};/);
 });
+
+test("a spot check covers the whole of the cards, not the game: a plain solid cover, nothing of the cards round it", () => {
+  // the owner, 2026-11-28: "The spot checks should cover the card section, not the game section ... a clean cover"
+  const js = src("js/game/reviewplay.js");
+  assert.match(js, /foot\.append\(bar\);\n {2}dock\.append\(box\);/, "the check goes over the cards; the game's line stays under the game");
+  assert.doesNotMatch(js, /bar\.hidden = /, "the game's half is left as it is while a check is open");
+  const css = src("css/review.css");
+  const rule = css.match(/\n\.rp-check \{[^}]*\}/)[0];
+  for (const bit of ["position: absolute; inset: 0;", "background: var(--surface);", "font-family: var(--ui-font);"]) assert.ok(rule.includes(bit), bit);
+  assert.doesNotMatch(rule, /border-radius|box-shadow|opacity/, "plain and solid, edge to edge");
+  assert.match(css, /\.rp-held > \.rv-docked \{ visibility: hidden; \}/, "the waiting cards can't show through or round it");
+  assert.doesNotMatch(css, /\.rp-held \.rv-stage/, "no longer faded behind it");
+});
