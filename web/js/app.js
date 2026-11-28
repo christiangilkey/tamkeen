@@ -30,7 +30,7 @@ import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { mountHelpButton } from "./components/helpbutton.js";
-import { mountXpBadge } from "./game/xpbadge.js";
+import { fitTopBar } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -770,7 +770,7 @@ async function boot() {
   })).catch(() => {});
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountHelpButton(document.querySelector(".topbar")); // "?": how to use the screen that is open
-  mountXpBadge(document.querySelector(".topbar")); // the game's level and XP, at the end (game/xpbadge.js)
+  fitTopBar(document.querySelector(".topbar")); // (no level circle in the top bar: the owner, 2026-11-27; game/xpbadge.js)
   startBadge();
   startSyncPace();
   startListenSync(api, on); // what was listened to, watched and read reaches the user's other devices (listensync.js)

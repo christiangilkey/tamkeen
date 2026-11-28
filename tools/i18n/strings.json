@@ -36400,6 +36400,11 @@
   "f": "mobile/src/js/web-install.js"
  },
  {
+  "id": "3f1daecb",
+  "k": "It's on my home screen already",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
   "id": "def8615b",
   "k": "Couldn't reach Instagram. Check your connection.",
   "f": "mobile/src/js/web-reels.js"

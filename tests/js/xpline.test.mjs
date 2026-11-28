@@ -69,7 +69,7 @@ test("the level badge: level, how full its ring is, what the next level needs", 
   assert.equal(ringOffset(0.001), 96, "a sliver shows once anything is earned towards the level");
 });
 
-test("nothing floats over the page: the chip is gone, the popup keeps a slot, the top bar has the badge", () => {
+test("nothing floats over the page: the chip is gone, the popup keeps a slot, the top bar has no level circle", () => {
   const game = read("web/js/game/game.js");
   assert.doesNotMatch(game, /game-chip|showChip/);
   assert.doesNotMatch(game, /fx-label/, "the particle burst has no floating words");
@@ -80,6 +80,10 @@ test("nothing floats over the page: the chip is gone, the popup keeps a slot, th
   assert.match(bubble, /xpSlot\.className = "wb-xp"/);
   assert.match(bubble, /el\.querySelector\("\.wb-actions"\)\.before\(xpSlot\)/, "kept when the popup is drawn again");
   assert.match(bubble, /xpSlot\.wbAnchor = anchorEl/);
-  for (const app of ["web/js/app.js", "mobile/src/js/app.js"]) assert.match(read(app), /mountXpBadge\(document\.querySelector\("\.topbar"\)/, app);
+  // (the owner, 2026-11-27: "the orange level circle isn't necessary to be there at all")
+  for (const app of ["web/js/app.js", "mobile/src/js/app.js"]) {
+    assert.doesNotMatch(read(app), /mountXpBadge\(/, app);
+    assert.match(read(app), /fitTopBar\(document\.querySelector\("\.topbar"\)\);/, app);
+  }
   assert.match(read("web/js/game/xpbadge.js"), /prefers-reduced-motion/);
 });
