@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** *(phones)* The game's sheets were cropped on a narrow screen with the pixel font: in Fishing the **Fishdex** tab ran off the edge, the title showed only "Ba…" beside the coin and pearl counters, and a fish tile's rarity broke mid-word ("Legenda / ry"). Now the tabs always fit (smaller words, two lines if needed, no pictures when there are three tabs), the title has room and is never cut, and a rarity that doesn't fit beside its dot goes under it whole. Checked at 360, 390 and 412 px, and right to left.
 - **Changed:** Fishing rods are now bought **one after the other**, like upgrades: only the rod after your best one can be bought, and it becomes the rod in use. Later rods show their price behind a lock, and say which rod comes first ("Buy the Bamboo rod first."). Nothing is taken away: if you already own a later rod without an earlier one, you keep everything you have, and your next rod is the one after your best. Rods bought on two devices are combined, so you keep every rod either device has, with the better one in use.
 - **Changed:** The players (podcasts, audiobooks, My audio, My videos, YouTube and Netflix) no longer have the **Tap words** button in their bottom bar: words in a transcript and in the captions can always be tapped. The button is still at the bottom of books, webpages and My files, and turning it off there no longer changes the players.
 

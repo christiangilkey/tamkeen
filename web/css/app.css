@@ -3227,6 +3227,21 @@ button.primary .gs-amount { color: inherit; }
 .seg-btn.on .gs-seg-n { background: var(--surface-2); color: var(--ink); }
 .gs-pockets { max-width: none; margin: 0 0 var(--s-12); }
 @media (max-width: 420px) { .gs-pockets .seg-btn > .px-icon { display: none; } }
+/* On a phone the head and the switch have little room, and the pixel font runs wide (the owner, 2026-11-27: "the menu
+   here gets cropped off a little bit"). Nothing is cut: the switch's words step down a size and may take two lines
+   (whole words), and its pictures go when it has three sides; the title gives its picture up to the counters, steps
+   down a size and may take two lines; the counters sit closer. */
+.gs-seg .seg-btn { min-width: 0; }
+.gs-seg .seg-btn > span:not(.gs-seg-n) { min-width: 0; overflow-wrap: break-word; }
+@media (max-width: 480px) {
+  .gs-seg .seg-btn { padding: var(--s-4) var(--s-8); gap: var(--s-4); font-size: var(--fs-14); line-height: var(--lh-head); text-align: center; }
+  .gs-seg:has(.seg-btn:nth-child(3)) .seg-btn > .px-icon { display: none; }
+  .gs-head:has(.gs-pill) .gs-title-pic { display: none; }
+  .gs-head:has(.gs-pill) .gs-title { font-size: var(--fs-16); }
+  .gs-title-word { white-space: normal; overflow-wrap: break-word; line-height: var(--lh-head); }
+  .gs-pills { gap: var(--s-4); }
+  .gs-pill { padding: 0 var(--s-8); }
+}
 /* A block's heading row: the label, and a count or a "?" at its other end. */
 .gs-block-head { display: flex; align-items: center; gap: var(--s-8); min-height: 22px; }
 .gs-block-head .gs-label { flex: 1; min-width: 0; }
@@ -3892,8 +3907,9 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
 .fish-sell-all { white-space: normal; line-height: var(--lh-head); padding-block: var(--s-8); text-align: center; }
 .fish-sell-all span { min-width: 0; overflow-wrap: anywhere; }
 .fish-go, .gs-detail .fish-tier-mark { white-space: normal; }
-.gs-tile .fish-tier-mark { white-space: normal; text-align: center; overflow-wrap: anywhere; min-width: 0; }
-.gs-tile .fish-tier-mark span { min-width: 0; }
+/* (on a tile a rarity that doesn't fit beside its dot goes under it, whole: never "Legenda / ry") */
+.gs-tile .fish-tier-mark { flex-wrap: wrap; justify-content: center; white-space: normal; text-align: center; min-width: 0; max-width: 100%; font-size: var(--fs-12); }
+.gs-tile .fish-tier-mark span { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
 .gs-row .fish-tier-mark { white-space: normal; }
 .fish-aq, .fish-board-slot { min-width: 0; max-width: 100%; }
 .fish-pips { flex-wrap: wrap; }
