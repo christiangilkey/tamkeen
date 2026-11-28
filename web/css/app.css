@@ -160,6 +160,12 @@
   --shadow-float: 0 1px 3px rgba(31, 26, 35, .08), 0 12px 32px rgba(31, 26, 35, .14);
   --scrim: rgba(31, 26, 35, .5);
 
+  /* The review calendar's colours (review.css .hm-cell), kept as they were by the owner's choice (2026-11-27: "reverse
+     the colors back to how they were"; DESIGN.md section 1): days done in the bright teal, days ahead in the plum,
+     the same in both themes. */
+  --heat-done: #22c7d6;
+  --heat-ahead: #bd3fba;
+
   /* Movement (section 10): the study side fades and slides, calm and quick. */
   --ease-out: cubic-bezier(.2, .7, .2, 1);
   --t-quick: 180ms;

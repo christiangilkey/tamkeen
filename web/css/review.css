@@ -625,15 +625,16 @@ body.rv-open { overflow: hidden; }
 .hm-week { display: flex; flex-direction: column; gap: var(--hm-gap); }
 .hm-cell, .hm-none { display: block; width: var(--hm-size); height: var(--hm-size); border-radius: var(--r-s); }
 .hm-cell { background: var(--surface-2); cursor: pointer; }
-.hm-cell.l1 { background: color-mix(in srgb, var(--gold) 35%, var(--surface-2)); }
-.hm-cell.l2 { background: color-mix(in srgb, var(--gold) 58%, var(--surface-2)); }
-.hm-cell.l3 { background: color-mix(in srgb, var(--gold) 80%, var(--surface-2)); }
-.hm-cell.l4 { background: var(--gold); }
+/* The colours as they were before the design sweep (the owner's choice, 2026-11-27): --heat-done, --heat-ahead. */
+.hm-cell.l1 { background: color-mix(in srgb, var(--heat-done) 35%, transparent); }
+.hm-cell.l2 { background: color-mix(in srgb, var(--heat-done) 58%, transparent); }
+.hm-cell.l3 { background: color-mix(in srgb, var(--heat-done) 80%, transparent); }
+.hm-cell.l4 { background: var(--heat-done); }
 .hm-cell.ahead { background: transparent; outline: 1px solid var(--line); outline-offset: -1px; }
-.hm-cell.ahead.l1 { background: color-mix(in srgb, var(--ink-2) 12%, transparent); }
-.hm-cell.ahead.l2 { background: color-mix(in srgb, var(--ink-2) 22%, transparent); }
-.hm-cell.ahead.l3 { background: color-mix(in srgb, var(--ink-2) 32%, transparent); }
-.hm-cell.ahead.l4 { background: color-mix(in srgb, var(--ink-2) 42%, transparent); }
+.hm-cell.ahead.l1 { background: color-mix(in srgb, var(--heat-ahead) 14%, transparent); }
+.hm-cell.ahead.l2 { background: color-mix(in srgb, var(--heat-ahead) 24%, transparent); }
+.hm-cell.ahead.l3 { background: color-mix(in srgb, var(--heat-ahead) 34%, transparent); }
+.hm-cell.ahead.l4 { background: color-mix(in srgb, var(--heat-ahead) 44%, transparent); }
 .hm-cell.today { outline: 1.5px solid var(--ink); outline-offset: -1.5px; }
 .hm-cell.on { outline: 2px solid var(--teal); outline-offset: 1px; }
 .hm-day { margin: 0; min-height: 1.4em; font-size: var(--fs-14); color: var(--ink-2); font-variant-numeric: tabular-nums; }

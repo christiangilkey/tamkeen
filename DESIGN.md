@@ -32,6 +32,11 @@ buttons, the white "Show the word" button and its sizes stay as they are (`web/c
 typed colours are allowed in the guard's baseline. Don't restyle it in a sweep: any improvement goes to the owner
 first, one change at a time.
 
+**A second exception, also the owner's (2026-11-27): the review calendar keeps its old colours.** "I think it should
+stay looking like this, but reverse the colors back to how they were." Its layout follows this document, but its dots
+are the bright teal for days done and the plum for days ahead, in both themes, as before the sweep: the tokens
+`--heat-done` and `--heat-ahead` (`web/css/review.css`, `.hm-cell`). Don't move them to gold or the ink.
+
 **The logo-swap test** (the owner's): cover the logo and the words. Could this screen belong to any other language app?
 If yes, it is the average AI answer, not Tamkeen's. Redo it.
 
