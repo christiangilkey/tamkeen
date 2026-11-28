@@ -6235,7 +6235,6 @@
 "Edit the word":"Edita la paraula",
 "Edit the meaning":"Edita el significat",
 "Edit the sentence":"Edita la frase",
-"Edit the translation":"Edita la traducció",
 "Edit the grammar notes":"Edita les notes de gramàtica",
 "Edit the memorization notes":"Edita les notes per memoritzar",
 "That couldn't be copied here.":"Aquí no s'ha pogut copiar.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Repàs de Tamkeen ({0} min)",
 "Your cards":"Les teves targetes",
 "{0} left today: about {1}, by Tamkeen's estimate.":"En queden {0} avui: uns {1}, segons el càlcul de Tamkeen.",
-"Translation":"Traducció",
 "Mnemonic maker: words that sound like it, each with a picture":"Creador de mnemotècnies: paraules que sonen com aquesta, cadascuna amb una imatge",
 "An example sentence: a real one found, or one written for you":"Una frase d'exemple: una de real trobada, o una escrita per a tu",
 "Record the word, or choose a sound file":"Enregistra la paraula, o tria un fitxer de so",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Els teus comptes continuen sent teus",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Inicies la sessió a Netflix al mateix lloc web de Netflix: l'extensió no veu mai la teva contrasenya. Els subtítols de Netflix i les paraules que deses es queden a la teva pròpia biblioteca de Tamkeen i no es comparteixen mai.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"El mateix passa amb Prime Video: inicies la sessió al lloc d'Amazon, i l'extensió només llegeix la línia de subtítols de la teva pantalla. Mai no controla el reproductor de Prime Video ni en baixa res.",
-"Privacy policy of the extension":"Política de privadesa de l'extensió"}
+"Privacy policy of the extension":"Política de privadesa de l'extensió",
+"Translate the sentence with your AI":"Tradueix la frase amb la teva IA",
+"Generate":"Genera",
+"Generating…":"S'està generant…",
+"Edit the sentence translation":"Edita la traducció de la frase",
+"This card has no sentence to translate.":"Aquesta targeta no té cap frase per traduir.",
+"The AI didn't write a translation. Try again.":"La IA no ha escrit cap traducció. Torna-ho a provar."}

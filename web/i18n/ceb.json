@@ -6235,7 +6235,6 @@
 "Edit the word":"I-edit ang pulong",
 "Edit the meaning":"I-edit ang kahulogan",
 "Edit the sentence":"I-edit ang sentence",
-"Edit the translation":"I-edit ang hubad",
 "Edit the grammar notes":"I-edit ang mga note sa grammar",
 "Edit the memorization notes":"I-edit ang mga nota sa pagsag-ulo",
 "That couldn't be copied here.":"Dili kana makopya dinhi.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Review sa Tamkeen ({0} min)",
 "Your cards":"Imong mga card",
 "{0} left today: about {1}, by Tamkeen's estimate.":"{0} ang nahabilin karon: mga {1}, sumala sa banabana sa Tamkeen.",
-"Translation":"Hubad",
 "Mnemonic maker: words that sound like it, each with a picture":"Mnemonic maker: mga pulong nga susama og tingog niini, matag usa adunay hulagway",
 "An example sentence: a real one found, or one written for you":"Usa ka pananglitan nga sentence: tinuod nga nakit-an, o gisulat para nimo",
 "Record the word, or choose a sound file":"I-record ang pulong, o pagpili og sound file",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Imo gihapon ang imong mga account",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Sa mismong site sa Netflix ka mag-sign in sa Netflix: dili gyud makita sa extension ang imong password. Ang mga subtitle sa Netflix ug ang mga pulong nga imong i-save magpabilin sa imong kaugalingong Tamkeen library, ug dili gyud ipaambit.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Pareho usab sa Prime Video: mag-sign in ka sa kaugalingong site sa Amazon, ug ang extension mobasa ra sa linya sa subtitle sa imong screen. Dili gyud kini mokontrolar sa player sa Prime Video o mag-download og bisan unsa gikan niini.",
-"Privacy policy of the extension":"Palisiya sa privacy sa extension"}
+"Privacy policy of the extension":"Palisiya sa privacy sa extension",
+"Translate the sentence with your AI":"Hubara ang sentence gamit ang imong AI",
+"Generate":"Himoa",
+"Generating…":"Gihimo…",
+"Edit the sentence translation":"Usba ang hubad sa sentence",
+"This card has no sentence to translate.":"Walay sentence nga mahubad niining card.",
+"The AI didn't write a translation. Try again.":"Wala makasulat og hubad ang AI. Sulayi pag-usab."}

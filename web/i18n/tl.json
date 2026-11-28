@@ -6235,7 +6235,6 @@
 "Edit the word":"I-edit ang salita",
 "Edit the meaning":"I-edit ang kahulugan",
 "Edit the sentence":"I-edit ang pangungusap",
-"Edit the translation":"I-edit ang salin",
 "Edit the grammar notes":"I-edit ang mga tala sa gramatika",
 "Edit the memorization notes":"I-edit ang mga tala sa pagsasaulo",
 "That couldn't be copied here.":"Hindi iyon makopya rito.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeen review ({0} min)",
 "Your cards":"Ang mga card mo",
 "{0} left today: about {1}, by Tamkeen's estimate.":"Natitira ngayong araw: {0}; mga {1}, ayon sa tantya ng Tamkeen.",
-"Translation":"Salin",
 "Mnemonic maker: words that sound like it, each with a picture":"Gawa ng mnemonic: mga salitang kahawig ng tunog nito, bawat isa may larawan",
 "An example sentence: a real one found, or one written for you":"Isang halimbawang pangungusap: totoong nakita, o isinulat para sa iyo",
 "Record the word, or choose a sound file":"I-record ang salita, o pumili ng sound file",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Sa iyo pa rin ang mga account mo",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Sa mismong site ng Netflix ka nagsa-sign in sa Netflix: hindi kailanman nakikita ng extension ang password mo. Ang subtitles ng Netflix at ang mga salitang sine-save mo ay nananatili sa sarili mong Tamkeen library, at hindi kailanman ibinabahagi.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Ganoon din sa Prime Video: sa sariling site ng Amazon ka magsa-sign in, at ang linya lang ng subtitle sa screen mo ang binabasa ng extension. Hindi nito kailanman kinokontrol ang player ng Prime Video o nagda-download ng kahit ano mula rito.",
-"Privacy policy of the extension":"Patakaran sa privacy ng extension"}
+"Privacy policy of the extension":"Patakaran sa privacy ng extension",
+"Translate the sentence with your AI":"Isalin ang pangungusap gamit ang iyong AI",
+"Generate":"Gumawa",
+"Generating…":"Ginagawa…",
+"Edit the sentence translation":"I-edit ang salin ng pangungusap",
+"This card has no sentence to translate.":"Walang pangungusap na isasalin ang card na ito.",
+"The AI didn't write a translation. Try again.":"Hindi nakasulat ng salin ang AI. Subukan ulit."}

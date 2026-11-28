@@ -12160,6 +12160,16 @@
   "f": "web/js/components/wordeditor.js"
  },
  {
+  "id": "9df890b3",
+  "k": "Translate the sentence with your AI",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "fc45f9b7",
+  "k": "Generate",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
   "id": "8669aa56",
   "k": "Episode",
   "f": "web/js/components/wordeditor.js"
@@ -12182,6 +12192,11 @@
  {
   "id": "db248300",
   "k": "Paste",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "11edad70",
+  "k": "Generating…",
   "f": "web/js/components/wordeditor.js"
  },
  {
@@ -15660,6 +15675,21 @@
   "f": "web/js/game/beasts.js"
  },
  {
+  "id": "7881bf71",
+  "k": "Champion",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "dc3851b6",
+  "k": "Ranked battles are online: they open with Friends.",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "0381247a",
+  "k": "Leaderboard",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
   "id": "32c9bcb1",
   "k": "Egg",
   "f": "web/js/game/creatures.js"
@@ -16932,11 +16962,6 @@
  {
   "id": "40e4dece",
   "k": "a night form with a moonlit glow",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "7881bf71",
-  "k": "Champion",
   "f": "web/js/game/data.js"
  },
  {
@@ -23415,11 +23440,6 @@
   "f": "web/js/game/ranked-ui.js"
  },
  {
-  "id": "dc3851b6",
-  "k": "Ranked battles are online: they open with Friends.",
-  "f": "web/js/game/ranked-ui.js"
- },
- {
   "id": "05eb7b24",
   "k": "Sign in to Friends first to play ranked battles.",
   "f": "web/js/game/ranked-ui.js"
@@ -23437,11 +23457,6 @@
  {
   "id": "28eb5810",
   "k": "Find a ranked match",
-  "f": "web/js/game/ranked-ui.js"
- },
- {
-  "id": "0381247a",
-  "k": "Leaderboard",
   "f": "web/js/game/ranked-ui.js"
  },
  {
@@ -27012,16 +27027,6 @@
  {
   "id": "f1574425",
   "k": "Find a word in everything you've read or listened to.",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "afaa0fed",
-  "k": "{0} word{1} saved today",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "d27bd152",
-  "k": "{0} in your vocab",
   "f": "web/js/pages/home.js"
  },
  {
@@ -31185,8 +31190,8 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "71f0b2ab",
-  "k": "Edit the translation",
+  "id": "c8f8e3d4",
+  "k": "Edit the sentence translation",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -32095,6 +32100,16 @@
   "f": "web/js/review/sendtask.js"
  },
  {
+  "id": "1156b10c",
+  "k": "This card has no sentence to translate.",
+  "f": "web/js/review/sentencetranslate.js"
+ },
+ {
+  "id": "78a45c1a",
+  "k": "The AI didn't write a translation. Try again.",
+  "f": "web/js/review/sentencetranslate.js"
+ },
+ {
   "id": "d8803f2b",
   "k": "Tamkeen review ({0} min)",
   "f": "web/js/review/tasktext.js"
@@ -32108,11 +32123,6 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
- },
- {
-  "id": "ac26a7a9",
-  "k": "Translation",
-  "f": "web/js/review/vocabedit.js"
  },
  {
   "id": "3095a407",
@@ -38158,5 +38168,15 @@
   "id": "c4277de7",
   "k": "Privacy policy of the extension",
   "f": "extension/install.html"
+ },
+ {
+  "id": "afaa0fed",
+  "k": "{0} word{1} saved today",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "d27bd152",
+  "k": "{0} in your vocab",
+  "f": "web/js/pages/home.js"
  }
 ]

@@ -6235,7 +6235,6 @@
 "Edit the word":"단어 수정",
 "Edit the meaning":"뜻 수정",
 "Edit the sentence":"문장 수정",
-"Edit the translation":"번역 수정",
 "Edit the grammar notes":"문법 메모 수정",
 "Edit the memorization notes":"암기 노트 수정",
 "That couldn't be copied here.":"여기서는 복사할 수 없었어요.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeen 복습({0}분)",
 "Your cards":"내 카드",
 "{0} left today: about {1}, by Tamkeen's estimate.":"오늘 {0} 남음: Tamkeen 추정으로 약 {1}.",
-"Translation":"번역",
 "Mnemonic maker: words that sound like it, each with a picture":"기억법 만들기: 소리가 비슷한 말을 각각 그림과 함께",
 "An example sentence: a real one found, or one written for you":"예문: 찾은 실제 문장이나 나를 위해 쓴 문장",
 "Record the word, or choose a sound file":"단어를 녹음하거나 소리 파일 고르기",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"계정은 계속 내 것",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"넷플릭스 로그인은 넷플릭스 사이트에서 직접 해요. 확장 프로그램은 비밀번호를 절대 보지 않아요. 넷플릭스 자막과 저장한 단어는 내 Tamkeen 라이브러리에만 남고, 절대 공유되지 않아요.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Prime Video도 마찬가지예요. 로그인은 Amazon 자체 사이트에서 하고, 확장 프로그램은 화면의 자막 줄만 읽어요. Prime Video 플레이어를 조작하거나 거기서 무엇을 내려받는 일은 절대 없어요.",
-"Privacy policy of the extension":"확장 프로그램의 개인정보 처리방침"}
+"Privacy policy of the extension":"확장 프로그램의 개인정보 처리방침",
+"Translate the sentence with your AI":"내 AI로 문장 번역하기",
+"Generate":"생성",
+"Generating…":"생성 중…",
+"Edit the sentence translation":"문장 번역 편집",
+"This card has no sentence to translate.":"이 카드에는 번역할 문장이 없어요.",
+"The AI didn't write a translation. Try again.":"AI가 번역을 쓰지 않았어요. 다시 시도해 주세요."}

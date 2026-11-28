@@ -6235,7 +6235,6 @@
 "Edit the word":"تعديل الكلمة",
 "Edit the meaning":"تعديل المعنى",
 "Edit the sentence":"تعديل الجملة",
-"Edit the translation":"تعديل الترجمة",
 "Edit the grammar notes":"تعديل الملاحظات النحوية",
 "Edit the memorization notes":"تعديل ملاحظات الحفظ",
 "That couldn't be copied here.":"تعذّر النسخ هنا.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"مراجعة تمكين ({0} د)",
 "Your cards":"بطاقاتك",
 "{0} left today: about {1}, by Tamkeen's estimate.":"المتبقي اليوم: {0}؛ نحو {1} بحسب تقدير تمكين.",
-"Translation":"الترجمة",
 "Mnemonic maker: words that sound like it, each with a picture":"صانع وسائل التذكّر: كلمات تشبهها في النطق، لكل منها صورة",
 "An example sentence: a real one found, or one written for you":"جملة مثال: جملة حقيقية يُعثر عليها، أو جملة تُكتب لك",
 "Record the word, or choose a sound file":"سجّل الكلمة، أو اختر ملفًا صوتيًا",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"حساباتك تبقى لك",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"تسجّل الدخول إلى نتفليكس في موقع نتفليكس نفسه: لا ترى الإضافة كلمة مرورك أبدًا. وتبقى ترجمة نتفليكس والكلمات التي تحفظها في مكتبتك الخاصة في تمكين، ولا تُشارَك أبدًا.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"والأمر نفسه مع Prime Video: تسجّل الدخول على موقع أمازون نفسه، ولا تقرأ الإضافة إلا سطر الترجمة على شاشتك. ولا تتحكم أبدًا في مشغّل Prime Video ولا تنزّل منه شيئًا.",
-"Privacy policy of the extension":"سياسة الخصوصية للإضافة"}
+"Privacy policy of the extension":"سياسة الخصوصية للإضافة",
+"Translate the sentence with your AI":"ترجمة الجملة بالذكاء الاصطناعي الخاص بك",
+"Generate":"إنشاء",
+"Generating…":"جارٍ الإنشاء…",
+"Edit the sentence translation":"تعديل ترجمة الجملة",
+"This card has no sentence to translate.":"لا توجد في هذه البطاقة جملة لترجمتها.",
+"The AI didn't write a translation. Try again.":"لم يكتب الذكاء الاصطناعي ترجمة. حاول مرة أخرى."}

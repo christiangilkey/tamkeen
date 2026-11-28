@@ -6235,7 +6235,6 @@
 "Edit the word":"शब्द बदलें",
 "Edit the meaning":"अर्थ बदलें",
 "Edit the sentence":"वाक्य बदलें",
-"Edit the translation":"अनुवाद बदलें",
 "Edit the grammar notes":"व्याकरण के नोट बदलें",
 "Edit the memorization notes":"याद करने के नोट्स बदलें",
 "That couldn't be copied here.":"यहाँ यह कॉपी नहीं हो सका।",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeen रिव्यू ({0} मिनट)",
 "Your cards":"आपके कार्ड",
 "{0} left today: about {1}, by Tamkeen's estimate.":"आज {0} बाक़ी: Tamkeen के अनुमान से लगभग {1}।",
-"Translation":"अनुवाद",
 "Mnemonic maker: words that sound like it, each with a picture":"याद-सहायक बनाने वाला: इसके जैसी आवाज़ वाले शब्द, हर एक के साथ एक तस्वीर",
 "An example sentence: a real one found, or one written for you":"एक उदाहरण वाक्य: ढूँढा गया असली वाक्य, या आपके लिए लिखा गया वाक्य",
 "Record the word, or choose a sound file":"शब्द रिकॉर्ड करें, या साउंड फ़ाइल चुनें",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"आपके खाते आपके ही रहते हैं",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"आप Netflix में Netflix की अपनी साइट पर साइन इन करते हैं: एक्सटेंशन आपका पासवर्ड कभी नहीं देखता। Netflix के सबटाइटल और आपके सेव किए शब्द आपकी अपनी Tamkeen लाइब्रेरी में रहते हैं, और कभी शेयर नहीं किए जाते।",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Prime Video के साथ भी ऐसा ही है: आप Amazon की अपनी साइट पर साइन इन करते हैं, और एक्सटेंशन सिर्फ़ आपकी स्क्रीन पर दिख रही सबटाइटल पंक्ति पढ़ता है। यह कभी Prime Video के प्लेयर को नियंत्रित नहीं करता और न ही उससे कुछ डाउनलोड करता है।",
-"Privacy policy of the extension":"एक्सटेंशन की गोपनीयता नीति"}
+"Privacy policy of the extension":"एक्सटेंशन की गोपनीयता नीति",
+"Translate the sentence with your AI":"अपने AI से वाक्य का अनुवाद करें",
+"Generate":"बनाएँ",
+"Generating…":"बन रहा है…",
+"Edit the sentence translation":"वाक्य का अनुवाद बदलें",
+"This card has no sentence to translate.":"इस कार्ड में अनुवाद करने के लिए कोई वाक्य नहीं है।",
+"The AI didn't write a translation. Try again.":"AI ने अनुवाद नहीं लिखा। फिर से कोशिश करें।"}

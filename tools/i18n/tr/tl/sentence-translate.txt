@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	I-edit ang salin ng pangungusap
+1156b10c	Walang pangungusap na isasalin ang card na ito.
+78a45c1a	Hindi nakasulat ng salin ang AI. Subukan ulit.
+fc45f9b7	Gumawa
+11edad70	Ginagawa…
+9df890b3	Isalin ang pangungusap gamit ang iyong AI

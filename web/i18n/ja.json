@@ -6235,7 +6235,6 @@
 "Edit the word":"単語を編集",
 "Edit the meaning":"意味を編集",
 "Edit the sentence":"文を編集",
-"Edit the translation":"訳を編集",
 "Edit the grammar notes":"文法メモを編集",
 "Edit the memorization notes":"暗記メモを編集",
 "That couldn't be copied here.":"ここではコピーできませんでした。",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeenの復習（{0}分）",
 "Your cards":"あなたのカード",
 "{0} left today: about {1}, by Tamkeen's estimate.":"今日の残り：{0}。Tamkeenの見積もりで約{1}。",
-"Translation":"訳",
 "Mnemonic maker: words that sound like it, each with a picture":"語呂合わせメーカー：音が似た語を、それぞれイメージ付きで",
 "An example sentence: a real one found, or one written for you":"例文：見つけた実際の文、またはあなたのために書いた文",
 "Record the word, or choose a sound file":"単語を録音するか、音声ファイルを選ぶ",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"アカウントはあなたのもののまま",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Netflix へのサインインは Netflix のサイトで行います。拡張機能がパスワードを見ることはありません。Netflix の字幕と保存した単語は、あなた自身の Tamkeen のライブラリに残り、共有されることはありません。",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Prime Video でも同じです。サインインは Amazon 自身のサイトで行い、拡張機能は画面の字幕の行を読むだけです。Prime Video のプレーヤーを操作したり、そこから何かをダウンロードしたりすることはありません。",
-"Privacy policy of the extension":"拡張機能のプライバシーポリシー"}
+"Privacy policy of the extension":"拡張機能のプライバシーポリシー",
+"Translate the sentence with your AI":"あなたのAIで文を訳す",
+"Generate":"生成",
+"Generating…":"生成中…",
+"Edit the sentence translation":"文の訳を編集",
+"This card has no sentence to translate.":"このカードには訳す文がありません。",
+"The AI didn't write a translation. Try again.":"AIが訳を書きませんでした。もう一度お試しください。"}

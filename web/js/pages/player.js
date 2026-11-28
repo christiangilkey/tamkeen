@@ -14,7 +14,7 @@ import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, sta
   netflixBridge, netflixSupport, openNetflix } from "../app.js";
 import { saveProgress } from "../progress.js";
 import { atEnd, markWatched } from "../watched.js";
-import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
+import { activeWordIndex, isPunctuated, spokenSentence, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
 import { computerOnlyNotice, progressBars, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
@@ -1062,7 +1062,7 @@ export async function render(view, { id, query }) {
     if (!target) return;
     const { i, j } = target;
     const clean = target.text.replace(EDGE_PUNCT, "") || target.text;
-    const [si, sj] = sentenceBounds(texts, segOf, i, j);
+    const [si, sj] = heardSentence(i, j);
     const sentence = sentenceText(si, sj);
     showMenu(x, y, clean, [
       {
@@ -1095,11 +1095,15 @@ export async function render(view, { id, query }) {
   let bubbleInPanel = true; // the popup's word was tapped in the transcript panel (not the captions)
 
   function sentenceText(a, b) { return joinWords(texts.slice(a, b + 1), lang); }
+  // The whole sentence a word was heard in, across the transcript's lines (wordlookup.js spokenSentence): what a
+  // lookup is asked about and what a saved card keeps, not only the line on screen.
+  const punctuated = isPunctuated(texts);
+  const heardSentence = (a, b = a) => spokenSentence(texts, segOf, a, b, { starts, ends, punctuated });
 
   function contextFor(i, j) {
-    const [si, sj] = sentenceBounds(texts, segOf, i, j);
-    const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
-    const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
+    const [si, sj] = heardSentence(i, j);
+    const prev = si > 0 ? heardSentence(si - 1) : null;
+    const next = sj < n - 1 ? heardSentence(sj + 1) : null;
     const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,

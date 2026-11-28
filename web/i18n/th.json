@@ -6235,7 +6235,6 @@
 "Edit the word":"แก้ไขคำ",
 "Edit the meaning":"แก้ไขความหมาย",
 "Edit the sentence":"แก้ไขประโยค",
-"Edit the translation":"แก้ไขคำแปล",
 "Edit the grammar notes":"แก้ไขโน้ตไวยากรณ์",
 "Edit the memorization notes":"แก้ไขโน้ตช่วยจำ",
 "That couldn't be copied here.":"คัดลอกที่นี่ไม่ได้",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"ทบทวน Tamkeen ({0} นาที)",
 "Your cards":"บัตรของคุณ",
 "{0} left today: about {1}, by Tamkeen's estimate.":"เหลืออีก {0} ในวันนี้: ประมาณ {1} ตามการประมาณของ Tamkeen",
-"Translation":"คำแปล",
 "Mnemonic maker: words that sound like it, each with a picture":"ตัวช่วยจำ: คำที่ออกเสียงคล้ายกัน แต่ละคำมีภาพ",
 "An example sentence: a real one found, or one written for you":"ประโยคตัวอย่าง: ประโยคจริงที่หาเจอ หรือประโยคที่เขียนให้คุณ",
 "Record the word, or choose a sound file":"อัดเสียงคำ หรือเลือกไฟล์เสียง",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"บัญชีของคุณยังเป็นของคุณ",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"คุณลงชื่อเข้าใช้ Netflix บนเว็บไซต์ของ Netflix เอง ส่วนขยายไม่เคยเห็นรหัสผ่านของคุณ คำบรรยายของ Netflix และคำที่คุณบันทึกจะอยู่ในคลัง Tamkeen ของคุณเอง และไม่ถูกแชร์ให้ใคร",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Prime Video ก็เช่นกัน: คุณลงชื่อเข้าใช้ในเว็บไซต์ของ Amazon เอง และส่วนขยายจะอ่านแค่บรรทัดคำบรรยายบนหน้าจอของคุณ ไม่ควบคุมเครื่องเล่นของ Prime Video และไม่ดาวน์โหลดอะไรจากที่นั่นเลย",
-"Privacy policy of the extension":"นโยบายความเป็นส่วนตัวของส่วนขยาย"}
+"Privacy policy of the extension":"นโยบายความเป็นส่วนตัวของส่วนขยาย",
+"Translate the sentence with your AI":"แปลประโยคด้วย AI ของคุณ",
+"Generate":"สร้าง",
+"Generating…":"กำลังสร้าง…",
+"Edit the sentence translation":"แก้ไขคำแปลประโยค",
+"This card has no sentence to translate.":"การ์ดนี้ไม่มีประโยคให้แปล",
+"The AI didn't write a translation. Try again.":"AI ไม่ได้เขียนคำแปล ลองอีกครั้ง"}

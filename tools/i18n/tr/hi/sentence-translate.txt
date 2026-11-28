@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	वाक्य का अनुवाद बदलें
+1156b10c	इस कार्ड में अनुवाद करने के लिए कोई वाक्य नहीं है।
+78a45c1a	AI ने अनुवाद नहीं लिखा। फिर से कोशिश करें।
+fc45f9b7	बनाएँ
+11edad70	बन रहा है…
+9df890b3	अपने AI से वाक्य का अनुवाद करें

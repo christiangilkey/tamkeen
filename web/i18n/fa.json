@@ -6235,7 +6235,6 @@
 "Edit the word":"ویرایش کلمه",
 "Edit the meaning":"ویرایش معنی",
 "Edit the sentence":"ویرایش جمله",
-"Edit the translation":"ویرایش ترجمه",
 "Edit the grammar notes":"ویرایش نکته‌های دستوری",
 "Edit the memorization notes":"ویرایش یادداشت‌های حفظ",
 "That couldn't be copied here.":"اینجا نمی‌شد کپی کرد.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"مرور تمکین ({0} دقیقه)",
 "Your cards":"کارت‌های شما",
 "{0} left today: about {1}, by Tamkeen's estimate.":"{0} مانده برای امروز: حدود {1}، به برآورد تمکین.",
-"Translation":"ترجمه",
 "Mnemonic maker: words that sound like it, each with a picture":"سازندهٔ یادیار: کلمه‌هایی که شبیهش شنیده می‌شوند، هر کدام با یک تصویر",
 "An example sentence: a real one found, or one written for you":"یک جملهٔ نمونه: یک جملهٔ واقعیِ پیداشده، یا جمله‌ای که برایت نوشته می‌شود",
 "Record the word, or choose a sound file":"ضبط کلمه، یا انتخاب فایل صوتی",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"حساب‌هایتان مال خودتان می‌ماند",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"شما در خود سایت نتفلیکس وارد نتفلیکس می‌شوید: افزونه هرگز رمز عبور شما را نمی‌بیند. زیرنویس‌های نتفلیکس و واژه‌هایی که ذخیره می‌کنید در کتابخانهٔ تمکین خودتان می‌مانند و هرگز با کسی به اشتراک گذاشته نمی‌شوند.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"در Prime Video هم همین‌طور است: در سایت خود آمازون وارد می‌شوید و افزونه فقط سطر زیرنویس روی صفحهٔ شما را می‌خواند. هرگز پخش‌کنندهٔ Prime Video را کنترل نمی‌کند و چیزی از آن بارگیری نمی‌کند.",
-"Privacy policy of the extension":"سیاست حریم خصوصی افزونه"}
+"Privacy policy of the extension":"سیاست حریم خصوصی افزونه",
+"Translate the sentence with your AI":"ترجمهٔ جمله با هوش مصنوعی خودتان",
+"Generate":"ساختن",
+"Generating…":"در حال ساختن…",
+"Edit the sentence translation":"ویرایش ترجمهٔ جمله",
+"This card has no sentence to translate.":"این کارت جمله‌ای برای ترجمه ندارد.",
+"The AI didn't write a translation. Try again.":"هوش مصنوعی ترجمه‌ای ننوشت. دوباره امتحان کنید."}

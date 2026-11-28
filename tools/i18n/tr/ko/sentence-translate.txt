@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	문장 번역 편집
+1156b10c	이 카드에는 번역할 문장이 없어요.
+78a45c1a	AI가 번역을 쓰지 않았어요. 다시 시도해 주세요.
+fc45f9b7	생성
+11edad70	생성 중…
+9df890b3	내 AI로 문장 번역하기

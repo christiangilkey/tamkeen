@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	แก้ไขคำแปลประโยค
+1156b10c	การ์ดนี้ไม่มีประโยคให้แปล
+78a45c1a	AI ไม่ได้เขียนคำแปล ลองอีกครั้ง
+fc45f9b7	สร้าง
+11edad70	กำลังสร้าง…
+9df890b3	แปลประโยคด้วย AI ของคุณ

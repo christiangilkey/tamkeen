@@ -21,7 +21,8 @@
 import { api, esc, fmtDate, h, showMenu, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
-import { detectLanguage, setLang } from "../languages.js";
+import { detectLanguage, langInfo, setLang } from "../languages.js";
+import { askAi, definerConfig } from "../define-service.js";
 import { formatTime } from "../wordlookup.js";
 import { stripMarks } from "../cardtext.js";
 import { canSay } from "../cardvoice.js";
@@ -36,6 +37,8 @@ import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "./pronresult.js";
 import { wordTools } from "./wordtools.js";
 import { cardPicture } from "./cardpic.js";
+import { offerFix } from "./fixit.js";
+import { translateCardSentence } from "../review/sentencetranslate.js";
 
 /** The notes, typed over as a whole (several lines). */
 const NOTES = new Set(["notes", "memo"]);
@@ -140,8 +143,12 @@ export function openWordEditor(el, v, deps) {
   function paintAdds() {
     const adds = $(".vi-adds");
     const missing = missingParts(v).filter((f) => !isEditing(f));
-    adds.innerHTML = ADDS.filter(([f]) => missing.includes(f))
-      .map(([f, label]) => `<button type="button" class="vi-add" data-add="${f}">${icon("plus", 14)}<span>${label}</span></button>`).join("");
+    adds.innerHTML = ADDS.filter(([f]) => missing.includes(f)).map(([f, label]) => {
+      const add = `<button type="button" class="vi-add" data-add="${f}">${icon("plus", 14)}<span>${label}</span></button>`;
+      // Beside "+ Sentence translation", "Generate": the learner's AI translates the sentence (the owner, 2026-11-27).
+      return f !== "translation" ? add : `<span class="vi-add-pair">${add}<button type="button" class="vi-add vi-gen" data-gen="translation"
+        title="Translate the sentence with your AI">${icon("sparkle", 14)}<span>Generate</span></button></span>`;
+    }).join("");
     adds.hidden = !missing.length;
   }
   function paintFoot() {
@@ -250,9 +257,33 @@ export function openWordEditor(el, v, deps) {
     });
   }
 
+  // ----- the sentence's translation written by the AI ("Generate" beside "+ Sentence translation") -----
+  let generating = false;
+  async function generateTranslation(btn) {
+    if (generating) return;
+    generating = true;
+    const label = btn.querySelector("span");
+    btn.disabled = true;
+    label.textContent = t("Generating…");
+    try {
+      const study = (langInfo(cardLanguage(v)) || {}).name || "the language being learned";
+      const translation = await translateCardSentence(v, { ask: askAi, study, speaks: definerConfig().language || "English" });
+      if (closed) return;
+      saveChange({ translation });
+      paint();
+    } catch (e) {
+      if (!closed && !offerFix(e)) toast(e.message, { error: true }); // (no key, AI switched off: the popup with the way to Settings)
+    } finally {
+      generating = false;
+      if (btn.isConnected) { btn.disabled = false; label.textContent = t("Generate"); }
+    }
+  }
+
   // Taps and keys on the texts open them; the "+" links add what isn't there yet.
   const onPress = (e) => {
     if (closed) return;
+    const gen = e.target.closest(".vi-gen");
+    if (gen) { generateTranslation(gen); return; }
     const add = e.target.closest(".vi-add");
     if (add) { const f = add.dataset.add; if (f === "sentence") tools.open("sentence"); else edit(f); return; }
     const line = e.target.closest(".vi-edit");

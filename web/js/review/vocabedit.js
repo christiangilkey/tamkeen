@@ -10,7 +10,7 @@ import { inPicks } from "./folderpicks.js";
 // ---------------------------------------------------------------- the open word
 
 /** What a card may not have yet, in the order of the "+" links under it: [field, label]. */
-export const ADDS = [["meaning", "Meaning"], ["sentence", "Sentence"], ["translation", "Translation"],
+export const ADDS = [["meaning", "Meaning"], ["sentence", "Sentence"], ["translation", "Sentence translation"],
   ["notes", "Grammar notes"], ["memo", "Memorization notes"]];
 
 /** The row of tools under an open word: [id, icon, label, what it says on hover]. (Its less used things,

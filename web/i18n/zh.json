@@ -6235,7 +6235,6 @@
 "Edit the word":"编辑单词",
 "Edit the meaning":"编辑意思",
 "Edit the sentence":"编辑句子",
-"Edit the translation":"编辑翻译",
 "Edit the grammar notes":"编辑语法笔记",
 "Edit the memorization notes":"编辑记忆笔记",
 "That couldn't be copied here.":"这里无法复制。",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeen 复习（{0} 分钟）",
 "Your cards":"你的卡片",
 "{0} left today: about {1}, by Tamkeen's estimate.":"今天还剩：{0}；按 Tamkeen 的估计约需 {1}。",
-"Translation":"翻译",
 "Mnemonic maker: words that sound like it, each with a picture":"谐音助记生成器：发音相近的词，各配一幅画面",
 "An example sentence: a real one found, or one written for you":"例句：找到的真实句子，或为你写的句子",
 "Record the word, or choose a sound file":"录制单词，或选择声音文件",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"你的账号仍然属于你",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"你在 Netflix 自己的网站上登录 Netflix：扩展永远看不到你的密码。Netflix 的字幕和你保存的词都留在你自己的 Tamkeen 资料库里，永远不会被分享。",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Prime Video 也一样：你在亚马逊自己的网站上登录，扩展只读取你屏幕上的那行字幕。它从不控制 Prime Video 的播放器，也不从中下载任何东西。",
-"Privacy policy of the extension":"扩展的隐私政策"}
+"Privacy policy of the extension":"扩展的隐私政策",
+"Translate the sentence with your AI":"用你的 AI 翻译句子",
+"Generate":"生成",
+"Generating…":"正在生成…",
+"Edit the sentence translation":"编辑句子翻译",
+"This card has no sentence to translate.":"这张卡片没有可翻译的句子。",
+"The AI didn't write a translation. Try again.":"AI 没有写出翻译。请再试一次。"}

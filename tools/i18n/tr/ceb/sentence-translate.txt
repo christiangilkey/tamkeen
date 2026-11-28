@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	Usba ang hubad sa sentence
+1156b10c	Walay sentence nga mahubad niining card.
+78a45c1a	Wala makasulat og hubad ang AI. Sulayi pag-usab.
+fc45f9b7	Himoa
+11edad70	Gihimo…
+9df890b3	Hubara ang sentence gamit ang imong AI

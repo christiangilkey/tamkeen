@@ -6235,7 +6235,6 @@
 "Edit the word":"Изменить слово",
 "Edit the meaning":"Изменить значение",
 "Edit the sentence":"Изменить предложение",
-"Edit the translation":"Изменить перевод",
 "Edit the grammar notes":"Изменить грамматические заметки",
 "Edit the memorization notes":"Изменить заметки для запоминания",
 "That couldn't be copied here.":"Здесь не удалось скопировать.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Повторение Tamkeen ({0} мин)",
 "Your cards":"Ваши карточки",
 "{0} left today: about {1}, by Tamkeen's estimate.":"Осталось на сегодня: {0:lower}, примерно {1} по оценке Tamkeen.",
-"Translation":"Перевод",
 "Mnemonic maker: words that sound like it, each with a picture":"Генератор мнемоник: слова, похожие по звучанию, каждое с картинкой",
 "An example sentence: a real one found, or one written for you":"Пример предложения: найденное настоящее или написанное для вас",
 "Record the word, or choose a sound file":"Записать слово или выбрать звуковой файл",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Ваши аккаунты остаются вашими",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Вы входите в Netflix на сайте самого Netflix: расширение никогда не видит ваш пароль. Субтитры Netflix и сохранённые слова остаются в вашей собственной библиотеке Tamkeen и никому не передаются.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"С Prime Video так же: вы входите на сайте самой Amazon, а расширение только читает строку субтитров на вашем экране. Оно никогда не управляет плеером Prime Video и ничего из него не скачивает.",
-"Privacy policy of the extension":"Политика конфиденциальности расширения"}
+"Privacy policy of the extension":"Политика конфиденциальности расширения",
+"Translate the sentence with your AI":"Перевести предложение с помощью вашего ИИ",
+"Generate":"Создать",
+"Generating…":"Создаётся…",
+"Edit the sentence translation":"Изменить перевод предложения",
+"This card has no sentence to translate.":"На этой карточке нет предложения для перевода.",
+"The AI didn't write a translation. Try again.":"ИИ не написал перевод. Попробуйте ещё раз."}

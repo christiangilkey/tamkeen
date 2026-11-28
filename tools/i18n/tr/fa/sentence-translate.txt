@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	ویرایش ترجمهٔ جمله
+1156b10c	این کارت جمله‌ای برای ترجمه ندارد.
+78a45c1a	هوش مصنوعی ترجمه‌ای ننوشت. دوباره امتحان کنید.
+fc45f9b7	ساختن
+11edad70	در حال ساختن…
+9df890b3	ترجمهٔ جمله با هوش مصنوعی خودتان

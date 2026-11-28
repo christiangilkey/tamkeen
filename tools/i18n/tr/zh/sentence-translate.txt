@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	编辑句子翻译
+1156b10c	这张卡片没有可翻译的句子。
+78a45c1a	AI 没有写出翻译。请再试一次。
+fc45f9b7	生成
+11edad70	正在生成…
+9df890b3	用你的 AI 翻译句子

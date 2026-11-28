@@ -6235,7 +6235,6 @@
 "Edit the word":"Wort bearbeiten",
 "Edit the meaning":"Bedeutung bearbeiten",
 "Edit the sentence":"Satz bearbeiten",
-"Edit the translation":"Übersetzung bearbeiten",
 "Edit the grammar notes":"Grammatiknotizen bearbeiten",
 "Edit the memorization notes":"Merknotizen bearbeiten",
 "That couldn't be copied here.":"Das konnte hier nicht kopiert werden.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Tamkeen-Wiederholung ({0} Min.)",
 "Your cards":"Deine Karten",
 "{0} left today: about {1}, by Tamkeen's estimate.":"Heute noch {0}: etwa {1}, nach Tamkeens Schätzung.",
-"Translation":"Übersetzung",
 "Mnemonic maker: words that sound like it, each with a picture":"Eselsbrücken-Macher: Wörter, die so ähnlich klingen, jedes mit einem Bild",
 "An example sentence: a real one found, or one written for you":"Ein Beispielsatz: ein echter gefunden oder einer für dich geschrieben",
 "Record the word, or choose a sound file":"Das Wort aufnehmen oder eine Tondatei wählen",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Deine Konten bleiben deine",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Du meldest dich bei Netflix auf der Website von Netflix selbst an: Die Erweiterung sieht dein Passwort nie. Die Untertitel von Netflix und die Wörter, die du speicherst, bleiben in deiner eigenen Tamkeen-Bibliothek und werden nie geteilt.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Bei Prime Video genauso: Du meldest dich auf Amazons eigener Seite an, und die Erweiterung liest nur die Untertitelzeile auf deinem Bildschirm. Sie steuert nie den Player von Prime Video und lädt nichts davon herunter.",
-"Privacy policy of the extension":"Datenschutzerklärung der Erweiterung"}
+"Privacy policy of the extension":"Datenschutzerklärung der Erweiterung",
+"Translate the sentence with your AI":"Den Satz mit deiner KI übersetzen",
+"Generate":"Erzeugen",
+"Generating…":"Wird erzeugt…",
+"Edit the sentence translation":"Satzübersetzung bearbeiten",
+"This card has no sentence to translate.":"Diese Karte hat keinen Satz zum Übersetzen.",
+"The AI didn't write a translation. Try again.":"Die KI hat keine Übersetzung geschrieben. Versuch es noch einmal."}

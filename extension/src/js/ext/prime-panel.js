@@ -12,7 +12,7 @@ import { known, loadSettings, settings } from "../store.js";
 import { startTranslating, t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { detectLanguage, isLanguage, joinWords, setLang } from "../languages.js";
-import { formatTime, sentenceBounds } from "../wordlookup.js";
+import { formatTime, isPunctuated, spokenSentence } from "../wordlookup.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
@@ -101,9 +101,11 @@ function sentenceText(a, b) { return joinWords(S.texts.slice(a, b + 1), S.lang);
 
 function contextFor(i, j) {
   const { texts, segOf, n } = S;
-  const [si, sj] = sentenceBounds(texts, segOf, i, j);
-  const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
-  const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
+  // The whole sentence it was heard in, across the subtitle lines (wordlookup.js spokenSentence), not only the line shown.
+  const o = { starts: S.starts, ends: S.ends, punctuated: isPunctuated(texts) };
+  const [si, sj] = spokenSentence(texts, segOf, i, j, o);
+  const prev = si > 0 ? spokenSentence(texts, segOf, si - 1, si - 1, o) : null;
+  const next = sj < n - 1 ? spokenSentence(texts, segOf, sj + 1, sj + 1, o) : null;
   const word = phraseText(texts, i, j, S.lang);
   return {
     si, sj, word,

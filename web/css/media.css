@@ -769,3 +769,9 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 .controls .media-wait-line .spinner { border-color: var(--line); border-top-color: var(--teal); }
 .controls .media-wait-line button { color: var(--ink); }
 .media-wait-line.failed .media-wait-slow, .media-wait.failed .media-wait-slow { color: var(--danger); }
+
+/* The Vocab card's "+ Sentence translation" with "Generate" beside it (components/wordeditor.js): the two stay on one
+   line together. */
+.vi-add-pair { display: inline-flex; flex-wrap: nowrap; gap: var(--s-8); max-width: 100%; }
+.vi-gen .ic { flex: none; }
+.vi-gen:disabled { opacity: 1; color: var(--ink-2); }

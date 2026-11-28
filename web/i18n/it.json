@@ -6235,7 +6235,6 @@
 "Edit the word":"Modifica la parola",
 "Edit the meaning":"Modifica il significato",
 "Edit the sentence":"Modifica la frase",
-"Edit the translation":"Modifica la traduzione",
 "Edit the grammar notes":"Modifica le note grammaticali",
 "Edit the memorization notes":"Modifica le note per memorizzare",
 "That couldn't be copied here.":"Qui non è stato possibile copiare.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Ripasso Tamkeen ({0} min)",
 "Your cards":"Le tue carte",
 "{0} left today: about {1}, by Tamkeen's estimate.":"Rimangono oggi: {0}; circa {1}, secondo la stima di Tamkeen.",
-"Translation":"Traduzione",
 "Mnemonic maker: words that sound like it, each with a picture":"Generatore di mnemotecniche: parole che suonano come lei, ognuna con un'immagine",
 "An example sentence: a real one found, or one written for you":"Una frase d'esempio: una vera trovata, o una scritta per te",
 "Record the word, or choose a sound file":"Registra la parola, o scegli un file audio",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"I tuoi account restano tuoi",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Accedi a Netflix sul sito di Netflix stesso: l'estensione non vede mai la tua password. I sottotitoli di Netflix e le parole che salvi restano nella tua libreria di Tamkeen e non vengono mai condivisi.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Lo stesso vale per Prime Video: accedi sul sito di Amazon, e l'estensione legge solo la riga dei sottotitoli sul tuo schermo. Non controlla mai il lettore di Prime Video e non ne scarica nulla.",
-"Privacy policy of the extension":"Informativa sulla privacy dell'estensione"}
+"Privacy policy of the extension":"Informativa sulla privacy dell'estensione",
+"Translate the sentence with your AI":"Traduci la frase con la tua IA",
+"Generate":"Genera",
+"Generating…":"Generazione…",
+"Edit the sentence translation":"Modifica la traduzione della frase",
+"This card has no sentence to translate.":"Questa scheda non ha una frase da tradurre.",
+"The AI didn't write a translation. Try again.":"L'IA non ha scritto una traduzione. Riprova."}

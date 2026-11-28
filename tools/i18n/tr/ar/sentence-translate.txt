@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	تعديل ترجمة الجملة
+1156b10c	لا توجد في هذه البطاقة جملة لترجمتها.
+78a45c1a	لم يكتب الذكاء الاصطناعي ترجمة. حاول مرة أخرى.
+fc45f9b7	إنشاء
+11edad70	جارٍ الإنشاء…
+9df890b3	ترجمة الجملة بالذكاء الاصطناعي الخاص بك

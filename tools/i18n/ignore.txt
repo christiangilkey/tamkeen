@@ -777,3 +777,8 @@ d1b4d2e5  # Ffggggggggggdddddddd  (yard.js map row)
 4d588e32  # (prefers-color-scheme: dark)  (squircle.js media query)
 49709093  # A list of at most 2000 records was expected. (backend.js /listening: a refusal the page never shows)
 a9b47dfe  # line {0}→{1} (libraryhome.js overlaps(): a test label, never shown)
+# Not interface: what the AI is asked to translate a card's sentence (web/js/review/sentencetranslate.js)
+e4d76bd7  # You translate the example sentences on a language learner's flashcards ...
+1a441873  # Sentence ({0}): {1}  (the AI's question)
+ec62e57f  # (meaning here: {0})  (the AI's question)
+bfdaeca6  # The word being learned in it: {0}{1}  (the AI's question)

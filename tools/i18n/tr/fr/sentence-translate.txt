@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	Modifier la traduction de la phrase
+1156b10c	Cette carte n'a pas de phrase à traduire.
+78a45c1a	L'IA n'a pas écrit de traduction. Réessayez.
+fc45f9b7	Générer
+11edad70	Génération…
+9df890b3	Traduire la phrase avec votre IA

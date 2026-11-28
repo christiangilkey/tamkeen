@@ -1,0 +1,7 @@
+# The Vocab card's sentence translation written by the AI (review/sentencetranslate.js), 2026-11-27
+c8f8e3d4	Satzübersetzung bearbeiten
+1156b10c	Diese Karte hat keinen Satz zum Übersetzen.
+78a45c1a	Die KI hat keine Übersetzung geschrieben. Versuch es noch einmal.
+fc45f9b7	Erzeugen
+11edad70	Wird erzeugt…
+9df890b3	Den Satz mit deiner KI übersetzen

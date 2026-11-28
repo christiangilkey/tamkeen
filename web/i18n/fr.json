@@ -6235,7 +6235,6 @@
 "Edit the word":"Modifier le mot",
 "Edit the meaning":"Modifier le sens",
 "Edit the sentence":"Modifier la phrase",
-"Edit the translation":"Modifier la traduction",
 "Edit the grammar notes":"Modifier les notes de grammaire",
 "Edit the memorization notes":"Modifier les notes de mémorisation",
 "That couldn't be copied here.":"Impossible de copier ici.",
@@ -6420,7 +6419,6 @@
 "Tamkeen review ({0} min)":"Révision Tamkeen ({0} min)",
 "Your cards":"Vos cartes",
 "{0} left today: about {1}, by Tamkeen's estimate.":"Reste aujourd'hui : {0} ; environ {1}, selon l'estimation de Tamkeen.",
-"Translation":"Traduction",
 "Mnemonic maker: words that sound like it, each with a picture":"Créateur de mnémoniques : des mots qui sonnent comme lui, chacun avec une image",
 "An example sentence: a real one found, or one written for you":"Une phrase d'exemple : une vraie trouvée, ou une écrite pour toi",
 "Record the word, or choose a sound file":"Enregistrer le mot, ou choisir un fichier son",
@@ -7629,4 +7627,10 @@
 "Your accounts stay yours":"Vos comptes restent les vôtres",
 "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.":"Vous vous connectez à Netflix sur le site de Netflix lui-même : l'extension ne voit jamais votre mot de passe. Les sous-titres de Netflix et les mots que vous enregistrez restent dans votre propre bibliothèque Tamkeen et ne sont jamais partagés.",
 "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.":"Même chose pour Prime Video : vous vous connectez sur le site d'Amazon, et l'extension ne lit que la ligne de sous-titres affichée à l'écran. Elle ne contrôle jamais le lecteur de Prime Video et n'en télécharge rien.",
-"Privacy policy of the extension":"Politique de confidentialité de l'extension"}
+"Privacy policy of the extension":"Politique de confidentialité de l'extension",
+"Translate the sentence with your AI":"Traduire la phrase avec votre IA",
+"Generate":"Générer",
+"Generating…":"Génération…",
+"Edit the sentence translation":"Modifier la traduction de la phrase",
+"This card has no sentence to translate.":"Cette carte n'a pas de phrase à traduire.",
+"The AI didn't write a translation. Try again.":"L'IA n'a pas écrit de traduction. Réessayez."}
