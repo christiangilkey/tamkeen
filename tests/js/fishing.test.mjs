@@ -16,7 +16,7 @@ import { existsSync, readFileSync } from "node:fs";
 import {
   BAG_SIZE, CATCH_FULL, DEX_TOTAL, TANK_SIZE, buyRod, canFish, catchBoard, classify, cleanFishing, dexCount, dexHas, escape, escapedIn,
   MISSED_AT_ONCE, MISS_WAIT, cleanRound, nextShadows, pondWords, roundOf, turnTaken, feedFish, fightLength, fishingOf, fromTank, hook, land, lengthOf, luckOf, pondNeed, pondShadows, publicAquarium, questionFor, record, sell,
-  sellCommon, tierOfRoll, toTank, kindOdds, pickKind, bestRod, nextRod,
+  sellCommon, tierOfRoll, toTank, kindOdds, pickKind, bestRod, nextRod, upgradeReady, buyTank,
 } from "../../web/js/game/fishing.js";
 
 const T0 = new Date("2026-11-10T09:00:00");
@@ -776,4 +776,48 @@ test("the rod shop shows the path: the next rod can be bought, later ones are lo
   assert.match(src, /locked \? `\$\{icon\("lock"\)\}\$\{amount\("pearls", rod\.pearls\)\}`/, "a locked rod still shows its price");
   assert.match(src, /t\("Buy the \{0\} first\.", t\(RODS\[next\]\.name\)\)/);
   assert.match(src, /disabled: short \|\| locked/);
+});
+
+// ---------- the pond's basket button: basket and upgrades (2026-11-27) ----------
+
+test("an upgrade is ready when the pearls in hand pay for the next rod or the next aquarium", () => {
+  const s = hatched();
+  const f = fishingOf(s);
+  assert.equal(upgradeReady(s), false, "no pearls: nothing to show");
+  f.pearls = RODS[1].pearls - 1;
+  assert.equal(upgradeReady(s), false);
+  f.pearls = RODS[1].pearls;
+  assert.equal(upgradeReady(s), true, "the next rod can be paid for");
+  assert.equal(buyRod(s, 1), "");
+  assert.equal(upgradeReady(s), false, "the pearls are spent");
+  // a later rod's price doesn't count: only the next one can be bought
+  f.rods = [0];
+  f.rod = 0;
+  f.pearls = 0;
+  assert.equal(upgradeReady(s), false);
+  // the next aquarium counts too (15 pearls, cheaper than the Neon rod)
+  f.rods = [0, 1];
+  f.pearls = 15;
+  assert.equal(upgradeReady(s), true);
+  assert.equal(buyTank(s), "");
+  assert.equal(upgradeReady(s), false);
+  // everything bought: never a dot, however many pearls
+  f.rods = [0, 1, 2, 3];
+  f.tankLv = 3;
+  f.pearls = 99999;
+  assert.equal(upgradeReady(s), false);
+});
+
+test("the pond's basket button says Upgrades, shows the dot, and the Basket screen opens on the upgrades", () => {
+  const ui = readFileSync(new URL("../../web/js/game/fishing-ui.js", import.meta.url), "utf8");
+  assert.match(ui, /class="fish-basket">\$\{icon\("basket"\)\}<b translate="no"><\/b><span class="fish-basket-word">Upgrades<\/span><i class="fish-basket-dot" hidden><\/i>/);
+  assert.match(ui, /\$\("\.fish-basket-dot"\)\.hidden = !ready;/);
+  assert.match(ui, /opts\.sheet\("basket"\)/);
+  const screen = readFileSync(new URL("../../web/js/game/fishscreen.js", import.meta.url), "utf8");
+  const panel = screen.slice(screen.indexOf("export function basketPanel"));
+  const at = (s) => { const i = panel.indexOf(s); assert.ok(i >= 0, s); return i; };
+  const tank = panel.search(/tankRow\(game, again\)|tankUpgradeBox\(game, again\)/);
+  assert.ok(at('block("Upgrades"') < at("rodBox(game, rodNext, again)") && tank >= 0, "the next rod and the next aquarium are in the Upgrades block");
+  assert.ok(at('block("Upgrades"') < at('block("Aquarium"') && at('block("Aquarium"') < at('block("Basket"'), "upgrades, then the aquarium, then the basket");
+  assert.ok(tank < at('block("Aquarium"'), "the bigger aquarium is offered among the upgrades, not under the aquarium");
 });

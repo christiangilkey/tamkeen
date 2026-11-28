@@ -235,6 +235,31 @@ export function basketPanel(body, game, changed, go, close, reopen) {
   const again = () => { saveGame(); changed(); const top = body.scrollTop; basketPanel(body, game, changed, go, close, reopen); body.scrollTop = top; };
   body.replaceChildren();
 
+  // Upgrades first (the pond's basket button opens here: the owner, 2026-11-27, "incentivizing people to click on it
+  // for progression"): the next rod, then the next, bigger aquarium, each with its price in pearls.
+  const rodNext = nextRod(game);
+  const next = nextTank(game);
+  const bigger = !next ? null : row({
+    pic: icon("aquarium", 32), name: next.name,
+    sub: `<span>${t("Holds {0} fish", next.size)}</span>`,
+    end: amount("pearls", next.pearls, F.pearls < next.pearls),
+    open: () => tankUpgradeBox(game, again),
+  });
+  if (rodNext >= 0 || bigger) {
+    const up = block("Upgrades", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
+    if (rodNext >= 0) {
+      const rod = RODS[rodNext];
+      up.append(row({
+        pic: icon(`rod_${rod.id}`, 32), name: rod.name,
+        sub: `<span>${t("Luck")}</span> <span translate="no">×${rod.luck}</span>`,
+        end: amount("pearls", rod.pearls, F.pearls < rod.pearls),
+        open: () => rodBox(game, rodNext, again),
+      }));
+    }
+    if (bigger) up.append(bigger);
+    body.append(up);
+  }
+
   // The aquarium: your best fish, swimming. Friends see it.
   const aq = block("Aquarium", `${F.tank.length} / ${tankSize(game)}`);
   if (F.tank.length) {
@@ -250,16 +275,6 @@ export function basketPanel(body, game, changed, go, close, reopen) {
     aq.append(g);
     if (F.tank.length > TANK_SIZE) aq.append(h(`<p class="gs-state muted">Your friends see your six best fish.</p>`));
   } else aq.append(h(`<p class="gs-state muted">Keep your best fish here. Your friends can see your aquarium.</p>`));
-  // A bigger aquarium, bought with pearls (like the rods).
-  const next = nextTank(game);
-  if (next) {
-    aq.append(row({
-      pic: icon("aquarium", 32), name: next.name,
-      sub: `<span>${t("Holds {0} fish", next.size)}</span>`,
-      end: amount("pearls", next.pearls, F.pearls < next.pearls),
-      open: () => tankUpgradeBox(game, again),
-    }));
-  }
   body.append(aq);
 
   // The basket: what you caught, the rarest first.

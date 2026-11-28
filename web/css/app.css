@@ -3788,6 +3788,20 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
   background: var(--game-night); color: var(--game-on); font-size: var(--fs-16); font-weight: 700; white-space: nowrap; }
 .fish-pond:hover, .fish-basket:hover, button.fish-chip:hover { background: var(--game-night-3); }
 .fish-pond svg { transform: rotate(90deg); opacity: .7; }
+/* The basket button is also the way to the upgrades: it says so, and a dot shows when the pearls in hand can pay for
+   one. The pond's name gives way to it on a narrow screen (two lines, whole words) rather than push it off the edge. */
+.fish-basket { position: relative; flex: none; }
+.fish-basket-word { font-size: var(--fs-14); }
+.fish-basket-dot { position: absolute; top: var(--s-4); inset-inline-end: var(--s-4); width: var(--s-8); height: var(--s-8); border-radius: var(--r-pill); corner-shape: round; background: var(--alert); }
+.fish-pond { min-width: 0; }
+.fish-pond-name { min-width: 0; white-space: normal; overflow-wrap: break-word; line-height: var(--lh-head); text-align: start; }
+.fish-pond svg, .fish-swatch { flex: none; }
+/* (phones: the word goes under the basket and its count, so the pond's name keeps its room) */
+@media (max-width: 480px) {
+  .fish-top .fish-pond { flex: 1 1 0; margin-inline-end: 0; font-size: var(--fs-14); gap: var(--s-4); }
+  .fish-basket { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 0 var(--s-4); padding: var(--s-4) var(--s-8); }
+  .fish-basket-word { grid-column: 1 / -1; font-size: var(--fs-12); line-height: var(--lh-head); text-align: center; }
+}
 .fish-pond-name { overflow: hidden; text-overflow: ellipsis; max-width: 34vw; }
 .fish-swatch { width: 14px; height: 14px; border-radius: var(--r-s); flex: none; }
 .fish-chips { flex: 1; display: flex; align-items: center; justify-content: center; gap: var(--s-8); flex-wrap: wrap; min-width: 0; }
@@ -4508,3 +4522,40 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp-verdict.ok { color: var(--teal); }
 .farmp-verdict.no { color: var(--danger); }
 .farmp-verdict[hidden] { display: none; }
+
+/* The Market (prototype "market", market.js): every stall of the village market in one game sheet. The whole Market is a
+   list of rows (each stall's keeper, its name, what it sells, what it takes), today's orders first; a stall open has its
+   keepers along the top, the keeper and what they say, then what it sells (the same screens as before). No box in a
+   box: rows and space do the grouping. */
+.mk-keeper { display: inline-block; flex: none; background-repeat: no-repeat; background-position: 0 0; image-rendering: pixelated; image-rendering: crisp-edges; }
+.mk-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-4); }
+.mk-pills .gs-pill { padding: 0 var(--s-8); }
+.mk-list { display: flex; flex-direction: column; margin-top: var(--s-8); }
+.mk-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; align-items: center; gap: var(--s-12); width: 100%; min-height: 0;
+  padding: var(--s-12) 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; color: var(--ink); text-align: start; white-space: normal; }
+.mk-row:hover:not(:disabled) { background: none; }
+.mk-row-text { display: flex; flex-direction: column; gap: var(--s-4); min-width: 0; }
+.mk-row-name { font-family: var(--fun-font); font-size: var(--fs-16); line-height: var(--lh-head); }
+.mk-row-sub { font-size: var(--fs-14); color: var(--ink-2); line-height: var(--lh-head); }
+.mk-row-end { display: flex; align-items: center; gap: var(--s-4); }
+.mk-count { margin: 0; }
+.mk-heading { margin: var(--s-24) 0 0; font-family: var(--fun-font); font-size: var(--fs-14); color: var(--ink-2); }
+.mk-tabs { display: flex; gap: var(--s-4); margin: calc(-1 * var(--s-16)) calc(-1 * var(--s-16)) var(--s-12); padding: 0 var(--s-12); overflow-x: auto;
+  border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.mk-tabs::-webkit-scrollbar { display: none; }
+.mk-tab { flex: none; flex-direction: column; gap: var(--s-4); width: 64px; min-height: 0; padding: var(--s-8) 0; border: 0; border-bottom: 4px solid transparent;
+  border-radius: 0; background: none; color: var(--ink-2); font-family: var(--fun-font); font-size: var(--fs-12); }
+.mk-tab:hover:not(:disabled) { background: none; color: var(--ink); }
+.mk-tab.on, .mk-tab.on:hover:not(:disabled) { color: var(--ink); border-bottom-color: var(--teal); }
+.mk-back { margin-top: 0; }
+.mk-head { display: grid; grid-template-columns: 88px minmax(0, 1fr); align-items: end; gap: var(--s-12); }
+.mk-who { display: flex; flex-direction: column; gap: var(--s-8); padding-bottom: var(--s-12); }
+.mk-name { font-family: var(--fun-font); font-size: var(--fs-20); line-height: var(--lh-head); }
+.mk-say { position: relative; margin: 0; padding: var(--s-8) var(--s-12); border-radius: var(--r-s); background: var(--surface-2); font-size: var(--fs-14); line-height: var(--lh-text); }
+.mk-pay { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-8); margin: var(--s-8) 0 var(--s-16);
+  padding-bottom: var(--s-12); border-bottom: 1px solid var(--line); font-size: var(--fs-14); color: var(--ink-2); }
+.mk-stall { display: flex; flex-direction: column; gap: var(--s-12); }
+.mk-part + .mk-part { margin-top: var(--s-12); }
+/* (the farm's screens drawn into a stall, screenparts.inline: no box of their own) */
+.gs-detail-inline { padding: 0; }
+.gs-detail-inline .gs-detail-note:empty { display: none; }

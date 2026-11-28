@@ -9893,6 +9893,23 @@ an upgrade." A shop rule he asked for directly, so it is live (no prototype).
 - Translations: `tools/i18n/tr/<code>/rod-upgrades.txt`. Tests in `tests/js/fishing.test.mjs` ("rods are bought one
   after the other", the older save, the two devices, the shop).
 
+## Fishing: the pond's basket button is "basket and upgrades" (2026-11-27; the fishing chat; live)
+
+The owner: "I think the basket here should be both a basket and it should say upgrades, incentivizing people to click
+on it for progression."
+
+- **The button** (`fishing-ui.js`, `.fish-basket`): the basket picture, the count, the word "Upgrades" (a string the
+  app already had) and a dot (`.fish-basket-dot`) shown when `fishing.upgradeReady(state)`: the pearls in hand pay for
+  the next rod (`nextRod`) or the next aquarium (`nextTank`). Its title is "Basket · Upgrades". `paintHud` keeps it.
+- **Where it goes**: still `opts.sheet("basket")`. `fishscreen.basketPanel` now starts with an **Upgrades** block: the
+  next rod (opens `rodBox`), then the next aquarium (the row that used to sit under the aquarium), then the aquarium,
+  then the basket. The block is left out once every rod and the biggest aquarium are owned. The Ponds section still
+  lists all four rods.
+- **Phones** (`app.css`, up to 480px): the button is stacked (basket and count, the word under them in 12px) and the
+  pond's name takes the rest of the row and may take two lines. Measured at 360, 390 and 412px in English, Arabic,
+  German and Russian: one row, nothing outside the screen, no word broken.
+- No new strings. Tests in `tests/js/fishing.test.mjs`.
+
 ## DLI Class tab (2026-11-24; "Teachers" chat; prototype `class_tab`; database NOT applied)
 
 The owner's words: teachers add students under them, students are placed in a class, the teacher shares finished

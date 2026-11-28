@@ -34,7 +34,7 @@ import { reveal } from "./reveal.js";
 import { RODS, SHADOWS, isGuardian } from "./fishdata.js";
 import { feature } from "../prototype.js";
 import {
-  canFish, classify, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pickKind, pondById, pondNeed, pondShadows, pondWords,
+  canFish, classify, upgradeReady, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pickKind, pondById, pondNeed, pondShadows, pondWords,
   questionFor, record, roundOf, tierOfRoll, turnTaken, PONDS,
 } from "./fishing.js";
 import { SPRITE, fishPicture, fishSprite, fishTile } from "./fishart.js";
@@ -127,7 +127,7 @@ export function openPond(opts = {}) {
         <button type="button" class="fish-chip fish-pearls" data-cur="pearls" title="Pearls: tap to see how to get them">${icon("pearl")}<b translate="no"></b></button>
         <span class="fish-chip fish-golden" hidden title="Golden hour: triple luck">${icon("star")}<b translate="no"></b></span>
       </span>
-      <button type="button" class="fish-basket" title="Your basket">${icon("basket")}<b translate="no"></b></button>
+      <button type="button" class="fish-basket">${icon("basket")}<b translate="no"></b><span class="fish-basket-word">Upgrades</span><i class="fish-basket-dot" hidden></i></button>
       <button type="button" class="ghost icon fish-close" title="Close" aria-label="Close">${icon("close")}</button>
     </div>
     <div class="fish-stage"><canvas width="${W}" height="${H}" role="button" tabindex="-1" aria-label="The pond: tap the water to cast"></canvas>
@@ -200,6 +200,11 @@ export function openPond(opts = {}) {
     $(".fish-luck b").textContent = `×${luckOf(game, pondId)}`;
     $(".fish-pearls b").textContent = F.pearls.toLocaleString();
     $(".fish-basket b").textContent = String(F.bag.length);
+    // (the basket is also where the upgrades are; a dot says the pearls in hand can pay for one: the owner, 2026-11-27)
+    const ready = upgradeReady(game);
+    $(".fish-basket-dot").hidden = !ready;
+    $(".fish-basket").title = [t("Basket"), t("Upgrades")].join(" · ");
+    $(".fish-basket").setAttribute("aria-label", $(".fish-basket").title);
     const left = golden(game);
     $(".fish-golden").hidden = !left;
     if (left) $(".fish-golden b").textContent = `${Math.floor(left / 60000)}:${String(Math.floor((left % 60000) / 1000)).padStart(2, "0")}`;

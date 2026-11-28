@@ -526,6 +526,15 @@ export const bestRod = (state) => Math.max(0, ...fishingOf(state).rods);
 /** The one rod that can be bought now, the one after the best owned (a RODS index), or -1 with the last rod owned. */
 export const nextRod = (state) => (bestRod(state) + 1 < RODS.length ? bestRod(state) + 1 : -1);
 
+/** Is there an upgrade the pearls in hand can pay for: the next rod, or the next, bigger aquarium? (The pond's basket
+ * button shows a dot for it.) */
+export function upgradeReady(state) {
+  const f = fishingOf(state);
+  const rod = RODS[nextRod(state)];
+  const tank = nextTank(state);
+  return !!(rod && f.pearls >= rod.pearls) || !!(tank && f.pearls >= tank.pearls);
+}
+
 /** Buy rod `i` with pearls, or pick up one already owned (either way it is the rod in use): "" or why not. */
 export function buyRod(state, i) {
   const f = fishingOf(state);
