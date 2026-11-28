@@ -6,7 +6,8 @@
 // supabase/v22-ranked-champion.sql.
 //
 // The dais (game-art/hall/champion_dais.png, 80 x 30, hand-drawn) stands on the right of the hall's floor, a royal
-// pennant either side of it on the back wall. The champion's party stands on it: the lead creature on the upper tier
+// pennant over it on the back wall, between the knight's statue and the banner (the owner kept those: "I like that statue
+// and banner"). The champion's party stands on it: the lead creature on the upper tier
 // with a gold crown floating over it, the other two on the lower tier's ends. A champion who chose not to show their
 // team (the Settings switch "Show my team if I'm the ranked champion") stands there as a shadow with a question mark.
 
@@ -21,8 +22,8 @@ export const STANDS = [
   { x: DAIS.x + 13, y: DAIS.y + 17, scale: 0.56 },
   { x: DAIS.x + 67, y: DAIS.y + 17, scale: 0.56 },
 ];
-/** The two pennants on the back wall (top left of each, 16 x 36). */
-export const PENNANTS = [{ x: DAIS.x + 8, y: 2 }, { x: DAIS.x + DAIS.w - 24, y: 2 }];
+/** The pennant on the back wall, over the dais's middle (its top left, 16 x 36): between the statue and the banner. */
+export const PENNANTS = [{ x: DAIS.x + DAIS.w / 2 - 8, y: 2 }];
 /** Where the player's creature stands to look at the dais, at its left (tap it: it walks here, then the card opens; in
  * front of the dais is its name plate). */
 export const DAIS_FRONT = { x: DAIS.x - 10, y: DAIS.y + 20 };

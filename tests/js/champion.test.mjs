@@ -116,7 +116,7 @@ test("v22: one closed table, two checked calls, every update with a WHERE, nothi
   assert.ok(/when c\.shown then c\.team else '\[\]'::jsonb/.test(bare), "a hidden team is never sent");
   assert.ok(/jsonb_array_length\(v_team\) > 3/.test(bare) && /> 12000/.test(bare), "at most three creatures, a size cap");
   assert.ok(/if me is null then raise exception 'Not signed in'/.test(bare));
-  assert.ok(bare.includes("Run supabase/v8-safety.sql and supabase/v18-ranked.sql first."), "it asks for v18 first");
+  assert.ok(bare.includes("run supabase/v8-safety.sql, then supabase/v18-ranked.sql, then this file.") && bare.includes("run supabase/v18-ranked.sql, then this file."), "it asks for v8 and v18 first, naming the missing one");
   assert.ok(!/'id', c\.user_id|'user_id'|email/.test(bare), "only the username leaves, never the id or email");
 });
 

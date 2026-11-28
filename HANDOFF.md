@@ -10328,9 +10328,9 @@ their whole party. And something indicating that they're like the best."
 
 - **In the hall** (`web/js/game/hall.js` `hallMap(champion)`, `hallBlocked(.., .., champion)`, `tapHall(x, y, champion)`;
   habitat.js passes `championOn()`): the right of the hall is the champion's. A two-tier stone and gold dais
-  (`game-art/hall/champion_dais.png`, 80 x 30) with two royal-purple pennants on the wall above it; the knight's statue and
-  the banner on that side make way, the weapon rack moves to the left, the right brazier stands beside the dais. Without
-  the prototype the hall is exactly as before.
+  (`game-art/hall/champion_dais.png`, 80 x 30) with a royal-purple pennant on the wall above it, between the knight's
+  statue and the banner (the owner kept those, 2026-11-27: "I like that statue and banner"); the weapon rack moves to the
+  left, the right brazier stands beside the dais. Without the prototype the hall is exactly as before.
 - **On the dais** (`web/js/game/champion-ui.js` `championScene`): the champion's ranked team, animated (idle), the lead on
   the upper tier with a gold crown floating over it (`champion_crown.png`, 2 frames: the jewel glints), the other two on
   the lower tier's ends. A gold name plate in front (DOM, `.champ-plate`): username, rating, tier. A champion who hides

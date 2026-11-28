@@ -7,8 +7,9 @@
 // The custodian (a Muffle: muffles.js FOLK, scene "hall") stands behind the counter. Tap the counter (or the
 // custodian): the creature walks up to it, the custodian speaks, and the gym register opens (gyms-ui.js openGyms).
 // Tap the door: back out to the village, in front of the hall.
-// With the ranked champion (prototype "ranked_champion", champion.js) the right of the hall is theirs: a dais where the
-// knight's statue, the banner, the weapon rack and a brazier stood (the rack moves to the left, the brazier beside the dais).
+// With the ranked champion (prototype "ranked_champion", champion.js) the right of the hall's floor is theirs: a dais where
+// the weapon rack and a brazier stood (the rack moves to the left, the brazier beside the dais); the knight's statue and
+// the banner on that wall stay, with the champion's pennant between them.
 
 import { TILE } from "./battlemap.js";
 import { HABITAT } from "./data.js";
@@ -39,11 +40,11 @@ const PROPS_HERE = [
   { id: "shelf_books", x: 11, y: 2 }, { id: "counter", x: 8, y: 3 }, { id: "chest", x: 7, y: 3 },
   { id: "brazier", x: 3, y: 6 }, { id: "brazier", x: 16, y: 6 }, { id: "armor_stand", x: 5, y: 6 }, { id: "weapon_rack", x: 13, y: 6 },
 ];
-// The same with the champion's dais on the right (its pennants replace the statue and the banner there).
+// The same with the champion's dais on the right of the floor (the walls as before).
 const PROPS_CHAMPION = [
-  { id: "banner", x: 2, y: 2 }, { id: "statue_knight", x: 5, y: 2 }, { id: "shelf_books", x: 11, y: 2 }, { id: "counter", x: 8, y: 3 },
-  { id: "chest", x: 7, y: 3 }, { id: "brazier", x: 3, y: 6 }, { id: "brazier", x: 18, y: 4 }, { id: "armor_stand", x: 5, y: 6 },
-  { id: "weapon_rack", x: 6, y: 6 },
+  { id: "banner", x: 2, y: 2 }, { id: "banner", x: 17, y: 2 }, { id: "statue_knight", x: 5, y: 2 }, { id: "statue_knight", x: 14, y: 2 },
+  { id: "shelf_books", x: 11, y: 2 }, { id: "counter", x: 8, y: 3 }, { id: "chest", x: 7, y: 3 },
+  { id: "brazier", x: 3, y: 6 }, { id: "brazier", x: 18, y: 4 }, { id: "armor_stand", x: 5, y: 6 }, { id: "weapon_rack", x: 6, y: 6 },
 ];
 
 /** Where the creature's feet may be inside. */

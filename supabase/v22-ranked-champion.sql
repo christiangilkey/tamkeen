@@ -26,8 +26,11 @@
 
 do $$
 begin
-  if to_regprocedure('private.blocked_between(uuid, uuid)') is null or to_regclass('public.ranked_ratings') is null then
-    raise exception 'Run supabase/v8-safety.sql and supabase/v18-ranked.sql first.';
+  if to_regprocedure('private.blocked_between(uuid, uuid)') is null then
+    raise exception 'This database does not have v8 yet (private.blocked_between is missing): run supabase/v8-safety.sql, then supabase/v18-ranked.sql, then this file.';
+  end if;
+  if to_regclass('public.ranked_ratings') is null then
+    raise exception 'This database does not have v18 yet (public.ranked_ratings is missing): run supabase/v18-ranked.sql, then this file.';
   end if;
 end $$;
 
