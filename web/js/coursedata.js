@@ -166,14 +166,15 @@ export function dialectsOnly(offered) {
 }
 
 /**
- * Which of the Library's Basics tabs opens ("grammar" or "basics", the First 1000 words; "" when the language has
+ * Which of the Library's Basics tabs opens ("basics", the Frequency words, or "grammar"; "" when the language has
  * neither). `basics` / `grammar`: whether the language has that course. A link that asks for one (`asked`,
- * #/library?tab=basics) comes first, then the tab the learner chose earlier in this visit (`chosen`), then Grammar
- * (the owner's choice), or Basics when there is no grammar course. (DLI material was a third tab here until
+ * #/library?tab=basics) comes first, then the tab the learner chose earlier in this visit (`chosen`), then the
+ * Frequency words (the owner, 2026-11-27: "Words should come before the grammar lessons… it should still be selected
+ * first"), or Grammar when there is no word list. (DLI material was a third tab here until
  * 2026-11-27; it is the Library's own DLI entry now, and pages/library.js sends ?tab=dli there.)
  */
 export function courseTabChoice({ basics = false, grammar = false, asked = "", chosen = "" } = {}) {
   const can = { basics: !!basics, grammar: !!grammar };
   for (const tab of [asked, chosen]) if (Object.prototype.hasOwnProperty.call(can, tab) && can[tab]) return tab;
-  return can.grammar ? "grammar" : can.basics ? "basics" : "";
+  return can.basics ? "basics" : can.grammar ? "grammar" : "";
 }

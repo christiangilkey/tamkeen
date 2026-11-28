@@ -1,0 +1,3 @@
+ee42df82	Paraules freqüents
+3e597abb	Nou en l’idioma? Paraules freqüents ensenya les paraules més corrents, de 50 en 50, i Gramàtica té lliçons curtes per fer frases teves: prou per començar amb pòdcasts, vídeos i llibres de debò.
+7b63072b	No hi ha cap paraula nova esperant: afegeix-ne amb Afegeix paraules, o des de Contingut → Bàsic → Paraules freqüents.

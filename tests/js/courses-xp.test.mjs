@@ -163,22 +163,25 @@ test("the course screens send these events", () => {
 
 // ---------- which Courses tab opens ----------
 
-test("Courses opens on Grammar, unless a link asks for Basics or the learner chose a tab this visit", () => {
+test("Basics opens on the Frequency words, unless a link asks for Grammar or the learner chose a tab this visit", () => {
   const both = { basics: true, grammar: true };
-  assert.equal(courseTabChoice(both), "grammar");
-  assert.equal(courseTabChoice({ ...both, asked: "basics" }), "basics");
-  assert.equal(courseTabChoice({ ...both, chosen: "basics" }), "basics");
-  assert.equal(courseTabChoice({ ...both, asked: "grammar", chosen: "basics" }), "grammar", "a link comes first");
-  assert.equal(courseTabChoice({ ...both, asked: "nonsense", chosen: "constructor" }), "grammar");
+  assert.equal(courseTabChoice(both), "basics");
+  assert.equal(courseTabChoice({ ...both, asked: "grammar" }), "grammar");
+  assert.equal(courseTabChoice({ ...both, chosen: "grammar" }), "grammar");
+  assert.equal(courseTabChoice({ ...both, asked: "basics", chosen: "grammar" }), "basics", "a link comes first");
+  assert.equal(courseTabChoice({ ...both, asked: "nonsense", chosen: "constructor" }), "basics");
   assert.equal(courseTabChoice({ basics: true, grammar: false }), "basics", "no grammar course: Basics");
   assert.equal(courseTabChoice({ basics: true, grammar: false, chosen: "grammar" }), "basics");
   assert.equal(courseTabChoice({ basics: false, grammar: true, asked: "basics" }), "grammar");
   assert.equal(courseTabChoice({}), "");
 });
 
-test("the Library puts Grammar first and keeps a chosen tab for this visit only", () => {
+test("the Library puts the Frequency words first and keeps a chosen tab for this visit only", () => {
   const library = read("web/js/pages/library.js");
-  assert.ok(library.indexOf('data-tab="grammar"') < library.indexOf('data-tab="basics"'), "Grammar on the left");
+  // (first in the row: on the left, or on the right in a right-to-left language, as the row follows the page)
+  assert.ok(library.indexOf('data-tab="basics"') < library.indexOf('data-tab="grammar"'), "the words first");
+  assert.ok(library.includes('<span class="words-label">Frequency words</span>'));
+  assert.ok(!library.includes("First {0} words"));
   assert.match(library, /sessionStorage\.setItem\("courseTab", b\.dataset\.tab\)/);
   // (DLI was a third tab here until 2026-11-27; it is the Library's own DLI entry now: dli.test.mjs)
   assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);

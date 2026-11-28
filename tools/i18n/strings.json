@@ -27080,8 +27080,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "182d4211",
-  "k": "First 1000 words",
+  "id": "ee42df82",
+  "k": "Frequency words",
   "f": "web/js/pages/library.js"
  },
  {
@@ -27475,11 +27475,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "b2e5a26a",
-  "k": "First {0} words",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "96141178",
   "k": "Refreshing…",
   "f": "web/js/pages/library.js"
@@ -27600,8 +27595,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "e3f39610",
-  "k": "New to the language? First 1000 words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books.",
+  "id": "3e597abb",
+  "k": "New to the language? Frequency words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -31460,8 +31455,8 @@
   "f": "web/js/review/goalbar.js"
  },
  {
-  "id": "a4b0671e",
-  "k": "No new words are waiting to be learned: add some with Add words, or from Content → Basics → First 1000 words.",
+  "id": "7b63072b",
+  "k": "No new words are waiting to be learned: add some with Add words, or from Content → Basics → Frequency words.",
   "f": "web/js/review/goalbar.js"
  },
  {

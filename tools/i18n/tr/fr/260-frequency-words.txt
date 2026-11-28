@@ -1,0 +1,3 @@
+ee42df82	Mots fréquents
+3e597abb	Débutant dans la langue ? Mots fréquents vous apprend les mots les plus courants, 50 à la fois, et Grammaire propose de courtes leçons pour former vos propres phrases : assez pour commencer avec de vrais podcasts, vidéos et livres.
+7b63072b	Aucun nouveau mot n’attend d’être appris : ajoutez-en avec Ajouter des mots, ou depuis Contenu → Bases → Mots fréquents.

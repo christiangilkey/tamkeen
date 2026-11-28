@@ -68,14 +68,15 @@ test("the Vocab page no longer hosts the courses", () => {
 test("the kind is called Basics, never Courses (the owner: \"I don't want people thinking this is a 'course' app\")", () => {
   assert.match(library, /{ key: "courses", label: "Basics", icon: "learn"/);
   assert.doesNotMatch(library, /label: "Courses"|"Your courses"|There are no courses/);
-  assert.ok(library.includes('t("First {0} words", planned)'), "the word list's tab says how many words it has");
+  // (the word list's tab is "Frequency words", whatever its length: the owner, 2026-11-27)
+  assert.ok(library.includes('<span class="words-label">Frequency words</span>'));
 });
 
 test("Basics and its tab names are translated into every language the app speaks", () => {
   const strings = JSON.parse(read("tools/i18n/strings.json"));
-  for (const k of ["Basics", "First {0} words", "First 1000 words"]) assert.ok(strings.some((s) => s.k === k), `extracted: ${k}`);
+  for (const k of ["Basics", "Frequency words"]) assert.ok(strings.some((s) => s.k === k), `extracted: ${k}`);
   for (const code of ["ar", "ca", "ceb", "de", "es", "fa", "fr", "hi", "it", "ja", "ko", "pt", "ru", "th", "tl", "zh"]) {
     const dict = JSON.parse(read(`web/i18n/${code}.json`));
-    for (const k of ["Basics", "First {0} words"]) assert.ok(dict[k], `${code}: ${k}`);
+    for (const k of ["Basics", "Frequency words"]) assert.ok(dict[k], `${code}: ${k}`);
   }
 });

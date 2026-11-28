@@ -85,7 +85,7 @@ test("the settings: student, language, key; ready only with all three", () => {
 
 test("DLI is the Library's own entry, not a Basics tab; its old address still leads there", () => {
   // (the owner, 2026-11-27: "Its own DLI entry", for DLI students and teachers, beside the Classroom)
-  assert.equal(courseTabChoice({ basics: true, grammar: true, asked: "dli" }), "grammar", "Basics has no DLI tab");
+  assert.equal(courseTabChoice({ basics: true, grammar: true, asked: "dli" }), "basics", "Basics has no DLI tab");
   assert.equal(courseTabChoice({}), "");
   const library = readFileSync(new URL("../../web/js/pages/library.js", import.meta.url), "utf8");
   assert.ok(library.includes('{ key: "dli", label: "DLI", icon: "lock", href: "#/library?show=dli", when: () => dliShown(studyLanguage()) }'));

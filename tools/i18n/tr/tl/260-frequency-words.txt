@@ -1,0 +1,3 @@
+ee42df82	Mga madalas na salita
+3e597abb	Bago sa wika? Itinuturo ng Mga madalas na salita ang pinakakaraniwang mga salita, 50 bawat pagkakataon, at may maiikling aralin ang Grammar para makabuo ka ng sarili mong pangungusap: sapat na para magsimula sa totoong mga podcast, video at libro.
+7b63072b	Walang bagong salitang naghihintay na matutunan: magdagdag gamit ang Magdagdag ng mga salita, o mula sa Nilalaman → Batayan → Mga madalas na salita.

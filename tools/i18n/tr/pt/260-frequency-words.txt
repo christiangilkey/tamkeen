@@ -1,0 +1,3 @@
+ee42df82	Palavras frequentes
+3e597abb	Novo no idioma? Palavras frequentes ensina as palavras mais comuns, 50 por vez, e Gramática tem lições curtas para você montar suas próprias frases: o bastante para começar com podcasts, vídeos e livros de verdade.
+7b63072b	Não há palavras novas esperando: adicione algumas com Adicionar palavras, ou em Conteúdo → Básico → Palavras frequentes.

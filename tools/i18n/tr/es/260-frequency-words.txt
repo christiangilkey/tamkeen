@@ -1,0 +1,3 @@
+ee42df82	Palabras frecuentes
+3e597abb	¿Nuevo en el idioma? Palabras frecuentes enseña las palabras más comunes, de 50 en 50, y Gramática tiene lecciones cortas para formar tus propias frases: suficiente para empezar con pódcasts, vídeos y libros de verdad.
+7b63072b	No hay palabras nuevas esperando: añade algunas con Añadir palabras, o desde Contenido → Básico → Palabras frecuentes.

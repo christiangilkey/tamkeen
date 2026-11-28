@@ -1,0 +1,3 @@
+ee42df82	Parole frequenti
+3e597abb	Nuovo alla lingua? Parole frequenti insegna le parole più comuni, 50 alla volta, e Grammatica ha brevi lezioni per costruire frasi tue: abbastanza per iniziare con podcast, video e libri veri.
+7b63072b	Non ci sono parole nuove in attesa: aggiungine con Aggiungi parole, o da Contenuti → Base → Parole frequenti.
