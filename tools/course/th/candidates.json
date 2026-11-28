@@ -1,0 +1,12009 @@
+{
+ "lang": "th",
+ "made": "2026-11-28",
+ "method": "70% film and TV subtitles (FrequencyWords, OpenSubtitles 2018, CC BY-SA 4.0) + 30% wordfreq (CC BY-SA 4.0), per million words (tools/course/forms.py --blend), grouped by dictionary word with the language's own ranking script; the course's words 1-1000 left out (tools/course/candidates.mjs)",
+ "after": 1000,
+ "words": [
+  {
+   "rank": 1001,
+   "lemma": "ไทย",
+   "freq": 70666,
+   "forms": []
+  },
+  {
+   "rank": 1002,
+   "lemma": "จีน",
+   "freq": 19026,
+   "forms": []
+  },
+  {
+   "rank": 1003,
+   "lemma": "ก็คือ",
+   "freq": 16925,
+   "forms": []
+  },
+  {
+   "rank": 1004,
+   "lemma": "หรือไม่",
+   "freq": 16311,
+   "forms": []
+  },
+  {
+   "rank": 1005,
+   "lemma": "แล้วก็",
+   "freq": 13995,
+   "forms": []
+  },
+  {
+   "rank": 1006,
+   "lemma": "เรียกว่า",
+   "freq": 13084,
+   "forms": []
+  },
+  {
+   "rank": 1007,
+   "lemma": "ญี่ปุ่น",
+   "freq": 10913,
+   "forms": []
+  },
+  {
+   "rank": 1008,
+   "lemma": "มิได้",
+   "freq": 9315,
+   "forms": []
+  },
+  {
+   "rank": 1009,
+   "lemma": "อังกฤษ",
+   "freq": 9048,
+   "forms": []
+  },
+  {
+   "rank": 1010,
+   "lemma": "โอ",
+   "freq": 9047,
+   "forms": []
+  },
+  {
+   "rank": 1011,
+   "lemma": "ไอ้",
+   "freq": 8588,
+   "forms": []
+  },
+  {
+   "rank": 1012,
+   "lemma": "กรุงเทพ",
+   "freq": 8464,
+   "forms": []
+  },
+  {
+   "rank": 1013,
+   "lemma": "ที่สำคัญ",
+   "freq": 8397,
+   "forms": []
+  },
+  {
+   "rank": 1014,
+   "lemma": "นอกจากนี้",
+   "freq": 8021,
+   "forms": []
+  },
+  {
+   "rank": 1015,
+   "lemma": "ศรี",
+   "freq": 7956,
+   "forms": []
+  },
+  {
+   "rank": 1016,
+   "lemma": "ซี",
+   "freq": 7869,
+   "forms": []
+  },
+  {
+   "rank": 1017,
+   "lemma": "ที่ผ่านมา",
+   "freq": 7860,
+   "forms": []
+  },
+  {
+   "rank": 1018,
+   "lemma": "ราช",
+   "freq": 7714,
+   "forms": []
+  },
+  {
+   "rank": 1019,
+   "lemma": "เช่นนี้",
+   "freq": 7600,
+   "forms": []
+  },
+  {
+   "rank": 1020,
+   "lemma": "สหรัฐ",
+   "freq": 7190,
+   "forms": []
+  },
+  {
+   "rank": 1021,
+   "lemma": "อย่างไรก็ตาม",
+   "freq": 6818,
+   "forms": []
+  },
+  {
+   "rank": 1022,
+   "lemma": "คนใน",
+   "freq": 6672,
+   "forms": []
+  },
+  {
+   "rank": 1023,
+   "lemma": "มั้ย",
+   "freq": 6559,
+   "forms": []
+  },
+  {
+   "rank": 1024,
+   "lemma": "ในขณะที่",
+   "freq": 6498,
+   "forms": []
+  },
+  {
+   "rank": 1025,
+   "lemma": "สา",
+   "freq": 6496,
+   "forms": []
+  },
+  {
+   "rank": 1026,
+   "lemma": "เอ",
+   "freq": 6369,
+   "forms": []
+  },
+  {
+   "rank": 1027,
+   "lemma": "รา",
+   "freq": 6184,
+   "forms": []
+  },
+  {
+   "rank": 1028,
+   "lemma": "อันเป็น",
+   "freq": 6130,
+   "forms": []
+  },
+  {
+   "rank": 1029,
+   "lemma": "เมืองไทย",
+   "freq": 6035,
+   "forms": []
+  },
+  {
+   "rank": 1030,
+   "lemma": "ทำหน้าที่",
+   "freq": 6014,
+   "forms": []
+  },
+  {
+   "rank": 1031,
+   "lemma": "พ่อแม่",
+   "freq": 5859,
+   "forms": []
+  },
+  {
+   "rank": 1032,
+   "lemma": "กล่าวถึง",
+   "freq": 5801,
+   "forms": []
+  },
+  {
+   "rank": 1033,
+   "lemma": "ประกอบด้วย",
+   "freq": 5731,
+   "forms": []
+  },
+  {
+   "rank": 1034,
+   "lemma": "โน้ต",
+   "freq": 5728,
+   "forms": []
+  },
+  {
+   "rank": 1035,
+   "lemma": "สุ",
+   "freq": 5697,
+   "forms": []
+  },
+  {
+   "rank": 1036,
+   "lemma": "นคร",
+   "freq": 5639,
+   "forms": []
+  },
+  {
+   "rank": 1037,
+   "lemma": "พร้อมกับ",
+   "freq": 5600,
+   "forms": []
+  },
+  {
+   "rank": 1038,
+   "lemma": "อี",
+   "freq": 5469,
+   "forms": []
+  },
+  {
+   "rank": 1039,
+   "lemma": "ชายหนุ่ม",
+   "freq": 5448,
+   "forms": []
+  },
+  {
+   "rank": 1040,
+   "lemma": "ฯลฯ",
+   "freq": 5432,
+   "forms": []
+  },
+  {
+   "rank": 1041,
+   "lemma": "อย่างยิ่ง",
+   "freq": 5419,
+   "forms": []
+  },
+  {
+   "rank": 1042,
+   "lemma": "มหา",
+   "freq": 5378,
+   "forms": []
+  },
+  {
+   "rank": 1043,
+   "lemma": "ชัย",
+   "freq": 5312,
+   "forms": []
+  },
+  {
+   "rank": 1044,
+   "lemma": "อะ",
+   "freq": 5287,
+   "forms": []
+  },
+  {
+   "rank": 1045,
+   "lemma": "กรุง",
+   "freq": 5257,
+   "forms": []
+  },
+  {
+   "rank": 1046,
+   "lemma": "แม้ว่า",
+   "freq": 5168,
+   "forms": []
+  },
+  {
+   "rank": 1047,
+   "lemma": "สมเด็จ",
+   "freq": 5015,
+   "forms": []
+  },
+  {
+   "rank": 1048,
+   "lemma": "ซา",
+   "freq": 4966,
+   "forms": []
+  },
+  {
+   "rank": 1049,
+   "lemma": "เข้าสู่",
+   "freq": 4905,
+   "forms": []
+  },
+  {
+   "rank": 1050,
+   "lemma": "ก่อให้เกิด",
+   "freq": 4855,
+   "forms": []
+  },
+  {
+   "rank": 1051,
+   "lemma": "ดา",
+   "freq": 4813,
+   "forms": []
+  },
+  {
+   "rank": 1052,
+   "lemma": "ต่อไปนี้",
+   "freq": 4808,
+   "forms": []
+  },
+  {
+   "rank": 1053,
+   "lemma": "ระ",
+   "freq": 4789,
+   "forms": []
+  },
+  {
+   "rank": 1054,
+   "lemma": "ประ",
+   "freq": 4715,
+   "forms": []
+  },
+  {
+   "rank": 1055,
+   "lemma": "ที่ไหน",
+   "freq": 4689,
+   "forms": []
+  },
+  {
+   "rank": 1056,
+   "lemma": "ยัย",
+   "freq": 4679,
+   "forms": []
+  },
+  {
+   "rank": 1057,
+   "lemma": "เพียงแต่",
+   "freq": 4640,
+   "forms": []
+  },
+  {
+   "rank": 1058,
+   "lemma": "ก",
+   "freq": 4485,
+   "forms": []
+  },
+  {
+   "rank": 1059,
+   "lemma": "โดยที่",
+   "freq": 4465,
+   "forms": []
+  },
+  {
+   "rank": 1060,
+   "lemma": "มิใช่",
+   "freq": 4428,
+   "forms": []
+  },
+  {
+   "rank": 1061,
+   "lemma": "อิน",
+   "freq": 4358,
+   "forms": []
+  },
+  {
+   "rank": 1062,
+   "lemma": "โดยตรง",
+   "freq": 4286,
+   "forms": []
+  },
+  {
+   "rank": 1063,
+   "lemma": "วิ",
+   "freq": 4213,
+   "forms": []
+  },
+  {
+   "rank": 1064,
+   "lemma": "เชียง",
+   "freq": 4188,
+   "forms": []
+  },
+  {
+   "rank": 1065,
+   "lemma": "สหรัฐอเมริกา",
+   "freq": 4180,
+   "forms": []
+  },
+  {
+   "rank": 1066,
+   "lemma": "ยุโรป",
+   "freq": 4173,
+   "forms": []
+  },
+  {
+   "rank": 1067,
+   "lemma": "ประเมิน",
+   "freq": 4148,
+   "forms": []
+  },
+  {
+   "rank": 1068,
+   "lemma": "วา",
+   "freq": 4146,
+   "forms": []
+  },
+  {
+   "rank": 1069,
+   "lemma": "ปรึกษา",
+   "freq": 4140,
+   "forms": []
+  },
+  {
+   "rank": 1070,
+   "lemma": "พอดี",
+   "freq": 4140,
+   "forms": []
+  },
+  {
+   "rank": 1071,
+   "lemma": "จัดตั้ง",
+   "freq": 4135,
+   "forms": []
+  },
+  {
+   "rank": 1072,
+   "lemma": "กฎ",
+   "freq": 4133,
+   "forms": []
+  },
+  {
+   "rank": 1073,
+   "lemma": "แล",
+   "freq": 4130,
+   "forms": []
+  },
+  {
+   "rank": 1074,
+   "lemma": "จ้าง",
+   "freq": 4119,
+   "forms": []
+  },
+  {
+   "rank": 1075,
+   "lemma": "บทบัญญัติ",
+   "freq": 4119,
+   "forms": []
+  },
+  {
+   "rank": 1076,
+   "lemma": "ม้า",
+   "freq": 4111,
+   "forms": []
+  },
+  {
+   "rank": 1077,
+   "lemma": "หอม",
+   "freq": 4109,
+   "forms": []
+  },
+  {
+   "rank": 1078,
+   "lemma": "อย่างน้อย",
+   "freq": 4108,
+   "forms": []
+  },
+  {
+   "rank": 1079,
+   "lemma": "ช่อง",
+   "freq": 4096,
+   "forms": []
+  },
+  {
+   "rank": 1080,
+   "lemma": "วัตถุประสงค์",
+   "freq": 4095,
+   "forms": []
+  },
+  {
+   "rank": 1081,
+   "lemma": "คา",
+   "freq": 4093,
+   "forms": []
+  },
+  {
+   "rank": 1082,
+   "lemma": "เหมือนกับ",
+   "freq": 4091,
+   "forms": []
+  },
+  {
+   "rank": 1083,
+   "lemma": "เชิญ",
+   "freq": 4089,
+   "forms": []
+  },
+  {
+   "rank": 1084,
+   "lemma": "นิด",
+   "freq": 4081,
+   "forms": []
+  },
+  {
+   "rank": 1085,
+   "lemma": "จังหวะ",
+   "freq": 4079,
+   "forms": []
+  },
+  {
+   "rank": 1086,
+   "lemma": "มองเห็น",
+   "freq": 4066,
+   "forms": []
+  },
+  {
+   "rank": 1087,
+   "lemma": "สะท้อน",
+   "freq": 4059,
+   "forms": []
+  },
+  {
+   "rank": 1088,
+   "lemma": "หนังสือพิมพ์",
+   "freq": 4055,
+   "forms": []
+  },
+  {
+   "rank": 1089,
+   "lemma": "รอย",
+   "freq": 4049,
+   "forms": []
+  },
+  {
+   "rank": 1090,
+   "lemma": "อำเภอ",
+   "freq": 4048,
+   "forms": []
+  },
+  {
+   "rank": 1091,
+   "lemma": "ตาราง",
+   "freq": 4045,
+   "forms": []
+  },
+  {
+   "rank": 1092,
+   "lemma": "ดอกไม้",
+   "freq": 4042,
+   "forms": []
+  },
+  {
+   "rank": 1093,
+   "lemma": "แตก",
+   "freq": 4040,
+   "forms": []
+  },
+  {
+   "rank": 1094,
+   "lemma": "เสื้อผ้า",
+   "freq": 4035,
+   "forms": []
+  },
+  {
+   "rank": 1095,
+   "lemma": "รึ",
+   "freq": 4033,
+   "forms": []
+  },
+  {
+   "rank": 1096,
+   "lemma": "พุทธ",
+   "freq": 4032,
+   "forms": []
+  },
+  {
+   "rank": 1097,
+   "lemma": "ขน",
+   "freq": 4022,
+   "forms": []
+  },
+  {
+   "rank": 1098,
+   "lemma": "แหละ",
+   "freq": 4020,
+   "forms": []
+  },
+  {
+   "rank": 1099,
+   "lemma": "ชนบท",
+   "freq": 4016,
+   "forms": []
+  },
+  {
+   "rank": 1100,
+   "lemma": "วิชาการ",
+   "freq": 4007,
+   "forms": []
+  },
+  {
+   "rank": 1101,
+   "lemma": "จำเลย",
+   "freq": 4006,
+   "forms": []
+  },
+  {
+   "rank": 1102,
+   "lemma": "ค่าใช้จ่าย",
+   "freq": 4002,
+   "forms": []
+  },
+  {
+   "rank": 1103,
+   "lemma": "เล็กน้อย",
+   "freq": 3997,
+   "forms": []
+  },
+  {
+   "rank": 1104,
+   "lemma": "นาม",
+   "freq": 3990,
+   "forms": []
+  },
+  {
+   "rank": 1105,
+   "lemma": "เคลื่อนไหว",
+   "freq": 3987,
+   "forms": []
+  },
+  {
+   "rank": 1106,
+   "lemma": "เนื้อหา",
+   "freq": 3986,
+   "forms": []
+  },
+  {
+   "rank": 1107,
+   "lemma": "เค",
+   "freq": 3983,
+   "forms": []
+  },
+  {
+   "rank": 1108,
+   "lemma": "ถอน",
+   "freq": 3963,
+   "forms": []
+  },
+  {
+   "rank": 1109,
+   "lemma": "ที่ตั้ง",
+   "freq": 3962,
+   "forms": []
+  },
+  {
+   "rank": 1110,
+   "lemma": "ล้าง",
+   "freq": 3960,
+   "forms": []
+  },
+  {
+   "rank": 1111,
+   "lemma": "จนกระทั่ง",
+   "freq": 3948,
+   "forms": []
+  },
+  {
+   "rank": 1112,
+   "lemma": "พี",
+   "freq": 3948,
+   "forms": []
+  },
+  {
+   "rank": 1113,
+   "lemma": "ส่งออก",
+   "freq": 3945,
+   "forms": []
+  },
+  {
+   "rank": 1114,
+   "lemma": "แผ่น",
+   "freq": 3942,
+   "forms": []
+  },
+  {
+   "rank": 1115,
+   "lemma": "ความสนใจ",
+   "freq": 3941,
+   "forms": []
+  },
+  {
+   "rank": 1116,
+   "lemma": "ก็ดี",
+   "freq": 3905,
+   "forms": []
+  },
+  {
+   "rank": 1117,
+   "lemma": "นิ้ว",
+   "freq": 3899,
+   "forms": []
+  },
+  {
+   "rank": 1118,
+   "lemma": "ระวัง",
+   "freq": 3897,
+   "forms": []
+  },
+  {
+   "rank": 1119,
+   "lemma": "รางวัล",
+   "freq": 3895,
+   "forms": []
+  },
+  {
+   "rank": 1120,
+   "lemma": "สะอาด",
+   "freq": 3894,
+   "forms": []
+  },
+  {
+   "rank": 1121,
+   "lemma": "ชนชั้น",
+   "freq": 3893,
+   "forms": []
+  },
+  {
+   "rank": 1122,
+   "lemma": "คุณแม่",
+   "freq": 3892,
+   "forms": []
+  },
+  {
+   "rank": 1123,
+   "lemma": "บรรยากาศ",
+   "freq": 3889,
+   "forms": []
+  },
+  {
+   "rank": 1124,
+   "lemma": "พูดถึง",
+   "freq": 3888,
+   "forms": []
+  },
+  {
+   "rank": 1125,
+   "lemma": "แท้",
+   "freq": 3888,
+   "forms": []
+  },
+  {
+   "rank": 1126,
+   "lemma": "ผลิตภัณฑ์",
+   "freq": 3884,
+   "forms": []
+  },
+  {
+   "rank": 1127,
+   "lemma": "นัด",
+   "freq": 3873,
+   "forms": []
+  },
+  {
+   "rank": 1128,
+   "lemma": "เขียว",
+   "freq": 3871,
+   "forms": []
+  },
+  {
+   "rank": 1129,
+   "lemma": "ไม่ทัน",
+   "freq": 3870,
+   "forms": []
+  },
+  {
+   "rank": 1130,
+   "lemma": "ล่า",
+   "freq": 3868,
+   "forms": []
+  },
+  {
+   "rank": 1131,
+   "lemma": "โร",
+   "freq": 3864,
+   "forms": []
+  },
+  {
+   "rank": 1132,
+   "lemma": "ขนส่ง",
+   "freq": 3860,
+   "forms": []
+  },
+  {
+   "rank": 1133,
+   "lemma": "ชั่ว",
+   "freq": 3856,
+   "forms": []
+  },
+  {
+   "rank": 1134,
+   "lemma": "ฝรั่งเศส",
+   "freq": 3855,
+   "forms": []
+  },
+  {
+   "rank": 1135,
+   "lemma": "หน้าตา",
+   "freq": 3854,
+   "forms": []
+  },
+  {
+   "rank": 1136,
+   "lemma": "อันดับ",
+   "freq": 3852,
+   "forms": []
+  },
+  {
+   "rank": 1137,
+   "lemma": "ล่าง",
+   "freq": 3849,
+   "forms": []
+  },
+  {
+   "rank": 1138,
+   "lemma": "ท้อง",
+   "freq": 3847,
+   "forms": []
+  },
+  {
+   "rank": 1139,
+   "lemma": "ลอย",
+   "freq": 3843,
+   "forms": []
+  },
+  {
+   "rank": 1140,
+   "lemma": "น้ำหนัก",
+   "freq": 3843,
+   "forms": []
+  },
+  {
+   "rank": 1141,
+   "lemma": "ร้าย",
+   "freq": 3841,
+   "forms": []
+  },
+  {
+   "rank": 1142,
+   "lemma": "ปัญญา",
+   "freq": 3839,
+   "forms": []
+  },
+  {
+   "rank": 1143,
+   "lemma": "ลับ",
+   "freq": 3836,
+   "forms": []
+  },
+  {
+   "rank": 1144,
+   "lemma": "เสี่ยง",
+   "freq": 3834,
+   "forms": []
+  },
+  {
+   "rank": 1145,
+   "lemma": "การเลือกตั้ง",
+   "freq": 3823,
+   "forms": []
+  },
+  {
+   "rank": 1146,
+   "lemma": "ใส",
+   "freq": 3814,
+   "forms": []
+  },
+  {
+   "rank": 1147,
+   "lemma": "ต้นไม้",
+   "freq": 3814,
+   "forms": []
+  },
+  {
+   "rank": 1148,
+   "lemma": "แม่น้ำ",
+   "freq": 3802,
+   "forms": []
+  },
+  {
+   "rank": 1149,
+   "lemma": "ผัก",
+   "freq": 3796,
+   "forms": []
+  },
+  {
+   "rank": 1150,
+   "lemma": "ที่นั่ง",
+   "freq": 3796,
+   "forms": []
+  },
+  {
+   "rank": 1151,
+   "lemma": "หก",
+   "freq": 3794,
+   "forms": []
+  },
+  {
+   "rank": 1152,
+   "lemma": "สถานี",
+   "freq": 3786,
+   "forms": []
+  },
+  {
+   "rank": 1153,
+   "lemma": "ชนะ",
+   "freq": 3775,
+   "forms": []
+  },
+  {
+   "rank": 1154,
+   "lemma": "ฝาก",
+   "freq": 3768,
+   "forms": []
+  },
+  {
+   "rank": 1155,
+   "lemma": "พิสูจน์",
+   "freq": 3768,
+   "forms": []
+  },
+  {
+   "rank": 1156,
+   "lemma": "ดิ",
+   "freq": 3765,
+   "forms": []
+  },
+  {
+   "rank": 1157,
+   "lemma": "เต็มที่",
+   "freq": 3758,
+   "forms": []
+  },
+  {
+   "rank": 1158,
+   "lemma": "เลขาธิการ",
+   "freq": 3757,
+   "forms": []
+  },
+  {
+   "rank": 1159,
+   "lemma": "พลอย",
+   "freq": 3754,
+   "forms": []
+  },
+  {
+   "rank": 1160,
+   "lemma": "สด",
+   "freq": 3754,
+   "forms": []
+  },
+  {
+   "rank": 1161,
+   "lemma": "หมา",
+   "freq": 3752,
+   "forms": []
+  },
+  {
+   "rank": 1162,
+   "lemma": "คึกฤทธิ์",
+   "freq": 3748,
+   "forms": []
+  },
+  {
+   "rank": 1163,
+   "lemma": "ว่าง",
+   "freq": 3746,
+   "forms": []
+  },
+  {
+   "rank": 1164,
+   "lemma": "สัญญาณ",
+   "freq": 3741,
+   "forms": []
+  },
+  {
+   "rank": 1165,
+   "lemma": "สอดคล้อง",
+   "freq": 3739,
+   "forms": []
+  },
+  {
+   "rank": 1166,
+   "lemma": "หลากหลาย",
+   "freq": 3737,
+   "forms": []
+  },
+  {
+   "rank": 1167,
+   "lemma": "ริม",
+   "freq": 3733,
+   "forms": []
+  },
+  {
+   "rank": 1168,
+   "lemma": "บา",
+   "freq": 3729,
+   "forms": []
+  },
+  {
+   "rank": 1169,
+   "lemma": "ตัน",
+   "freq": 3715,
+   "forms": []
+  },
+  {
+   "rank": 1170,
+   "lemma": "ดัน",
+   "freq": 3710,
+   "forms": []
+  },
+  {
+   "rank": 1171,
+   "lemma": "นายก",
+   "freq": 3707,
+   "forms": []
+  },
+  {
+   "rank": 1172,
+   "lemma": "ข้างต้น",
+   "freq": 3706,
+   "forms": []
+  },
+  {
+   "rank": 1173,
+   "lemma": "แอบ",
+   "freq": 3695,
+   "forms": []
+  },
+  {
+   "rank": 1174,
+   "lemma": "ประชากร",
+   "freq": 3694,
+   "forms": []
+  },
+  {
+   "rank": 1175,
+   "lemma": "เทียบ",
+   "freq": 3679,
+   "forms": []
+  },
+  {
+   "rank": 1176,
+   "lemma": "ผู้ป่วย",
+   "freq": 3670,
+   "forms": []
+  },
+  {
+   "rank": 1177,
+   "lemma": "ฝีมือ",
+   "freq": 3660,
+   "forms": []
+  },
+  {
+   "rank": 1178,
+   "lemma": "ไหว",
+   "freq": 3659,
+   "forms": []
+  },
+  {
+   "rank": 1179,
+   "lemma": "ฉะนั้น",
+   "freq": 3654,
+   "forms": []
+  },
+  {
+   "rank": 1180,
+   "lemma": "สิ้น",
+   "freq": 3652,
+   "forms": []
+  },
+  {
+   "rank": 1181,
+   "lemma": "เช่นเดียว",
+   "freq": 3650,
+   "forms": []
+  },
+  {
+   "rank": 1182,
+   "lemma": "สมาคม",
+   "freq": 3644,
+   "forms": []
+  },
+  {
+   "rank": 1183,
+   "lemma": "หลง",
+   "freq": 3638,
+   "forms": []
+  },
+  {
+   "rank": 1184,
+   "lemma": "ท่าทาง",
+   "freq": 3638,
+   "forms": []
+  },
+  {
+   "rank": 1185,
+   "lemma": "ใบหน้า",
+   "freq": 3634,
+   "forms": []
+  },
+  {
+   "rank": 1186,
+   "lemma": "มอบ",
+   "freq": 3627,
+   "forms": []
+  },
+  {
+   "rank": 1187,
+   "lemma": "ขณะนี้",
+   "freq": 3627,
+   "forms": []
+  },
+  {
+   "rank": 1188,
+   "lemma": "รถยนต์",
+   "freq": 3618,
+   "forms": []
+  },
+  {
+   "rank": 1189,
+   "lemma": "คิดถึง",
+   "freq": 3615,
+   "forms": []
+  },
+  {
+   "rank": 1190,
+   "lemma": "พิธี",
+   "freq": 3613,
+   "forms": []
+  },
+  {
+   "rank": 1191,
+   "lemma": "ไฟฟ้า",
+   "freq": 3609,
+   "forms": []
+  },
+  {
+   "rank": 1192,
+   "lemma": "กด",
+   "freq": 3603,
+   "forms": []
+  },
+  {
+   "rank": 1193,
+   "lemma": "รี",
+   "freq": 3596,
+   "forms": []
+  },
+  {
+   "rank": 1194,
+   "lemma": "ทีเดียว",
+   "freq": 3593,
+   "forms": []
+  },
+  {
+   "rank": 1195,
+   "lemma": "จี",
+   "freq": 3591,
+   "forms": []
+  },
+  {
+   "rank": 1196,
+   "lemma": "ข่าวสาร",
+   "freq": 3582,
+   "forms": []
+  },
+  {
+   "rank": 1197,
+   "lemma": "พาณิชย์",
+   "freq": 3579,
+   "forms": []
+  },
+  {
+   "rank": 1198,
+   "lemma": "หมื่น",
+   "freq": 3572,
+   "forms": []
+  },
+  {
+   "rank": 1199,
+   "lemma": "อก",
+   "freq": 3563,
+   "forms": []
+  },
+  {
+   "rank": 1200,
+   "lemma": "ลูกสาว",
+   "freq": 3558,
+   "forms": []
+  },
+  {
+   "rank": 1201,
+   "lemma": "ถิ่น",
+   "freq": 3552,
+   "forms": []
+  },
+  {
+   "rank": 1202,
+   "lemma": "ลงโทษ",
+   "freq": 3549,
+   "forms": []
+  },
+  {
+   "rank": 1203,
+   "lemma": "พล",
+   "freq": 3544,
+   "forms": []
+  },
+  {
+   "rank": 1204,
+   "lemma": "ทั้งสิ้น",
+   "freq": 3541,
+   "forms": []
+  },
+  {
+   "rank": 1205,
+   "lemma": "ผี",
+   "freq": 3539,
+   "forms": []
+  },
+  {
+   "rank": 1206,
+   "lemma": "จำหน่าย",
+   "freq": 3538,
+   "forms": []
+  },
+  {
+   "rank": 1207,
+   "lemma": "เทคนิค",
+   "freq": 3538,
+   "forms": []
+  },
+  {
+   "rank": 1208,
+   "lemma": "ฝั่ง",
+   "freq": 3537,
+   "forms": []
+  },
+  {
+   "rank": 1209,
+   "lemma": "วงศ์",
+   "freq": 3535,
+   "forms": []
+  },
+  {
+   "rank": 1210,
+   "lemma": "เชื้อ",
+   "freq": 3529,
+   "forms": []
+  },
+  {
+   "rank": 1211,
+   "lemma": "กู",
+   "freq": 3524,
+   "forms": []
+  },
+  {
+   "rank": 1212,
+   "lemma": "เมีย",
+   "freq": 3523,
+   "forms": []
+  },
+  {
+   "rank": 1213,
+   "lemma": "บริโภค",
+   "freq": 3522,
+   "forms": []
+  },
+  {
+   "rank": 1214,
+   "lemma": "ลูกชาย",
+   "freq": 3521,
+   "forms": []
+  },
+  {
+   "rank": 1215,
+   "lemma": "คอร์ด",
+   "freq": 3516,
+   "forms": []
+  },
+  {
+   "rank": 1216,
+   "lemma": "เทพ",
+   "freq": 3512,
+   "forms": []
+  },
+  {
+   "rank": 1217,
+   "lemma": "องค์ประกอบ",
+   "freq": 3510,
+   "forms": []
+  },
+  {
+   "rank": 1218,
+   "lemma": "ผสม",
+   "freq": 3505,
+   "forms": []
+  },
+  {
+   "rank": 1219,
+   "lemma": "ดื่ม",
+   "freq": 3501,
+   "forms": []
+  },
+  {
+   "rank": 1220,
+   "lemma": "ตอนนั้น",
+   "freq": 3499,
+   "forms": []
+  },
+  {
+   "rank": 1221,
+   "lemma": "สติ",
+   "freq": 3497,
+   "forms": []
+  },
+  {
+   "rank": 1222,
+   "lemma": "เซ",
+   "freq": 3488,
+   "forms": []
+  },
+  {
+   "rank": 1223,
+   "lemma": "ราวกับ",
+   "freq": 3485,
+   "forms": []
+  },
+  {
+   "rank": 1224,
+   "lemma": "สอบสวน",
+   "freq": 3482,
+   "forms": []
+  },
+  {
+   "rank": 1225,
+   "lemma": "กำเนิด",
+   "freq": 3481,
+   "forms": []
+  },
+  {
+   "rank": 1226,
+   "lemma": "ปืน",
+   "freq": 3479,
+   "forms": []
+  },
+  {
+   "rank": 1227,
+   "lemma": "ดวงตา",
+   "freq": 3477,
+   "forms": []
+  },
+  {
+   "rank": 1228,
+   "lemma": "ขัด",
+   "freq": 3474,
+   "forms": []
+  },
+  {
+   "rank": 1229,
+   "lemma": "เรือน",
+   "freq": 3469,
+   "forms": []
+  },
+  {
+   "rank": 1230,
+   "lemma": "นั่นแหละ",
+   "freq": 3464,
+   "forms": []
+  },
+  {
+   "rank": 1231,
+   "lemma": "รส",
+   "freq": 3456,
+   "forms": []
+  },
+  {
+   "rank": 1232,
+   "lemma": "นับแต่",
+   "freq": 3453,
+   "forms": []
+  },
+  {
+   "rank": 1233,
+   "lemma": "ขึ้นอยู่กับ",
+   "freq": 3452,
+   "forms": []
+  },
+  {
+   "rank": 1234,
+   "lemma": "เลื่อน",
+   "freq": 3452,
+   "forms": []
+  },
+  {
+   "rank": 1235,
+   "lemma": "ริ",
+   "freq": 3449,
+   "forms": []
+  },
+  {
+   "rank": 1236,
+   "lemma": "รับผิดชอบ",
+   "freq": 3449,
+   "forms": []
+  },
+  {
+   "rank": 1237,
+   "lemma": "หนาว",
+   "freq": 3440,
+   "forms": []
+  },
+  {
+   "rank": 1238,
+   "lemma": "ฤทธิ์",
+   "freq": 3437,
+   "forms": []
+  },
+  {
+   "rank": 1239,
+   "lemma": "ศึก",
+   "freq": 3436,
+   "forms": []
+  },
+  {
+   "rank": 1240,
+   "lemma": "ติ",
+   "freq": 3433,
+   "forms": []
+  },
+  {
+   "rank": 1241,
+   "lemma": "ซ้าย",
+   "freq": 3431,
+   "forms": []
+  },
+  {
+   "rank": 1242,
+   "lemma": "ประกัน",
+   "freq": 3429,
+   "forms": []
+  },
+  {
+   "rank": 1243,
+   "lemma": "เสริม",
+   "freq": 3425,
+   "forms": []
+  },
+  {
+   "rank": 1244,
+   "lemma": "ลาย",
+   "freq": 3423,
+   "forms": []
+  },
+  {
+   "rank": 1245,
+   "lemma": "เส้นทาง",
+   "freq": 3422,
+   "forms": []
+  },
+  {
+   "rank": 1246,
+   "lemma": "อเมริกัน",
+   "freq": 3420,
+   "forms": []
+  },
+  {
+   "rank": 1247,
+   "lemma": "โทรทัศน์",
+   "freq": 3420,
+   "forms": []
+  },
+  {
+   "rank": 1248,
+   "lemma": "ประธานาธิบดี",
+   "freq": 3412,
+   "forms": []
+  },
+  {
+   "rank": 1249,
+   "lemma": "ละเอียด",
+   "freq": 3410,
+   "forms": []
+  },
+  {
+   "rank": 1250,
+   "lemma": "เค้า",
+   "freq": 3408,
+   "forms": []
+  },
+  {
+   "rank": 1251,
+   "lemma": "ลุง",
+   "freq": 3404,
+   "forms": []
+  },
+  {
+   "rank": 1252,
+   "lemma": "วินิจฉัย",
+   "freq": 3404,
+   "forms": []
+  },
+  {
+   "rank": 1253,
+   "lemma": "ผูกพัน",
+   "freq": 3401,
+   "forms": []
+  },
+  {
+   "rank": 1254,
+   "lemma": "ตัวแทน",
+   "freq": 3400,
+   "forms": []
+  },
+  {
+   "rank": 1255,
+   "lemma": "เตอร์",
+   "freq": 3398,
+   "forms": []
+  },
+  {
+   "rank": 1256,
+   "lemma": "เช่นนั้น",
+   "freq": 3398,
+   "forms": []
+  },
+  {
+   "rank": 1257,
+   "lemma": "บิดา",
+   "freq": 3394,
+   "forms": []
+  },
+  {
+   "rank": 1258,
+   "lemma": "ผู้แทน",
+   "freq": 3393,
+   "forms": []
+  },
+  {
+   "rank": 1259,
+   "lemma": "พิษ",
+   "freq": 3392,
+   "forms": []
+  },
+  {
+   "rank": 1260,
+   "lemma": "คิดเห็น",
+   "freq": 3383,
+   "forms": []
+  },
+  {
+   "rank": 1261,
+   "lemma": "คุรุ",
+   "freq": 3380,
+   "forms": []
+  },
+  {
+   "rank": 1262,
+   "lemma": "เฝ้า",
+   "freq": 3376,
+   "forms": []
+  },
+  {
+   "rank": 1263,
+   "lemma": "กระดาษ",
+   "freq": 3373,
+   "forms": []
+  },
+  {
+   "rank": 1264,
+   "lemma": "สมรส",
+   "freq": 3372,
+   "forms": []
+  },
+  {
+   "rank": 1265,
+   "lemma": "ตะวันออก",
+   "freq": 3371,
+   "forms": []
+  },
+  {
+   "rank": 1266,
+   "lemma": "ทั้งที่",
+   "freq": 3370,
+   "forms": []
+  },
+  {
+   "rank": 1267,
+   "lemma": "ประสงค์",
+   "freq": 3368,
+   "forms": []
+  },
+  {
+   "rank": 1268,
+   "lemma": "นิ",
+   "freq": 3363,
+   "forms": []
+  },
+  {
+   "rank": 1269,
+   "lemma": "อินเดีย",
+   "freq": 3363,
+   "forms": []
+  },
+  {
+   "rank": 1270,
+   "lemma": "โอน",
+   "freq": 3362,
+   "forms": []
+  },
+  {
+   "rank": 1271,
+   "lemma": "ต้นทุน",
+   "freq": 3358,
+   "forms": []
+  },
+  {
+   "rank": 1272,
+   "lemma": "ใกล้ชิด",
+   "freq": 3355,
+   "forms": []
+  },
+  {
+   "rank": 1273,
+   "lemma": "ลิ",
+   "freq": 3354,
+   "forms": []
+  },
+  {
+   "rank": 1274,
+   "lemma": "กองทุน",
+   "freq": 3353,
+   "forms": []
+  },
+  {
+   "rank": 1275,
+   "lemma": "น่าสนใจ",
+   "freq": 3349,
+   "forms": []
+  },
+  {
+   "rank": 1276,
+   "lemma": "ทน",
+   "freq": 3347,
+   "forms": []
+  },
+  {
+   "rank": 1277,
+   "lemma": "สาระ",
+   "freq": 3346,
+   "forms": []
+  },
+  {
+   "rank": 1278,
+   "lemma": "หลาน",
+   "freq": 3344,
+   "forms": []
+  },
+  {
+   "rank": 1279,
+   "lemma": "กระตุ้น",
+   "freq": 3341,
+   "forms": []
+  },
+  {
+   "rank": 1280,
+   "lemma": "ไร่",
+   "freq": 3340,
+   "forms": []
+  },
+  {
+   "rank": 1281,
+   "lemma": "ศักดิ์",
+   "freq": 3333,
+   "forms": []
+  },
+  {
+   "rank": 1282,
+   "lemma": "ไท",
+   "freq": 3330,
+   "forms": []
+  },
+  {
+   "rank": 1283,
+   "lemma": "ขอบคุณ",
+   "freq": 3327,
+   "forms": []
+  },
+  {
+   "rank": 1284,
+   "lemma": "นั่นคือ",
+   "freq": 3327,
+   "forms": []
+  },
+  {
+   "rank": 1285,
+   "lemma": "เมตร",
+   "freq": 3325,
+   "forms": []
+  },
+  {
+   "rank": 1286,
+   "lemma": "บุตร",
+   "freq": 3324,
+   "forms": []
+  },
+  {
+   "rank": 1287,
+   "lemma": "กีฬา",
+   "freq": 3323,
+   "forms": []
+  },
+  {
+   "rank": 1288,
+   "lemma": "มารดา",
+   "freq": 3317,
+   "forms": []
+  },
+  {
+   "rank": 1289,
+   "lemma": "แล้วแต่",
+   "freq": 3313,
+   "forms": []
+  },
+  {
+   "rank": 1290,
+   "lemma": "ทะเบียน",
+   "freq": 3310,
+   "forms": []
+  },
+  {
+   "rank": 1291,
+   "lemma": "วิญญาณ",
+   "freq": 3305,
+   "forms": []
+  },
+  {
+   "rank": 1292,
+   "lemma": "คณะรัฐมนตรี",
+   "freq": 3305,
+   "forms": []
+  },
+  {
+   "rank": 1293,
+   "lemma": "สนาม",
+   "freq": 3302,
+   "forms": []
+  },
+  {
+   "rank": 1294,
+   "lemma": "ยกเว้น",
+   "freq": 3299,
+   "forms": []
+  },
+  {
+   "rank": 1295,
+   "lemma": "การลงทุน",
+   "freq": 3296,
+   "forms": []
+  },
+  {
+   "rank": 1296,
+   "lemma": "แสดงออก",
+   "freq": 3294,
+   "forms": []
+  },
+  {
+   "rank": 1297,
+   "lemma": "ขับรถ",
+   "freq": 3293,
+   "forms": []
+  },
+  {
+   "rank": 1298,
+   "lemma": "มูลค่า",
+   "freq": 3291,
+   "forms": []
+  },
+  {
+   "rank": 1299,
+   "lemma": "กลับบ้าน",
+   "freq": 3287,
+   "forms": []
+  },
+  {
+   "rank": 1300,
+   "lemma": "วาด",
+   "freq": 3276,
+   "forms": []
+  },
+  {
+   "rank": 1301,
+   "lemma": "เพียงพอ",
+   "freq": 3270,
+   "forms": []
+  },
+  {
+   "rank": 1302,
+   "lemma": "จัง",
+   "freq": 3268,
+   "forms": []
+  },
+  {
+   "rank": 1303,
+   "lemma": "โฆษณา",
+   "freq": 3267,
+   "forms": []
+  },
+  {
+   "rank": 1304,
+   "lemma": "ทิศ",
+   "freq": 3262,
+   "forms": []
+  },
+  {
+   "rank": 1305,
+   "lemma": "แผนที่",
+   "freq": 3260,
+   "forms": []
+  },
+  {
+   "rank": 1306,
+   "lemma": "แทนที่",
+   "freq": 3256,
+   "forms": []
+  },
+  {
+   "rank": 1307,
+   "lemma": "ความขัดแย้ง",
+   "freq": 3251,
+   "forms": []
+  },
+  {
+   "rank": 1308,
+   "lemma": "ดังที่",
+   "freq": 3250,
+   "forms": []
+  },
+  {
+   "rank": 1309,
+   "lemma": "สัปดาห์",
+   "freq": 3249,
+   "forms": []
+  },
+  {
+   "rank": 1310,
+   "lemma": "เอเชีย",
+   "freq": 3248,
+   "forms": []
+  },
+  {
+   "rank": 1311,
+   "lemma": "แน่ใจ",
+   "freq": 3246,
+   "forms": []
+  },
+  {
+   "rank": 1312,
+   "lemma": "เช่า",
+   "freq": 3246,
+   "forms": []
+  },
+  {
+   "rank": 1313,
+   "lemma": "ตีความ",
+   "freq": 3245,
+   "forms": []
+  },
+  {
+   "rank": 1314,
+   "lemma": "วี",
+   "freq": 3244,
+   "forms": []
+  },
+  {
+   "rank": 1315,
+   "lemma": "คนเรา",
+   "freq": 3243,
+   "forms": []
+  },
+  {
+   "rank": 1316,
+   "lemma": "หุ่น",
+   "freq": 3239,
+   "forms": []
+  },
+  {
+   "rank": 1317,
+   "lemma": "น้า",
+   "freq": 3238,
+   "forms": []
+  },
+  {
+   "rank": 1318,
+   "lemma": "สวยงาม",
+   "freq": 3235,
+   "forms": []
+  },
+  {
+   "rank": 1319,
+   "lemma": "เลือกตั้ง",
+   "freq": 3219,
+   "forms": []
+  },
+  {
+   "rank": 1320,
+   "lemma": "บรรจุ",
+   "freq": 3217,
+   "forms": []
+  },
+  {
+   "rank": 1321,
+   "lemma": "เยี่ยม",
+   "freq": 3216,
+   "forms": []
+  },
+  {
+   "rank": 1322,
+   "lemma": "รวบรวม",
+   "freq": 3215,
+   "forms": []
+  },
+  {
+   "rank": 1323,
+   "lemma": "รัชกาล",
+   "freq": 3212,
+   "forms": []
+  },
+  {
+   "rank": 1324,
+   "lemma": "บรรยาย",
+   "freq": 3209,
+   "forms": []
+  },
+  {
+   "rank": 1325,
+   "lemma": "ปา",
+   "freq": 3203,
+   "forms": []
+  },
+  {
+   "rank": 1326,
+   "lemma": "ถ่าย",
+   "freq": 3201,
+   "forms": []
+  },
+  {
+   "rank": 1327,
+   "lemma": "ไล่",
+   "freq": 3200,
+   "forms": []
+  },
+  {
+   "rank": 1328,
+   "lemma": "เห็นด้วย",
+   "freq": 3200,
+   "forms": []
+  },
+  {
+   "rank": 1329,
+   "lemma": "ซิ",
+   "freq": 3198,
+   "forms": []
+  },
+  {
+   "rank": 1330,
+   "lemma": "ทรัพย์",
+   "freq": 3193,
+   "forms": []
+  },
+  {
+   "rank": 1331,
+   "lemma": "กร",
+   "freq": 3187,
+   "forms": []
+  },
+  {
+   "rank": 1332,
+   "lemma": "เหนื่อย",
+   "freq": 3178,
+   "forms": []
+  },
+  {
+   "rank": 1333,
+   "lemma": "ความร่วมมือ",
+   "freq": 3177,
+   "forms": []
+  },
+  {
+   "rank": 1334,
+   "lemma": "ฟิลิปปินส์",
+   "freq": 3176,
+   "forms": []
+  },
+  {
+   "rank": 1335,
+   "lemma": "ทิศทาง",
+   "freq": 3172,
+   "forms": []
+  },
+  {
+   "rank": 1336,
+   "lemma": "ไก่",
+   "freq": 3170,
+   "forms": []
+  },
+  {
+   "rank": 1337,
+   "lemma": "ภูมิภาค",
+   "freq": 3168,
+   "forms": []
+  },
+  {
+   "rank": 1338,
+   "lemma": "พระมหากษัตริย์",
+   "freq": 3165,
+   "forms": []
+  },
+  {
+   "rank": 1339,
+   "lemma": "คำนึง",
+   "freq": 3162,
+   "forms": []
+  },
+  {
+   "rank": 1340,
+   "lemma": "ต่างหาก",
+   "freq": 3159,
+   "forms": []
+  },
+  {
+   "rank": 1341,
+   "lemma": "ทดลอง",
+   "freq": 3157,
+   "forms": []
+  },
+  {
+   "rank": 1342,
+   "lemma": "รับประทาน",
+   "freq": 3149,
+   "forms": []
+  },
+  {
+   "rank": 1343,
+   "lemma": "บัตร",
+   "freq": 3147,
+   "forms": []
+  },
+  {
+   "rank": 1344,
+   "lemma": "ตัดสิน",
+   "freq": 3136,
+   "forms": []
+  },
+  {
+   "rank": 1345,
+   "lemma": "จิ",
+   "freq": 3132,
+   "forms": []
+  },
+  {
+   "rank": 1346,
+   "lemma": "หลบ",
+   "freq": 3122,
+   "forms": []
+  },
+  {
+   "rank": 1347,
+   "lemma": "อเมริกา",
+   "freq": 3122,
+   "forms": []
+  },
+  {
+   "rank": 1348,
+   "lemma": "น่ารัก",
+   "freq": 3114,
+   "forms": []
+  },
+  {
+   "rank": 1349,
+   "lemma": "ปฏิบัติงาน",
+   "freq": 3112,
+   "forms": []
+  },
+  {
+   "rank": 1350,
+   "lemma": "สร้างสรรค์",
+   "freq": 3107,
+   "forms": []
+  },
+  {
+   "rank": 1351,
+   "lemma": "เหมาะ",
+   "freq": 3104,
+   "forms": []
+  },
+  {
+   "rank": 1352,
+   "lemma": "ถวาย",
+   "freq": 3104,
+   "forms": []
+  },
+  {
+   "rank": 1353,
+   "lemma": "คนไข้",
+   "freq": 3103,
+   "forms": []
+  },
+  {
+   "rank": 1354,
+   "lemma": "แพง",
+   "freq": 3103,
+   "forms": []
+  },
+  {
+   "rank": 1355,
+   "lemma": "ลงทุน",
+   "freq": 3094,
+   "forms": []
+  },
+  {
+   "rank": 1356,
+   "lemma": "เร่ง",
+   "freq": 3093,
+   "forms": []
+  },
+  {
+   "rank": 1357,
+   "lemma": "ระบอบ",
+   "freq": 3093,
+   "forms": []
+  },
+  {
+   "rank": 1358,
+   "lemma": "เกณฑ์",
+   "freq": 3091,
+   "forms": []
+  },
+  {
+   "rank": 1359,
+   "lemma": "ยู",
+   "freq": 3090,
+   "forms": []
+  },
+  {
+   "rank": 1360,
+   "lemma": "ผลผลิต",
+   "freq": 3090,
+   "forms": []
+  },
+  {
+   "rank": 1361,
+   "lemma": "ข้างหน้า",
+   "freq": 3086,
+   "forms": []
+  },
+  {
+   "rank": 1362,
+   "lemma": "อิ",
+   "freq": 3084,
+   "forms": []
+  },
+  {
+   "rank": 1363,
+   "lemma": "จง",
+   "freq": 3083,
+   "forms": []
+  },
+  {
+   "rank": 1364,
+   "lemma": "น้ำท่วม",
+   "freq": 3076,
+   "forms": []
+  },
+  {
+   "rank": 1365,
+   "lemma": "ข้อเท็จจริง",
+   "freq": 3073,
+   "forms": []
+  },
+  {
+   "rank": 1366,
+   "lemma": "ถุง",
+   "freq": 3071,
+   "forms": []
+  },
+  {
+   "rank": 1367,
+   "lemma": "สตรี",
+   "freq": 3068,
+   "forms": []
+  },
+  {
+   "rank": 1368,
+   "lemma": "เรียง",
+   "freq": 3064,
+   "forms": []
+  },
+  {
+   "rank": 1369,
+   "lemma": "แพ้",
+   "freq": 3063,
+   "forms": []
+  },
+  {
+   "rank": 1370,
+   "lemma": "โด",
+   "freq": 3059,
+   "forms": []
+  },
+  {
+   "rank": 1371,
+   "lemma": "ความเสียหาย",
+   "freq": 3058,
+   "forms": []
+  },
+  {
+   "rank": 1372,
+   "lemma": "เยาวชน",
+   "freq": 3055,
+   "forms": []
+  },
+  {
+   "rank": 1373,
+   "lemma": "วิทยา",
+   "freq": 3054,
+   "forms": []
+  },
+  {
+   "rank": 1374,
+   "lemma": "ทรัพยากร",
+   "freq": 3053,
+   "forms": []
+  },
+  {
+   "rank": 1375,
+   "lemma": "พี่น้อง",
+   "freq": 3040,
+   "forms": []
+  },
+  {
+   "rank": 1376,
+   "lemma": "บ้านเมือง",
+   "freq": 3036,
+   "forms": []
+  },
+  {
+   "rank": 1377,
+   "lemma": "ปฏิบัติการ",
+   "freq": 3033,
+   "forms": []
+  },
+  {
+   "rank": 1378,
+   "lemma": "อาวุธ",
+   "freq": 3032,
+   "forms": []
+  },
+  {
+   "rank": 1379,
+   "lemma": "หุ้น",
+   "freq": 3032,
+   "forms": []
+  },
+  {
+   "rank": 1380,
+   "lemma": "แข็งแรง",
+   "freq": 3031,
+   "forms": []
+  },
+  {
+   "rank": 1381,
+   "lemma": "ก้าวหน้า",
+   "freq": 3030,
+   "forms": []
+  },
+  {
+   "rank": 1382,
+   "lemma": "ประเพณี",
+   "freq": 3026,
+   "forms": []
+  },
+  {
+   "rank": 1383,
+   "lemma": "เจรจา",
+   "freq": 3023,
+   "forms": []
+  },
+  {
+   "rank": 1384,
+   "lemma": "นัย",
+   "freq": 3022,
+   "forms": []
+  },
+  {
+   "rank": 1385,
+   "lemma": "พร",
+   "freq": 3018,
+   "forms": []
+  },
+  {
+   "rank": 1386,
+   "lemma": "สืบ",
+   "freq": 3018,
+   "forms": []
+  },
+  {
+   "rank": 1387,
+   "lemma": "โค",
+   "freq": 3015,
+   "forms": []
+  },
+  {
+   "rank": 1388,
+   "lemma": "ขนม",
+   "freq": 3014,
+   "forms": []
+  },
+  {
+   "rank": 1389,
+   "lemma": "สู้",
+   "freq": 3012,
+   "forms": []
+  },
+  {
+   "rank": 1390,
+   "lemma": "สมาธิ",
+   "freq": 3011,
+   "forms": []
+  },
+  {
+   "rank": 1391,
+   "lemma": "นึกถึง",
+   "freq": 3008,
+   "forms": []
+  },
+  {
+   "rank": 1392,
+   "lemma": "นับถือ",
+   "freq": 3003,
+   "forms": []
+  },
+  {
+   "rank": 1393,
+   "lemma": "ตึก",
+   "freq": 2996,
+   "forms": []
+  },
+  {
+   "rank": 1394,
+   "lemma": "คำนวณ",
+   "freq": 2993,
+   "forms": []
+  },
+  {
+   "rank": 1395,
+   "lemma": "จอด",
+   "freq": 2990,
+   "forms": []
+  },
+  {
+   "rank": 1396,
+   "lemma": "ศิลปิน",
+   "freq": 2989,
+   "forms": []
+  },
+  {
+   "rank": 1397,
+   "lemma": "ทำเป็น",
+   "freq": 2988,
+   "forms": []
+  },
+  {
+   "rank": 1398,
+   "lemma": "ฟัน",
+   "freq": 2987,
+   "forms": []
+  },
+  {
+   "rank": 1399,
+   "lemma": "ตกใจ",
+   "freq": 2986,
+   "forms": []
+  },
+  {
+   "rank": 1400,
+   "lemma": "วางแผน",
+   "freq": 2983,
+   "forms": []
+  },
+  {
+   "rank": 1401,
+   "lemma": "สมัยใหม่",
+   "freq": 2981,
+   "forms": []
+  },
+  {
+   "rank": 1402,
+   "lemma": "เท่าไหร่",
+   "freq": 2978,
+   "forms": []
+  },
+  {
+   "rank": 1403,
+   "lemma": "นอกจากนั้น",
+   "freq": 2967,
+   "forms": []
+  },
+  {
+   "rank": 1404,
+   "lemma": "พุทธศาสนา",
+   "freq": 2966,
+   "forms": []
+  },
+  {
+   "rank": 1405,
+   "lemma": "โดยทั่วไป",
+   "freq": 2964,
+   "forms": []
+  },
+  {
+   "rank": 1406,
+   "lemma": "นิสัย",
+   "freq": 2959,
+   "forms": []
+  },
+  {
+   "rank": 1407,
+   "lemma": "น้ำตาล",
+   "freq": 2958,
+   "forms": []
+  },
+  {
+   "rank": 1408,
+   "lemma": "ฉาก",
+   "freq": 2956,
+   "forms": []
+  },
+  {
+   "rank": 1409,
+   "lemma": "กุ้ง",
+   "freq": 2952,
+   "forms": []
+  },
+  {
+   "rank": 1410,
+   "lemma": "ปรารถนา",
+   "freq": 2951,
+   "forms": []
+  },
+  {
+   "rank": 1411,
+   "lemma": "ชาวนา",
+   "freq": 2944,
+   "forms": []
+  },
+  {
+   "rank": 1412,
+   "lemma": "สยาม",
+   "freq": 2942,
+   "forms": []
+  },
+  {
+   "rank": 1413,
+   "lemma": "คลื่น",
+   "freq": 2942,
+   "forms": []
+  },
+  {
+   "rank": 1414,
+   "lemma": "เวที",
+   "freq": 2942,
+   "forms": []
+  },
+  {
+   "rank": 1415,
+   "lemma": "เห็นชอบ",
+   "freq": 2940,
+   "forms": []
+  },
+  {
+   "rank": 1416,
+   "lemma": "สวม",
+   "freq": 2937,
+   "forms": []
+  },
+  {
+   "rank": 1417,
+   "lemma": "อนุมัติ",
+   "freq": 2936,
+   "forms": []
+  },
+  {
+   "rank": 1418,
+   "lemma": "เศร้า",
+   "freq": 2933,
+   "forms": []
+  },
+  {
+   "rank": 1419,
+   "lemma": "ปวด",
+   "freq": 2926,
+   "forms": []
+  },
+  {
+   "rank": 1420,
+   "lemma": "โปรด",
+   "freq": 2926,
+   "forms": []
+  },
+  {
+   "rank": 1421,
+   "lemma": "ลำ",
+   "freq": 2919,
+   "forms": []
+  },
+  {
+   "rank": 1422,
+   "lemma": "ตรงนี้",
+   "freq": 2917,
+   "forms": []
+  },
+  {
+   "rank": 1423,
+   "lemma": "เสรีภาพ",
+   "freq": 2917,
+   "forms": []
+  },
+  {
+   "rank": 1424,
+   "lemma": "โม",
+   "freq": 2914,
+   "forms": []
+  },
+  {
+   "rank": 1425,
+   "lemma": "ฟ้อง",
+   "freq": 2912,
+   "forms": []
+  },
+  {
+   "rank": 1426,
+   "lemma": "โครง",
+   "freq": 2908,
+   "forms": []
+  },
+  {
+   "rank": 1427,
+   "lemma": "สัน",
+   "freq": 2904,
+   "forms": []
+  },
+  {
+   "rank": 1428,
+   "lemma": "เรียบ",
+   "freq": 2904,
+   "forms": []
+  },
+  {
+   "rank": 1429,
+   "lemma": "ขยายตัว",
+   "freq": 2899,
+   "forms": []
+  },
+  {
+   "rank": 1430,
+   "lemma": "เตือน",
+   "freq": 2899,
+   "forms": []
+  },
+  {
+   "rank": 1431,
+   "lemma": "ประมวล",
+   "freq": 2898,
+   "forms": []
+  },
+  {
+   "rank": 1432,
+   "lemma": "ทุกวันนี้",
+   "freq": 2896,
+   "forms": []
+  },
+  {
+   "rank": 1433,
+   "lemma": "เกม",
+   "freq": 2896,
+   "forms": []
+  },
+  {
+   "rank": 1434,
+   "lemma": "ความเป็นจริง",
+   "freq": 2891,
+   "forms": []
+  },
+  {
+   "rank": 1435,
+   "lemma": "ปฏิรูป",
+   "freq": 2886,
+   "forms": []
+  },
+  {
+   "rank": 1436,
+   "lemma": "อด",
+   "freq": 2884,
+   "forms": []
+  },
+  {
+   "rank": 1437,
+   "lemma": "มอบหมาย",
+   "freq": 2881,
+   "forms": []
+  },
+  {
+   "rank": 1438,
+   "lemma": "ช้าง",
+   "freq": 2877,
+   "forms": []
+  },
+  {
+   "rank": 1439,
+   "lemma": "เต้น",
+   "freq": 2875,
+   "forms": []
+  },
+  {
+   "rank": 1440,
+   "lemma": "เงินเดือน",
+   "freq": 2872,
+   "forms": []
+  },
+  {
+   "rank": 1441,
+   "lemma": "นายจ้าง",
+   "freq": 2871,
+   "forms": []
+  },
+  {
+   "rank": 1442,
+   "lemma": "ทั้งนั้น",
+   "freq": 2870,
+   "forms": []
+  },
+  {
+   "rank": 1443,
+   "lemma": "ประสาน",
+   "freq": 2866,
+   "forms": []
+  },
+  {
+   "rank": 1444,
+   "lemma": "อาญา",
+   "freq": 2862,
+   "forms": []
+  },
+  {
+   "rank": 1445,
+   "lemma": "ฉาย",
+   "freq": 2861,
+   "forms": []
+  },
+  {
+   "rank": 1446,
+   "lemma": "เตียง",
+   "freq": 2859,
+   "forms": []
+  },
+  {
+   "rank": 1447,
+   "lemma": "ผู้นั้น",
+   "freq": 2857,
+   "forms": []
+  },
+  {
+   "rank": 1448,
+   "lemma": "น้ำเสียง",
+   "freq": 2857,
+   "forms": []
+  },
+  {
+   "rank": 1449,
+   "lemma": "คอมพิวเตอร์",
+   "freq": 2852,
+   "forms": []
+  },
+  {
+   "rank": 1450,
+   "lemma": "ทราย",
+   "freq": 2852,
+   "forms": []
+  },
+  {
+   "rank": 1451,
+   "lemma": "วงการ",
+   "freq": 2852,
+   "forms": []
+  },
+  {
+   "rank": 1452,
+   "lemma": "ยินดี",
+   "freq": 2851,
+   "forms": []
+  },
+  {
+   "rank": 1453,
+   "lemma": "ขอบ",
+   "freq": 2849,
+   "forms": []
+  },
+  {
+   "rank": 1454,
+   "lemma": "ตู้",
+   "freq": 2849,
+   "forms": []
+  },
+  {
+   "rank": 1455,
+   "lemma": "วะ",
+   "freq": 2846,
+   "forms": []
+  },
+  {
+   "rank": 1456,
+   "lemma": "คำพิพากษา",
+   "freq": 2843,
+   "forms": []
+  },
+  {
+   "rank": 1457,
+   "lemma": "ดำเนินงาน",
+   "freq": 2841,
+   "forms": []
+  },
+  {
+   "rank": 1458,
+   "lemma": "ทาน",
+   "freq": 2834,
+   "forms": []
+  },
+  {
+   "rank": 1459,
+   "lemma": "เฉย",
+   "freq": 2830,
+   "forms": []
+  },
+  {
+   "rank": 1460,
+   "lemma": "ยุติธรรม",
+   "freq": 2829,
+   "forms": []
+  },
+  {
+   "rank": 1461,
+   "lemma": "ทำร้าย",
+   "freq": 2827,
+   "forms": []
+  },
+  {
+   "rank": 1462,
+   "lemma": "ทดสอบ",
+   "freq": 2827,
+   "forms": []
+  },
+  {
+   "rank": 1463,
+   "lemma": "โน",
+   "freq": 2826,
+   "forms": []
+  },
+  {
+   "rank": 1464,
+   "lemma": "วิทยุ",
+   "freq": 2825,
+   "forms": []
+  },
+  {
+   "rank": 1465,
+   "lemma": "ชิ",
+   "freq": 2824,
+   "forms": []
+  },
+  {
+   "rank": 1466,
+   "lemma": "ถ้าหาก",
+   "freq": 2823,
+   "forms": []
+  },
+  {
+   "rank": 1467,
+   "lemma": "แต่งตัว",
+   "freq": 2822,
+   "forms": []
+  },
+  {
+   "rank": 1468,
+   "lemma": "ทศวรรษ",
+   "freq": 2822,
+   "forms": []
+  },
+  {
+   "rank": 1469,
+   "lemma": "รี่",
+   "freq": 2814,
+   "forms": []
+  },
+  {
+   "rank": 1470,
+   "lemma": "โจทก์",
+   "freq": 2811,
+   "forms": []
+  },
+  {
+   "rank": 1471,
+   "lemma": "ศีรษะ",
+   "freq": 2806,
+   "forms": []
+  },
+  {
+   "rank": 1472,
+   "lemma": "ตัวเลข",
+   "freq": 2806,
+   "forms": []
+  },
+  {
+   "rank": 1473,
+   "lemma": "สว่าง",
+   "freq": 2805,
+   "forms": []
+  },
+  {
+   "rank": 1474,
+   "lemma": "ผู้อำนวยการ",
+   "freq": 2802,
+   "forms": []
+  },
+  {
+   "rank": 1475,
+   "lemma": "สีหน้า",
+   "freq": 2802,
+   "forms": []
+  },
+  {
+   "rank": 1476,
+   "lemma": "เร",
+   "freq": 2800,
+   "forms": []
+  },
+  {
+   "rank": 1477,
+   "lemma": "ภาระ",
+   "freq": 2793,
+   "forms": []
+  },
+  {
+   "rank": 1478,
+   "lemma": "เสรี",
+   "freq": 2788,
+   "forms": []
+  },
+  {
+   "rank": 1479,
+   "lemma": "สหกรณ์",
+   "freq": 2788,
+   "forms": []
+  },
+  {
+   "rank": 1480,
+   "lemma": "แลกเปลี่ยน",
+   "freq": 2781,
+   "forms": []
+  },
+  {
+   "rank": 1481,
+   "lemma": "ลบ",
+   "freq": 2778,
+   "forms": []
+  },
+  {
+   "rank": 1482,
+   "lemma": "อธิบดี",
+   "freq": 2778,
+   "forms": []
+  },
+  {
+   "rank": 1483,
+   "lemma": "หมาย",
+   "freq": 2776,
+   "forms": []
+  },
+  {
+   "rank": 1484,
+   "lemma": "ร้องไห้",
+   "freq": 2774,
+   "forms": []
+  },
+  {
+   "rank": 1485,
+   "lemma": "วัง",
+   "freq": 2768,
+   "forms": []
+  },
+  {
+   "rank": 1486,
+   "lemma": "ผู้บริหาร",
+   "freq": 2765,
+   "forms": []
+  },
+  {
+   "rank": 1487,
+   "lemma": "ต่อต้าน",
+   "freq": 2761,
+   "forms": []
+  },
+  {
+   "rank": 1488,
+   "lemma": "เจ",
+   "freq": 2758,
+   "forms": []
+  },
+  {
+   "rank": 1489,
+   "lemma": "พึง",
+   "freq": 2753,
+   "forms": []
+  },
+  {
+   "rank": 1490,
+   "lemma": "ราม",
+   "freq": 2750,
+   "forms": []
+  },
+  {
+   "rank": 1491,
+   "lemma": "ประวัติ",
+   "freq": 2748,
+   "forms": []
+  },
+  {
+   "rank": 1492,
+   "lemma": "จาน",
+   "freq": 2745,
+   "forms": []
+  },
+  {
+   "rank": 1493,
+   "lemma": "อร่อย",
+   "freq": 2744,
+   "forms": []
+  },
+  {
+   "rank": 1494,
+   "lemma": "จริงจัง",
+   "freq": 2742,
+   "forms": []
+  },
+  {
+   "rank": 1495,
+   "lemma": "เพราะว่า",
+   "freq": 2734,
+   "forms": []
+  },
+  {
+   "rank": 1496,
+   "lemma": "เม็ด",
+   "freq": 2732,
+   "forms": []
+  },
+  {
+   "rank": 1497,
+   "lemma": "ท่อ",
+   "freq": 2731,
+   "forms": []
+  },
+  {
+   "rank": 1498,
+   "lemma": "ปรับตัว",
+   "freq": 2727,
+   "forms": []
+  },
+  {
+   "rank": 1499,
+   "lemma": "กล่าวหา",
+   "freq": 2718,
+   "forms": []
+  },
+  {
+   "rank": 1500,
+   "lemma": "สาธารณะ",
+   "freq": 2714,
+   "forms": []
+  },
+  {
+   "rank": 1501,
+   "lemma": "มั่นใจ",
+   "freq": 2709,
+   "forms": []
+  },
+  {
+   "rank": 1502,
+   "lemma": "ก่อสร้าง",
+   "freq": 2706,
+   "forms": []
+  },
+  {
+   "rank": 1503,
+   "lemma": "ปู",
+   "freq": 2706,
+   "forms": []
+  },
+  {
+   "rank": 1504,
+   "lemma": "หลังจากนั้น",
+   "freq": 2704,
+   "forms": []
+  },
+  {
+   "rank": 1505,
+   "lemma": "แห้ง",
+   "freq": 2703,
+   "forms": []
+  },
+  {
+   "rank": 1506,
+   "lemma": "เหลือง",
+   "freq": 2699,
+   "forms": []
+  },
+  {
+   "rank": 1507,
+   "lemma": "กลไก",
+   "freq": 2699,
+   "forms": []
+  },
+  {
+   "rank": 1508,
+   "lemma": "เพราะฉะนั้น",
+   "freq": 2696,
+   "forms": []
+  },
+  {
+   "rank": 1509,
+   "lemma": "ไหว้",
+   "freq": 2695,
+   "forms": []
+  },
+  {
+   "rank": 1510,
+   "lemma": "จันทร์",
+   "freq": 2694,
+   "forms": []
+  },
+  {
+   "rank": 1511,
+   "lemma": "เคารพ",
+   "freq": 2693,
+   "forms": []
+  },
+  {
+   "rank": 1512,
+   "lemma": "สัญลักษณ์",
+   "freq": 2693,
+   "forms": []
+  },
+  {
+   "rank": 1513,
+   "lemma": "กษัตริย์",
+   "freq": 2692,
+   "forms": []
+  },
+  {
+   "rank": 1514,
+   "lemma": "พยัก",
+   "freq": 2692,
+   "forms": []
+  },
+  {
+   "rank": 1515,
+   "lemma": "ก้ม",
+   "freq": 2692,
+   "forms": []
+  },
+  {
+   "rank": 1516,
+   "lemma": "รูปร่าง",
+   "freq": 2691,
+   "forms": []
+  },
+  {
+   "rank": 1517,
+   "lemma": "สะสม",
+   "freq": 2686,
+   "forms": []
+  },
+  {
+   "rank": 1518,
+   "lemma": "ลี",
+   "freq": 2684,
+   "forms": []
+  },
+  {
+   "rank": 1519,
+   "lemma": "ใช้งาน",
+   "freq": 2683,
+   "forms": []
+  },
+  {
+   "rank": 1520,
+   "lemma": "สัดส่วน",
+   "freq": 2664,
+   "forms": []
+  },
+  {
+   "rank": 1521,
+   "lemma": "แนวโน้ม",
+   "freq": 2662,
+   "forms": []
+  },
+  {
+   "rank": 1522,
+   "lemma": "ขวา",
+   "freq": 2660,
+   "forms": []
+  },
+  {
+   "rank": 1523,
+   "lemma": "หลักสูตร",
+   "freq": 2655,
+   "forms": []
+  },
+  {
+   "rank": 1524,
+   "lemma": "การคลัง",
+   "freq": 2655,
+   "forms": []
+  },
+  {
+   "rank": 1525,
+   "lemma": "อยุธยา",
+   "freq": 2655,
+   "forms": []
+  },
+  {
+   "rank": 1526,
+   "lemma": "ตอบแทน",
+   "freq": 2654,
+   "forms": []
+  },
+  {
+   "rank": 1527,
+   "lemma": "ดอกเบี้ย",
+   "freq": 2653,
+   "forms": []
+  },
+  {
+   "rank": 1528,
+   "lemma": "พม่า",
+   "freq": 2652,
+   "forms": []
+  },
+  {
+   "rank": 1529,
+   "lemma": "พยาน",
+   "freq": 2652,
+   "forms": []
+  },
+  {
+   "rank": 1530,
+   "lemma": "ยินยอม",
+   "freq": 2651,
+   "forms": []
+  },
+  {
+   "rank": 1531,
+   "lemma": "ทัน",
+   "freq": 2647,
+   "forms": []
+  },
+  {
+   "rank": 1532,
+   "lemma": "บุรี",
+   "freq": 2646,
+   "forms": []
+  },
+  {
+   "rank": 1533,
+   "lemma": "ชัก",
+   "freq": 2642,
+   "forms": []
+  },
+  {
+   "rank": 1534,
+   "lemma": "ไข่",
+   "freq": 2636,
+   "forms": []
+  },
+  {
+   "rank": 1535,
+   "lemma": "บุคลากร",
+   "freq": 2633,
+   "forms": []
+  },
+  {
+   "rank": 1536,
+   "lemma": "หมู",
+   "freq": 2632,
+   "forms": []
+  },
+  {
+   "rank": 1537,
+   "lemma": "ชื่อเสียง",
+   "freq": 2632,
+   "forms": []
+  },
+  {
+   "rank": 1538,
+   "lemma": "โท",
+   "freq": 2631,
+   "forms": []
+  },
+  {
+   "rank": 1539,
+   "lemma": "บ่น",
+   "freq": 2629,
+   "forms": []
+  },
+  {
+   "rank": 1540,
+   "lemma": "เอก",
+   "freq": 2625,
+   "forms": []
+  },
+  {
+   "rank": 1541,
+   "lemma": "เผา",
+   "freq": 2623,
+   "forms": []
+  },
+  {
+   "rank": 1542,
+   "lemma": "ตำนาน",
+   "freq": 2622,
+   "forms": []
+  },
+  {
+   "rank": 1543,
+   "lemma": "มิให้",
+   "freq": 2618,
+   "forms": []
+  },
+  {
+   "rank": 1544,
+   "lemma": "ฟื้นฟู",
+   "freq": 2617,
+   "forms": []
+  },
+  {
+   "rank": 1545,
+   "lemma": "ส่วนร่วม",
+   "freq": 2612,
+   "forms": []
+  },
+  {
+   "rank": 1546,
+   "lemma": "ที่แล้ว",
+   "freq": 2611,
+   "forms": []
+  },
+  {
+   "rank": 1547,
+   "lemma": "ข้อตกลง",
+   "freq": 2611,
+   "forms": []
+  },
+  {
+   "rank": 1548,
+   "lemma": "ตัวละคร",
+   "freq": 2610,
+   "forms": []
+  },
+  {
+   "rank": 1549,
+   "lemma": "ถ่ายทอด",
+   "freq": 2609,
+   "forms": []
+  },
+  {
+   "rank": 1550,
+   "lemma": "เบื้องต้น",
+   "freq": 2608,
+   "forms": []
+  },
+  {
+   "rank": 1551,
+   "lemma": "นาฬิกา",
+   "freq": 2600,
+   "forms": []
+  },
+  {
+   "rank": 1552,
+   "lemma": "แน่น",
+   "freq": 2598,
+   "forms": []
+  },
+  {
+   "rank": 1553,
+   "lemma": "สูญเสีย",
+   "freq": 2594,
+   "forms": []
+  },
+  {
+   "rank": 1554,
+   "lemma": "ลำบาก",
+   "freq": 2588,
+   "forms": []
+  },
+  {
+   "rank": 1555,
+   "lemma": "ลาน",
+   "freq": 2584,
+   "forms": []
+  },
+  {
+   "rank": 1556,
+   "lemma": "ดับ",
+   "freq": 2581,
+   "forms": []
+  },
+  {
+   "rank": 1557,
+   "lemma": "สมัคร",
+   "freq": 2581,
+   "forms": []
+  },
+  {
+   "rank": 1558,
+   "lemma": "กระ",
+   "freq": 2580,
+   "forms": []
+  },
+  {
+   "rank": 1559,
+   "lemma": "ยิ่งใหญ่",
+   "freq": 2579,
+   "forms": []
+  },
+  {
+   "rank": 1560,
+   "lemma": "ก๊าซ",
+   "freq": 2578,
+   "forms": []
+  },
+  {
+   "rank": 1561,
+   "lemma": "มีอายุ",
+   "freq": 2577,
+   "forms": []
+  },
+  {
+   "rank": 1562,
+   "lemma": "นิทาน",
+   "freq": 2575,
+   "forms": []
+  },
+  {
+   "rank": 1563,
+   "lemma": "ตระหนัก",
+   "freq": 2572,
+   "forms": []
+  },
+  {
+   "rank": 1564,
+   "lemma": "โทร",
+   "freq": 2571,
+   "forms": []
+  },
+  {
+   "rank": 1565,
+   "lemma": "ภูมิ",
+   "freq": 2571,
+   "forms": []
+  },
+  {
+   "rank": 1566,
+   "lemma": "แสวงหา",
+   "freq": 2570,
+   "forms": []
+  },
+  {
+   "rank": 1567,
+   "lemma": "มืด",
+   "freq": 2570,
+   "forms": []
+  },
+  {
+   "rank": 1568,
+   "lemma": "ดีใจ",
+   "freq": 2563,
+   "forms": []
+  },
+  {
+   "rank": 1569,
+   "lemma": "พี่ชาย",
+   "freq": 2562,
+   "forms": []
+  },
+  {
+   "rank": 1570,
+   "lemma": "ฤดู",
+   "freq": 2560,
+   "forms": []
+  },
+  {
+   "rank": 1571,
+   "lemma": "แย่",
+   "freq": 2558,
+   "forms": []
+  },
+  {
+   "rank": 1572,
+   "lemma": "ตรงข้าม",
+   "freq": 2556,
+   "forms": []
+  },
+  {
+   "rank": 1573,
+   "lemma": "แต่ว่า",
+   "freq": 2551,
+   "forms": []
+  },
+  {
+   "rank": 1574,
+   "lemma": "รอยยิ้ม",
+   "freq": 2544,
+   "forms": []
+  },
+  {
+   "rank": 1575,
+   "lemma": "นี",
+   "freq": 2544,
+   "forms": []
+  },
+  {
+   "rank": 1576,
+   "lemma": "เฉลี่ย",
+   "freq": 2541,
+   "forms": []
+  },
+  {
+   "rank": 1577,
+   "lemma": "อาทิ",
+   "freq": 2541,
+   "forms": []
+  },
+  {
+   "rank": 1578,
+   "lemma": "ระเบิด",
+   "freq": 2540,
+   "forms": []
+  },
+  {
+   "rank": 1579,
+   "lemma": "บันได",
+   "freq": 2536,
+   "forms": []
+  },
+  {
+   "rank": 1580,
+   "lemma": "รองเท้า",
+   "freq": 2535,
+   "forms": []
+  },
+  {
+   "rank": 1581,
+   "lemma": "กังวล",
+   "freq": 2535,
+   "forms": []
+  },
+  {
+   "rank": 1582,
+   "lemma": "เชื่อมโยง",
+   "freq": 2533,
+   "forms": []
+  },
+  {
+   "rank": 1583,
+   "lemma": "หลุด",
+   "freq": 2530,
+   "forms": []
+  },
+  {
+   "rank": 1584,
+   "lemma": "ขับ",
+   "freq": 2527,
+   "forms": []
+  },
+  {
+   "rank": 1585,
+   "lemma": "เหลือเกิน",
+   "freq": 2527,
+   "forms": []
+  },
+  {
+   "rank": 1586,
+   "lemma": "ชิน",
+   "freq": 2520,
+   "forms": []
+  },
+  {
+   "rank": 1587,
+   "lemma": "ได้ที่",
+   "freq": 2519,
+   "forms": []
+  },
+  {
+   "rank": 1588,
+   "lemma": "แปลง",
+   "freq": 2518,
+   "forms": []
+  },
+  {
+   "rank": 1589,
+   "lemma": "ยากจน",
+   "freq": 2518,
+   "forms": []
+  },
+  {
+   "rank": 1590,
+   "lemma": "มหานคร",
+   "freq": 2510,
+   "forms": []
+  },
+  {
+   "rank": 1591,
+   "lemma": "คุม",
+   "freq": 2507,
+   "forms": []
+  },
+  {
+   "rank": 1592,
+   "lemma": "ปรากฏการณ์",
+   "freq": 2503,
+   "forms": []
+  },
+  {
+   "rank": 1593,
+   "lemma": "ผู้ปกครอง",
+   "freq": 2502,
+   "forms": []
+  },
+  {
+   "rank": 1594,
+   "lemma": "โซ",
+   "freq": 2502,
+   "forms": []
+  },
+  {
+   "rank": 1595,
+   "lemma": "ผู้ใช้",
+   "freq": 2501,
+   "forms": []
+  },
+  {
+   "rank": 1596,
+   "lemma": "รัฐสภา",
+   "freq": 2500,
+   "forms": []
+  },
+  {
+   "rank": 1597,
+   "lemma": "วัยรุ่น",
+   "freq": 2500,
+   "forms": []
+  },
+  {
+   "rank": 1598,
+   "lemma": "สื่อมวลชน",
+   "freq": 2498,
+   "forms": []
+  },
+  {
+   "rank": 1599,
+   "lemma": "ถัด",
+   "freq": 2497,
+   "forms": []
+  },
+  {
+   "rank": 1600,
+   "lemma": "เผยแพร่",
+   "freq": 2497,
+   "forms": []
+  },
+  {
+   "rank": 1601,
+   "lemma": "คลอง",
+   "freq": 2495,
+   "forms": []
+  },
+  {
+   "rank": 1602,
+   "lemma": "ตื่นเต้น",
+   "freq": 2492,
+   "forms": []
+  },
+  {
+   "rank": 1603,
+   "lemma": "ยกเลิก",
+   "freq": 2491,
+   "forms": []
+  },
+  {
+   "rank": 1604,
+   "lemma": "หัก",
+   "freq": 2490,
+   "forms": []
+  },
+  {
+   "rank": 1605,
+   "lemma": "เก้าอี้",
+   "freq": 2489,
+   "forms": []
+  },
+  {
+   "rank": 1606,
+   "lemma": "อักษร",
+   "freq": 2486,
+   "forms": []
+  },
+  {
+   "rank": 1607,
+   "lemma": "ย่า",
+   "freq": 2484,
+   "forms": []
+  },
+  {
+   "rank": 1608,
+   "lemma": "ปฏิวัติ",
+   "freq": 2481,
+   "forms": []
+  },
+  {
+   "rank": 1609,
+   "lemma": "แปด",
+   "freq": 2481,
+   "forms": []
+  },
+  {
+   "rank": 1610,
+   "lemma": "ป่วย",
+   "freq": 2479,
+   "forms": []
+  },
+  {
+   "rank": 1611,
+   "lemma": "ซัก",
+   "freq": 2478,
+   "forms": []
+  },
+  {
+   "rank": 1612,
+   "lemma": "ถึงกับ",
+   "freq": 2477,
+   "forms": []
+  },
+  {
+   "rank": 1613,
+   "lemma": "แขก",
+   "freq": 2477,
+   "forms": []
+  },
+  {
+   "rank": 1614,
+   "lemma": "นิตยสาร",
+   "freq": 2476,
+   "forms": []
+  },
+  {
+   "rank": 1615,
+   "lemma": "ปู่",
+   "freq": 2475,
+   "forms": []
+  },
+  {
+   "rank": 1616,
+   "lemma": "ประสาท",
+   "freq": 2473,
+   "forms": []
+  },
+  {
+   "rank": 1617,
+   "lemma": "เกียรติ",
+   "freq": 2470,
+   "forms": []
+  },
+  {
+   "rank": 1618,
+   "lemma": "ทอด",
+   "freq": 2469,
+   "forms": []
+  },
+  {
+   "rank": 1619,
+   "lemma": "น้ำตา",
+   "freq": 2467,
+   "forms": []
+  },
+  {
+   "rank": 1620,
+   "lemma": "ปราศจาก",
+   "freq": 2462,
+   "forms": []
+  },
+  {
+   "rank": 1621,
+   "lemma": "กว้างขวาง",
+   "freq": 2461,
+   "forms": []
+  },
+  {
+   "rank": 1622,
+   "lemma": "กำจัด",
+   "freq": 2461,
+   "forms": []
+  },
+  {
+   "rank": 1623,
+   "lemma": "โชคดี",
+   "freq": 2460,
+   "forms": []
+  },
+  {
+   "rank": 1624,
+   "lemma": "ตุลาคม",
+   "freq": 2459,
+   "forms": []
+  },
+  {
+   "rank": 1625,
+   "lemma": "ผู้จัดการ",
+   "freq": 2450,
+   "forms": []
+  },
+  {
+   "rank": 1626,
+   "lemma": "จดหมาย",
+   "freq": 2446,
+   "forms": []
+  },
+  {
+   "rank": 1627,
+   "lemma": "ผู้บริโภค",
+   "freq": 2445,
+   "forms": []
+  },
+  {
+   "rank": 1628,
+   "lemma": "พระยา",
+   "freq": 2444,
+   "forms": []
+  },
+  {
+   "rank": 1629,
+   "lemma": "ขยับ",
+   "freq": 2443,
+   "forms": []
+  },
+  {
+   "rank": 1630,
+   "lemma": "พูดคุย",
+   "freq": 2443,
+   "forms": []
+  },
+  {
+   "rank": 1631,
+   "lemma": "เจ็ด",
+   "freq": 2442,
+   "forms": []
+  },
+  {
+   "rank": 1632,
+   "lemma": "เสียก่อน",
+   "freq": 2441,
+   "forms": []
+  },
+  {
+   "rank": 1633,
+   "lemma": "ดินแดน",
+   "freq": 2438,
+   "forms": []
+  },
+  {
+   "rank": 1634,
+   "lemma": "ศูนย์กลาง",
+   "freq": 2437,
+   "forms": []
+  },
+  {
+   "rank": 1635,
+   "lemma": "เสือ",
+   "freq": 2432,
+   "forms": []
+  },
+  {
+   "rank": 1636,
+   "lemma": "สนทนา",
+   "freq": 2430,
+   "forms": []
+  },
+  {
+   "rank": 1637,
+   "lemma": "ล้ม",
+   "freq": 2430,
+   "forms": []
+  },
+  {
+   "rank": 1638,
+   "lemma": "ตกเป็น",
+   "freq": 2428,
+   "forms": []
+  },
+  {
+   "rank": 1639,
+   "lemma": "เด็ดขาด",
+   "freq": 2427,
+   "forms": []
+  },
+  {
+   "rank": 1640,
+   "lemma": "ขี้",
+   "freq": 2425,
+   "forms": []
+  },
+  {
+   "rank": 1641,
+   "lemma": "เซลล์",
+   "freq": 2424,
+   "forms": []
+  },
+  {
+   "rank": 1642,
+   "lemma": "ตรา",
+   "freq": 2421,
+   "forms": []
+  },
+  {
+   "rank": 1643,
+   "lemma": "ตะ",
+   "freq": 2419,
+   "forms": []
+  },
+  {
+   "rank": 1644,
+   "lemma": "ประกอบการ",
+   "freq": 2411,
+   "forms": []
+  },
+  {
+   "rank": 1645,
+   "lemma": "ลาว",
+   "freq": 2409,
+   "forms": []
+  },
+  {
+   "rank": 1646,
+   "lemma": "เอส",
+   "freq": 2405,
+   "forms": []
+  },
+  {
+   "rank": 1647,
+   "lemma": "ยะ",
+   "freq": 2405,
+   "forms": []
+  },
+  {
+   "rank": 1648,
+   "lemma": "กางเกง",
+   "freq": 2405,
+   "forms": []
+  },
+  {
+   "rank": 1649,
+   "lemma": "วาระ",
+   "freq": 2403,
+   "forms": []
+  },
+  {
+   "rank": 1650,
+   "lemma": "ภาคใต้",
+   "freq": 2398,
+   "forms": []
+  },
+  {
+   "rank": 1651,
+   "lemma": "รถไฟ",
+   "freq": 2397,
+   "forms": []
+  },
+  {
+   "rank": 1652,
+   "lemma": "เบื่อ",
+   "freq": 2395,
+   "forms": []
+  },
+  {
+   "rank": 1653,
+   "lemma": "ใกล้เคียง",
+   "freq": 2394,
+   "forms": []
+  },
+  {
+   "rank": 1654,
+   "lemma": "ชาติไทย",
+   "freq": 2393,
+   "forms": []
+  },
+  {
+   "rank": 1655,
+   "lemma": "สิ้นสุด",
+   "freq": 2391,
+   "forms": []
+  },
+  {
+   "rank": 1656,
+   "lemma": "ขอโทษ",
+   "freq": 2387,
+   "forms": []
+  },
+  {
+   "rank": 1657,
+   "lemma": "โล",
+   "freq": 2387,
+   "forms": []
+  },
+  {
+   "rank": 1658,
+   "lemma": "วรรณคดี",
+   "freq": 2383,
+   "forms": []
+  },
+  {
+   "rank": 1659,
+   "lemma": "รอด",
+   "freq": 2381,
+   "forms": []
+  },
+  {
+   "rank": 1660,
+   "lemma": "เดี๋ยวนี้",
+   "freq": 2379,
+   "forms": []
+  },
+  {
+   "rank": 1661,
+   "lemma": "ตำบล",
+   "freq": 2378,
+   "forms": []
+  },
+  {
+   "rank": 1662,
+   "lemma": "ซอย",
+   "freq": 2370,
+   "forms": []
+  },
+  {
+   "rank": 1663,
+   "lemma": "แผล",
+   "freq": 2367,
+   "forms": []
+  },
+  {
+   "rank": 1664,
+   "lemma": "เครือข่าย",
+   "freq": 2367,
+   "forms": []
+  },
+  {
+   "rank": 1665,
+   "lemma": "บุหรี่",
+   "freq": 2363,
+   "forms": []
+  },
+  {
+   "rank": 1666,
+   "lemma": "หนา",
+   "freq": 2358,
+   "forms": []
+  },
+  {
+   "rank": 1667,
+   "lemma": "เติม",
+   "freq": 2356,
+   "forms": []
+  },
+  {
+   "rank": 1668,
+   "lemma": "โก",
+   "freq": 2354,
+   "forms": []
+  },
+  {
+   "rank": 1669,
+   "lemma": "เข้ม",
+   "freq": 2353,
+   "forms": []
+  },
+  {
+   "rank": 1670,
+   "lemma": "หัวข้อ",
+   "freq": 2352,
+   "forms": []
+  },
+  {
+   "rank": 1671,
+   "lemma": "คว้า",
+   "freq": 2350,
+   "forms": []
+  },
+  {
+   "rank": 1672,
+   "lemma": "กิ",
+   "freq": 2349,
+   "forms": []
+  },
+  {
+   "rank": 1673,
+   "lemma": "ศีลธรรม",
+   "freq": 2347,
+   "forms": []
+  },
+  {
+   "rank": 1674,
+   "lemma": "เศษ",
+   "freq": 2346,
+   "forms": []
+  },
+  {
+   "rank": 1675,
+   "lemma": "จารึก",
+   "freq": 2346,
+   "forms": []
+  },
+  {
+   "rank": 1676,
+   "lemma": "ใช้ได้",
+   "freq": 2345,
+   "forms": []
+  },
+  {
+   "rank": 1677,
+   "lemma": "หล่อ",
+   "freq": 2345,
+   "forms": []
+  },
+  {
+   "rank": 1678,
+   "lemma": "ลักษณ์",
+   "freq": 2341,
+   "forms": []
+  },
+  {
+   "rank": 1679,
+   "lemma": "ผลไม้",
+   "freq": 2341,
+   "forms": []
+  },
+  {
+   "rank": 1680,
+   "lemma": "หญ้า",
+   "freq": 2338,
+   "forms": []
+  },
+  {
+   "rank": 1681,
+   "lemma": "คอมมิวนิสต์",
+   "freq": 2337,
+   "forms": []
+  },
+  {
+   "rank": 1682,
+   "lemma": "แถบ",
+   "freq": 2336,
+   "forms": []
+  },
+  {
+   "rank": 1683,
+   "lemma": "หลีกเลี่ยง",
+   "freq": 2335,
+   "forms": []
+  },
+  {
+   "rank": 1684,
+   "lemma": "เท",
+   "freq": 2334,
+   "forms": []
+  },
+  {
+   "rank": 1685,
+   "lemma": "สภาวะ",
+   "freq": 2332,
+   "forms": []
+  },
+  {
+   "rank": 1686,
+   "lemma": "ล่วงหน้า",
+   "freq": 2331,
+   "forms": []
+  },
+  {
+   "rank": 1687,
+   "lemma": "จดทะเบียน",
+   "freq": 2329,
+   "forms": []
+  },
+  {
+   "rank": 1688,
+   "lemma": "โย",
+   "freq": 2328,
+   "forms": []
+  },
+  {
+   "rank": 1689,
+   "lemma": "เล",
+   "freq": 2327,
+   "forms": []
+  },
+  {
+   "rank": 1690,
+   "lemma": "รู้ตัว",
+   "freq": 2327,
+   "forms": []
+  },
+  {
+   "rank": 1691,
+   "lemma": "เชื่อม",
+   "freq": 2326,
+   "forms": []
+  },
+  {
+   "rank": 1692,
+   "lemma": "ระบาย",
+   "freq": 2325,
+   "forms": []
+  },
+  {
+   "rank": 1693,
+   "lemma": "หมายเลข",
+   "freq": 2324,
+   "forms": []
+  },
+  {
+   "rank": 1694,
+   "lemma": "บาดเจ็บ",
+   "freq": 2323,
+   "forms": []
+  },
+  {
+   "rank": 1695,
+   "lemma": "ข้อบังคับ",
+   "freq": 2320,
+   "forms": []
+  },
+  {
+   "rank": 1696,
+   "lemma": "ปลัด",
+   "freq": 2319,
+   "forms": []
+  },
+  {
+   "rank": 1697,
+   "lemma": "ทั้งคู่",
+   "freq": 2319,
+   "forms": []
+  },
+  {
+   "rank": 1698,
+   "lemma": "ตะโกน",
+   "freq": 2317,
+   "forms": []
+  },
+  {
+   "rank": 1699,
+   "lemma": "เม",
+   "freq": 2313,
+   "forms": []
+  },
+  {
+   "rank": 1700,
+   "lemma": "อบรม",
+   "freq": 2313,
+   "forms": []
+  },
+  {
+   "rank": 1701,
+   "lemma": "แข็ง",
+   "freq": 2310,
+   "forms": []
+  },
+  {
+   "rank": 1702,
+   "lemma": "กองทัพ",
+   "freq": 2307,
+   "forms": []
+  },
+  {
+   "rank": 1703,
+   "lemma": "หมวด",
+   "freq": 2303,
+   "forms": []
+  },
+  {
+   "rank": 1704,
+   "lemma": "บี",
+   "freq": 2303,
+   "forms": []
+  },
+  {
+   "rank": 1705,
+   "lemma": "ค้าง",
+   "freq": 2301,
+   "forms": []
+  },
+  {
+   "rank": 1706,
+   "lemma": "ท่ามกลาง",
+   "freq": 2300,
+   "forms": []
+  },
+  {
+   "rank": 1707,
+   "lemma": "อาเซียน",
+   "freq": 2299,
+   "forms": []
+  },
+  {
+   "rank": 1708,
+   "lemma": "กอด",
+   "freq": 2298,
+   "forms": []
+  },
+  {
+   "rank": 1709,
+   "lemma": "เหล้า",
+   "freq": 2297,
+   "forms": []
+  },
+  {
+   "rank": 1710,
+   "lemma": "ตัวแปร",
+   "freq": 2296,
+   "forms": []
+  },
+  {
+   "rank": 1711,
+   "lemma": "หารือ",
+   "freq": 2296,
+   "forms": []
+  },
+  {
+   "rank": 1712,
+   "lemma": "ริน",
+   "freq": 2295,
+   "forms": []
+  },
+  {
+   "rank": 1713,
+   "lemma": "สวรรค์",
+   "freq": 2294,
+   "forms": []
+  },
+  {
+   "rank": 1714,
+   "lemma": "ธิ",
+   "freq": 2291,
+   "forms": []
+  },
+  {
+   "rank": 1715,
+   "lemma": "จา",
+   "freq": 2288,
+   "forms": []
+  },
+  {
+   "rank": 1716,
+   "lemma": "ทำท่า",
+   "freq": 2286,
+   "forms": []
+  },
+  {
+   "rank": 1717,
+   "lemma": "คุณหมอ",
+   "freq": 2284,
+   "forms": []
+  },
+  {
+   "rank": 1718,
+   "lemma": "ปัก",
+   "freq": 2283,
+   "forms": []
+  },
+  {
+   "rank": 1719,
+   "lemma": "กันและกัน",
+   "freq": 2283,
+   "forms": []
+  },
+  {
+   "rank": 1720,
+   "lemma": "พรรคการเมือง",
+   "freq": 2283,
+   "forms": []
+  },
+  {
+   "rank": 1721,
+   "lemma": "ชิง",
+   "freq": 2282,
+   "forms": []
+  },
+  {
+   "rank": 1722,
+   "lemma": "เดือดร้อน",
+   "freq": 2281,
+   "forms": []
+  },
+  {
+   "rank": 1723,
+   "lemma": "ถัง",
+   "freq": 2280,
+   "forms": []
+  },
+  {
+   "rank": 1724,
+   "lemma": "เหล็ก",
+   "freq": 2280,
+   "forms": []
+  },
+  {
+   "rank": 1725,
+   "lemma": "ออกเสียง",
+   "freq": 2279,
+   "forms": []
+  },
+  {
+   "rank": 1726,
+   "lemma": "สั่น",
+   "freq": 2277,
+   "forms": []
+  },
+  {
+   "rank": 1727,
+   "lemma": "ก้อน",
+   "freq": 2276,
+   "forms": []
+  },
+  {
+   "rank": 1728,
+   "lemma": "คัดเลือก",
+   "freq": 2275,
+   "forms": []
+  },
+  {
+   "rank": 1729,
+   "lemma": "อุปสรรค",
+   "freq": 2271,
+   "forms": []
+  },
+  {
+   "rank": 1730,
+   "lemma": "แต่อย่างใด",
+   "freq": 2270,
+   "forms": []
+  },
+  {
+   "rank": 1731,
+   "lemma": "โปรแกรม",
+   "freq": 2269,
+   "forms": []
+  },
+  {
+   "rank": 1732,
+   "lemma": "มิติ",
+   "freq": 2269,
+   "forms": []
+  },
+  {
+   "rank": 1733,
+   "lemma": "โมง",
+   "freq": 2266,
+   "forms": []
+  },
+  {
+   "rank": 1734,
+   "lemma": "เหรียญ",
+   "freq": 2263,
+   "forms": []
+  },
+  {
+   "rank": 1735,
+   "lemma": "เจ้านาย",
+   "freq": 2263,
+   "forms": []
+  },
+  {
+   "rank": 1736,
+   "lemma": "ตอบสนอง",
+   "freq": 2256,
+   "forms": []
+  },
+  {
+   "rank": 1737,
+   "lemma": "ปรกติ",
+   "freq": 2256,
+   "forms": []
+  },
+  {
+   "rank": 1738,
+   "lemma": "ราชอาณาจักร",
+   "freq": 2251,
+   "forms": []
+  },
+  {
+   "rank": 1739,
+   "lemma": "อนุรักษ์",
+   "freq": 2250,
+   "forms": []
+  },
+  {
+   "rank": 1740,
+   "lemma": "รายจ่าย",
+   "freq": 2250,
+   "forms": []
+  },
+  {
+   "rank": 1741,
+   "lemma": "บวก",
+   "freq": 2246,
+   "forms": []
+  },
+  {
+   "rank": 1742,
+   "lemma": "เศรษฐศาสตร์",
+   "freq": 2242,
+   "forms": []
+  },
+  {
+   "rank": 1743,
+   "lemma": "เครื่องหมาย",
+   "freq": 2240,
+   "forms": []
+  },
+  {
+   "rank": 1744,
+   "lemma": "ฉลาด",
+   "freq": 2235,
+   "forms": []
+  },
+  {
+   "rank": 1745,
+   "lemma": "เด่น",
+   "freq": 2235,
+   "forms": []
+  },
+  {
+   "rank": 1746,
+   "lemma": "สิทธิ์",
+   "freq": 2229,
+   "forms": []
+  },
+  {
+   "rank": 1747,
+   "lemma": "ที่จริง",
+   "freq": 2229,
+   "forms": []
+  },
+  {
+   "rank": 1748,
+   "lemma": "ขอบเขต",
+   "freq": 2227,
+   "forms": []
+  },
+  {
+   "rank": 1749,
+   "lemma": "ประพฤติ",
+   "freq": 2226,
+   "forms": []
+  },
+  {
+   "rank": 1750,
+   "lemma": "เอ็ม",
+   "freq": 2221,
+   "forms": []
+  },
+  {
+   "rank": 1751,
+   "lemma": "คม",
+   "freq": 2221,
+   "forms": []
+  },
+  {
+   "rank": 1752,
+   "lemma": "จมูก",
+   "freq": 2219,
+   "forms": []
+  },
+  {
+   "rank": 1753,
+   "lemma": "คนงาน",
+   "freq": 2218,
+   "forms": []
+  },
+  {
+   "rank": 1754,
+   "lemma": "จนกว่า",
+   "freq": 2218,
+   "forms": []
+  },
+  {
+   "rank": 1755,
+   "lemma": "ศตวรรษ",
+   "freq": 2216,
+   "forms": []
+  },
+  {
+   "rank": 1756,
+   "lemma": "พระพุทธเจ้า",
+   "freq": 2214,
+   "forms": []
+  },
+  {
+   "rank": 1757,
+   "lemma": "นับว่า",
+   "freq": 2214,
+   "forms": []
+  },
+  {
+   "rank": 1758,
+   "lemma": "ปั้น",
+   "freq": 2213,
+   "forms": []
+  },
+  {
+   "rank": 1759,
+   "lemma": "ครอบครอง",
+   "freq": 2212,
+   "forms": []
+  },
+  {
+   "rank": 1760,
+   "lemma": "บทความ",
+   "freq": 2211,
+   "forms": []
+  },
+  {
+   "rank": 1761,
+   "lemma": "ทักษิณ",
+   "freq": 2210,
+   "forms": []
+  },
+  {
+   "rank": 1762,
+   "lemma": "ผูก",
+   "freq": 2210,
+   "forms": []
+  },
+  {
+   "rank": 1763,
+   "lemma": "ศัตรู",
+   "freq": 2210,
+   "forms": []
+  },
+  {
+   "rank": 1764,
+   "lemma": "จอมพล",
+   "freq": 2209,
+   "forms": []
+  },
+  {
+   "rank": 1765,
+   "lemma": "กำลังใจ",
+   "freq": 2203,
+   "forms": []
+  },
+  {
+   "rank": 1766,
+   "lemma": "กระจก",
+   "freq": 2202,
+   "forms": []
+  },
+  {
+   "rank": 1767,
+   "lemma": "ทุนนิยม",
+   "freq": 2198,
+   "forms": []
+  },
+  {
+   "rank": 1768,
+   "lemma": "กุล",
+   "freq": 2196,
+   "forms": []
+  },
+  {
+   "rank": 1769,
+   "lemma": "บรรลุ",
+   "freq": 2193,
+   "forms": []
+  },
+  {
+   "rank": 1770,
+   "lemma": "ทดแทน",
+   "freq": 2192,
+   "forms": []
+  },
+  {
+   "rank": 1771,
+   "lemma": "ราษฎร",
+   "freq": 2190,
+   "forms": []
+  },
+  {
+   "rank": 1772,
+   "lemma": "กำไร",
+   "freq": 2190,
+   "forms": []
+  },
+  {
+   "rank": 1773,
+   "lemma": "ค่าจ้าง",
+   "freq": 2188,
+   "forms": []
+  },
+  {
+   "rank": 1774,
+   "lemma": "มุก",
+   "freq": 2185,
+   "forms": []
+  },
+  {
+   "rank": 1775,
+   "lemma": "เชื่อมั่น",
+   "freq": 2179,
+   "forms": []
+  },
+  {
+   "rank": 1776,
+   "lemma": "งดงาม",
+   "freq": 2177,
+   "forms": []
+  },
+  {
+   "rank": 1777,
+   "lemma": "ถึงแม้",
+   "freq": 2176,
+   "forms": []
+  },
+  {
+   "rank": 1778,
+   "lemma": "ครัว",
+   "freq": 2174,
+   "forms": []
+  },
+  {
+   "rank": 1779,
+   "lemma": "นิยาม",
+   "freq": 2174,
+   "forms": []
+  },
+  {
+   "rank": 1780,
+   "lemma": "เหยื่อ",
+   "freq": 2171,
+   "forms": []
+  },
+  {
+   "rank": 1781,
+   "lemma": "ขยะ",
+   "freq": 2170,
+   "forms": []
+  },
+  {
+   "rank": 1782,
+   "lemma": "อวัยวะ",
+   "freq": 2170,
+   "forms": []
+  },
+  {
+   "rank": 1783,
+   "lemma": "รองรับ",
+   "freq": 2165,
+   "forms": []
+  },
+  {
+   "rank": 1784,
+   "lemma": "เป็นไร",
+   "freq": 2163,
+   "forms": []
+  },
+  {
+   "rank": 1785,
+   "lemma": "บ่าย",
+   "freq": 2161,
+   "forms": []
+  },
+  {
+   "rank": 1786,
+   "lemma": "เห",
+   "freq": 2161,
+   "forms": []
+  },
+  {
+   "rank": 1787,
+   "lemma": "เบอร์",
+   "freq": 2155,
+   "forms": []
+  },
+  {
+   "rank": 1788,
+   "lemma": "สูบ",
+   "freq": 2154,
+   "forms": []
+  },
+  {
+   "rank": 1789,
+   "lemma": "ชี้แจง",
+   "freq": 2154,
+   "forms": []
+  },
+  {
+   "rank": 1790,
+   "lemma": "อากร",
+   "freq": 2152,
+   "forms": []
+  },
+  {
+   "rank": 1791,
+   "lemma": "ขณะเดียวกัน",
+   "freq": 2149,
+   "forms": []
+  },
+  {
+   "rank": 1792,
+   "lemma": "รุ่ง",
+   "freq": 2149,
+   "forms": []
+  },
+  {
+   "rank": 1793,
+   "lemma": "สากล",
+   "freq": 2149,
+   "forms": []
+  },
+  {
+   "rank": 1794,
+   "lemma": "กัด",
+   "freq": 2147,
+   "forms": []
+  },
+  {
+   "rank": 1795,
+   "lemma": "แข่ง",
+   "freq": 2147,
+   "forms": []
+  },
+  {
+   "rank": 1796,
+   "lemma": "จำคุก",
+   "freq": 2147,
+   "forms": []
+  },
+  {
+   "rank": 1797,
+   "lemma": "กันเอง",
+   "freq": 2146,
+   "forms": []
+  },
+  {
+   "rank": 1798,
+   "lemma": "กฎหมายแพ่ง",
+   "freq": 2144,
+   "forms": []
+  },
+  {
+   "rank": 1799,
+   "lemma": "ข่าย",
+   "freq": 2143,
+   "forms": []
+  },
+  {
+   "rank": 1800,
+   "lemma": "เครื่องบิน",
+   "freq": 2142,
+   "forms": []
+  },
+  {
+   "rank": 1801,
+   "lemma": "ขอรับ",
+   "freq": 2140,
+   "forms": []
+  },
+  {
+   "rank": 1802,
+   "lemma": "ที่ปรึกษา",
+   "freq": 2140,
+   "forms": []
+  },
+  {
+   "rank": 1803,
+   "lemma": "ตระกูล",
+   "freq": 2139,
+   "forms": []
+  },
+  {
+   "rank": 1804,
+   "lemma": "เว้นแต่",
+   "freq": 2137,
+   "forms": []
+  },
+  {
+   "rank": 1805,
+   "lemma": "มีชื่อ",
+   "freq": 2136,
+   "forms": []
+  },
+  {
+   "rank": 1806,
+   "lemma": "จริยธรรม",
+   "freq": 2134,
+   "forms": []
+  },
+  {
+   "rank": 1807,
+   "lemma": "สระ",
+   "freq": 2133,
+   "forms": []
+  },
+  {
+   "rank": 1808,
+   "lemma": "กิจ",
+   "freq": 2133,
+   "forms": []
+  },
+  {
+   "rank": 1809,
+   "lemma": "ผ่าตัด",
+   "freq": 2133,
+   "forms": []
+  },
+  {
+   "rank": 1810,
+   "lemma": "เน",
+   "freq": 2131,
+   "forms": []
+  },
+  {
+   "rank": 1811,
+   "lemma": "ทางเลือก",
+   "freq": 2130,
+   "forms": []
+  },
+  {
+   "rank": 1812,
+   "lemma": "เสียหาย",
+   "freq": 2128,
+   "forms": []
+  },
+  {
+   "rank": 1813,
+   "lemma": "นักการเมือง",
+   "freq": 2127,
+   "forms": []
+  },
+  {
+   "rank": 1814,
+   "lemma": "ชื่อว่า",
+   "freq": 2125,
+   "forms": []
+  },
+  {
+   "rank": 1815,
+   "lemma": "แฟชั่น",
+   "freq": 2125,
+   "forms": []
+  },
+  {
+   "rank": 1816,
+   "lemma": "พระบรม",
+   "freq": 2125,
+   "forms": []
+  },
+  {
+   "rank": 1817,
+   "lemma": "โชว์",
+   "freq": 2115,
+   "forms": []
+  },
+  {
+   "rank": 1818,
+   "lemma": "ประหยัด",
+   "freq": 2115,
+   "forms": []
+  },
+  {
+   "rank": 1819,
+   "lemma": "อบอุ่น",
+   "freq": 2115,
+   "forms": []
+  },
+  {
+   "rank": 1820,
+   "lemma": "ถ้อยคำ",
+   "freq": 2111,
+   "forms": []
+  },
+  {
+   "rank": 1821,
+   "lemma": "กู้",
+   "freq": 2108,
+   "forms": []
+  },
+  {
+   "rank": 1822,
+   "lemma": "เหล่า",
+   "freq": 2105,
+   "forms": []
+  },
+  {
+   "rank": 1823,
+   "lemma": "สบายใจ",
+   "freq": 2105,
+   "forms": []
+  },
+  {
+   "rank": 1824,
+   "lemma": "ป้าย",
+   "freq": 2105,
+   "forms": []
+  },
+  {
+   "rank": 1825,
+   "lemma": "เพียงใด",
+   "freq": 2104,
+   "forms": []
+  },
+  {
+   "rank": 1826,
+   "lemma": "ลาก",
+   "freq": 2103,
+   "forms": []
+  },
+  {
+   "rank": 1827,
+   "lemma": "สมบัติ",
+   "freq": 2099,
+   "forms": []
+  },
+  {
+   "rank": 1828,
+   "lemma": "นี่แหละ",
+   "freq": 2099,
+   "forms": []
+  },
+  {
+   "rank": 1829,
+   "lemma": "ล่าสุด",
+   "freq": 2097,
+   "forms": []
+  },
+  {
+   "rank": 1830,
+   "lemma": "ค้นพบ",
+   "freq": 2096,
+   "forms": []
+  },
+  {
+   "rank": 1831,
+   "lemma": "เมื่อไหร่",
+   "freq": 2095,
+   "forms": []
+  },
+  {
+   "rank": 1832,
+   "lemma": "จัดหา",
+   "freq": 2095,
+   "forms": []
+  },
+  {
+   "rank": 1833,
+   "lemma": "ตำรา",
+   "freq": 2095,
+   "forms": []
+  },
+  {
+   "rank": 1834,
+   "lemma": "นม",
+   "freq": 2091,
+   "forms": []
+  },
+  {
+   "rank": 1835,
+   "lemma": "ย้ำ",
+   "freq": 2090,
+   "forms": []
+  },
+  {
+   "rank": 1836,
+   "lemma": "ชู",
+   "freq": 2088,
+   "forms": []
+  },
+  {
+   "rank": 1837,
+   "lemma": "กวี",
+   "freq": 2085,
+   "forms": []
+  },
+  {
+   "rank": 1838,
+   "lemma": "วิจารณ์",
+   "freq": 2081,
+   "forms": []
+  },
+  {
+   "rank": 1839,
+   "lemma": "ผู้ผลิต",
+   "freq": 2080,
+   "forms": []
+  },
+  {
+   "rank": 1840,
+   "lemma": "เสียใจ",
+   "freq": 2078,
+   "forms": []
+  },
+  {
+   "rank": 1841,
+   "lemma": "ธันวาคม",
+   "freq": 2073,
+   "forms": []
+  },
+  {
+   "rank": 1842,
+   "lemma": "ชั่วคราว",
+   "freq": 2072,
+   "forms": []
+  },
+  {
+   "rank": 1843,
+   "lemma": "ค่ำ",
+   "freq": 2071,
+   "forms": []
+  },
+  {
+   "rank": 1844,
+   "lemma": "เข้มแข็ง",
+   "freq": 2070,
+   "forms": []
+  },
+  {
+   "rank": 1845,
+   "lemma": "พรุ่งนี้",
+   "freq": 2066,
+   "forms": []
+  },
+  {
+   "rank": 1846,
+   "lemma": "สบ",
+   "freq": 2064,
+   "forms": []
+  },
+  {
+   "rank": 1847,
+   "lemma": "พิพากษา",
+   "freq": 2061,
+   "forms": []
+  },
+  {
+   "rank": 1848,
+   "lemma": "นี้เอง",
+   "freq": 2061,
+   "forms": []
+  },
+  {
+   "rank": 1849,
+   "lemma": "ประชาธิปัตย์",
+   "freq": 2060,
+   "forms": []
+  },
+  {
+   "rank": 1850,
+   "lemma": "ศักยภาพ",
+   "freq": 2058,
+   "forms": []
+  },
+  {
+   "rank": 1851,
+   "lemma": "มีเสียง",
+   "freq": 2055,
+   "forms": []
+  },
+  {
+   "rank": 1852,
+   "lemma": "รู",
+   "freq": 2055,
+   "forms": []
+  },
+  {
+   "rank": 1853,
+   "lemma": "ผืน",
+   "freq": 2055,
+   "forms": []
+  },
+  {
+   "rank": 1854,
+   "lemma": "ค่านิยม",
+   "freq": 2053,
+   "forms": []
+  },
+  {
+   "rank": 1855,
+   "lemma": "เบิก",
+   "freq": 2052,
+   "forms": []
+  },
+  {
+   "rank": 1856,
+   "lemma": "ยาง",
+   "freq": 2051,
+   "forms": []
+  },
+  {
+   "rank": 1857,
+   "lemma": "สถิติ",
+   "freq": 2051,
+   "forms": []
+  },
+  {
+   "rank": 1858,
+   "lemma": "ผิวหนัง",
+   "freq": 2046,
+   "forms": []
+  },
+  {
+   "rank": 1859,
+   "lemma": "ล้อ",
+   "freq": 2045,
+   "forms": []
+  },
+  {
+   "rank": 1860,
+   "lemma": "มีด",
+   "freq": 2044,
+   "forms": []
+  },
+  {
+   "rank": 1861,
+   "lemma": "ความพยายาม",
+   "freq": 2043,
+   "forms": []
+  },
+  {
+   "rank": 1862,
+   "lemma": "กล้ามเนื้อ",
+   "freq": 2042,
+   "forms": []
+  },
+  {
+   "rank": 1863,
+   "lemma": "ความรุนแรง",
+   "freq": 2042,
+   "forms": []
+  },
+  {
+   "rank": 1864,
+   "lemma": "ประมง",
+   "freq": 2041,
+   "forms": []
+  },
+  {
+   "rank": 1865,
+   "lemma": "จัดสรร",
+   "freq": 2040,
+   "forms": []
+  },
+  {
+   "rank": 1866,
+   "lemma": "เสื่อม",
+   "freq": 2040,
+   "forms": []
+  },
+  {
+   "rank": 1867,
+   "lemma": "ความดี",
+   "freq": 2039,
+   "forms": []
+  },
+  {
+   "rank": 1868,
+   "lemma": "ยาเสพติด",
+   "freq": 2038,
+   "forms": []
+  },
+  {
+   "rank": 1869,
+   "lemma": "ขวบ",
+   "freq": 2037,
+   "forms": []
+  },
+  {
+   "rank": 1870,
+   "lemma": "ความรับผิดชอบ",
+   "freq": 2036,
+   "forms": []
+  },
+  {
+   "rank": 1871,
+   "lemma": "ลาออก",
+   "freq": 2030,
+   "forms": []
+  },
+  {
+   "rank": 1872,
+   "lemma": "กลางวัน",
+   "freq": 2026,
+   "forms": []
+  },
+  {
+   "rank": 1873,
+   "lemma": "สังกัด",
+   "freq": 2024,
+   "forms": []
+  },
+  {
+   "rank": 1874,
+   "lemma": "เผชิญ",
+   "freq": 2024,
+   "forms": []
+  },
+  {
+   "rank": 1875,
+   "lemma": "นอกเหนือ",
+   "freq": 2017,
+   "forms": []
+  },
+  {
+   "rank": 1876,
+   "lemma": "เทียน",
+   "freq": 2016,
+   "forms": []
+  },
+  {
+   "rank": 1877,
+   "lemma": "ยุ่ง",
+   "freq": 2013,
+   "forms": []
+  },
+  {
+   "rank": 1878,
+   "lemma": "วิน",
+   "freq": 2009,
+   "forms": []
+  },
+  {
+   "rank": 1879,
+   "lemma": "พฤษภาคม",
+   "freq": 2009,
+   "forms": []
+  },
+  {
+   "rank": 1880,
+   "lemma": "พุ่ง",
+   "freq": 2009,
+   "forms": []
+  },
+  {
+   "rank": 1881,
+   "lemma": "คลอด",
+   "freq": 2008,
+   "forms": []
+  },
+  {
+   "rank": 1882,
+   "lemma": "สาธารณสุข",
+   "freq": 2008,
+   "forms": []
+  },
+  {
+   "rank": 1883,
+   "lemma": "หมุน",
+   "freq": 2008,
+   "forms": []
+  },
+  {
+   "rank": 1884,
+   "lemma": "มึง",
+   "freq": 2008,
+   "forms": []
+  },
+  {
+   "rank": 1885,
+   "lemma": "ชั่น",
+   "freq": 2007,
+   "forms": []
+  },
+  {
+   "rank": 1886,
+   "lemma": "วัสดุ",
+   "freq": 2004,
+   "forms": []
+  },
+  {
+   "rank": 1887,
+   "lemma": "พระราชทาน",
+   "freq": 2004,
+   "forms": []
+  },
+  {
+   "rank": 1888,
+   "lemma": "ลัทธิ",
+   "freq": 1999,
+   "forms": []
+  },
+  {
+   "rank": 1889,
+   "lemma": "ฝึกอบรม",
+   "freq": 1998,
+   "forms": []
+  },
+  {
+   "rank": 1890,
+   "lemma": "ด่า",
+   "freq": 1995,
+   "forms": []
+  },
+  {
+   "rank": 1891,
+   "lemma": "สูตร",
+   "freq": 1994,
+   "forms": []
+  },
+  {
+   "rank": 1892,
+   "lemma": "ทับ",
+   "freq": 1991,
+   "forms": []
+  },
+  {
+   "rank": 1893,
+   "lemma": "อุบัติเหตุ",
+   "freq": 1990,
+   "forms": []
+  },
+  {
+   "rank": 1894,
+   "lemma": "อุดมศึกษา",
+   "freq": 1989,
+   "forms": []
+  },
+  {
+   "rank": 1895,
+   "lemma": "ดั้งเดิม",
+   "freq": 1987,
+   "forms": []
+  },
+  {
+   "rank": 1896,
+   "lemma": "ไร",
+   "freq": 1985,
+   "forms": []
+  },
+  {
+   "rank": 1897,
+   "lemma": "เคลื่อน",
+   "freq": 1985,
+   "forms": []
+  },
+  {
+   "rank": 1898,
+   "lemma": "ห้องน้ำ",
+   "freq": 1985,
+   "forms": []
+  },
+  {
+   "rank": 1899,
+   "lemma": "ส่าย",
+   "freq": 1984,
+   "forms": []
+  },
+  {
+   "rank": 1900,
+   "lemma": "คิ้ว",
+   "freq": 1981,
+   "forms": []
+  },
+  {
+   "rank": 1901,
+   "lemma": "อาย",
+   "freq": 1975,
+   "forms": []
+  },
+  {
+   "rank": 1902,
+   "lemma": "ผิดพลาด",
+   "freq": 1973,
+   "forms": []
+  },
+  {
+   "rank": 1903,
+   "lemma": "ไหม้",
+   "freq": 1970,
+   "forms": []
+  },
+  {
+   "rank": 1904,
+   "lemma": "เสา",
+   "freq": 1969,
+   "forms": []
+  },
+  {
+   "rank": 1905,
+   "lemma": "หน้าต่าง",
+   "freq": 1967,
+   "forms": []
+  },
+  {
+   "rank": 1906,
+   "lemma": "ประดับ",
+   "freq": 1965,
+   "forms": []
+  },
+  {
+   "rank": 1907,
+   "lemma": "ครอง",
+   "freq": 1964,
+   "forms": []
+  },
+  {
+   "rank": 1908,
+   "lemma": "พอสมควร",
+   "freq": 1963,
+   "forms": []
+  },
+  {
+   "rank": 1909,
+   "lemma": "นักวิชาการ",
+   "freq": 1963,
+   "forms": []
+  },
+  {
+   "rank": 1910,
+   "lemma": "มายัง",
+   "freq": 1962,
+   "forms": []
+  },
+  {
+   "rank": 1911,
+   "lemma": "อนุกรรมการ",
+   "freq": 1962,
+   "forms": []
+  },
+  {
+   "rank": 1912,
+   "lemma": "เงา",
+   "freq": 1961,
+   "forms": []
+  },
+  {
+   "rank": 1913,
+   "lemma": "งง",
+   "freq": 1960,
+   "forms": []
+  },
+  {
+   "rank": 1914,
+   "lemma": "จัดงาน",
+   "freq": 1959,
+   "forms": []
+  },
+  {
+   "rank": 1915,
+   "lemma": "ตรงกันข้าม",
+   "freq": 1959,
+   "forms": []
+  },
+  {
+   "rank": 1916,
+   "lemma": "ขวด",
+   "freq": 1954,
+   "forms": []
+  },
+  {
+   "rank": 1917,
+   "lemma": "ซ่อน",
+   "freq": 1954,
+   "forms": []
+  },
+  {
+   "rank": 1918,
+   "lemma": "ปกป้อง",
+   "freq": 1954,
+   "forms": []
+  },
+  {
+   "rank": 1919,
+   "lemma": "ครอบคลุม",
+   "freq": 1954,
+   "forms": []
+  },
+  {
+   "rank": 1920,
+   "lemma": "ดอลลาร์",
+   "freq": 1951,
+   "forms": []
+  },
+  {
+   "rank": 1921,
+   "lemma": "รัฐมนตรีว่าการ",
+   "freq": 1951,
+   "forms": []
+  },
+  {
+   "rank": 1922,
+   "lemma": "เข้าถึง",
+   "freq": 1951,
+   "forms": []
+  },
+  {
+   "rank": 1923,
+   "lemma": "บริสุทธิ์",
+   "freq": 1951,
+   "forms": []
+  },
+  {
+   "rank": 1924,
+   "lemma": "ย่าง",
+   "freq": 1950,
+   "forms": []
+  },
+  {
+   "rank": 1925,
+   "lemma": "แปลกใจ",
+   "freq": 1949,
+   "forms": []
+  },
+  {
+   "rank": 1926,
+   "lemma": "คุ้นเคย",
+   "freq": 1949,
+   "forms": []
+  },
+  {
+   "rank": 1927,
+   "lemma": "ครรภ์",
+   "freq": 1945,
+   "forms": []
+  },
+  {
+   "rank": 1928,
+   "lemma": "พักผ่อน",
+   "freq": 1944,
+   "forms": []
+  },
+  {
+   "rank": 1929,
+   "lemma": "เพียงแค่",
+   "freq": 1944,
+   "forms": []
+  },
+  {
+   "rank": 1930,
+   "lemma": "วินัย",
+   "freq": 1943,
+   "forms": []
+  },
+  {
+   "rank": 1931,
+   "lemma": "บำบัด",
+   "freq": 1942,
+   "forms": []
+  },
+  {
+   "rank": 1932,
+   "lemma": "นักท่องเที่ยว",
+   "freq": 1938,
+   "forms": []
+  },
+  {
+   "rank": 1933,
+   "lemma": "กล้อง",
+   "freq": 1938,
+   "forms": []
+  },
+  {
+   "rank": 1934,
+   "lemma": "เชียว",
+   "freq": 1937,
+   "forms": []
+  },
+  {
+   "rank": 1935,
+   "lemma": "เผย",
+   "freq": 1936,
+   "forms": []
+  },
+  {
+   "rank": 1936,
+   "lemma": "ร่วมมือ",
+   "freq": 1934,
+   "forms": []
+  },
+  {
+   "rank": 1937,
+   "lemma": "กำแพง",
+   "freq": 1934,
+   "forms": []
+  },
+  {
+   "rank": 1938,
+   "lemma": "กาแฟ",
+   "freq": 1933,
+   "forms": []
+  },
+  {
+   "rank": 1939,
+   "lemma": "กลางคืน",
+   "freq": 1933,
+   "forms": []
+  },
+  {
+   "rank": 1940,
+   "lemma": "เท่าไร",
+   "freq": 1931,
+   "forms": []
+  },
+  {
+   "rank": 1941,
+   "lemma": "สงสาร",
+   "freq": 1930,
+   "forms": []
+  },
+  {
+   "rank": 1942,
+   "lemma": "ซ้อน",
+   "freq": 1929,
+   "forms": []
+  },
+  {
+   "rank": 1943,
+   "lemma": "พร้อมทั้ง",
+   "freq": 1929,
+   "forms": []
+  },
+  {
+   "rank": 1944,
+   "lemma": "มิตร",
+   "freq": 1923,
+   "forms": []
+  },
+  {
+   "rank": 1945,
+   "lemma": "เกลียด",
+   "freq": 1922,
+   "forms": []
+  },
+  {
+   "rank": 1946,
+   "lemma": "ชื่นชม",
+   "freq": 1921,
+   "forms": []
+  },
+  {
+   "rank": 1947,
+   "lemma": "ขบวนการ",
+   "freq": 1921,
+   "forms": []
+  },
+  {
+   "rank": 1948,
+   "lemma": "จิตวิทยา",
+   "freq": 1916,
+   "forms": []
+  },
+  {
+   "rank": 1949,
+   "lemma": "กริยา",
+   "freq": 1914,
+   "forms": []
+  },
+  {
+   "rank": 1950,
+   "lemma": "นักวิจัย",
+   "freq": 1914,
+   "forms": []
+  },
+  {
+   "rank": 1951,
+   "lemma": "ค้นหา",
+   "freq": 1910,
+   "forms": []
+  },
+  {
+   "rank": 1952,
+   "lemma": "เที่ยง",
+   "freq": 1909,
+   "forms": []
+  },
+  {
+   "rank": 1953,
+   "lemma": "บัว",
+   "freq": 1906,
+   "forms": []
+  },
+  {
+   "rank": 1954,
+   "lemma": "ส่วนมาก",
+   "freq": 1905,
+   "forms": []
+  },
+  {
+   "rank": 1955,
+   "lemma": "กระดูก",
+   "freq": 1905,
+   "forms": []
+  },
+  {
+   "rank": 1956,
+   "lemma": "รบ",
+   "freq": 1904,
+   "forms": []
+  },
+  {
+   "rank": 1957,
+   "lemma": "สเปน",
+   "freq": 1901,
+   "forms": []
+  },
+  {
+   "rank": 1958,
+   "lemma": "อาบน้ำ",
+   "freq": 1898,
+   "forms": []
+  },
+  {
+   "rank": 1959,
+   "lemma": "ธาตุ",
+   "freq": 1898,
+   "forms": []
+  },
+  {
+   "rank": 1960,
+   "lemma": "ดารา",
+   "freq": 1898,
+   "forms": []
+  },
+  {
+   "rank": 1961,
+   "lemma": "ฮะ",
+   "freq": 1896,
+   "forms": []
+  },
+  {
+   "rank": 1962,
+   "lemma": "ศุลกากร",
+   "freq": 1894,
+   "forms": []
+  },
+  {
+   "rank": 1963,
+   "lemma": "คู่กรณี",
+   "freq": 1893,
+   "forms": []
+  },
+  {
+   "rank": 1964,
+   "lemma": "เออ",
+   "freq": 1893,
+   "forms": []
+  },
+  {
+   "rank": 1965,
+   "lemma": "ศาสตราจารย์",
+   "freq": 1892,
+   "forms": []
+  },
+  {
+   "rank": 1966,
+   "lemma": "แดด",
+   "freq": 1891,
+   "forms": []
+  },
+  {
+   "rank": 1967,
+   "lemma": "กล่อง",
+   "freq": 1889,
+   "forms": []
+  },
+  {
+   "rank": 1968,
+   "lemma": "ซื้อขาย",
+   "freq": 1888,
+   "forms": []
+  },
+  {
+   "rank": 1969,
+   "lemma": "สะพาน",
+   "freq": 1887,
+   "forms": []
+  },
+  {
+   "rank": 1970,
+   "lemma": "จะเห็นได้ว่า",
+   "freq": 1887,
+   "forms": []
+  },
+  {
+   "rank": 1971,
+   "lemma": "ครัวเรือน",
+   "freq": 1886,
+   "forms": []
+  },
+  {
+   "rank": 1972,
+   "lemma": "เป็นอัน",
+   "freq": 1883,
+   "forms": []
+  },
+  {
+   "rank": 1973,
+   "lemma": "วินาที",
+   "freq": 1882,
+   "forms": []
+  },
+  {
+   "rank": 1974,
+   "lemma": "โจมตี",
+   "freq": 1880,
+   "forms": []
+  },
+  {
+   "rank": 1975,
+   "lemma": "พลิก",
+   "freq": 1879,
+   "forms": []
+  },
+  {
+   "rank": 1976,
+   "lemma": "ทาส",
+   "freq": 1879,
+   "forms": []
+  },
+  {
+   "rank": 1977,
+   "lemma": "ข้อสังเกต",
+   "freq": 1878,
+   "forms": []
+  },
+  {
+   "rank": 1978,
+   "lemma": "พระพุทธศาสนา",
+   "freq": 1875,
+   "forms": []
+  },
+  {
+   "rank": 1979,
+   "lemma": "กระทำการ",
+   "freq": 1873,
+   "forms": []
+  },
+  {
+   "rank": 1980,
+   "lemma": "ตัก",
+   "freq": 1872,
+   "forms": []
+  },
+  {
+   "rank": 1981,
+   "lemma": "แผนการ",
+   "freq": 1871,
+   "forms": []
+  },
+  {
+   "rank": 1982,
+   "lemma": "บาน",
+   "freq": 1868,
+   "forms": []
+  },
+  {
+   "rank": 1983,
+   "lemma": "มะ",
+   "freq": 1867,
+   "forms": []
+  },
+  {
+   "rank": 1984,
+   "lemma": "เจ็บปวด",
+   "freq": 1864,
+   "forms": []
+  },
+  {
+   "rank": 1985,
+   "lemma": "แมน",
+   "freq": 1862,
+   "forms": []
+  },
+  {
+   "rank": 1986,
+   "lemma": "จ้อง",
+   "freq": 1862,
+   "forms": []
+  },
+  {
+   "rank": 1987,
+   "lemma": "ทันสมัย",
+   "freq": 1859,
+   "forms": []
+  },
+  {
+   "rank": 1988,
+   "lemma": "ส่อง",
+   "freq": 1853,
+   "forms": []
+  },
+  {
+   "rank": 1989,
+   "lemma": "รัฐวิสาหกิจ",
+   "freq": 1853,
+   "forms": []
+  },
+  {
+   "rank": 1990,
+   "lemma": "ไขมัน",
+   "freq": 1853,
+   "forms": []
+  },
+  {
+   "rank": 1991,
+   "lemma": "กำกับ",
+   "freq": 1849,
+   "forms": []
+  },
+  {
+   "rank": 1992,
+   "lemma": "อภิปราย",
+   "freq": 1848,
+   "forms": []
+  },
+  {
+   "rank": 1993,
+   "lemma": "ผู้ทรง",
+   "freq": 1847,
+   "forms": []
+  },
+  {
+   "rank": 1994,
+   "lemma": "ประเมินผล",
+   "freq": 1846,
+   "forms": []
+  },
+  {
+   "rank": 1995,
+   "lemma": "เปอร์เซ็นต์",
+   "freq": 1845,
+   "forms": []
+  },
+  {
+   "rank": 1996,
+   "lemma": "ซับซ้อน",
+   "freq": 1845,
+   "forms": []
+  },
+  {
+   "rank": 1997,
+   "lemma": "แวะ",
+   "freq": 1841,
+   "forms": []
+  },
+  {
+   "rank": 1998,
+   "lemma": "นึง",
+   "freq": 1840,
+   "forms": []
+  },
+  {
+   "rank": 1999,
+   "lemma": "คำแนะนำ",
+   "freq": 1839,
+   "forms": []
+  },
+  {
+   "rank": 2000,
+   "lemma": "มูลนิธิ",
+   "freq": 1839,
+   "forms": []
+  },
+  {
+   "rank": 2001,
+   "lemma": "ยักษ์",
+   "freq": 1839,
+   "forms": []
+  },
+  {
+   "rank": 2002,
+   "lemma": "ต้อนรับ",
+   "freq": 1838,
+   "forms": []
+  },
+  {
+   "rank": 2003,
+   "lemma": "ขุน",
+   "freq": 1838,
+   "forms": []
+  },
+  {
+   "rank": 2004,
+   "lemma": "ทีละ",
+   "freq": 1838,
+   "forms": []
+  },
+  {
+   "rank": 2005,
+   "lemma": "แกล้ง",
+   "freq": 1835,
+   "forms": []
+  },
+  {
+   "rank": 2006,
+   "lemma": "วุ่นวาย",
+   "freq": 1835,
+   "forms": []
+  },
+  {
+   "rank": 2007,
+   "lemma": "ฝัง",
+   "freq": 1834,
+   "forms": []
+  },
+  {
+   "rank": 2008,
+   "lemma": "ยศ",
+   "freq": 1834,
+   "forms": []
+  },
+  {
+   "rank": 2009,
+   "lemma": "อ้าว",
+   "freq": 1833,
+   "forms": []
+  },
+  {
+   "rank": 2010,
+   "lemma": "สำนวน",
+   "freq": 1831,
+   "forms": []
+  },
+  {
+   "rank": 2011,
+   "lemma": "อพยพ",
+   "freq": 1825,
+   "forms": []
+  },
+  {
+   "rank": 2012,
+   "lemma": "ไหล่",
+   "freq": 1825,
+   "forms": []
+  },
+  {
+   "rank": 2013,
+   "lemma": "ว่าความ",
+   "freq": 1824,
+   "forms": []
+  },
+  {
+   "rank": 2014,
+   "lemma": "มกราคม",
+   "freq": 1824,
+   "forms": []
+  },
+  {
+   "rank": 2015,
+   "lemma": "อุดหนุน",
+   "freq": 1823,
+   "forms": []
+  },
+  {
+   "rank": 2016,
+   "lemma": "ยาวนาน",
+   "freq": 1820,
+   "forms": []
+  },
+  {
+   "rank": 2017,
+   "lemma": "คำขอ",
+   "freq": 1819,
+   "forms": []
+  },
+  {
+   "rank": 2018,
+   "lemma": "ร้ายแรง",
+   "freq": 1818,
+   "forms": []
+  },
+  {
+   "rank": 2019,
+   "lemma": "เหมือนเดิม",
+   "freq": 1816,
+   "forms": []
+  },
+  {
+   "rank": 2020,
+   "lemma": "กระโดด",
+   "freq": 1814,
+   "forms": []
+  },
+  {
+   "rank": 2021,
+   "lemma": "ศรัทธา",
+   "freq": 1813,
+   "forms": []
+  },
+  {
+   "rank": 2022,
+   "lemma": "ปรัชญา",
+   "freq": 1813,
+   "forms": []
+  },
+  {
+   "rank": 2023,
+   "lemma": "พัด",
+   "freq": 1811,
+   "forms": []
+  },
+  {
+   "rank": 2024,
+   "lemma": "ยี่สิบ",
+   "freq": 1811,
+   "forms": []
+  },
+  {
+   "rank": 2025,
+   "lemma": "อุดมการณ์",
+   "freq": 1810,
+   "forms": []
+  },
+  {
+   "rank": 2026,
+   "lemma": "ผู้สื่อข่าว",
+   "freq": 1809,
+   "forms": []
+  },
+  {
+   "rank": 2027,
+   "lemma": "มีนาคม",
+   "freq": 1809,
+   "forms": []
+  },
+  {
+   "rank": 2028,
+   "lemma": "นนท์",
+   "freq": 1809,
+   "forms": []
+  },
+  {
+   "rank": 2029,
+   "lemma": "ถอด",
+   "freq": 1808,
+   "forms": []
+  },
+  {
+   "rank": 2030,
+   "lemma": "นุ",
+   "freq": 1807,
+   "forms": []
+  },
+  {
+   "rank": 2031,
+   "lemma": "ระมัดระวัง",
+   "freq": 1805,
+   "forms": []
+  },
+  {
+   "rank": 2032,
+   "lemma": "ผู้ช่วย",
+   "freq": 1804,
+   "forms": []
+  },
+  {
+   "rank": 2033,
+   "lemma": "เลข",
+   "freq": 1802,
+   "forms": []
+  },
+  {
+   "rank": 2034,
+   "lemma": "ศาสตร์",
+   "freq": 1800,
+   "forms": []
+  },
+  {
+   "rank": 2035,
+   "lemma": "ความหวัง",
+   "freq": 1799,
+   "forms": []
+  },
+  {
+   "rank": 2036,
+   "lemma": "เจาะ",
+   "freq": 1798,
+   "forms": []
+  },
+  {
+   "rank": 2037,
+   "lemma": "ภารกิจ",
+   "freq": 1796,
+   "forms": []
+  },
+  {
+   "rank": 2038,
+   "lemma": "ใช้จ่าย",
+   "freq": 1794,
+   "forms": []
+  },
+  {
+   "rank": 2039,
+   "lemma": "คบ",
+   "freq": 1794,
+   "forms": []
+  },
+  {
+   "rank": 2040,
+   "lemma": "พิ",
+   "freq": 1793,
+   "forms": []
+  },
+  {
+   "rank": 2041,
+   "lemma": "เสมือน",
+   "freq": 1793,
+   "forms": []
+  },
+  {
+   "rank": 2042,
+   "lemma": "เครียด",
+   "freq": 1792,
+   "forms": []
+  },
+  {
+   "rank": 2043,
+   "lemma": "ส้ม",
+   "freq": 1792,
+   "forms": []
+  },
+  {
+   "rank": 2044,
+   "lemma": "มงคล",
+   "freq": 1792,
+   "forms": []
+  },
+  {
+   "rank": 2045,
+   "lemma": "แมว",
+   "freq": 1786,
+   "forms": []
+  },
+  {
+   "rank": 2046,
+   "lemma": "เจ้าหญิง",
+   "freq": 1785,
+   "forms": []
+  },
+  {
+   "rank": 2047,
+   "lemma": "ชุมนุม",
+   "freq": 1785,
+   "forms": []
+  },
+  {
+   "rank": 2048,
+   "lemma": "แวว",
+   "freq": 1783,
+   "forms": []
+  },
+  {
+   "rank": 2049,
+   "lemma": "หลอก",
+   "freq": 1783,
+   "forms": []
+  },
+  {
+   "rank": 2050,
+   "lemma": "ทบทวน",
+   "freq": 1782,
+   "forms": []
+  },
+  {
+   "rank": 2051,
+   "lemma": "ลงมือ",
+   "freq": 1781,
+   "forms": []
+  },
+  {
+   "rank": 2052,
+   "lemma": "พนัน",
+   "freq": 1781,
+   "forms": []
+  },
+  {
+   "rank": 2053,
+   "lemma": "ตกแต่ง",
+   "freq": 1780,
+   "forms": []
+  },
+  {
+   "rank": 2054,
+   "lemma": "ราศี",
+   "freq": 1780,
+   "forms": []
+  },
+  {
+   "rank": 2055,
+   "lemma": "จินตนาการ",
+   "freq": 1779,
+   "forms": []
+  },
+  {
+   "rank": 2056,
+   "lemma": "เชื้อเพลิง",
+   "freq": 1779,
+   "forms": []
+  },
+  {
+   "rank": 2057,
+   "lemma": "เท่าเทียม",
+   "freq": 1778,
+   "forms": []
+  },
+  {
+   "rank": 2058,
+   "lemma": "สวัสดิการ",
+   "freq": 1777,
+   "forms": []
+  },
+  {
+   "rank": 2059,
+   "lemma": "กุมภาพันธ์",
+   "freq": 1774,
+   "forms": []
+  },
+  {
+   "rank": 2060,
+   "lemma": "บริจาค",
+   "freq": 1772,
+   "forms": []
+  },
+  {
+   "rank": 2061,
+   "lemma": "งบ",
+   "freq": 1771,
+   "forms": []
+  },
+  {
+   "rank": 2062,
+   "lemma": "คำอธิบาย",
+   "freq": 1770,
+   "forms": []
+  },
+  {
+   "rank": 2063,
+   "lemma": "ถ้วย",
+   "freq": 1770,
+   "forms": []
+  },
+  {
+   "rank": 2064,
+   "lemma": "อุป",
+   "freq": 1765,
+   "forms": []
+  },
+  {
+   "rank": 2065,
+   "lemma": "กลม",
+   "freq": 1765,
+   "forms": []
+  },
+  {
+   "rank": 2066,
+   "lemma": "ศาลฎีกา",
+   "freq": 1764,
+   "forms": []
+  },
+  {
+   "rank": 2067,
+   "lemma": "จัก",
+   "freq": 1762,
+   "forms": []
+  },
+  {
+   "rank": 2068,
+   "lemma": "สิงคโปร์",
+   "freq": 1762,
+   "forms": []
+  },
+  {
+   "rank": 2069,
+   "lemma": "ศัพท์",
+   "freq": 1761,
+   "forms": []
+  },
+  {
+   "rank": 2070,
+   "lemma": "นักเขียน",
+   "freq": 1761,
+   "forms": []
+  },
+  {
+   "rank": 2071,
+   "lemma": "หอย",
+   "freq": 1759,
+   "forms": []
+  },
+  {
+   "rank": 2072,
+   "lemma": "อีตา",
+   "freq": 1759,
+   "forms": []
+  },
+  {
+   "rank": 2073,
+   "lemma": "ที่รัก",
+   "freq": 1758,
+   "forms": []
+  },
+  {
+   "rank": 2074,
+   "lemma": "เท่าใด",
+   "freq": 1754,
+   "forms": []
+  },
+  {
+   "rank": 2075,
+   "lemma": "หน",
+   "freq": 1754,
+   "forms": []
+  },
+  {
+   "rank": 2076,
+   "lemma": "สดใส",
+   "freq": 1751,
+   "forms": []
+  },
+  {
+   "rank": 2077,
+   "lemma": "สับสน",
+   "freq": 1751,
+   "forms": []
+  },
+  {
+   "rank": 2078,
+   "lemma": "ระงับ",
+   "freq": 1751,
+   "forms": []
+  },
+  {
+   "rank": 2079,
+   "lemma": "ผลักดัน",
+   "freq": 1750,
+   "forms": []
+  },
+  {
+   "rank": 2080,
+   "lemma": "ปราบปราม",
+   "freq": 1750,
+   "forms": []
+  },
+  {
+   "rank": 2081,
+   "lemma": "ลูกหลาน",
+   "freq": 1746,
+   "forms": []
+  },
+  {
+   "rank": 2082,
+   "lemma": "ต้า",
+   "freq": 1744,
+   "forms": []
+  },
+  {
+   "rank": 2083,
+   "lemma": "หนอง",
+   "freq": 1744,
+   "forms": []
+  },
+  {
+   "rank": 2084,
+   "lemma": "มลพิษ",
+   "freq": 1744,
+   "forms": []
+  },
+  {
+   "rank": 2085,
+   "lemma": "ช้อน",
+   "freq": 1743,
+   "forms": []
+  },
+  {
+   "rank": 2086,
+   "lemma": "บังเอิญ",
+   "freq": 1739,
+   "forms": []
+  },
+  {
+   "rank": 2087,
+   "lemma": "สถานภาพ",
+   "freq": 1737,
+   "forms": []
+  },
+  {
+   "rank": 2088,
+   "lemma": "อายุความ",
+   "freq": 1736,
+   "forms": []
+  },
+  {
+   "rank": 2089,
+   "lemma": "สูงอายุ",
+   "freq": 1735,
+   "forms": []
+  },
+  {
+   "rank": 2090,
+   "lemma": "ท่าที",
+   "freq": 1734,
+   "forms": []
+  },
+  {
+   "rank": 2091,
+   "lemma": "แชมป์",
+   "freq": 1733,
+   "forms": []
+  },
+  {
+   "rank": 2092,
+   "lemma": "ปฏิกิริยา",
+   "freq": 1730,
+   "forms": []
+  },
+  {
+   "rank": 2093,
+   "lemma": "มาร์",
+   "freq": 1728,
+   "forms": []
+  },
+  {
+   "rank": 2094,
+   "lemma": "ข้อเสนอ",
+   "freq": 1723,
+   "forms": []
+  },
+  {
+   "rank": 2095,
+   "lemma": "นับตั้งแต่",
+   "freq": 1723,
+   "forms": []
+  },
+  {
+   "rank": 2096,
+   "lemma": "พิการ",
+   "freq": 1723,
+   "forms": []
+  },
+  {
+   "rank": 2097,
+   "lemma": "ต้ม",
+   "freq": 1719,
+   "forms": []
+  },
+  {
+   "rank": 2098,
+   "lemma": "หิว",
+   "freq": 1718,
+   "forms": []
+  },
+  {
+   "rank": 2099,
+   "lemma": "ว่าที่",
+   "freq": 1716,
+   "forms": []
+  },
+  {
+   "rank": 2100,
+   "lemma": "สนอง",
+   "freq": 1715,
+   "forms": []
+  },
+  {
+   "rank": 2101,
+   "lemma": "สลับ",
+   "freq": 1713,
+   "forms": []
+  },
+  {
+   "rank": 2102,
+   "lemma": "ย้อน",
+   "freq": 1711,
+   "forms": []
+  },
+  {
+   "rank": 2103,
+   "lemma": "เมตตา",
+   "freq": 1710,
+   "forms": []
+  },
+  {
+   "rank": 2104,
+   "lemma": "กรกฎาคม",
+   "freq": 1710,
+   "forms": []
+  },
+  {
+   "rank": 2105,
+   "lemma": "ขัดแย้ง",
+   "freq": 1707,
+   "forms": []
+  },
+  {
+   "rank": 2106,
+   "lemma": "แก้ม",
+   "freq": 1707,
+   "forms": []
+  },
+  {
+   "rank": 2107,
+   "lemma": "จูงใจ",
+   "freq": 1705,
+   "forms": []
+  },
+  {
+   "rank": 2108,
+   "lemma": "เดา",
+   "freq": 1704,
+   "forms": []
+  },
+  {
+   "rank": 2109,
+   "lemma": "ออกกำลังกาย",
+   "freq": 1704,
+   "forms": []
+  },
+  {
+   "rank": 2110,
+   "lemma": "ลิ้น",
+   "freq": 1702,
+   "forms": []
+  },
+  {
+   "rank": 2111,
+   "lemma": "สำนึก",
+   "freq": 1701,
+   "forms": []
+  },
+  {
+   "rank": 2112,
+   "lemma": "พนักงานเจ้าหน้าที่",
+   "freq": 1701,
+   "forms": []
+  },
+  {
+   "rank": 2113,
+   "lemma": "เมษายน",
+   "freq": 1700,
+   "forms": []
+  },
+  {
+   "rank": 2114,
+   "lemma": "อ้วน",
+   "freq": 1699,
+   "forms": []
+  },
+  {
+   "rank": 2115,
+   "lemma": "มะเร็ง",
+   "freq": 1697,
+   "forms": []
+  },
+  {
+   "rank": 2116,
+   "lemma": "แดน",
+   "freq": 1697,
+   "forms": []
+  },
+  {
+   "rank": 2117,
+   "lemma": "ซู",
+   "freq": 1696,
+   "forms": []
+  },
+  {
+   "rank": 2118,
+   "lemma": "ฝูง",
+   "freq": 1695,
+   "forms": []
+  },
+  {
+   "rank": 2119,
+   "lemma": "คุณธรรม",
+   "freq": 1695,
+   "forms": []
+  },
+  {
+   "rank": 2120,
+   "lemma": "ลึกซึ้ง",
+   "freq": 1693,
+   "forms": []
+  },
+  {
+   "rank": 2121,
+   "lemma": "จับกุม",
+   "freq": 1693,
+   "forms": []
+  },
+  {
+   "rank": 2122,
+   "lemma": "ตอนแรก",
+   "freq": 1693,
+   "forms": []
+  },
+  {
+   "rank": 2123,
+   "lemma": "รัตน์",
+   "freq": 1691,
+   "forms": []
+  },
+  {
+   "rank": 2124,
+   "lemma": "กาล",
+   "freq": 1690,
+   "forms": []
+  },
+  {
+   "rank": 2125,
+   "lemma": "ประหลาด",
+   "freq": 1690,
+   "forms": []
+  },
+  {
+   "rank": 2126,
+   "lemma": "ตอบโต้",
+   "freq": 1688,
+   "forms": []
+  },
+  {
+   "rank": 2127,
+   "lemma": "อดทน",
+   "freq": 1688,
+   "forms": []
+  },
+  {
+   "rank": 2128,
+   "lemma": "พระบาทสมเด็จ",
+   "freq": 1686,
+   "forms": []
+  },
+  {
+   "rank": 2129,
+   "lemma": "เยอรมัน",
+   "freq": 1686,
+   "forms": []
+  },
+  {
+   "rank": 2130,
+   "lemma": "กุหลาบ",
+   "freq": 1685,
+   "forms": []
+  },
+  {
+   "rank": 2131,
+   "lemma": "ตลก",
+   "freq": 1685,
+   "forms": []
+  },
+  {
+   "rank": 2132,
+   "lemma": "จี้",
+   "freq": 1685,
+   "forms": []
+  },
+  {
+   "rank": 2133,
+   "lemma": "ขวัญ",
+   "freq": 1684,
+   "forms": []
+  },
+  {
+   "rank": 2134,
+   "lemma": "เจ้าชาย",
+   "freq": 1683,
+   "forms": []
+  },
+  {
+   "rank": 2135,
+   "lemma": "เอ็น",
+   "freq": 1682,
+   "forms": []
+  },
+  {
+   "rank": 2136,
+   "lemma": "อำนวย",
+   "freq": 1680,
+   "forms": []
+  },
+  {
+   "rank": 2137,
+   "lemma": "เผ่า",
+   "freq": 1680,
+   "forms": []
+  },
+  {
+   "rank": 2138,
+   "lemma": "ผสมผสาน",
+   "freq": 1680,
+   "forms": []
+  },
+  {
+   "rank": 2139,
+   "lemma": "มณี",
+   "freq": 1678,
+   "forms": []
+  },
+  {
+   "rank": 2140,
+   "lemma": "ผนัง",
+   "freq": 1677,
+   "forms": []
+  },
+  {
+   "rank": 2141,
+   "lemma": "ประกาย",
+   "freq": 1671,
+   "forms": []
+  },
+  {
+   "rank": 2142,
+   "lemma": "ประทับใจ",
+   "freq": 1671,
+   "forms": []
+  },
+  {
+   "rank": 2143,
+   "lemma": "อัล",
+   "freq": 1669,
+   "forms": []
+  },
+  {
+   "rank": 2144,
+   "lemma": "สมมติ",
+   "freq": 1669,
+   "forms": []
+  },
+  {
+   "rank": 2145,
+   "lemma": "ทุ่ม",
+   "freq": 1669,
+   "forms": []
+  },
+  {
+   "rank": 2146,
+   "lemma": "พ่อค้า",
+   "freq": 1667,
+   "forms": []
+  },
+  {
+   "rank": 2147,
+   "lemma": "ชรา",
+   "freq": 1667,
+   "forms": []
+  },
+  {
+   "rank": 2148,
+   "lemma": "ยืด",
+   "freq": 1666,
+   "forms": []
+  },
+  {
+   "rank": 2149,
+   "lemma": "ผู้ฟัง",
+   "freq": 1666,
+   "forms": []
+  },
+  {
+   "rank": 2150,
+   "lemma": "ลมหายใจ",
+   "freq": 1664,
+   "forms": []
+  },
+  {
+   "rank": 2151,
+   "lemma": "คณะกรรมาธิการ",
+   "freq": 1664,
+   "forms": []
+  },
+  {
+   "rank": 2152,
+   "lemma": "ชายแดน",
+   "freq": 1663,
+   "forms": []
+  },
+  {
+   "rank": 2153,
+   "lemma": "ไซ",
+   "freq": 1662,
+   "forms": []
+  },
+  {
+   "rank": 2154,
+   "lemma": "อุณหภูมิ",
+   "freq": 1662,
+   "forms": []
+  },
+  {
+   "rank": 2155,
+   "lemma": "สนุกสนาน",
+   "freq": 1661,
+   "forms": []
+  },
+  {
+   "rank": 2156,
+   "lemma": "กันยายน",
+   "freq": 1659,
+   "forms": []
+  },
+  {
+   "rank": 2157,
+   "lemma": "อ้อม",
+   "freq": 1659,
+   "forms": []
+  },
+  {
+   "rank": 2158,
+   "lemma": "มื้อ",
+   "freq": 1658,
+   "forms": []
+  },
+  {
+   "rank": 2159,
+   "lemma": "ดุ",
+   "freq": 1657,
+   "forms": []
+  },
+  {
+   "rank": 2160,
+   "lemma": "ชอบธรรม",
+   "freq": 1656,
+   "forms": []
+  },
+  {
+   "rank": 2161,
+   "lemma": "เอ่อ",
+   "freq": 1653,
+   "forms": []
+  },
+  {
+   "rank": 2162,
+   "lemma": "ย่าน",
+   "freq": 1652,
+   "forms": []
+  },
+  {
+   "rank": 2163,
+   "lemma": "ภูเขา",
+   "freq": 1650,
+   "forms": []
+  },
+  {
+   "rank": 2164,
+   "lemma": "ผู้ประกอบการ",
+   "freq": 1650,
+   "forms": []
+  },
+  {
+   "rank": 2165,
+   "lemma": "เก้า",
+   "freq": 1649,
+   "forms": []
+  },
+  {
+   "rank": 2166,
+   "lemma": "ศิริ",
+   "freq": 1648,
+   "forms": []
+  },
+  {
+   "rank": 2167,
+   "lemma": "เนื่องมาจาก",
+   "freq": 1647,
+   "forms": []
+  },
+  {
+   "rank": 2168,
+   "lemma": "พึ่ง",
+   "freq": 1645,
+   "forms": []
+  },
+  {
+   "rank": 2169,
+   "lemma": "อภิสิทธิ์",
+   "freq": 1644,
+   "forms": []
+  },
+  {
+   "rank": 2170,
+   "lemma": "พงษ์",
+   "freq": 1643,
+   "forms": []
+  },
+  {
+   "rank": 2171,
+   "lemma": "จด",
+   "freq": 1641,
+   "forms": []
+  },
+  {
+   "rank": 2172,
+   "lemma": "วรรณกรรม",
+   "freq": 1641,
+   "forms": []
+  },
+  {
+   "rank": 2173,
+   "lemma": "รายชื่อ",
+   "freq": 1641,
+   "forms": []
+  },
+  {
+   "rank": 2174,
+   "lemma": "วัว",
+   "freq": 1639,
+   "forms": []
+  },
+  {
+   "rank": 2175,
+   "lemma": "ยกย่อง",
+   "freq": 1637,
+   "forms": []
+  },
+  {
+   "rank": 2176,
+   "lemma": "รัง",
+   "freq": 1634,
+   "forms": []
+  },
+  {
+   "rank": 2177,
+   "lemma": "สม่ำเสมอ",
+   "freq": 1633,
+   "forms": []
+  },
+  {
+   "rank": 2178,
+   "lemma": "เลี้ยงดู",
+   "freq": 1633,
+   "forms": []
+  },
+  {
+   "rank": 2179,
+   "lemma": "ครู่",
+   "freq": 1632,
+   "forms": []
+  },
+  {
+   "rank": 2180,
+   "lemma": "เรียว",
+   "freq": 1630,
+   "forms": []
+  },
+  {
+   "rank": 2181,
+   "lemma": "กฎกระทรวง",
+   "freq": 1630,
+   "forms": []
+  },
+  {
+   "rank": 2182,
+   "lemma": "บำรุง",
+   "freq": 1629,
+   "forms": []
+  },
+  {
+   "rank": 2183,
+   "lemma": "ชมพู",
+   "freq": 1628,
+   "forms": []
+  },
+  {
+   "rank": 2184,
+   "lemma": "ทัศนคติ",
+   "freq": 1628,
+   "forms": []
+  },
+  {
+   "rank": 2185,
+   "lemma": "น่าเชื่อ",
+   "freq": 1627,
+   "forms": []
+  },
+  {
+   "rank": 2186,
+   "lemma": "กระทั่ง",
+   "freq": 1627,
+   "forms": []
+  },
+  {
+   "rank": 2187,
+   "lemma": "รัสเซีย",
+   "freq": 1627,
+   "forms": []
+  },
+  {
+   "rank": 2188,
+   "lemma": "ทำบุญ",
+   "freq": 1625,
+   "forms": []
+  },
+  {
+   "rank": 2189,
+   "lemma": "เฮ",
+   "freq": 1624,
+   "forms": []
+  },
+  {
+   "rank": 2190,
+   "lemma": "อนุ",
+   "freq": 1624,
+   "forms": []
+  },
+  {
+   "rank": 2191,
+   "lemma": "ล้อม",
+   "freq": 1623,
+   "forms": []
+  },
+  {
+   "rank": 2192,
+   "lemma": "ด้วยเหตุนี้",
+   "freq": 1622,
+   "forms": []
+  },
+  {
+   "rank": 2193,
+   "lemma": "บ่อ",
+   "freq": 1621,
+   "forms": []
+  },
+  {
+   "rank": 2194,
+   "lemma": "คอลัมน์",
+   "freq": 1621,
+   "forms": []
+  },
+  {
+   "rank": 2195,
+   "lemma": "คัดค้าน",
+   "freq": 1620,
+   "forms": []
+  },
+  {
+   "rank": 2196,
+   "lemma": "ทักษะ",
+   "freq": 1620,
+   "forms": []
+  },
+  {
+   "rank": 2197,
+   "lemma": "ประชา",
+   "freq": 1620,
+   "forms": []
+  },
+  {
+   "rank": 2198,
+   "lemma": "ไว",
+   "freq": 1620,
+   "forms": []
+  },
+  {
+   "rank": 2199,
+   "lemma": "ประพันธ์",
+   "freq": 1620,
+   "forms": []
+  },
+  {
+   "rank": 2200,
+   "lemma": "องศา",
+   "freq": 1618,
+   "forms": []
+  },
+  {
+   "rank": 2201,
+   "lemma": "มัว",
+   "freq": 1618,
+   "forms": []
+  },
+  {
+   "rank": 2202,
+   "lemma": "แจก",
+   "freq": 1618,
+   "forms": []
+  },
+  {
+   "rank": 2203,
+   "lemma": "การ์ตูน",
+   "freq": 1614,
+   "forms": []
+  },
+  {
+   "rank": 2204,
+   "lemma": "รวมตัว",
+   "freq": 1614,
+   "forms": []
+  },
+  {
+   "rank": 2205,
+   "lemma": "ทำตัว",
+   "freq": 1614,
+   "forms": []
+  },
+  {
+   "rank": 2206,
+   "lemma": "พลาด",
+   "freq": 1613,
+   "forms": []
+  },
+  {
+   "rank": 2207,
+   "lemma": "สิ่งของ",
+   "freq": 1612,
+   "forms": []
+  },
+  {
+   "rank": 2208,
+   "lemma": "รับผิด",
+   "freq": 1611,
+   "forms": []
+  },
+  {
+   "rank": 2209,
+   "lemma": "เกรง",
+   "freq": 1608,
+   "forms": []
+  },
+  {
+   "rank": 2210,
+   "lemma": "บัดนี้",
+   "freq": 1607,
+   "forms": []
+  },
+  {
+   "rank": 2211,
+   "lemma": "ขี่",
+   "freq": 1606,
+   "forms": []
+  },
+  {
+   "rank": 2212,
+   "lemma": "หาง",
+   "freq": 1606,
+   "forms": []
+  },
+  {
+   "rank": 2213,
+   "lemma": "เปลือก",
+   "freq": 1605,
+   "forms": []
+  },
+  {
+   "rank": 2214,
+   "lemma": "กุศล",
+   "freq": 1605,
+   "forms": []
+  },
+  {
+   "rank": 2215,
+   "lemma": "ทารก",
+   "freq": 1603,
+   "forms": []
+  },
+  {
+   "rank": 2216,
+   "lemma": "มหาดไทย",
+   "freq": 1603,
+   "forms": []
+  },
+  {
+   "rank": 2217,
+   "lemma": "ต่างชาติ",
+   "freq": 1602,
+   "forms": []
+  },
+  {
+   "rank": 2218,
+   "lemma": "ในที่สุด",
+   "freq": 1602,
+   "forms": []
+  },
+  {
+   "rank": 2219,
+   "lemma": "ค่าย",
+   "freq": 1600,
+   "forms": []
+  },
+  {
+   "rank": 2220,
+   "lemma": "ขโมย",
+   "freq": 1597,
+   "forms": []
+  },
+  {
+   "rank": 2221,
+   "lemma": "ดวงอาทิตย์",
+   "freq": 1596,
+   "forms": []
+  },
+  {
+   "rank": 2222,
+   "lemma": "ยุ",
+   "freq": 1595,
+   "forms": []
+  },
+  {
+   "rank": 2223,
+   "lemma": "ห่อ",
+   "freq": 1595,
+   "forms": []
+  },
+  {
+   "rank": 2224,
+   "lemma": "ร่วง",
+   "freq": 1593,
+   "forms": []
+  },
+  {
+   "rank": 2225,
+   "lemma": "แค่นี้",
+   "freq": 1592,
+   "forms": []
+  },
+  {
+   "rank": 2226,
+   "lemma": "เยือน",
+   "freq": 1591,
+   "forms": []
+  },
+  {
+   "rank": 2227,
+   "lemma": "โค้ง",
+   "freq": 1590,
+   "forms": []
+  },
+  {
+   "rank": 2228,
+   "lemma": "อิ่ม",
+   "freq": 1590,
+   "forms": []
+  },
+  {
+   "rank": 2229,
+   "lemma": "กิโลเมตร",
+   "freq": 1589,
+   "forms": []
+  },
+  {
+   "rank": 2230,
+   "lemma": "สมการ",
+   "freq": 1589,
+   "forms": []
+  },
+  {
+   "rank": 2231,
+   "lemma": "ริมฝีปาก",
+   "freq": 1589,
+   "forms": []
+  },
+  {
+   "rank": 2232,
+   "lemma": "ขบวน",
+   "freq": 1585,
+   "forms": []
+  },
+  {
+   "rank": 2233,
+   "lemma": "เอกลักษณ์",
+   "freq": 1585,
+   "forms": []
+  },
+  {
+   "rank": 2234,
+   "lemma": "บันเทิง",
+   "freq": 1584,
+   "forms": []
+  },
+  {
+   "rank": 2235,
+   "lemma": "สะ",
+   "freq": 1583,
+   "forms": []
+  },
+  {
+   "rank": 2236,
+   "lemma": "นิติบัญญัติ",
+   "freq": 1581,
+   "forms": []
+  },
+  {
+   "rank": 2237,
+   "lemma": "สภาผู้แทนราษฎร",
+   "freq": 1581,
+   "forms": []
+  },
+  {
+   "rank": 2238,
+   "lemma": "เว็บ",
+   "freq": 1581,
+   "forms": []
+  },
+  {
+   "rank": 2239,
+   "lemma": "ของเสีย",
+   "freq": 1579,
+   "forms": []
+  },
+  {
+   "rank": 2240,
+   "lemma": "ผู้บังคับบัญชา",
+   "freq": 1578,
+   "forms": []
+  },
+  {
+   "rank": 2241,
+   "lemma": "ต่างด้าว",
+   "freq": 1577,
+   "forms": []
+  },
+  {
+   "rank": 2242,
+   "lemma": "แกน",
+   "freq": 1576,
+   "forms": []
+  },
+  {
+   "rank": 2243,
+   "lemma": "ทุ่ง",
+   "freq": 1576,
+   "forms": []
+  },
+  {
+   "rank": 2244,
+   "lemma": "ต้องหา",
+   "freq": 1575,
+   "forms": []
+  },
+  {
+   "rank": 2245,
+   "lemma": "สถานะ",
+   "freq": 1575,
+   "forms": []
+  },
+  {
+   "rank": 2246,
+   "lemma": "ที่พัก",
+   "freq": 1575,
+   "forms": []
+  },
+  {
+   "rank": 2247,
+   "lemma": "ผู้แต่ง",
+   "freq": 1574,
+   "forms": []
+  },
+  {
+   "rank": 2248,
+   "lemma": "ผู้เชี่ยวชาญ",
+   "freq": 1573,
+   "forms": []
+  },
+  {
+   "rank": 2249,
+   "lemma": "เสน่ห์",
+   "freq": 1572,
+   "forms": []
+  },
+  {
+   "rank": 2250,
+   "lemma": "ตัวเรา",
+   "freq": 1571,
+   "forms": []
+  },
+  {
+   "rank": 2251,
+   "lemma": "สภาพแวดล้อม",
+   "freq": 1570,
+   "forms": []
+  },
+  {
+   "rank": 2252,
+   "lemma": "ประมาท",
+   "freq": 1570,
+   "forms": []
+  },
+  {
+   "rank": 2253,
+   "lemma": "รบกวน",
+   "freq": 1568,
+   "forms": []
+  },
+  {
+   "rank": 2254,
+   "lemma": "อักเสบ",
+   "freq": 1566,
+   "forms": []
+  },
+  {
+   "rank": 2255,
+   "lemma": "ซอง",
+   "freq": 1564,
+   "forms": []
+  },
+  {
+   "rank": 2256,
+   "lemma": "แบรนด์",
+   "freq": 1562,
+   "forms": []
+  },
+  {
+   "rank": 2257,
+   "lemma": "ครั้น",
+   "freq": 1562,
+   "forms": []
+  },
+  {
+   "rank": 2258,
+   "lemma": "ร้องเพลง",
+   "freq": 1561,
+   "forms": []
+  },
+  {
+   "rank": 2259,
+   "lemma": "พฤศจิกายน",
+   "freq": 1561,
+   "forms": []
+  },
+  {
+   "rank": 2260,
+   "lemma": "ธี",
+   "freq": 1560,
+   "forms": []
+  },
+  {
+   "rank": 2261,
+   "lemma": "ยกมือ",
+   "freq": 1560,
+   "forms": []
+  },
+  {
+   "rank": 2262,
+   "lemma": "สอบถาม",
+   "freq": 1560,
+   "forms": []
+  },
+  {
+   "rank": 2263,
+   "lemma": "แหลม",
+   "freq": 1560,
+   "forms": []
+  },
+  {
+   "rank": 2264,
+   "lemma": "แคบ",
+   "freq": 1558,
+   "forms": []
+  },
+  {
+   "rank": 2265,
+   "lemma": "สีสัน",
+   "freq": 1557,
+   "forms": []
+  },
+  {
+   "rank": 2266,
+   "lemma": "เป้า",
+   "freq": 1556,
+   "forms": []
+  },
+  {
+   "rank": 2267,
+   "lemma": "ในขณะเดียวกัน",
+   "freq": 1555,
+   "forms": []
+  },
+  {
+   "rank": 2268,
+   "lemma": "คนรัก",
+   "freq": 1554,
+   "forms": []
+  },
+  {
+   "rank": 2269,
+   "lemma": "ลั่น",
+   "freq": 1552,
+   "forms": []
+  },
+  {
+   "rank": 2270,
+   "lemma": "ก่อนหน้านี้",
+   "freq": 1550,
+   "forms": []
+  },
+  {
+   "rank": 2271,
+   "lemma": "มี่",
+   "freq": 1547,
+   "forms": []
+  },
+  {
+   "rank": 2272,
+   "lemma": "แป้ง",
+   "freq": 1545,
+   "forms": []
+  },
+  {
+   "rank": 2273,
+   "lemma": "ศึกษาธิการ",
+   "freq": 1543,
+   "forms": []
+  },
+  {
+   "rank": 2274,
+   "lemma": "จ๊ะ",
+   "freq": 1539,
+   "forms": []
+  },
+  {
+   "rank": 2275,
+   "lemma": "เวียน",
+   "freq": 1538,
+   "forms": []
+  },
+  {
+   "rank": 2276,
+   "lemma": "จำแนก",
+   "freq": 1535,
+   "forms": []
+  },
+  {
+   "rank": 2277,
+   "lemma": "โปร",
+   "freq": 1533,
+   "forms": []
+  },
+  {
+   "rank": 2278,
+   "lemma": "คิว",
+   "freq": 1532,
+   "forms": []
+  },
+  {
+   "rank": 2279,
+   "lemma": "ฉลอง",
+   "freq": 1529,
+   "forms": []
+  },
+  {
+   "rank": 2280,
+   "lemma": "หนทาง",
+   "freq": 1524,
+   "forms": []
+  },
+  {
+   "rank": 2281,
+   "lemma": "ปน",
+   "freq": 1523,
+   "forms": []
+  },
+  {
+   "rank": 2282,
+   "lemma": "ซ่อม",
+   "freq": 1522,
+   "forms": []
+  },
+  {
+   "rank": 2283,
+   "lemma": "เลว",
+   "freq": 1522,
+   "forms": []
+  },
+  {
+   "rank": 2284,
+   "lemma": "ทัศนะ",
+   "freq": 1519,
+   "forms": []
+  },
+  {
+   "rank": 2285,
+   "lemma": "เลิศ",
+   "freq": 1518,
+   "forms": []
+  },
+  {
+   "rank": 2286,
+   "lemma": "สน",
+   "freq": 1515,
+   "forms": []
+  },
+  {
+   "rank": 2287,
+   "lemma": "แบบจำลอง",
+   "freq": 1515,
+   "forms": []
+  },
+  {
+   "rank": 2288,
+   "lemma": "ตัวผู้",
+   "freq": 1514,
+   "forms": []
+  },
+  {
+   "rank": 2289,
+   "lemma": "วงจร",
+   "freq": 1509,
+   "forms": []
+  },
+  {
+   "rank": 2290,
+   "lemma": "ร้องขอ",
+   "freq": 1508,
+   "forms": []
+  },
+  {
+   "rank": 2291,
+   "lemma": "ญา",
+   "freq": 1508,
+   "forms": []
+  },
+  {
+   "rank": 2292,
+   "lemma": "เผลอ",
+   "freq": 1507,
+   "forms": []
+  },
+  {
+   "rank": 2293,
+   "lemma": "กระบอก",
+   "freq": 1507,
+   "forms": []
+  },
+  {
+   "rank": 2294,
+   "lemma": "ทรมาน",
+   "freq": 1506,
+   "forms": []
+  },
+  {
+   "rank": 2295,
+   "lemma": "กฎเกณฑ์",
+   "freq": 1505,
+   "forms": []
+  },
+  {
+   "rank": 2296,
+   "lemma": "ละเมิด",
+   "freq": 1504,
+   "forms": []
+  },
+  {
+   "rank": 2297,
+   "lemma": "มุสลิม",
+   "freq": 1503,
+   "forms": []
+  },
+  {
+   "rank": 2298,
+   "lemma": "สมัยก่อน",
+   "freq": 1503,
+   "forms": []
+  },
+  {
+   "rank": 2299,
+   "lemma": "น่ากลัว",
+   "freq": 1502,
+   "forms": []
+  },
+  {
+   "rank": 2300,
+   "lemma": "มิถุนายน",
+   "freq": 1500,
+   "forms": []
+  },
+  {
+   "rank": 2301,
+   "lemma": "สุโขทัย",
+   "freq": 1500,
+   "forms": []
+  },
+  {
+   "rank": 2302,
+   "lemma": "ตบ",
+   "freq": 1500,
+   "forms": []
+  },
+  {
+   "rank": 2303,
+   "lemma": "ต่อเมื่อ",
+   "freq": 1499,
+   "forms": []
+  },
+  {
+   "rank": 2304,
+   "lemma": "เปน",
+   "freq": 1499,
+   "forms": []
+  },
+  {
+   "rank": 2305,
+   "lemma": "ลัก",
+   "freq": 1498,
+   "forms": []
+  },
+  {
+   "rank": 2306,
+   "lemma": "อร",
+   "freq": 1496,
+   "forms": []
+  },
+  {
+   "rank": 2307,
+   "lemma": "ตีพิมพ์",
+   "freq": 1496,
+   "forms": []
+  },
+  {
+   "rank": 2308,
+   "lemma": "ทะ",
+   "freq": 1494,
+   "forms": []
+  },
+  {
+   "rank": 2309,
+   "lemma": "ธานี",
+   "freq": 1493,
+   "forms": []
+  },
+  {
+   "rank": 2310,
+   "lemma": "วร",
+   "freq": 1493,
+   "forms": []
+  },
+  {
+   "rank": 2311,
+   "lemma": "วุฒิ",
+   "freq": 1492,
+   "forms": []
+  },
+  {
+   "rank": 2312,
+   "lemma": "คุณวุฒิ",
+   "freq": 1492,
+   "forms": []
+  },
+  {
+   "rank": 2313,
+   "lemma": "ประทับ",
+   "freq": 1491,
+   "forms": []
+  },
+  {
+   "rank": 2314,
+   "lemma": "ใส่ใจ",
+   "freq": 1490,
+   "forms": []
+  },
+  {
+   "rank": 2315,
+   "lemma": "โผล่",
+   "freq": 1490,
+   "forms": []
+  },
+  {
+   "rank": 2316,
+   "lemma": "เอฟ",
+   "freq": 1490,
+   "forms": []
+  },
+  {
+   "rank": 2317,
+   "lemma": "พระบาทสมเด็จพระเจ้าอยู่หัว",
+   "freq": 1490,
+   "forms": []
+  },
+  {
+   "rank": 2318,
+   "lemma": "ประชาสัมพันธ์",
+   "freq": 1489,
+   "forms": []
+  },
+  {
+   "rank": 2319,
+   "lemma": "น้องชาย",
+   "freq": 1488,
+   "forms": []
+  },
+  {
+   "rank": 2320,
+   "lemma": "ประสานงาน",
+   "freq": 1488,
+   "forms": []
+  },
+  {
+   "rank": 2321,
+   "lemma": "ถอย",
+   "freq": 1488,
+   "forms": []
+  },
+  {
+   "rank": 2322,
+   "lemma": "วิถี",
+   "freq": 1487,
+   "forms": []
+  },
+  {
+   "rank": 2323,
+   "lemma": "รสชาติ",
+   "freq": 1487,
+   "forms": []
+  },
+  {
+   "rank": 2324,
+   "lemma": "ทว่า",
+   "freq": 1487,
+   "forms": []
+  },
+  {
+   "rank": 2325,
+   "lemma": "ขุด",
+   "freq": 1486,
+   "forms": []
+  },
+  {
+   "rank": 2326,
+   "lemma": "ไข้",
+   "freq": 1486,
+   "forms": []
+  },
+  {
+   "rank": 2327,
+   "lemma": "คอน",
+   "freq": 1485,
+   "forms": []
+  },
+  {
+   "rank": 2328,
+   "lemma": "ถาวร",
+   "freq": 1484,
+   "forms": []
+  },
+  {
+   "rank": 2329,
+   "lemma": "วันหยุด",
+   "freq": 1484,
+   "forms": []
+  },
+  {
+   "rank": 2330,
+   "lemma": "อ่อนโยน",
+   "freq": 1483,
+   "forms": []
+  },
+  {
+   "rank": 2331,
+   "lemma": "ปลอม",
+   "freq": 1483,
+   "forms": []
+  },
+  {
+   "rank": 2332,
+   "lemma": "อุ",
+   "freq": 1483,
+   "forms": []
+  },
+  {
+   "rank": 2333,
+   "lemma": "ประดิษฐ์",
+   "freq": 1480,
+   "forms": []
+  },
+  {
+   "rank": 2334,
+   "lemma": "ทั้งปวง",
+   "freq": 1479,
+   "forms": []
+  },
+  {
+   "rank": 2335,
+   "lemma": "คาดหวัง",
+   "freq": 1475,
+   "forms": []
+  },
+  {
+   "rank": 2336,
+   "lemma": "อาร์",
+   "freq": 1474,
+   "forms": []
+  },
+  {
+   "rank": 2337,
+   "lemma": "คุณปู่",
+   "freq": 1474,
+   "forms": []
+  },
+  {
+   "rank": 2338,
+   "lemma": "วรรณ",
+   "freq": 1474,
+   "forms": []
+  },
+  {
+   "rank": 2339,
+   "lemma": "ถนัด",
+   "freq": 1473,
+   "forms": []
+  },
+  {
+   "rank": 2340,
+   "lemma": "ด้อย",
+   "freq": 1473,
+   "forms": []
+  },
+  {
+   "rank": 2341,
+   "lemma": "สารเคมี",
+   "freq": 1472,
+   "forms": []
+  },
+  {
+   "rank": 2342,
+   "lemma": "ยั่งยืน",
+   "freq": 1471,
+   "forms": []
+  },
+  {
+   "rank": 2343,
+   "lemma": "สมดุล",
+   "freq": 1470,
+   "forms": []
+  },
+  {
+   "rank": 2344,
+   "lemma": "ซี่",
+   "freq": 1468,
+   "forms": []
+  },
+  {
+   "rank": 2345,
+   "lemma": "มรดก",
+   "freq": 1468,
+   "forms": []
+  },
+  {
+   "rank": 2346,
+   "lemma": "ตัวอักษร",
+   "freq": 1467,
+   "forms": []
+  },
+  {
+   "rank": 2347,
+   "lemma": "อย่างไรก็ดี",
+   "freq": 1467,
+   "forms": []
+  },
+  {
+   "rank": 2348,
+   "lemma": "สามสิบ",
+   "freq": 1466,
+   "forms": []
+  },
+  {
+   "rank": 2349,
+   "lemma": "หลุม",
+   "freq": 1465,
+   "forms": []
+  },
+  {
+   "rank": 2350,
+   "lemma": "เฉลิม",
+   "freq": 1465,
+   "forms": []
+  },
+  {
+   "rank": 2351,
+   "lemma": "หมั้น",
+   "freq": 1464,
+   "forms": []
+  },
+  {
+   "rank": 2352,
+   "lemma": "แผนก",
+   "freq": 1461,
+   "forms": []
+  },
+  {
+   "rank": 2353,
+   "lemma": "แย่ง",
+   "freq": 1460,
+   "forms": []
+  },
+  {
+   "rank": 2354,
+   "lemma": "ก้อง",
+   "freq": 1460,
+   "forms": []
+  },
+  {
+   "rank": 2355,
+   "lemma": "แบบแผน",
+   "freq": 1458,
+   "forms": []
+  },
+  {
+   "rank": 2356,
+   "lemma": "ราชา",
+   "freq": 1458,
+   "forms": []
+  },
+  {
+   "rank": 2357,
+   "lemma": "รวย",
+   "freq": 1458,
+   "forms": []
+  },
+  {
+   "rank": 2358,
+   "lemma": "แต่ก่อน",
+   "freq": 1458,
+   "forms": []
+  },
+  {
+   "rank": 2359,
+   "lemma": "จอ",
+   "freq": 1456,
+   "forms": []
+  },
+  {
+   "rank": 2360,
+   "lemma": "คลาย",
+   "freq": 1455,
+   "forms": []
+  },
+  {
+   "rank": 2361,
+   "lemma": "ทะเลาะ",
+   "freq": 1454,
+   "forms": []
+  },
+  {
+   "rank": 2362,
+   "lemma": "ทีวี",
+   "freq": 1454,
+   "forms": []
+  },
+  {
+   "rank": 2363,
+   "lemma": "เอียง",
+   "freq": 1453,
+   "forms": []
+  },
+  {
+   "rank": 2364,
+   "lemma": "ลิน",
+   "freq": 1453,
+   "forms": []
+  },
+  {
+   "rank": 2365,
+   "lemma": "ฮา",
+   "freq": 1451,
+   "forms": []
+  },
+  {
+   "rank": 2366,
+   "lemma": "กวน",
+   "freq": 1451,
+   "forms": []
+  },
+  {
+   "rank": 2367,
+   "lemma": "ค้นคว้า",
+   "freq": 1450,
+   "forms": []
+  },
+  {
+   "rank": 2368,
+   "lemma": "แก่น",
+   "freq": 1450,
+   "forms": []
+  },
+  {
+   "rank": 2369,
+   "lemma": "ดีแล้ว",
+   "freq": 1450,
+   "forms": []
+  },
+  {
+   "rank": 2370,
+   "lemma": "มหาชน",
+   "freq": 1450,
+   "forms": []
+  },
+  {
+   "rank": 2371,
+   "lemma": "ผู้สมัคร",
+   "freq": 1448,
+   "forms": []
+  },
+  {
+   "rank": 2372,
+   "lemma": "กุญแจ",
+   "freq": 1447,
+   "forms": []
+  },
+  {
+   "rank": 2373,
+   "lemma": "ราชวงศ์",
+   "freq": 1446,
+   "forms": []
+  },
+  {
+   "rank": 2374,
+   "lemma": "วิถีชีวิต",
+   "freq": 1444,
+   "forms": []
+  },
+  {
+   "rank": 2375,
+   "lemma": "ระยะทาง",
+   "freq": 1444,
+   "forms": []
+  },
+  {
+   "rank": 2376,
+   "lemma": "ก่อนหน้า",
+   "freq": 1444,
+   "forms": []
+  },
+  {
+   "rank": 2377,
+   "lemma": "เอ็ด",
+   "freq": 1444,
+   "forms": []
+  },
+  {
+   "rank": 2378,
+   "lemma": "เป็นต้นมา",
+   "freq": 1443,
+   "forms": []
+  },
+  {
+   "rank": 2379,
+   "lemma": "อนุสัญญา",
+   "freq": 1443,
+   "forms": []
+  },
+  {
+   "rank": 2380,
+   "lemma": "เดี่ยว",
+   "freq": 1443,
+   "forms": []
+  },
+  {
+   "rank": 2381,
+   "lemma": "ดำเนินคดี",
+   "freq": 1441,
+   "forms": []
+  },
+  {
+   "rank": 2382,
+   "lemma": "อาชญากรรม",
+   "freq": 1441,
+   "forms": []
+  },
+  {
+   "rank": 2383,
+   "lemma": "แอล",
+   "freq": 1441,
+   "forms": []
+  },
+  {
+   "rank": 2384,
+   "lemma": "เมา",
+   "freq": 1440,
+   "forms": []
+  },
+  {
+   "rank": 2385,
+   "lemma": "มาเลเซีย",
+   "freq": 1439,
+   "forms": []
+  },
+  {
+   "rank": 2386,
+   "lemma": "โง่",
+   "freq": 1438,
+   "forms": []
+  },
+  {
+   "rank": 2387,
+   "lemma": "จักร",
+   "freq": 1437,
+   "forms": []
+  },
+  {
+   "rank": 2388,
+   "lemma": "เฮ้ย",
+   "freq": 1437,
+   "forms": []
+  },
+  {
+   "rank": 2389,
+   "lemma": "ภูมิใจ",
+   "freq": 1435,
+   "forms": []
+  },
+  {
+   "rank": 2390,
+   "lemma": "ทักทาย",
+   "freq": 1434,
+   "forms": []
+  },
+  {
+   "rank": 2391,
+   "lemma": "คู่สมรส",
+   "freq": 1434,
+   "forms": []
+  },
+  {
+   "rank": 2392,
+   "lemma": "ไต",
+   "freq": 1432,
+   "forms": []
+  },
+  {
+   "rank": 2393,
+   "lemma": "เงย",
+   "freq": 1432,
+   "forms": []
+  },
+  {
+   "rank": 2394,
+   "lemma": "เพื่อนบ้าน",
+   "freq": 1431,
+   "forms": []
+  },
+  {
+   "rank": 2395,
+   "lemma": "โน่น",
+   "freq": 1430,
+   "forms": []
+  },
+  {
+   "rank": 2396,
+   "lemma": "ทางออก",
+   "freq": 1428,
+   "forms": []
+  },
+  {
+   "rank": 2397,
+   "lemma": "จม",
+   "freq": 1428,
+   "forms": []
+  },
+  {
+   "rank": 2398,
+   "lemma": "เวช",
+   "freq": 1426,
+   "forms": []
+  },
+  {
+   "rank": 2399,
+   "lemma": "เด",
+   "freq": 1425,
+   "forms": []
+  },
+  {
+   "rank": 2400,
+   "lemma": "สไตล์",
+   "freq": 1425,
+   "forms": []
+  },
+  {
+   "rank": 2401,
+   "lemma": "ประกวด",
+   "freq": 1424,
+   "forms": []
+  },
+  {
+   "rank": 2402,
+   "lemma": "กลาย",
+   "freq": 1424,
+   "forms": []
+  },
+  {
+   "rank": 2403,
+   "lemma": "ผิดหวัง",
+   "freq": 1424,
+   "forms": []
+  },
+  {
+   "rank": 2404,
+   "lemma": "เอ็ง",
+   "freq": 1423,
+   "forms": []
+  },
+  {
+   "rank": 2405,
+   "lemma": "แกะ",
+   "freq": 1422,
+   "forms": []
+  },
+  {
+   "rank": 2406,
+   "lemma": "สำเนา",
+   "freq": 1422,
+   "forms": []
+  },
+  {
+   "rank": 2407,
+   "lemma": "นี่เอง",
+   "freq": 1420,
+   "forms": []
+  },
+  {
+   "rank": 2408,
+   "lemma": "ทุจริต",
+   "freq": 1419,
+   "forms": []
+  },
+  {
+   "rank": 2409,
+   "lemma": "สิงหาคม",
+   "freq": 1419,
+   "forms": []
+  },
+  {
+   "rank": 2410,
+   "lemma": "ถ่ายรูป",
+   "freq": 1418,
+   "forms": []
+  },
+  {
+   "rank": 2411,
+   "lemma": "อ้อ",
+   "freq": 1418,
+   "forms": []
+  },
+  {
+   "rank": 2412,
+   "lemma": "นิดหน่อย",
+   "freq": 1417,
+   "forms": []
+  },
+  {
+   "rank": 2413,
+   "lemma": "นานา",
+   "freq": 1417,
+   "forms": []
+  },
+  {
+   "rank": 2414,
+   "lemma": "คัด",
+   "freq": 1416,
+   "forms": []
+  },
+  {
+   "rank": 2415,
+   "lemma": "อนามัย",
+   "freq": 1416,
+   "forms": []
+  },
+  {
+   "rank": 2416,
+   "lemma": "ปรา",
+   "freq": 1415,
+   "forms": []
+  },
+  {
+   "rank": 2417,
+   "lemma": "เหมา",
+   "freq": 1415,
+   "forms": []
+  },
+  {
+   "rank": 2418,
+   "lemma": "เงินได้",
+   "freq": 1412,
+   "forms": []
+  },
+  {
+   "rank": 2419,
+   "lemma": "หลังคา",
+   "freq": 1412,
+   "forms": []
+  },
+  {
+   "rank": 2420,
+   "lemma": "ควาย",
+   "freq": 1410,
+   "forms": []
+  },
+  {
+   "rank": 2421,
+   "lemma": "รำ",
+   "freq": 1410,
+   "forms": []
+  },
+  {
+   "rank": 2422,
+   "lemma": "โมฆะ",
+   "freq": 1409,
+   "forms": []
+  },
+  {
+   "rank": 2423,
+   "lemma": "สิงห์",
+   "freq": 1408,
+   "forms": []
+  },
+  {
+   "rank": 2424,
+   "lemma": "จักรยาน",
+   "freq": 1406,
+   "forms": []
+  },
+  {
+   "rank": 2425,
+   "lemma": "ขำ",
+   "freq": 1406,
+   "forms": []
+  },
+  {
+   "rank": 2426,
+   "lemma": "โยน",
+   "freq": 1404,
+   "forms": []
+  },
+  {
+   "rank": 2427,
+   "lemma": "ชำนาญ",
+   "freq": 1403,
+   "forms": []
+  },
+  {
+   "rank": 2428,
+   "lemma": "ไผ่",
+   "freq": 1402,
+   "forms": []
+  },
+  {
+   "rank": 2429,
+   "lemma": "ผู้ต้องหา",
+   "freq": 1401,
+   "forms": []
+  },
+  {
+   "rank": 2430,
+   "lemma": "ท้องฟ้า",
+   "freq": 1401,
+   "forms": []
+  },
+  {
+   "rank": 2431,
+   "lemma": "ดังเช่น",
+   "freq": 1398,
+   "forms": []
+  },
+  {
+   "rank": 2432,
+   "lemma": "ต่อว่า",
+   "freq": 1397,
+   "forms": []
+  },
+  {
+   "rank": 2433,
+   "lemma": "โก้",
+   "freq": 1397,
+   "forms": []
+  },
+  {
+   "rank": 2434,
+   "lemma": "หอ",
+   "freq": 1396,
+   "forms": []
+  },
+  {
+   "rank": 2435,
+   "lemma": "ย่อ",
+   "freq": 1395,
+   "forms": []
+  },
+  {
+   "rank": 2436,
+   "lemma": "เกษตรกรรม",
+   "freq": 1395,
+   "forms": []
+  },
+  {
+   "rank": 2437,
+   "lemma": "ชิด",
+   "freq": 1394,
+   "forms": []
+  },
+  {
+   "rank": 2438,
+   "lemma": "ดูด",
+   "freq": 1394,
+   "forms": []
+  },
+  {
+   "rank": 2439,
+   "lemma": "โชค",
+   "freq": 1393,
+   "forms": []
+  },
+  {
+   "rank": 2440,
+   "lemma": "ขาดแคลน",
+   "freq": 1393,
+   "forms": []
+  },
+  {
+   "rank": 2441,
+   "lemma": "ทอ",
+   "freq": 1392,
+   "forms": []
+  },
+  {
+   "rank": 2442,
+   "lemma": "ออม",
+   "freq": 1392,
+   "forms": []
+  },
+  {
+   "rank": 2443,
+   "lemma": "ซึม",
+   "freq": 1391,
+   "forms": []
+  },
+  {
+   "rank": 2444,
+   "lemma": "ทูต",
+   "freq": 1390,
+   "forms": []
+  },
+  {
+   "rank": 2445,
+   "lemma": "แทรก",
+   "freq": 1386,
+   "forms": []
+  },
+  {
+   "rank": 2446,
+   "lemma": "อีสาน",
+   "freq": 1384,
+   "forms": []
+  },
+  {
+   "rank": 2447,
+   "lemma": "เวียดนาม",
+   "freq": 1383,
+   "forms": []
+  },
+  {
+   "rank": 2448,
+   "lemma": "ความเร็ว",
+   "freq": 1382,
+   "forms": []
+  },
+  {
+   "rank": 2449,
+   "lemma": "ล้มเหลว",
+   "freq": 1381,
+   "forms": []
+  },
+  {
+   "rank": 2450,
+   "lemma": "ค่าเช่า",
+   "freq": 1381,
+   "forms": []
+  },
+  {
+   "rank": 2451,
+   "lemma": "สักหน่อย",
+   "freq": 1381,
+   "forms": []
+  },
+  {
+   "rank": 2452,
+   "lemma": "บูชา",
+   "freq": 1380,
+   "forms": []
+  },
+  {
+   "rank": 2453,
+   "lemma": "ลิง",
+   "freq": 1379,
+   "forms": []
+  },
+  {
+   "rank": 2454,
+   "lemma": "พระเอก",
+   "freq": 1378,
+   "forms": []
+  },
+  {
+   "rank": 2455,
+   "lemma": "สนามบิน",
+   "freq": 1377,
+   "forms": []
+  },
+  {
+   "rank": 2456,
+   "lemma": "ทองคำ",
+   "freq": 1377,
+   "forms": []
+  },
+  {
+   "rank": 2457,
+   "lemma": "ถึงแม้ว่า",
+   "freq": 1376,
+   "forms": []
+  },
+  {
+   "rank": 2458,
+   "lemma": "รับทราบ",
+   "freq": 1376,
+   "forms": []
+  },
+  {
+   "rank": 2459,
+   "lemma": "ฟุตบอล",
+   "freq": 1376,
+   "forms": []
+  },
+  {
+   "rank": 2460,
+   "lemma": "เข็ม",
+   "freq": 1376,
+   "forms": []
+  },
+  {
+   "rank": 2461,
+   "lemma": "ทุกที",
+   "freq": 1375,
+   "forms": []
+  },
+  {
+   "rank": 2462,
+   "lemma": "คุณหญิง",
+   "freq": 1375,
+   "forms": []
+  },
+  {
+   "rank": 2463,
+   "lemma": "สามัญ",
+   "freq": 1375,
+   "forms": []
+  },
+  {
+   "rank": 2464,
+   "lemma": "โล่ง",
+   "freq": 1373,
+   "forms": []
+  },
+  {
+   "rank": 2465,
+   "lemma": "ข้างใน",
+   "freq": 1373,
+   "forms": []
+  },
+  {
+   "rank": 2466,
+   "lemma": "พะเยา",
+   "freq": 1372,
+   "forms": []
+  },
+  {
+   "rank": 2467,
+   "lemma": "แกม",
+   "freq": 1369,
+   "forms": []
+  },
+  {
+   "rank": 2468,
+   "lemma": "จาง",
+   "freq": 1368,
+   "forms": []
+  },
+  {
+   "rank": 2469,
+   "lemma": "โน้น",
+   "freq": 1367,
+   "forms": []
+  },
+  {
+   "rank": 2470,
+   "lemma": "ภาคเหนือ",
+   "freq": 1367,
+   "forms": []
+  },
+  {
+   "rank": 2471,
+   "lemma": "แม้กระทั่ง",
+   "freq": 1367,
+   "forms": []
+  },
+  {
+   "rank": 2472,
+   "lemma": "ยุติ",
+   "freq": 1365,
+   "forms": []
+  },
+  {
+   "rank": 2473,
+   "lemma": "ขัง",
+   "freq": 1365,
+   "forms": []
+  },
+  {
+   "rank": 2474,
+   "lemma": "แฝง",
+   "freq": 1364,
+   "forms": []
+  },
+  {
+   "rank": 2475,
+   "lemma": "นวด",
+   "freq": 1362,
+   "forms": []
+  },
+  {
+   "rank": 2476,
+   "lemma": "เคลื่อนที่",
+   "freq": 1360,
+   "forms": []
+  },
+  {
+   "rank": 2477,
+   "lemma": "เทศบาล",
+   "freq": 1359,
+   "forms": []
+  },
+  {
+   "rank": 2478,
+   "lemma": "ข้างนอก",
+   "freq": 1359,
+   "forms": []
+  },
+  {
+   "rank": 2479,
+   "lemma": "เอาแต่",
+   "freq": 1358,
+   "forms": []
+  },
+  {
+   "rank": 2480,
+   "lemma": "ฉุกเฉิน",
+   "freq": 1357,
+   "forms": []
+  },
+  {
+   "rank": 2481,
+   "lemma": "บีบ",
+   "freq": 1355,
+   "forms": []
+  },
+  {
+   "rank": 2482,
+   "lemma": "สงค์",
+   "freq": 1355,
+   "forms": []
+  },
+  {
+   "rank": 2483,
+   "lemma": "ศักดิ์สิทธิ์",
+   "freq": 1354,
+   "forms": []
+  },
+  {
+   "rank": 2484,
+   "lemma": "บุก",
+   "freq": 1354,
+   "forms": []
+  },
+  {
+   "rank": 2485,
+   "lemma": "ปรุง",
+   "freq": 1353,
+   "forms": []
+  },
+  {
+   "rank": 2486,
+   "lemma": "ด่วน",
+   "freq": 1353,
+   "forms": []
+  },
+  {
+   "rank": 2487,
+   "lemma": "ข้อสรุป",
+   "freq": 1352,
+   "forms": []
+  },
+  {
+   "rank": 2488,
+   "lemma": "ค้น",
+   "freq": 1351,
+   "forms": []
+  },
+  {
+   "rank": 2489,
+   "lemma": "อ่อนแอ",
+   "freq": 1349,
+   "forms": []
+  },
+  {
+   "rank": 2490,
+   "lemma": "ควัน",
+   "freq": 1347,
+   "forms": []
+  },
+  {
+   "rank": 2491,
+   "lemma": "ฉีด",
+   "freq": 1343,
+   "forms": []
+  },
+  {
+   "rank": 2492,
+   "lemma": "หงุดหงิด",
+   "freq": 1343,
+   "forms": []
+  },
+  {
+   "rank": 2493,
+   "lemma": "รูปทรง",
+   "freq": 1343,
+   "forms": []
+  },
+  {
+   "rank": 2494,
+   "lemma": "ทัก",
+   "freq": 1342,
+   "forms": []
+  },
+  {
+   "rank": 2495,
+   "lemma": "สาน",
+   "freq": 1341,
+   "forms": []
+  },
+  {
+   "rank": 2496,
+   "lemma": "นุ่ม",
+   "freq": 1341,
+   "forms": []
+  },
+  {
+   "rank": 2497,
+   "lemma": "บาร์",
+   "freq": 1338,
+   "forms": []
+  },
+  {
+   "rank": 2498,
+   "lemma": "ท่อน",
+   "freq": 1338,
+   "forms": []
+  },
+  {
+   "rank": 2499,
+   "lemma": "วน",
+   "freq": 1337,
+   "forms": []
+  },
+  {
+   "rank": 2500,
+   "lemma": "นักร้อง",
+   "freq": 1337,
+   "forms": []
+  },
+  {
+   "rank": 2501,
+   "lemma": "เกอร์",
+   "freq": 1337,
+   "forms": []
+  },
+  {
+   "rank": 2502,
+   "lemma": "ผู้ตาย",
+   "freq": 1336,
+   "forms": []
+  },
+  {
+   "rank": 2503,
+   "lemma": "ขีด",
+   "freq": 1336,
+   "forms": []
+  },
+  {
+   "rank": 2504,
+   "lemma": "ส่วนรวม",
+   "freq": 1335,
+   "forms": []
+  },
+  {
+   "rank": 2505,
+   "lemma": "ประกันภัย",
+   "freq": 1335,
+   "forms": []
+  },
+  {
+   "rank": 2506,
+   "lemma": "สุร",
+   "freq": 1334,
+   "forms": []
+  },
+  {
+   "rank": 2507,
+   "lemma": "ทวีป",
+   "freq": 1334,
+   "forms": []
+  },
+  {
+   "rank": 2508,
+   "lemma": "ถึงขนาด",
+   "freq": 1333,
+   "forms": []
+  },
+  {
+   "rank": 2509,
+   "lemma": "ตรัส",
+   "freq": 1332,
+   "forms": []
+  },
+  {
+   "rank": 2510,
+   "lemma": "เกี่ยว",
+   "freq": 1331,
+   "forms": []
+  },
+  {
+   "rank": 2511,
+   "lemma": "แพร่หลาย",
+   "freq": 1328,
+   "forms": []
+  },
+  {
+   "rank": 2512,
+   "lemma": "สวด",
+   "freq": 1327,
+   "forms": []
+  },
+  {
+   "rank": 2513,
+   "lemma": "นานาชาติ",
+   "freq": 1323,
+   "forms": []
+  },
+  {
+   "rank": 2514,
+   "lemma": "ตุ๊กตา",
+   "freq": 1322,
+   "forms": []
+  },
+  {
+   "rank": 2515,
+   "lemma": "ขวาง",
+   "freq": 1322,
+   "forms": []
+  },
+  {
+   "rank": 2516,
+   "lemma": "ก็แล้วกัน",
+   "freq": 1322,
+   "forms": []
+  },
+  {
+   "rank": 2517,
+   "lemma": "วาน",
+   "freq": 1322,
+   "forms": []
+  },
+  {
+   "rank": 2518,
+   "lemma": "ผู้ชม",
+   "freq": 1321,
+   "forms": []
+  },
+  {
+   "rank": 2519,
+   "lemma": "สืบสวน",
+   "freq": 1321,
+   "forms": []
+  },
+  {
+   "rank": 2520,
+   "lemma": "ผัด",
+   "freq": 1321,
+   "forms": []
+  },
+  {
+   "rank": 2521,
+   "lemma": "สิริ",
+   "freq": 1321,
+   "forms": []
+  },
+  {
+   "rank": 2522,
+   "lemma": "เจ้าพนักงาน",
+   "freq": 1320,
+   "forms": []
+  },
+  {
+   "rank": 2523,
+   "lemma": "มูล",
+   "freq": 1319,
+   "forms": []
+  },
+  {
+   "rank": 2524,
+   "lemma": "เชื่อถือ",
+   "freq": 1319,
+   "forms": []
+  },
+  {
+   "rank": 2525,
+   "lemma": "เสาร์",
+   "freq": 1318,
+   "forms": []
+  },
+  {
+   "rank": 2526,
+   "lemma": "หลอดเลือด",
+   "freq": 1318,
+   "forms": []
+  },
+  {
+   "rank": 2527,
+   "lemma": "สุจริต",
+   "freq": 1318,
+   "forms": []
+  },
+  {
+   "rank": 2528,
+   "lemma": "รับใช้",
+   "freq": 1318,
+   "forms": []
+  },
+  {
+   "rank": 2529,
+   "lemma": "เว้น",
+   "freq": 1317,
+   "forms": []
+  },
+  {
+   "rank": 2530,
+   "lemma": "มั้ง",
+   "freq": 1317,
+   "forms": []
+  },
+  {
+   "rank": 2531,
+   "lemma": "ความถี่",
+   "freq": 1317,
+   "forms": []
+  },
+  {
+   "rank": 2532,
+   "lemma": "วงเงิน",
+   "freq": 1317,
+   "forms": []
+  },
+  {
+   "rank": 2533,
+   "lemma": "ในขณะนั้น",
+   "freq": 1316,
+   "forms": []
+  },
+  {
+   "rank": 2534,
+   "lemma": "ครบถ้วน",
+   "freq": 1315,
+   "forms": []
+  },
+  {
+   "rank": 2535,
+   "lemma": "งู",
+   "freq": 1315,
+   "forms": []
+  },
+  {
+   "rank": 2536,
+   "lemma": "พิพิธภัณฑ์",
+   "freq": 1314,
+   "forms": []
+  },
+  {
+   "rank": 2537,
+   "lemma": "กึ่ง",
+   "freq": 1314,
+   "forms": []
+  },
+  {
+   "rank": 2538,
+   "lemma": "พึ่งพา",
+   "freq": 1313,
+   "forms": []
+  },
+  {
+   "rank": 2539,
+   "lemma": "ฟรี",
+   "freq": 1313,
+   "forms": []
+  },
+  {
+   "rank": 2540,
+   "lemma": "กับข้าว",
+   "freq": 1313,
+   "forms": []
+  },
+  {
+   "rank": 2541,
+   "lemma": "มหาศาล",
+   "freq": 1312,
+   "forms": []
+  },
+  {
+   "rank": 2542,
+   "lemma": "ประมวลกฎหมาย",
+   "freq": 1312,
+   "forms": []
+  },
+  {
+   "rank": 2543,
+   "lemma": "นพ",
+   "freq": 1312,
+   "forms": []
+  },
+  {
+   "rank": 2544,
+   "lemma": "หัด",
+   "freq": 1311,
+   "forms": []
+  },
+  {
+   "rank": 2545,
+   "lemma": "สกุล",
+   "freq": 1311,
+   "forms": []
+  },
+  {
+   "rank": 2546,
+   "lemma": "สถาปัตยกรรม",
+   "freq": 1310,
+   "forms": []
+  },
+  {
+   "rank": 2547,
+   "lemma": "อาณาจักร",
+   "freq": 1309,
+   "forms": []
+  },
+  {
+   "rank": 2548,
+   "lemma": "เงินกู้",
+   "freq": 1309,
+   "forms": []
+  },
+  {
+   "rank": 2549,
+   "lemma": "สำรอง",
+   "freq": 1308,
+   "forms": []
+  },
+  {
+   "rank": 2550,
+   "lemma": "ข้อจำกัด",
+   "freq": 1308,
+   "forms": []
+  },
+  {
+   "rank": 2551,
+   "lemma": "ทีนี้",
+   "freq": 1306,
+   "forms": []
+  },
+  {
+   "rank": 2552,
+   "lemma": "ทางเดิน",
+   "freq": 1305,
+   "forms": []
+  },
+  {
+   "rank": 2553,
+   "lemma": "มารยาท",
+   "freq": 1305,
+   "forms": []
+  },
+  {
+   "rank": 2554,
+   "lemma": "ราก",
+   "freq": 1304,
+   "forms": []
+  },
+  {
+   "rank": 2555,
+   "lemma": "ซาน",
+   "freq": 1301,
+   "forms": []
+  },
+  {
+   "rank": 2556,
+   "lemma": "พระนาง",
+   "freq": 1300,
+   "forms": []
+  },
+  {
+   "rank": 2557,
+   "lemma": "ภู",
+   "freq": 1298,
+   "forms": []
+  },
+  {
+   "rank": 2558,
+   "lemma": "ปอด",
+   "freq": 1298,
+   "forms": []
+  },
+  {
+   "rank": 2559,
+   "lemma": "สิน",
+   "freq": 1297,
+   "forms": []
+  },
+  {
+   "rank": 2560,
+   "lemma": "ยุทธศาสตร์",
+   "freq": 1297,
+   "forms": []
+  },
+  {
+   "rank": 2561,
+   "lemma": "เตรียมตัว",
+   "freq": 1297,
+   "forms": []
+  },
+  {
+   "rank": 2562,
+   "lemma": "อิเล็กทรอนิกส์",
+   "freq": 1295,
+   "forms": []
+  },
+  {
+   "rank": 2563,
+   "lemma": "วัตถุดิบ",
+   "freq": 1294,
+   "forms": []
+  },
+  {
+   "rank": 2564,
+   "lemma": "นายทุน",
+   "freq": 1292,
+   "forms": []
+  },
+  {
+   "rank": 2565,
+   "lemma": "แนะแนว",
+   "freq": 1292,
+   "forms": []
+  },
+  {
+   "rank": 2566,
+   "lemma": "คริสต์",
+   "freq": 1292,
+   "forms": []
+  },
+  {
+   "rank": 2567,
+   "lemma": "เข่า",
+   "freq": 1292,
+   "forms": []
+  },
+  {
+   "rank": 2568,
+   "lemma": "อ้างอิง",
+   "freq": 1292,
+   "forms": []
+  },
+  {
+   "rank": 2569,
+   "lemma": "ตอบรับ",
+   "freq": 1291,
+   "forms": []
+  },
+  {
+   "rank": 2570,
+   "lemma": "เจ้าฟ้า",
+   "freq": 1290,
+   "forms": []
+  },
+  {
+   "rank": 2571,
+   "lemma": "เสียดาย",
+   "freq": 1289,
+   "forms": []
+  },
+  {
+   "rank": 2572,
+   "lemma": "เงินทุน",
+   "freq": 1289,
+   "forms": []
+  },
+  {
+   "rank": 2573,
+   "lemma": "แผ่",
+   "freq": 1288,
+   "forms": []
+  },
+  {
+   "rank": 2574,
+   "lemma": "ท้าทาย",
+   "freq": 1287,
+   "forms": []
+  },
+  {
+   "rank": 2575,
+   "lemma": "สลาย",
+   "freq": 1286,
+   "forms": []
+  },
+  {
+   "rank": 2576,
+   "lemma": "ต่อหน้า",
+   "freq": 1285,
+   "forms": []
+  },
+  {
+   "rank": 2577,
+   "lemma": "ปลุก",
+   "freq": 1285,
+   "forms": []
+  },
+  {
+   "rank": 2578,
+   "lemma": "ออสเตรเลีย",
+   "freq": 1285,
+   "forms": []
+  },
+  {
+   "rank": 2579,
+   "lemma": "เดช",
+   "freq": 1285,
+   "forms": []
+  },
+  {
+   "rank": 2580,
+   "lemma": "อย่างเช่น",
+   "freq": 1284,
+   "forms": []
+  },
+  {
+   "rank": 2581,
+   "lemma": "วุฒิสภา",
+   "freq": 1284,
+   "forms": []
+  },
+  {
+   "rank": 2582,
+   "lemma": "ทำเอา",
+   "freq": 1284,
+   "forms": []
+  },
+  {
+   "rank": 2583,
+   "lemma": "อ้าย",
+   "freq": 1283,
+   "forms": []
+  },
+  {
+   "rank": 2584,
+   "lemma": "เปรียบ",
+   "freq": 1282,
+   "forms": []
+  },
+  {
+   "rank": 2585,
+   "lemma": "พงศ์",
+   "freq": 1282,
+   "forms": []
+  },
+  {
+   "rank": 2586,
+   "lemma": "ศิลป์",
+   "freq": 1282,
+   "forms": []
+  },
+  {
+   "rank": 2587,
+   "lemma": "ออ",
+   "freq": 1281,
+   "forms": []
+  },
+  {
+   "rank": 2588,
+   "lemma": "แถลง",
+   "freq": 1280,
+   "forms": []
+  },
+  {
+   "rank": 2589,
+   "lemma": "เช็ค",
+   "freq": 1280,
+   "forms": []
+  },
+  {
+   "rank": 2590,
+   "lemma": "รัฐศาสตร์",
+   "freq": 1280,
+   "forms": []
+  },
+  {
+   "rank": 2591,
+   "lemma": "เนื่อง",
+   "freq": 1279,
+   "forms": []
+  },
+  {
+   "rank": 2592,
+   "lemma": "ของขวัญ",
+   "freq": 1278,
+   "forms": []
+  },
+  {
+   "rank": 2593,
+   "lemma": "ช่องทาง",
+   "freq": 1278,
+   "forms": []
+  },
+  {
+   "rank": 2594,
+   "lemma": "เกาหลี",
+   "freq": 1277,
+   "forms": []
+  },
+  {
+   "rank": 2595,
+   "lemma": "เห็นใจ",
+   "freq": 1273,
+   "forms": []
+  },
+  {
+   "rank": 2596,
+   "lemma": "แตะ",
+   "freq": 1273,
+   "forms": []
+  },
+  {
+   "rank": 2597,
+   "lemma": "จิน",
+   "freq": 1272,
+   "forms": []
+  },
+  {
+   "rank": 2598,
+   "lemma": "เซอร์",
+   "freq": 1270,
+   "forms": []
+  },
+  {
+   "rank": 2599,
+   "lemma": "พลาสติก",
+   "freq": 1268,
+   "forms": []
+  },
+  {
+   "rank": 2600,
+   "lemma": "กุญแจเสียง",
+   "freq": 1267,
+   "forms": []
+  },
+  {
+   "rank": 2601,
+   "lemma": "เลขานุการ",
+   "freq": 1266,
+   "forms": []
+  },
+  {
+   "rank": 2602,
+   "lemma": "ธุระ",
+   "freq": 1265,
+   "forms": []
+  },
+  {
+   "rank": 2603,
+   "lemma": "อึ้ง",
+   "freq": 1265,
+   "forms": []
+  },
+  {
+   "rank": 2604,
+   "lemma": "ลอ",
+   "freq": 1264,
+   "forms": []
+  },
+  {
+   "rank": 2605,
+   "lemma": "รับจ้าง",
+   "freq": 1263,
+   "forms": []
+  },
+  {
+   "rank": 2606,
+   "lemma": "ผู้ว่าราชการ",
+   "freq": 1263,
+   "forms": []
+  },
+  {
+   "rank": 2607,
+   "lemma": "แซม",
+   "freq": 1263,
+   "forms": []
+  },
+  {
+   "rank": 2608,
+   "lemma": "สติปัญญา",
+   "freq": 1262,
+   "forms": []
+  },
+  {
+   "rank": 2609,
+   "lemma": "วิเศษ",
+   "freq": 1262,
+   "forms": []
+  },
+  {
+   "rank": 2610,
+   "lemma": "จอม",
+   "freq": 1262,
+   "forms": []
+  },
+  {
+   "rank": 2611,
+   "lemma": "ภา",
+   "freq": 1261,
+   "forms": []
+  },
+  {
+   "rank": 2612,
+   "lemma": "อ่ะ",
+   "freq": 1260,
+   "forms": []
+  },
+  {
+   "rank": 2613,
+   "lemma": "ปราสาท",
+   "freq": 1259,
+   "forms": []
+  },
+  {
+   "rank": 2614,
+   "lemma": "ทิพย์",
+   "freq": 1259,
+   "forms": []
+  },
+  {
+   "rank": 2615,
+   "lemma": "ค้าขาย",
+   "freq": 1259,
+   "forms": []
+  },
+  {
+   "rank": 2616,
+   "lemma": "หาด",
+   "freq": 1259,
+   "forms": []
+  },
+  {
+   "rank": 2617,
+   "lemma": "ดาบ",
+   "freq": 1259,
+   "forms": []
+  },
+  {
+   "rank": 2618,
+   "lemma": "นิติบุคคล",
+   "freq": 1256,
+   "forms": []
+  },
+  {
+   "rank": 2619,
+   "lemma": "เป็นต้นไป",
+   "freq": 1256,
+   "forms": []
+  },
+  {
+   "rank": 2620,
+   "lemma": "แหม",
+   "freq": 1255,
+   "forms": []
+  },
+  {
+   "rank": 2621,
+   "lemma": "ชายฝั่ง",
+   "freq": 1255,
+   "forms": []
+  },
+  {
+   "rank": 2622,
+   "lemma": "ชล",
+   "freq": 1254,
+   "forms": []
+  },
+  {
+   "rank": 2623,
+   "lemma": "สมุด",
+   "freq": 1254,
+   "forms": []
+  },
+  {
+   "rank": 2624,
+   "lemma": "ให้ออก",
+   "freq": 1253,
+   "forms": []
+  },
+  {
+   "rank": 2625,
+   "lemma": "ครีม",
+   "freq": 1253,
+   "forms": []
+  },
+  {
+   "rank": 2626,
+   "lemma": "เมล็ด",
+   "freq": 1252,
+   "forms": []
+  },
+  {
+   "rank": 2627,
+   "lemma": "ความมั่นใจ",
+   "freq": 1252,
+   "forms": []
+  },
+  {
+   "rank": 2628,
+   "lemma": "ยาน",
+   "freq": 1251,
+   "forms": []
+  },
+  {
+   "rank": 2629,
+   "lemma": "ปีก",
+   "freq": 1251,
+   "forms": []
+  },
+  {
+   "rank": 2630,
+   "lemma": "ลูกหนี้",
+   "freq": 1250,
+   "forms": []
+  },
+  {
+   "rank": 2631,
+   "lemma": "ก่อตั้ง",
+   "freq": 1250,
+   "forms": []
+  },
+  {
+   "rank": 2632,
+   "lemma": "สังคมนิยม",
+   "freq": 1249,
+   "forms": []
+  },
+  {
+   "rank": 2633,
+   "lemma": "ยืม",
+   "freq": 1248,
+   "forms": []
+  },
+  {
+   "rank": 2634,
+   "lemma": "เลีย",
+   "freq": 1247,
+   "forms": []
+  },
+  {
+   "rank": 2635,
+   "lemma": "รั้ว",
+   "freq": 1246,
+   "forms": []
+  },
+  {
+   "rank": 2636,
+   "lemma": "ตรงกัน",
+   "freq": 1245,
+   "forms": []
+  },
+  {
+   "rank": 2637,
+   "lemma": "น้ำใจ",
+   "freq": 1245,
+   "forms": []
+  },
+  {
+   "rank": 2638,
+   "lemma": "ต่อรอง",
+   "freq": 1245,
+   "forms": []
+  },
+  {
+   "rank": 2639,
+   "lemma": "ขุนนาง",
+   "freq": 1244,
+   "forms": []
+  },
+  {
+   "rank": 2640,
+   "lemma": "ใบไม้",
+   "freq": 1243,
+   "forms": []
+  },
+  {
+   "rank": 2641,
+   "lemma": "ท้องที่",
+   "freq": 1242,
+   "forms": []
+  },
+  {
+   "rank": 2642,
+   "lemma": "คลุม",
+   "freq": 1241,
+   "forms": []
+  },
+  {
+   "rank": 2643,
+   "lemma": "เด็กชาย",
+   "freq": 1241,
+   "forms": []
+  },
+  {
+   "rank": 2644,
+   "lemma": "พูดจา",
+   "freq": 1239,
+   "forms": []
+  },
+  {
+   "rank": 2645,
+   "lemma": "ต่างจังหวัด",
+   "freq": 1239,
+   "forms": []
+  },
+  {
+   "rank": 2646,
+   "lemma": "ทรัพยากรธรรมชาติ",
+   "freq": 1239,
+   "forms": []
+  },
+  {
+   "rank": 2647,
+   "lemma": "เข้าหา",
+   "freq": 1238,
+   "forms": []
+  },
+  {
+   "rank": 2648,
+   "lemma": "แอน",
+   "freq": 1237,
+   "forms": []
+  },
+  {
+   "rank": 2649,
+   "lemma": "เศรษฐี",
+   "freq": 1236,
+   "forms": []
+  },
+  {
+   "rank": 2650,
+   "lemma": "นักกีฬา",
+   "freq": 1236,
+   "forms": []
+  },
+  {
+   "rank": 2651,
+   "lemma": "อัด",
+   "freq": 1234,
+   "forms": []
+  },
+  {
+   "rank": 2652,
+   "lemma": "แปร",
+   "freq": 1234,
+   "forms": []
+  },
+  {
+   "rank": 2653,
+   "lemma": "คมนาคม",
+   "freq": 1233,
+   "forms": []
+  },
+  {
+   "rank": 2654,
+   "lemma": "คล้ายคลึง",
+   "freq": 1232,
+   "forms": []
+  },
+  {
+   "rank": 2655,
+   "lemma": "เอื้อ",
+   "freq": 1232,
+   "forms": []
+  },
+  {
+   "rank": 2656,
+   "lemma": "อืม",
+   "freq": 1231,
+   "forms": []
+  },
+  {
+   "rank": 2657,
+   "lemma": "กราบ",
+   "freq": 1229,
+   "forms": []
+  },
+  {
+   "rank": 2658,
+   "lemma": "ยุบ",
+   "freq": 1229,
+   "forms": []
+  },
+  {
+   "rank": 2659,
+   "lemma": "ห้าง",
+   "freq": 1229,
+   "forms": []
+  },
+  {
+   "rank": 2660,
+   "lemma": "เมื่อใด",
+   "freq": 1229,
+   "forms": []
+  },
+  {
+   "rank": 2661,
+   "lemma": "ผัว",
+   "freq": 1228,
+   "forms": []
+  },
+  {
+   "rank": 2662,
+   "lemma": "สุก",
+   "freq": 1228,
+   "forms": []
+  },
+  {
+   "rank": 2663,
+   "lemma": "ประยุกต์",
+   "freq": 1227,
+   "forms": []
+  },
+  {
+   "rank": 2664,
+   "lemma": "วิกฤติ",
+   "freq": 1226,
+   "forms": []
+  },
+  {
+   "rank": 2665,
+   "lemma": "รูปธรรม",
+   "freq": 1225,
+   "forms": []
+  },
+  {
+   "rank": 2666,
+   "lemma": "แล่น",
+   "freq": 1224,
+   "forms": []
+  },
+  {
+   "rank": 2667,
+   "lemma": "เจ้าพระยา",
+   "freq": 1224,
+   "forms": []
+  },
+  {
+   "rank": 2668,
+   "lemma": "บันดาล",
+   "freq": 1223,
+   "forms": []
+  },
+  {
+   "rank": 2669,
+   "lemma": "เมฆ",
+   "freq": 1222,
+   "forms": []
+  },
+  {
+   "rank": 2670,
+   "lemma": "วัฒน์",
+   "freq": 1220,
+   "forms": []
+  },
+  {
+   "rank": 2671,
+   "lemma": "เบื้องหลัง",
+   "freq": 1220,
+   "forms": []
+  },
+  {
+   "rank": 2672,
+   "lemma": "จุฬาลงกรณ์",
+   "freq": 1220,
+   "forms": []
+  },
+  {
+   "rank": 2673,
+   "lemma": "ด้านหน้า",
+   "freq": 1219,
+   "forms": []
+  },
+  {
+   "rank": 2674,
+   "lemma": "ขจัด",
+   "freq": 1218,
+   "forms": []
+  },
+  {
+   "rank": 2675,
+   "lemma": "เฮ้อ",
+   "freq": 1217,
+   "forms": []
+  },
+  {
+   "rank": 2676,
+   "lemma": "เจ้าตัว",
+   "freq": 1217,
+   "forms": []
+  },
+  {
+   "rank": 2677,
+   "lemma": "พิทักษ์",
+   "freq": 1216,
+   "forms": []
+  },
+  {
+   "rank": 2678,
+   "lemma": "เลยทีเดียว",
+   "freq": 1216,
+   "forms": []
+  },
+  {
+   "rank": 2679,
+   "lemma": "บริหารงาน",
+   "freq": 1216,
+   "forms": []
+  },
+  {
+   "rank": 2680,
+   "lemma": "เน็ต",
+   "freq": 1216,
+   "forms": []
+  },
+  {
+   "rank": 2681,
+   "lemma": "อึดอัด",
+   "freq": 1215,
+   "forms": []
+  },
+  {
+   "rank": 2682,
+   "lemma": "มาริ",
+   "freq": 1213,
+   "forms": []
+  },
+  {
+   "rank": 2683,
+   "lemma": "จักรวาล",
+   "freq": 1212,
+   "forms": []
+  },
+  {
+   "rank": 2684,
+   "lemma": "ม่วง",
+   "freq": 1211,
+   "forms": []
+  },
+  {
+   "rank": 2685,
+   "lemma": "บ่",
+   "freq": 1211,
+   "forms": []
+  },
+  {
+   "rank": 2686,
+   "lemma": "คุ้ม",
+   "freq": 1211,
+   "forms": []
+  },
+  {
+   "rank": 2687,
+   "lemma": "กู้ยืม",
+   "freq": 1211,
+   "forms": []
+  },
+  {
+   "rank": 2688,
+   "lemma": "เคลื่อนย้าย",
+   "freq": 1210,
+   "forms": []
+  },
+  {
+   "rank": 2689,
+   "lemma": "ประหาร",
+   "freq": 1210,
+   "forms": []
+  },
+  {
+   "rank": 2690,
+   "lemma": "ดัชนี",
+   "freq": 1209,
+   "forms": []
+  },
+  {
+   "rank": 2691,
+   "lemma": "จอง",
+   "freq": 1206,
+   "forms": []
+  },
+  {
+   "rank": 2692,
+   "lemma": "อุทธรณ์",
+   "freq": 1206,
+   "forms": []
+  },
+  {
+   "rank": 2693,
+   "lemma": "พลเรือน",
+   "freq": 1204,
+   "forms": []
+  },
+  {
+   "rank": 2694,
+   "lemma": "พอเพียง",
+   "freq": 1204,
+   "forms": []
+  },
+  {
+   "rank": 2695,
+   "lemma": "วิกฤต",
+   "freq": 1203,
+   "forms": []
+  },
+  {
+   "rank": 2696,
+   "lemma": "ประท้วง",
+   "freq": 1203,
+   "forms": []
+  },
+  {
+   "rank": 2697,
+   "lemma": "ตาก",
+   "freq": 1203,
+   "forms": []
+  },
+  {
+   "rank": 2698,
+   "lemma": "เวร",
+   "freq": 1203,
+   "forms": []
+  },
+  {
+   "rank": 2699,
+   "lemma": "โอ๊ย",
+   "freq": 1203,
+   "forms": []
+  },
+  {
+   "rank": 2700,
+   "lemma": "ก้น",
+   "freq": 1202,
+   "forms": []
+  },
+  {
+   "rank": 2701,
+   "lemma": "สงเคราะห์",
+   "freq": 1202,
+   "forms": []
+  },
+  {
+   "rank": 2702,
+   "lemma": "โบ",
+   "freq": 1202,
+   "forms": []
+  },
+  {
+   "rank": 2703,
+   "lemma": "ฝ่ายค้าน",
+   "freq": 1201,
+   "forms": []
+  },
+  {
+   "rank": 2704,
+   "lemma": "ใหญ่โต",
+   "freq": 1199,
+   "forms": []
+  },
+  {
+   "rank": 2705,
+   "lemma": "สมุนไพร",
+   "freq": 1199,
+   "forms": []
+  },
+  {
+   "rank": 2706,
+   "lemma": "วาท",
+   "freq": 1199,
+   "forms": []
+  },
+  {
+   "rank": 2707,
+   "lemma": "บัณฑิต",
+   "freq": 1197,
+   "forms": []
+  },
+  {
+   "rank": 2708,
+   "lemma": "กั้น",
+   "freq": 1196,
+   "forms": []
+  },
+  {
+   "rank": 2709,
+   "lemma": "โจร",
+   "freq": 1194,
+   "forms": []
+  },
+  {
+   "rank": 2710,
+   "lemma": "คนร้าย",
+   "freq": 1194,
+   "forms": []
+  },
+  {
+   "rank": 2711,
+   "lemma": "ทัพ",
+   "freq": 1194,
+   "forms": []
+  },
+  {
+   "rank": 2712,
+   "lemma": "ภริยา",
+   "freq": 1193,
+   "forms": []
+  },
+  {
+   "rank": 2713,
+   "lemma": "ร่า",
+   "freq": 1192,
+   "forms": []
+  },
+  {
+   "rank": 2714,
+   "lemma": "พริก",
+   "freq": 1192,
+   "forms": []
+  },
+  {
+   "rank": 2715,
+   "lemma": "ทัวร์",
+   "freq": 1192,
+   "forms": []
+  },
+  {
+   "rank": 2716,
+   "lemma": "ครอบงำ",
+   "freq": 1192,
+   "forms": []
+  },
+  {
+   "rank": 2717,
+   "lemma": "ประมูล",
+   "freq": 1190,
+   "forms": []
+  },
+  {
+   "rank": 2718,
+   "lemma": "แลก",
+   "freq": 1190,
+   "forms": []
+  },
+  {
+   "rank": 2719,
+   "lemma": "ขยัน",
+   "freq": 1189,
+   "forms": []
+  },
+  {
+   "rank": 2720,
+   "lemma": "เหงา",
+   "freq": 1189,
+   "forms": []
+  },
+  {
+   "rank": 2721,
+   "lemma": "แหง",
+   "freq": 1189,
+   "forms": []
+  },
+  {
+   "rank": 2722,
+   "lemma": "เกล้า",
+   "freq": 1188,
+   "forms": []
+  },
+  {
+   "rank": 2723,
+   "lemma": "งา",
+   "freq": 1187,
+   "forms": []
+  },
+  {
+   "rank": 2724,
+   "lemma": "หม้อ",
+   "freq": 1186,
+   "forms": []
+  },
+  {
+   "rank": 2725,
+   "lemma": "สงครามโลก",
+   "freq": 1185,
+   "forms": []
+  },
+  {
+   "rank": 2726,
+   "lemma": "ดวงจันทร์",
+   "freq": 1185,
+   "forms": []
+  },
+  {
+   "rank": 2727,
+   "lemma": "เขิน",
+   "freq": 1185,
+   "forms": []
+  },
+  {
+   "rank": 2728,
+   "lemma": "มั่น",
+   "freq": 1184,
+   "forms": []
+  },
+  {
+   "rank": 2729,
+   "lemma": "เขมร",
+   "freq": 1184,
+   "forms": []
+  },
+  {
+   "rank": 2730,
+   "lemma": "เอื้อม",
+   "freq": 1183,
+   "forms": []
+  },
+  {
+   "rank": 2731,
+   "lemma": "สุวรรณ",
+   "freq": 1183,
+   "forms": []
+  },
+  {
+   "rank": 2732,
+   "lemma": "โรม",
+   "freq": 1183,
+   "forms": []
+  },
+  {
+   "rank": 2733,
+   "lemma": "เขื่อน",
+   "freq": 1182,
+   "forms": []
+  },
+  {
+   "rank": 2734,
+   "lemma": "ศีล",
+   "freq": 1182,
+   "forms": []
+  },
+  {
+   "rank": 2735,
+   "lemma": "ดอน",
+   "freq": 1181,
+   "forms": []
+  },
+  {
+   "rank": 2736,
+   "lemma": "ทิ",
+   "freq": 1181,
+   "forms": []
+  },
+  {
+   "rank": 2737,
+   "lemma": "เคาะ",
+   "freq": 1180,
+   "forms": []
+  },
+  {
+   "rank": 2738,
+   "lemma": "ชะงัก",
+   "freq": 1180,
+   "forms": []
+  },
+  {
+   "rank": 2739,
+   "lemma": "ยี่ห้อ",
+   "freq": 1180,
+   "forms": []
+  },
+  {
+   "rank": 2740,
+   "lemma": "เอาชนะ",
+   "freq": 1178,
+   "forms": []
+  },
+  {
+   "rank": 2741,
+   "lemma": "ผู้โดยสาร",
+   "freq": 1177,
+   "forms": []
+  },
+  {
+   "rank": 2742,
+   "lemma": "นวนิยาย",
+   "freq": 1176,
+   "forms": []
+  },
+  {
+   "rank": 2743,
+   "lemma": "เกลือ",
+   "freq": 1176,
+   "forms": []
+  },
+  {
+   "rank": 2744,
+   "lemma": "รับราชการ",
+   "freq": 1176,
+   "forms": []
+  },
+  {
+   "rank": 2745,
+   "lemma": "เลี่ยง",
+   "freq": 1175,
+   "forms": []
+  },
+  {
+   "rank": 2746,
+   "lemma": "แหวน",
+   "freq": 1175,
+   "forms": []
+  },
+  {
+   "rank": 2747,
+   "lemma": "ระวาง",
+   "freq": 1175,
+   "forms": []
+  },
+  {
+   "rank": 2748,
+   "lemma": "เครือ",
+   "freq": 1174,
+   "forms": []
+  },
+  {
+   "rank": 2749,
+   "lemma": "บาป",
+   "freq": 1173,
+   "forms": []
+  },
+  {
+   "rank": 2750,
+   "lemma": "บารมี",
+   "freq": 1172,
+   "forms": []
+  },
+  {
+   "rank": 2751,
+   "lemma": "กัมพูชา",
+   "freq": 1172,
+   "forms": []
+  },
+  {
+   "rank": 2752,
+   "lemma": "ส่งเสียง",
+   "freq": 1171,
+   "forms": []
+  },
+  {
+   "rank": 2753,
+   "lemma": "น้ำเงิน",
+   "freq": 1169,
+   "forms": []
+  },
+  {
+   "rank": 2754,
+   "lemma": "ทัศน์",
+   "freq": 1169,
+   "forms": []
+  },
+  {
+   "rank": 2755,
+   "lemma": "อาวุโส",
+   "freq": 1168,
+   "forms": []
+  },
+  {
+   "rank": 2756,
+   "lemma": "ได้เสีย",
+   "freq": 1167,
+   "forms": []
+  },
+  {
+   "rank": 2757,
+   "lemma": "ขอร้อง",
+   "freq": 1167,
+   "forms": []
+  },
+  {
+   "rank": 2758,
+   "lemma": "โกหก",
+   "freq": 1167,
+   "forms": []
+  },
+  {
+   "rank": 2759,
+   "lemma": "เมเจอร์",
+   "freq": 1166,
+   "forms": []
+  },
+  {
+   "rank": 2760,
+   "lemma": "ตามใจ",
+   "freq": 1166,
+   "forms": []
+  },
+  {
+   "rank": 2761,
+   "lemma": "อิตาลี",
+   "freq": 1166,
+   "forms": []
+  },
+  {
+   "rank": 2762,
+   "lemma": "กระซิบ",
+   "freq": 1166,
+   "forms": []
+  },
+  {
+   "rank": 2763,
+   "lemma": "คติ",
+   "freq": 1166,
+   "forms": []
+  },
+  {
+   "rank": 2764,
+   "lemma": "คิ",
+   "freq": 1165,
+   "forms": []
+  },
+  {
+   "rank": 2765,
+   "lemma": "บก",
+   "freq": 1165,
+   "forms": []
+  },
+  {
+   "rank": 2766,
+   "lemma": "เข้มข้น",
+   "freq": 1164,
+   "forms": []
+  },
+  {
+   "rank": 2767,
+   "lemma": "แววตา",
+   "freq": 1164,
+   "forms": []
+  },
+  {
+   "rank": 2768,
+   "lemma": "อุ่น",
+   "freq": 1162,
+   "forms": []
+  },
+  {
+   "rank": 2769,
+   "lemma": "จราจร",
+   "freq": 1162,
+   "forms": []
+  },
+  {
+   "rank": 2770,
+   "lemma": "ดัดแปลง",
+   "freq": 1162,
+   "forms": []
+  },
+  {
+   "rank": 2771,
+   "lemma": "เซ็น",
+   "freq": 1161,
+   "forms": []
+  },
+  {
+   "rank": 2772,
+   "lemma": "ลวดลาย",
+   "freq": 1161,
+   "forms": []
+  },
+  {
+   "rank": 2773,
+   "lemma": "นวล",
+   "freq": 1161,
+   "forms": []
+  },
+  {
+   "rank": 2774,
+   "lemma": "แคน",
+   "freq": 1160,
+   "forms": []
+  },
+  {
+   "rank": 2775,
+   "lemma": "เทศกาล",
+   "freq": 1160,
+   "forms": []
+  },
+  {
+   "rank": 2776,
+   "lemma": "กวาด",
+   "freq": 1158,
+   "forms": []
+  },
+  {
+   "rank": 2777,
+   "lemma": "ซ้อม",
+   "freq": 1158,
+   "forms": []
+  },
+  {
+   "rank": 2778,
+   "lemma": "ปีงบประมาณ",
+   "freq": 1156,
+   "forms": []
+  },
+  {
+   "rank": 2779,
+   "lemma": "สวัสดี",
+   "freq": 1156,
+   "forms": []
+  },
+  {
+   "rank": 2780,
+   "lemma": "พื้นบ้าน",
+   "freq": 1154,
+   "forms": []
+  },
+  {
+   "rank": 2781,
+   "lemma": "เสพ",
+   "freq": 1154,
+   "forms": []
+  },
+  {
+   "rank": 2782,
+   "lemma": "แพร่",
+   "freq": 1152,
+   "forms": []
+  },
+  {
+   "rank": 2783,
+   "lemma": "เพิกถอน",
+   "freq": 1152,
+   "forms": []
+  },
+  {
+   "rank": 2784,
+   "lemma": "วิตามิน",
+   "freq": 1152,
+   "forms": []
+  },
+  {
+   "rank": 2785,
+   "lemma": "พิธีกรรม",
+   "freq": 1150,
+   "forms": []
+  },
+  {
+   "rank": 2786,
+   "lemma": "พันธ์",
+   "freq": 1150,
+   "forms": []
+  },
+  {
+   "rank": 2787,
+   "lemma": "เน่า",
+   "freq": 1149,
+   "forms": []
+  },
+  {
+   "rank": 2788,
+   "lemma": "ภพ",
+   "freq": 1148,
+   "forms": []
+  },
+  {
+   "rank": 2789,
+   "lemma": "โบสถ์",
+   "freq": 1148,
+   "forms": []
+  },
+  {
+   "rank": 2790,
+   "lemma": "แนบ",
+   "freq": 1147,
+   "forms": []
+  },
+  {
+   "rank": 2791,
+   "lemma": "เปื้อน",
+   "freq": 1145,
+   "forms": []
+  },
+  {
+   "rank": 2792,
+   "lemma": "คนจน",
+   "freq": 1145,
+   "forms": []
+  },
+  {
+   "rank": 2793,
+   "lemma": "คำปรึกษา",
+   "freq": 1145,
+   "forms": []
+  },
+  {
+   "rank": 2794,
+   "lemma": "ความพร้อม",
+   "freq": 1144,
+   "forms": []
+  },
+  {
+   "rank": 2795,
+   "lemma": "ขู่",
+   "freq": 1142,
+   "forms": []
+  },
+  {
+   "rank": 2796,
+   "lemma": "ร่ม",
+   "freq": 1141,
+   "forms": []
+  },
+  {
+   "rank": 2797,
+   "lemma": "เสียที",
+   "freq": 1139,
+   "forms": []
+  },
+  {
+   "rank": 2798,
+   "lemma": "รังสี",
+   "freq": 1139,
+   "forms": []
+  },
+  {
+   "rank": 2799,
+   "lemma": "อังคาร",
+   "freq": 1139,
+   "forms": []
+  },
+  {
+   "rank": 2800,
+   "lemma": "กรี๊ด",
+   "freq": 1137,
+   "forms": []
+  },
+  {
+   "rank": 2801,
+   "lemma": "อินโดนีเซีย",
+   "freq": 1137,
+   "forms": []
+  },
+  {
+   "rank": 2802,
+   "lemma": "รากฐาน",
+   "freq": 1136,
+   "forms": []
+  },
+  {
+   "rank": 2803,
+   "lemma": "กรุณา",
+   "freq": 1133,
+   "forms": []
+  },
+  {
+   "rank": 2804,
+   "lemma": "อันดี",
+   "freq": 1133,
+   "forms": []
+  },
+  {
+   "rank": 2805,
+   "lemma": "ที่นอน",
+   "freq": 1131,
+   "forms": []
+  },
+  {
+   "rank": 2806,
+   "lemma": "ล้ำ",
+   "freq": 1130,
+   "forms": []
+  },
+  {
+   "rank": 2807,
+   "lemma": "ภาคกลาง",
+   "freq": 1130,
+   "forms": []
+  },
+  {
+   "rank": 2808,
+   "lemma": "บีม",
+   "freq": 1130,
+   "forms": []
+  },
+  {
+   "rank": 2809,
+   "lemma": "จุดมุ่งหมาย",
+   "freq": 1130,
+   "forms": []
+  },
+  {
+   "rank": 2810,
+   "lemma": "สุภาพ",
+   "freq": 1130,
+   "forms": []
+  },
+  {
+   "rank": 2811,
+   "lemma": "สกปรก",
+   "freq": 1128,
+   "forms": []
+  },
+  {
+   "rank": 2812,
+   "lemma": "ชาม",
+   "freq": 1127,
+   "forms": []
+  },
+  {
+   "rank": 2813,
+   "lemma": "โจ",
+   "freq": 1127,
+   "forms": []
+  },
+  {
+   "rank": 2814,
+   "lemma": "รำคาญ",
+   "freq": 1126,
+   "forms": []
+  },
+  {
+   "rank": 2815,
+   "lemma": "ปอนด์",
+   "freq": 1126,
+   "forms": []
+  },
+  {
+   "rank": 2816,
+   "lemma": "ปาน",
+   "freq": 1125,
+   "forms": []
+  },
+  {
+   "rank": 2817,
+   "lemma": "มั่ง",
+   "freq": 1125,
+   "forms": []
+  },
+  {
+   "rank": 2818,
+   "lemma": "สินเชื่อ",
+   "freq": 1124,
+   "forms": []
+  },
+  {
+   "rank": 2819,
+   "lemma": "ชี",
+   "freq": 1124,
+   "forms": []
+  },
+  {
+   "rank": 2820,
+   "lemma": "รั่ว",
+   "freq": 1124,
+   "forms": []
+  },
+  {
+   "rank": 2821,
+   "lemma": "ขณะนั้น",
+   "freq": 1123,
+   "forms": []
+  },
+  {
+   "rank": 2822,
+   "lemma": "เครื่องจักร",
+   "freq": 1123,
+   "forms": []
+  },
+  {
+   "rank": 2823,
+   "lemma": "เด็กหญิง",
+   "freq": 1122,
+   "forms": []
+  },
+  {
+   "rank": 2824,
+   "lemma": "สันติ",
+   "freq": 1122,
+   "forms": []
+  },
+  {
+   "rank": 2825,
+   "lemma": "แอร์",
+   "freq": 1122,
+   "forms": []
+  },
+  {
+   "rank": 2826,
+   "lemma": "คอล",
+   "freq": 1121,
+   "forms": []
+  },
+  {
+   "rank": 2827,
+   "lemma": "แบก",
+   "freq": 1120,
+   "forms": []
+  },
+  {
+   "rank": 2828,
+   "lemma": "เจน",
+   "freq": 1119,
+   "forms": []
+  },
+  {
+   "rank": 2829,
+   "lemma": "กุ",
+   "freq": 1119,
+   "forms": []
+  },
+  {
+   "rank": 2830,
+   "lemma": "เสถียรภาพ",
+   "freq": 1119,
+   "forms": []
+  },
+  {
+   "rank": 2831,
+   "lemma": "โปรดเกล้า",
+   "freq": 1119,
+   "forms": []
+  },
+  {
+   "rank": 2832,
+   "lemma": "ย้อนกลับ",
+   "freq": 1118,
+   "forms": []
+  },
+  {
+   "rank": 2833,
+   "lemma": "จำต้อง",
+   "freq": 1116,
+   "forms": []
+  },
+  {
+   "rank": 2834,
+   "lemma": "อุ้ม",
+   "freq": 1115,
+   "forms": []
+  },
+  {
+   "rank": 2835,
+   "lemma": "ว่ายน้ำ",
+   "freq": 1115,
+   "forms": []
+  },
+  {
+   "rank": 2836,
+   "lemma": "เจ็บป่วย",
+   "freq": 1115,
+   "forms": []
+  },
+  {
+   "rank": 2837,
+   "lemma": "ดึก",
+   "freq": 1113,
+   "forms": []
+  },
+  {
+   "rank": 2838,
+   "lemma": "ไอค์",
+   "freq": 1113,
+   "forms": []
+  },
+  {
+   "rank": 2839,
+   "lemma": "สุดยอด",
+   "freq": 1113,
+   "forms": []
+  },
+  {
+   "rank": 2840,
+   "lemma": "ยุ่งยาก",
+   "freq": 1112,
+   "forms": []
+  },
+  {
+   "rank": 2841,
+   "lemma": "ผู้ว่า",
+   "freq": 1112,
+   "forms": []
+  },
+  {
+   "rank": 2842,
+   "lemma": "ป้อม",
+   "freq": 1112,
+   "forms": []
+  },
+  {
+   "rank": 2843,
+   "lemma": "บรรเทา",
+   "freq": 1112,
+   "forms": []
+  },
+  {
+   "rank": 2844,
+   "lemma": "เจ้าหนี้",
+   "freq": 1111,
+   "forms": []
+  },
+  {
+   "rank": 2845,
+   "lemma": "ไว้วางใจ",
+   "freq": 1111,
+   "forms": []
+  },
+  {
+   "rank": 2846,
+   "lemma": "ฝา",
+   "freq": 1110,
+   "forms": []
+  },
+  {
+   "rank": 2847,
+   "lemma": "การณ์",
+   "freq": 1110,
+   "forms": []
+  },
+  {
+   "rank": 2848,
+   "lemma": "เผด็จการ",
+   "freq": 1109,
+   "forms": []
+  },
+  {
+   "rank": 2849,
+   "lemma": "สัม",
+   "freq": 1109,
+   "forms": []
+  },
+  {
+   "rank": 2850,
+   "lemma": "นางเอก",
+   "freq": 1109,
+   "forms": []
+  },
+  {
+   "rank": 2851,
+   "lemma": "สุนัข",
+   "freq": 1109,
+   "forms": []
+  },
+  {
+   "rank": 2852,
+   "lemma": "ท้าว",
+   "freq": 1108,
+   "forms": []
+  },
+  {
+   "rank": 2853,
+   "lemma": "จู",
+   "freq": 1108,
+   "forms": []
+  },
+  {
+   "rank": 2854,
+   "lemma": "สมุทร",
+   "freq": 1108,
+   "forms": []
+  },
+  {
+   "rank": 2855,
+   "lemma": "รังเกียจ",
+   "freq": 1106,
+   "forms": []
+  },
+  {
+   "rank": 2856,
+   "lemma": "สืบทอด",
+   "freq": 1106,
+   "forms": []
+  },
+  {
+   "rank": 2857,
+   "lemma": "เก",
+   "freq": 1105,
+   "forms": []
+  },
+  {
+   "rank": 2858,
+   "lemma": "เชือก",
+   "freq": 1105,
+   "forms": []
+  },
+  {
+   "rank": 2859,
+   "lemma": "พลเมือง",
+   "freq": 1105,
+   "forms": []
+  },
+  {
+   "rank": 2860,
+   "lemma": "เถียง",
+   "freq": 1105,
+   "forms": []
+  },
+  {
+   "rank": 2861,
+   "lemma": "บวช",
+   "freq": 1104,
+   "forms": []
+  },
+  {
+   "rank": 2862,
+   "lemma": "กอส",
+   "freq": 1103,
+   "forms": []
+  },
+  {
+   "rank": 2863,
+   "lemma": "เต้",
+   "freq": 1103,
+   "forms": []
+  },
+  {
+   "rank": 2864,
+   "lemma": "ชื่น",
+   "freq": 1102,
+   "forms": []
+  },
+  {
+   "rank": 2865,
+   "lemma": "นิทรรศการ",
+   "freq": 1101,
+   "forms": []
+  },
+  {
+   "rank": 2866,
+   "lemma": "มูลฝอย",
+   "freq": 1101,
+   "forms": []
+  },
+  {
+   "rank": 2867,
+   "lemma": "กิ่ง",
+   "freq": 1100,
+   "forms": []
+  },
+  {
+   "rank": 2868,
+   "lemma": "ชาดก",
+   "freq": 1100,
+   "forms": []
+  },
+  {
+   "rank": 2869,
+   "lemma": "ปก",
+   "freq": 1100,
+   "forms": []
+  },
+  {
+   "rank": 2870,
+   "lemma": "ใจดี",
+   "freq": 1100,
+   "forms": []
+  },
+  {
+   "rank": 2871,
+   "lemma": "พนักงานสอบสวน",
+   "freq": 1099,
+   "forms": []
+  },
+  {
+   "rank": 2872,
+   "lemma": "ยืดหยุ่น",
+   "freq": 1099,
+   "forms": []
+  },
+  {
+   "rank": 2873,
+   "lemma": "ตะวัน",
+   "freq": 1099,
+   "forms": []
+  },
+  {
+   "rank": 2874,
+   "lemma": "ข้าวของ",
+   "freq": 1098,
+   "forms": []
+  },
+  {
+   "rank": 2875,
+   "lemma": "เผื่อ",
+   "freq": 1098,
+   "forms": []
+  },
+  {
+   "rank": 2876,
+   "lemma": "ฝุ่น",
+   "freq": 1097,
+   "forms": []
+  },
+  {
+   "rank": 2877,
+   "lemma": "อาสา",
+   "freq": 1097,
+   "forms": []
+  },
+  {
+   "rank": 2878,
+   "lemma": "เดอร์",
+   "freq": 1096,
+   "forms": []
+  },
+  {
+   "rank": 2879,
+   "lemma": "ชัน",
+   "freq": 1095,
+   "forms": []
+  },
+  {
+   "rank": 2880,
+   "lemma": "ห่างไกล",
+   "freq": 1094,
+   "forms": []
+  },
+  {
+   "rank": 2881,
+   "lemma": "เชิด",
+   "freq": 1093,
+   "forms": []
+  },
+  {
+   "rank": 2882,
+   "lemma": "ฤดูกาล",
+   "freq": 1093,
+   "forms": []
+  },
+  {
+   "rank": 2883,
+   "lemma": "ประเสริฐ",
+   "freq": 1093,
+   "forms": []
+  },
+  {
+   "rank": 2884,
+   "lemma": "ยัน",
+   "freq": 1093,
+   "forms": []
+  },
+  {
+   "rank": 2885,
+   "lemma": "นัง",
+   "freq": 1092,
+   "forms": []
+  },
+  {
+   "rank": 2886,
+   "lemma": "แบ่งแยก",
+   "freq": 1092,
+   "forms": []
+  },
+  {
+   "rank": 2887,
+   "lemma": "รหัส",
+   "freq": 1091,
+   "forms": []
+  },
+  {
+   "rank": 2888,
+   "lemma": "เครดิต",
+   "freq": 1091,
+   "forms": []
+  },
+  {
+   "rank": 2889,
+   "lemma": "เก่าแก่",
+   "freq": 1090,
+   "forms": []
+  },
+  {
+   "rank": 2890,
+   "lemma": "กรรมาธิการ",
+   "freq": 1088,
+   "forms": []
+  },
+  {
+   "rank": 2891,
+   "lemma": "หลับตา",
+   "freq": 1088,
+   "forms": []
+  },
+  {
+   "rank": 2892,
+   "lemma": "เป่า",
+   "freq": 1088,
+   "forms": []
+  },
+  {
+   "rank": 2893,
+   "lemma": "ใคร่",
+   "freq": 1086,
+   "forms": []
+  },
+  {
+   "rank": 2894,
+   "lemma": "บุคลิกภาพ",
+   "freq": 1084,
+   "forms": []
+  },
+  {
+   "rank": 2895,
+   "lemma": "ซาก",
+   "freq": 1084,
+   "forms": []
+  },
+  {
+   "rank": 2896,
+   "lemma": "เอาใจใส่",
+   "freq": 1083,
+   "forms": []
+  },
+  {
+   "rank": 2897,
+   "lemma": "ชะลอ",
+   "freq": 1083,
+   "forms": []
+  },
+  {
+   "rank": 2898,
+   "lemma": "ธรรมะ",
+   "freq": 1083,
+   "forms": []
+  },
+  {
+   "rank": 2899,
+   "lemma": "ไต่สวน",
+   "freq": 1083,
+   "forms": []
+  },
+  {
+   "rank": 2900,
+   "lemma": "ขัน",
+   "freq": 1082,
+   "forms": []
+  },
+  {
+   "rank": 2901,
+   "lemma": "นิสิต",
+   "freq": 1081,
+   "forms": []
+  },
+  {
+   "rank": 2902,
+   "lemma": "ถ้ำ",
+   "freq": 1081,
+   "forms": []
+  },
+  {
+   "rank": 2903,
+   "lemma": "แมลง",
+   "freq": 1081,
+   "forms": []
+  },
+  {
+   "rank": 2904,
+   "lemma": "ค่าธรรมเนียม",
+   "freq": 1079,
+   "forms": []
+  },
+  {
+   "rank": 2905,
+   "lemma": "พระทัย",
+   "freq": 1079,
+   "forms": []
+  },
+  {
+   "rank": 2906,
+   "lemma": "หอบ",
+   "freq": 1079,
+   "forms": []
+  },
+  {
+   "rank": 2907,
+   "lemma": "ราชกิจจานุเบกษา",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2908,
+   "lemma": "ความยุติธรรม",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2909,
+   "lemma": "อ้า",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2910,
+   "lemma": "กิเลส",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2911,
+   "lemma": "ชัยชนะ",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2912,
+   "lemma": "ไซต์",
+   "freq": 1076,
+   "forms": []
+  },
+  {
+   "rank": 2913,
+   "lemma": "แต่เดิม",
+   "freq": 1075,
+   "forms": []
+  },
+  {
+   "rank": 2914,
+   "lemma": "ปีใหม่",
+   "freq": 1074,
+   "forms": []
+  },
+  {
+   "rank": 2915,
+   "lemma": "ธารณ",
+   "freq": 1074,
+   "forms": []
+  },
+  {
+   "rank": 2916,
+   "lemma": "ชมรม",
+   "freq": 1074,
+   "forms": []
+  },
+  {
+   "rank": 2917,
+   "lemma": "เครื่องประดับ",
+   "freq": 1074,
+   "forms": []
+  },
+  {
+   "rank": 2918,
+   "lemma": "อภัย",
+   "freq": 1073,
+   "forms": []
+  },
+  {
+   "rank": 2919,
+   "lemma": "บกพร่อง",
+   "freq": 1073,
+   "forms": []
+  },
+  {
+   "rank": 2920,
+   "lemma": "กำ",
+   "freq": 1072,
+   "forms": []
+  },
+  {
+   "rank": 2921,
+   "lemma": "ตรี",
+   "freq": 1071,
+   "forms": []
+  },
+  {
+   "rank": 2922,
+   "lemma": "ถูกใจ",
+   "freq": 1071,
+   "forms": []
+  },
+  {
+   "rank": 2923,
+   "lemma": "สุทธิ",
+   "freq": 1071,
+   "forms": []
+  },
+  {
+   "rank": 2924,
+   "lemma": "ข้อหา",
+   "freq": 1070,
+   "forms": []
+  },
+  {
+   "rank": 2925,
+   "lemma": "เอว",
+   "freq": 1070,
+   "forms": []
+  },
+  {
+   "rank": 2926,
+   "lemma": "ศาลา",
+   "freq": 1070,
+   "forms": []
+  },
+  {
+   "rank": 2927,
+   "lemma": "รุ่งเรือง",
+   "freq": 1069,
+   "forms": []
+  },
+  {
+   "rank": 2928,
+   "lemma": "ที่ทำการ",
+   "freq": 1069,
+   "forms": []
+  },
+  {
+   "rank": 2929,
+   "lemma": "ขนาน",
+   "freq": 1069,
+   "forms": []
+  },
+  {
+   "rank": 2930,
+   "lemma": "ประเทศชาติ",
+   "freq": 1069,
+   "forms": []
+  },
+  {
+   "rank": 2931,
+   "lemma": "ไม",
+   "freq": 1066,
+   "forms": []
+  },
+  {
+   "rank": 2932,
+   "lemma": "กุม",
+   "freq": 1066,
+   "forms": []
+  },
+  {
+   "rank": 2933,
+   "lemma": "ทำเนียบ",
+   "freq": 1065,
+   "forms": []
+  },
+  {
+   "rank": 2934,
+   "lemma": "แค้น",
+   "freq": 1063,
+   "forms": []
+  },
+  {
+   "rank": 2935,
+   "lemma": "ฟอง",
+   "freq": 1062,
+   "forms": []
+  },
+  {
+   "rank": 2936,
+   "lemma": "เต",
+   "freq": 1062,
+   "forms": []
+  },
+  {
+   "rank": 2937,
+   "lemma": "เหยียบ",
+   "freq": 1062,
+   "forms": []
+  },
+  {
+   "rank": 2938,
+   "lemma": "มิฉะนั้น",
+   "freq": 1062,
+   "forms": []
+  },
+  {
+   "rank": 2939,
+   "lemma": "ผ่อนคลาย",
+   "freq": 1060,
+   "forms": []
+  },
+  {
+   "rank": 2940,
+   "lemma": "ข่มขู่",
+   "freq": 1059,
+   "forms": []
+  },
+  {
+   "rank": 2941,
+   "lemma": "ระดม",
+   "freq": 1057,
+   "forms": []
+  },
+  {
+   "rank": 2942,
+   "lemma": "เทา",
+   "freq": 1057,
+   "forms": []
+  },
+  {
+   "rank": 2943,
+   "lemma": "จงใจ",
+   "freq": 1057,
+   "forms": []
+  },
+  {
+   "rank": 2944,
+   "lemma": "คงที่",
+   "freq": 1056,
+   "forms": []
+  },
+  {
+   "rank": 2945,
+   "lemma": "เซน",
+   "freq": 1055,
+   "forms": []
+  },
+  {
+   "rank": 2946,
+   "lemma": "อาณานิคม",
+   "freq": 1055,
+   "forms": []
+  },
+  {
+   "rank": 2947,
+   "lemma": "เพ",
+   "freq": 1055,
+   "forms": []
+  },
+  {
+   "rank": 2948,
+   "lemma": "กก",
+   "freq": 1055,
+   "forms": []
+  },
+  {
+   "rank": 2949,
+   "lemma": "ครั้งนั้น",
+   "freq": 1054,
+   "forms": []
+  },
+  {
+   "rank": 2950,
+   "lemma": "เสมอภาค",
+   "freq": 1054,
+   "forms": []
+  },
+  {
+   "rank": 2951,
+   "lemma": "น้ำแข็ง",
+   "freq": 1054,
+   "forms": []
+  },
+  {
+   "rank": 2952,
+   "lemma": "ทร",
+   "freq": 1054,
+   "forms": []
+  },
+  {
+   "rank": 2953,
+   "lemma": "ข้อมือ",
+   "freq": 1053,
+   "forms": []
+  },
+  {
+   "rank": 2954,
+   "lemma": "ดิบ",
+   "freq": 1053,
+   "forms": []
+  },
+  {
+   "rank": 2955,
+   "lemma": "เอ๊ย",
+   "freq": 1052,
+   "forms": []
+  },
+  {
+   "rank": 2956,
+   "lemma": "ดี้",
+   "freq": 1052,
+   "forms": []
+  },
+  {
+   "rank": 2957,
+   "lemma": "ชั้นนำ",
+   "freq": 1048,
+   "forms": []
+  },
+  {
+   "rank": 2958,
+   "lemma": "แกง",
+   "freq": 1047,
+   "forms": []
+  },
+  {
+   "rank": 2959,
+   "lemma": "ดำรงชีวิต",
+   "freq": 1047,
+   "forms": []
+  },
+  {
+   "rank": 2960,
+   "lemma": "ฝ้าย",
+   "freq": 1047,
+   "forms": []
+  },
+  {
+   "rank": 2961,
+   "lemma": "กลืน",
+   "freq": 1045,
+   "forms": []
+  },
+  {
+   "rank": 2962,
+   "lemma": "ข้างหลัง",
+   "freq": 1044,
+   "forms": []
+  },
+  {
+   "rank": 2963,
+   "lemma": "ผู้เยาว์",
+   "freq": 1044,
+   "forms": []
+  },
+  {
+   "rank": 2964,
+   "lemma": "ไส้",
+   "freq": 1043,
+   "forms": []
+  },
+  {
+   "rank": 2965,
+   "lemma": "จัน",
+   "freq": 1042,
+   "forms": []
+  },
+  {
+   "rank": 2966,
+   "lemma": "กิริยา",
+   "freq": 1042,
+   "forms": []
+  },
+  {
+   "rank": 2967,
+   "lemma": "ติดตั้ง",
+   "freq": 1042,
+   "forms": []
+  },
+  {
+   "rank": 2968,
+   "lemma": "ธน",
+   "freq": 1041,
+   "forms": []
+  },
+  {
+   "rank": 2969,
+   "lemma": "ไชย",
+   "freq": 1041,
+   "forms": []
+  },
+  {
+   "rank": 2970,
+   "lemma": "ร้องเรียน",
+   "freq": 1041,
+   "forms": []
+  },
+  {
+   "rank": 2971,
+   "lemma": "เลขที่",
+   "freq": 1041,
+   "forms": []
+  },
+  {
+   "rank": 2972,
+   "lemma": "กรอง",
+   "freq": 1040,
+   "forms": []
+  },
+  {
+   "rank": 2973,
+   "lemma": "ความถูกต้อง",
+   "freq": 1038,
+   "forms": []
+  },
+  {
+   "rank": 2974,
+   "lemma": "คู่สัญญา",
+   "freq": 1038,
+   "forms": []
+  },
+  {
+   "rank": 2975,
+   "lemma": "อิจฉา",
+   "freq": 1038,
+   "forms": []
+  },
+  {
+   "rank": 2976,
+   "lemma": "ฝ่าฝืน",
+   "freq": 1036,
+   "forms": []
+  },
+  {
+   "rank": 2977,
+   "lemma": "ฮอร์โมน",
+   "freq": 1036,
+   "forms": []
+  },
+  {
+   "rank": 2978,
+   "lemma": "คำร้อง",
+   "freq": 1036,
+   "forms": []
+  },
+  {
+   "rank": 2979,
+   "lemma": "ธง",
+   "freq": 1035,
+   "forms": []
+  },
+  {
+   "rank": 2980,
+   "lemma": "กี้",
+   "freq": 1034,
+   "forms": []
+  },
+  {
+   "rank": 2981,
+   "lemma": "ตกต่ำ",
+   "freq": 1034,
+   "forms": []
+  },
+  {
+   "rank": 2982,
+   "lemma": "หนอ",
+   "freq": 1034,
+   "forms": []
+  },
+  {
+   "rank": 2983,
+   "lemma": "ผู้เสียหาย",
+   "freq": 1033,
+   "forms": []
+  },
+  {
+   "rank": 2984,
+   "lemma": "เถิด",
+   "freq": 1032,
+   "forms": []
+  },
+  {
+   "rank": 2985,
+   "lemma": "คุ้น",
+   "freq": 1031,
+   "forms": []
+  },
+  {
+   "rank": 2986,
+   "lemma": "ห่ม",
+   "freq": 1030,
+   "forms": []
+  },
+  {
+   "rank": 2987,
+   "lemma": "สนิทสนม",
+   "freq": 1030,
+   "forms": []
+  },
+  {
+   "rank": 2988,
+   "lemma": "หม่อม",
+   "freq": 1030,
+   "forms": []
+  },
+  {
+   "rank": 2989,
+   "lemma": "บ้านเรือน",
+   "freq": 1030,
+   "forms": []
+  },
+  {
+   "rank": 2990,
+   "lemma": "จิตสำนึก",
+   "freq": 1029,
+   "forms": []
+  },
+  {
+   "rank": 2991,
+   "lemma": "มัด",
+   "freq": 1029,
+   "forms": []
+  },
+  {
+   "rank": 2992,
+   "lemma": "ข้อเรียกร้อง",
+   "freq": 1028,
+   "forms": []
+  },
+  {
+   "rank": 2993,
+   "lemma": "มณฑล",
+   "freq": 1028,
+   "forms": []
+  },
+  {
+   "rank": 2994,
+   "lemma": "รณรงค์",
+   "freq": 1028,
+   "forms": []
+  },
+  {
+   "rank": 2995,
+   "lemma": "ขั้นพื้นฐาน",
+   "freq": 1028,
+   "forms": []
+  },
+  {
+   "rank": 2996,
+   "lemma": "ฮ่องกง",
+   "freq": 1028,
+   "forms": []
+  },
+  {
+   "rank": 2997,
+   "lemma": "สะดุ้ง",
+   "freq": 1027,
+   "forms": []
+  },
+  {
+   "rank": 2998,
+   "lemma": "ชีพ",
+   "freq": 1027,
+   "forms": []
+  },
+  {
+   "rank": 2999,
+   "lemma": "เจ๊",
+   "freq": 1027,
+   "forms": []
+  },
+  {
+   "rank": 3000,
+   "lemma": "พื้นเมือง",
+   "freq": 1026,
+   "forms": []
+  }
+ ],
+ "left_out": []
+}

@@ -30,6 +30,12 @@ The course **is** the shared list: the Glyph counts how many of the language's F
   list (a plural, a feminine, a conjugation, another spelling). Use each candidate's dictionary form, as for 1–1000.
   A word is never in the list twice (the tests check). There are about 2,600 candidates for 2,000 places.
 - `rank` is the candidate's `rank` in candidates.json, so the order can be checked.
+- Notes per language: **Persian** subtitles are colloquial (تونم, اینکارو): write the standard written form, as for
+  1–1000 (LANGUAGES.md). **Tagalog and Bisaya** are counted from web text with much English in it (their own counts,
+  not the blend): many candidates are flagged "English?"; keep only everyday loans a speaker really uses. **Korean**
+  has no dictionary table here: a lone syllable is flagged (a word, 큰, or a piece, 으). **Chinese, Japanese,
+  Korean, Thai**: one-character words are kept. **Italian, French, Catalan**: cut-off pieces and spellings without
+  their accents are already out; clitic forms (dimmi, dammi) are forms of a word already in the list.
 
 ## Writing
 

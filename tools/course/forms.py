@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import json
 import sys
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
@@ -28,14 +29,25 @@ import wordfreq
 
 TOP = 20000
 SPEECH = 0.7  # the subtitles' share of the blend; wordfreq has the rest
+# FrequencyWords' name for the variety a course teaches, where it isn't the language's code (LANGUAGES.md: Brazilian
+# Portuguese; Mandarin in simplified characters).
+SOURCE = {"pt": "pt_br", "zh": "zh_cn"}
+# Japanese and Chinese: wordfreq can't cut their text into words without MeCab / jieba, which aren't installed. Their
+# own forms scripts (ja/forms_ja.py, zh/forms_zh.py) read wordfreq's table, whose entries are whole words, and the
+# subtitle counts are cut into words already: so the blend starts from that script's file and takes the subtitle
+# words as they are (only tidied: NFKC), never asking wordfreq to cut anything.
+OWN_FORMS = {"ja", "zh"}
 HERE = Path(__file__).resolve().parent
 
 
 def subtitle_counts(lang: str) -> dict[str, float]:
     """Each tidied form's share of FrequencyWords' subtitle counts, per million words."""
-    path = HERE / "build" / "freqwords" / lang / f"{lang}_50k.txt"
+    src = SOURCE.get(lang, lang)
+    path = HERE / "build" / "freqwords" / lang / f"{src}_50k.txt"
+    if not path.exists():  # (a smaller collection has only the full list: Hindi, Japanese)
+        path = path.with_name(f"{src}_full.txt")
     if not path.exists():
-        raise SystemExit(f"No subtitle counts for {lang}: download {lang}_50k.txt (FrequencyWords, content/2018/{lang}) "
+        raise SystemExit(f"No subtitle counts for {lang}: download {src}_50k.txt (FrequencyWords, content/2018/{src}) "
                          f"into {path.parent}.")
     counts: dict[str, float] = defaultdict(float)
     total = 0
@@ -44,6 +56,11 @@ def subtitle_counts(lang: str) -> dict[str, float]:
         if not form or not n.isdigit():
             continue
         total += int(n)
+        if lang in OWN_FORMS:
+            tidy = unicodedata.normalize("NFKC", form).strip()
+            if any(ch.isalpha() for ch in tidy):
+                counts[tidy] += int(n)
+            continue
         for token in wordfreq.tokenize(form, lang):  # (a form split in pieces counts for each: c'est)
             counts[token] += int(n)
     return {w: n / total * 1e6 for w, n in counts.items()} if total else {}
@@ -55,27 +72,37 @@ def main() -> None:
     blend = "--blend" in sys.argv
     out = HERE / "build" / f"{lang}-forms.json"
     out.parent.mkdir(parents=True, exist_ok=True)
-    rows = [[w, wordfreq.word_frequency(w, lang)] for w in wordfreq.top_n_list(lang, TOP)]
+    if lang in OWN_FORMS:  # (run the language's own forms script first: it writes this file)
+        own = HERE / "build" / f"{lang}-forms-wordfreq.json"
+        if not own.exists():
+            raise SystemExit(f"Run tools/course/{lang}/forms_{lang}.py first, then copy build/{lang}-forms.json to {own.name}.")
+        rows = json.loads(own.read_text(encoding="utf-8"))
+    else:
+        rows = [[w, wordfreq.word_frequency(w, lang)] for w in wordfreq.top_n_list(lang, TOP)]
     if not blend:
         out.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
         print(f"{len(rows)} forms -> {out}")
         return
-    (HERE / "build" / f"{lang}-forms-wordfreq.json").write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
+    if lang not in OWN_FORMS:
+        (HERE / "build" / f"{lang}-forms-wordfreq.json").write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
     written = {w: f * 1e6 for w, f in rows}
     spoken = subtitle_counts(lang)
-    # (every form either source has among its most common; one only the subtitles know gets wordfreq's own figure)
-    forms = set(written) | set(sorted(spoken, key=spoken.get, reverse=True)[:TOP])
+    # The subtitles weigh the forms wordfreq's list has (its 20,000 most common); they add none of their own. Subtitle
+    # text brings spellings that aren't words: Italian without its accents (citta, verita), the pieces of English
+    # contractions (didn), traditional characters in the simplified Chinese list (我們), colloquial Persian spellings,
+    # Japanese verb stems cut off (手伝), and the names of film characters. So wordfreq vouches for each spelling, and
+    # the subtitles say how much it is spoken.
     score = {}
-    for w in forms:
-        wf = written[w] if w in written else wordfreq.word_frequency(w, lang) * 1e6
+    for w, wf in written.items():
         score[w] = SPEECH * spoken.get(w, 0.0) + (1 - SPEECH) * wf
     blended = sorted(score, key=lambda w: (-score[w], w))[:TOP]
     out.write_text(json.dumps([[w, round(score[w] / 1e6, 12)] for w in blended], ensure_ascii=False), encoding="utf-8")
     # English in the subtitles (hey, okay, and the English names of film characters: jack, sam): a form at least 3
     # times as common in written English as in this language's own written text (candidates.mjs leaves it out).
     if lang != "en":
-        english = sorted(w for w in blended if wordfreq.word_frequency(w, "en") > 3 * wordfreq.word_frequency(w, lang)
-                         and wordfreq.word_frequency(w, "en") > 1e-6)
+        mine = (lambda w: written.get(w, 0.0) / 1e6) if lang in OWN_FORMS else (lambda w: wordfreq.word_frequency(w, lang))
+        english = sorted(w for w in blended if wordfreq.word_frequency(w, "en") > 3 * mine(w) and wordfreq.word_frequency(w, "en") > 1e-6
+                         and w.isascii())
         (HERE / "build" / f"{lang}-forms-english.json").write_text(json.dumps(english, ensure_ascii=False), encoding="utf-8")
     print(f"{len(blended)} forms, {SPEECH:.0%} subtitles + {1 - SPEECH:.0%} wordfreq -> {out}")
 

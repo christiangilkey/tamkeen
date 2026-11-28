@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import os
 import re
 from pathlib import Path
 
@@ -74,7 +75,7 @@ def main() -> None:
         e = by.setdefault(h, {"lemma": h, "freq": 0.0, "forms": []})
         e["freq"] += freq
         e["forms"].append([form, freq])
-    ranked = sorted(by.values(), key=lambda e: -e["freq"])[:2000]
+    ranked = sorted(by.values(), key=lambda e: -e["freq"])[:int(os.environ.get("RANK_TOP") or 2000)]  # (RANK_TOP: deeper, for Frequency words 1001-3000)
     out = [{"rank": i + 1, "lemma": e["lemma"], "freq": float(f"{e['freq']:.4g}"),
             "forms": [[f, float(f"{n:.3g}")] for f, n in e["forms"][:6]]} for i, e in enumerate(ranked)]
     (BUILD / "en-ranked.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

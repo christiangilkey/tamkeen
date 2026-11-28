@@ -73,7 +73,7 @@ table.lemmas.slice(0, FORMS).forEach((form, i) => {
   e.freq += 1 / (i + 1);
   e.forms.push([form, i + 1]);
 });
-const ranked = [...byRoot.values()].sort((x, y) => y.freq - x.freq).slice(0, 3000)
+const ranked = [...byRoot.values()].sort((x, y) => y.freq - x.freq).slice(0, Number(process.env.RANK_TOP) || 3000) // (RANK_TOP: deeper, for Frequency words 1001-3000)
   .map((e, i) => ({ rank: i + 1, lemma: e.lemma, freq: Number((e.freq * 1000).toPrecision(4)), forms: e.forms.slice(0, 8) }));
 mkdirSync(join(here, "..", "build"), { recursive: true });
 writeFileSync(join(here, "..", "build", "ceb-ranked.json"), JSON.stringify(ranked, null, 1));

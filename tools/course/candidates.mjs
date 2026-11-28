@@ -32,9 +32,11 @@ export function keyOf(text) {
 
 // The ranked lists come in two shapes: [{rank, lemma, freq, forms, pos?}] and Spanish's [[n, lemma, freq, forms]].
 const read = (name) => JSON.parse(readFileSync(join(here, "build", name), "utf8"));
+// (forms as [form, freq] pairs or plain strings: Portuguese; Chinese has its pinyin in that place, not forms)
+const formsOf = (f) => (Array.isArray(f) ? f.map((x) => (Array.isArray(x) ? x[0] : x)).filter((x) => typeof x === "string") : []);
 const entries = (list) => list.map((e) => (Array.isArray(e)
-  ? { lemma: e[1], freq: e[2], forms: (e[3] || []).map((f) => f[0]) }
-  : { lemma: e.lemma, freq: e.freq, forms: (e.forms || []).map((f) => f[0]), pos: e.pos || "" }));
+  ? { lemma: e[1], freq: e[2], forms: formsOf(e[3]) }
+  : { lemma: e.lemma ?? e.word ?? e.key, freq: e.freq ?? e.count, forms: formsOf(e.forms), pos: e.pos || "", sub: e.sub || "" })); // (Thai names it "word", Tagalog "key")
 
 const course = JSON.parse(readFileSync(join(here, lang, "words.json"), "utf8")).words;
 const inCourse = new Set(course.map((w) => keyOf(w.word)));
@@ -54,16 +56,55 @@ if (existsSync(table)) {
 // and "dame" in Spanish, "mach" in German stay). Left out, with numbers, symbols and stray single letters.
 const englishFile = join(here, "build", `${lang}-forms-english.json`);
 const english = existsSync(englishFile) ? new Set(JSON.parse(readFileSync(englishFile, "utf8")).map(keyOf)) : null;
+// Subtitle spellings that wordfreq counts too (it reads subtitles as well): a word without its accent when the accented
+// one is a word (Italian citta, verita, giu); a cut-off piece of an elided word (Italian quell', cos', dev'); the pieces
+// of English contractions (didn't -> didn); a Japanese verb's stem when the verb is in the course (言 of 言う).
+const ACCENT = { a: "àá", e: "èé", i: "ìí", o: "òó", u: "ùú" };
+const accented = (k) => { const last = k.slice(-1); return (ACCENT[last] || "").split("").map((c) => k.slice(0, -1) + c); };
+const CONTRACTED = new Set(["didn", "doesn", "isn", "wasn", "wouldn", "haven", "couldn", "aren", "shouldn", "weren", "hasn", "hadn",
+  "mustn", "needn", "ain", "ll", "ve", "re"]);
+const courseWords = course.map((w) => String(w.word || ""));
+// How common each written form is (wordfreq alone, forms.py --blend kept it): the accented spelling being at least as
+// common in written text says the bare one is the subtitles' (città over citta). The dictionary tables don't do:
+// Italian's leaves out words that never change, città among them.
+const writtenFile = join(here, "build", `${lang}-forms-wordfreq.json`);
+const written = new Map(existsSync(writtenFile) ? JSON.parse(readFileSync(writtenFile, "utf8")).map(([w, f]) => [keyOf(w), f]) : []);
+function spellingOf(k) {
+  if (accented(k).some((a) => (written.get(a) || 0) >= (written.get(k) || 0) && written.has(a)) || (known && !known.has(k) && accented(k).some((a) => known.has(a))))
+    return "a spelling without its accent";
+  if (["it", "fr", "ca"].includes(lang) && known && !known.has(k) && [...k].length <= 5 && "aeiou".split("").some((v) => known.has(k + v)))
+    return "a cut-off piece of a longer word";
+  if (lang === "en" && CONTRACTED.has(k)) return "a piece of a contraction";
+  if (lang === "ja" && [...k].length <= 2 && /^[一-鿿]+$/.test(k)
+    && courseWords.some((w) => w.startsWith(k) && w.length <= k.length + 2 && /[぀-ゟ]$/.test(w))) return "a verb's stem (the verb is in the course)";
+  return null;
+}
 function junkOf(e) {
   const k = keyOf(e.lemma);
+  const spelling = spellingOf(k);
+  if (spelling) return spelling;
   if (!/\p{L}/u.test(k)) return "a number or symbol";
-  if ([...k].length === 1 && !(known && known.has(k))) return "a single letter";
+  // (not in Chinese, Japanese, Korean and Thai, whose words are often one character or syllable: 没, 事, 큰)
+  if ([...k].length === 1 && !["zh", "ja", "ko", "th"].includes(lang) && !(known && known.has(k))) return "a single letter";
   if (english && english.has(k)) return "English, or an English name";
   return null;
 }
+// A language counted without the blend (Bisaya, Korean, Tagalog, Thai: their own counts) has no list of the English in
+// its counts: a word the English table knows is flagged, not left out (Tagalog "may" is a word; "the" isn't).
+let englishTable = null;
+if (!english && lang !== "en" && existsSync(join(root, "docs", "lexicon", "en-lemmas.json.gz"))) {
+  const t = JSON.parse(gunzipSync(readFileSync(join(root, "docs", "lexicon", "en-lemmas.json.gz"))).toString("utf8"));
+  englishTable = new Set((t.lemmas || []).map(keyOf));
+  // (and the 5,000 commonest English words as written, which the table, made of dictionary entries, partly lacks: the, of)
+  const enForms = join(here, "build", "en-forms-wordfreq.json");
+  if (existsSync(enForms)) for (const [w] of JSON.parse(readFileSync(enForms, "utf8")).slice(0, 5000)) englishTable.add(keyOf(w));
+}
 function flagOf(e) {
-  if (e.pos === "noun_prop") return "name?";
+  if (e.pos === "noun_prop" || /固有名詞/.test(e.sub || "")) return "name?"; // (Arabic's and Japanese's proper nouns)
   if (known && !known.has(keyOf(e.lemma))) return "not in the dictionary table: a name, or another language?";
+  if (englishTable && englishTable.has(keyOf(e.lemma))) return "English? (an everyday loan is fine where natural)";
+  // (Korean has no dictionary table here: a lone syllable may be a word, 큰, or a piece of one, 으, 및, 성)
+  if (lang === "ko" && [...keyOf(e.lemma)].length === 1) return "one syllable: a word on its own, or a piece of one?";
   return undefined;
 }
 
@@ -96,7 +137,7 @@ writeFileSync(join(here, lang, "candidates.json"), JSON.stringify({
 const lines = [`# ${lang}: candidates for Frequency words 1001-3000`, ""];
 const flagged = words.slice(0, COMPARE).filter((w) => w.flag).length;
 lines.push(`${words.length} candidates after the course's ${course.length} words; ${flagged} of the first ${COMPARE} flagged for a look; `
-  + `${dropped.length} left out as English, numbers or stray letters (e.g. ${dropped.slice(0, 12).map((d) => d.lemma).join(", ")}).`, "");
+  + `${dropped.length} left out as English, numbers, stray letters or subtitle spellings (e.g. ${dropped.slice(0, 12).map((d) => d.lemma).join(", ")}).`, "");
 if (plain) {
   const top = (list) => list.slice(0, COMPARE).map((e) => keyOf(e.lemma));
   const nb = top(blend), np = new Set(top(plain));
