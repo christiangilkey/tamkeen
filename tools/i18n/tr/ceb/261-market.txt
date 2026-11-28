@@ -1,0 +1,38 @@
+# The Market (prototype market), 2026-11-27. Machine-made.
+569bbd75	Merkado
+601b175b	Ablihi ang merkado
+95a49f06	Mga order karon
+cded0933	Mga order
+2d402495	Gusto sa mga Muffle og ani gikan sa imong kamalig. Matag order mobayad og coin ug mopukaw sa usa sa ilang nakalimtang pulong.
+a67f5ce4	Dad-a kanamo ang among gipangayo gikan sa imong kamalig. Mobayad kami og coin, ug madungog nimo pag-usab ang usa sa among karaang pulong.
+41dc2c98	Mananahi
+d7c7c760	Bag-ong masul-ob matag adlaw, ug mga butang para sa imong balay. Pili og usa ug sulayan kini sa imong linalang.
+9268cab8	Ang tigpahibalo
+29aeac04	Mga lihok sa away: bag-ong mga lansis, dili mas dagkong numero
+0b21e9bc	Bag-ong mga lansis para sa away. Kausa ra paliton ang matag usa, para sa tanan nimong linalang.
+aceca78e	Panadero
+8efbff84	Pagkaon, tambal, itlog ug yawe; mutya baylo sa sanag
+2ec596e8	Pagkaon, tambal ug yawe, bag-o ra karon. Bayloan pud tika og mutya sa sanag.
+8dd20f4d	Mga liso, upgrade ug dekorasyon sa uma
+0a1a5224	Mga liso para sa imong umahan, ug mga butang nga motabang sa imong uma.
+d4d43394	Tindero
+4f366d20	Mopalit sa imong ani baylo sa sanag
+fbf36a19	Paliton nako ang imong gitanom. Mas talagsaon nga ani, mas daghang sanag.
+44223786	Ang kusinera
+562a9fd8	Ang Libro sa Pagluto: mga sud-an gikan sa imong ani
+419fb83c	Dad-a ang imong ani ug lutoan tika og lami.
+0d57bd54	Mangingisda
+c3e4067a	Mga pasol ug mas dagkong aquarium
+6a3711e1	Mas swerte nga pasol ug mas dagkong aquarium, baylo sa mga perlas sa imong talagsaong isda.
+ef5aad8f	Bayad og coin, gikan sa pagtuon
+914760cc	Bayad og sanag
+eb0ee71f	Bayad og mutya
+78c9140e	Bayad og perlas
+924218a6	Mobayad og coin
+0694a426	Mobayad og sanag
+3f19a8e0	Tanang puwesto
+cb90cc67	Mga puwesto
+a986aee7	Gusto ni {0} og {1} × {2}
+6eb59c07	Nahatag karon
+e36275ec	Walay order karon.
+a8856a81	Wala pay sulod. Dinhi gitipigan ang imong mapalit sa merkado.

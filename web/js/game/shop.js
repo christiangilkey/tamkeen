@@ -25,6 +25,8 @@ import { moveRow, moveView } from "./movesui.js";
 import { SHOP_SEEN_KEY, shopSeen } from "./homecard.js";
 import { openCurrency, openEarned, openEvolution } from "./info.js";
 import { basketPanel, fishdexPanel, fishingHelp, fishingPanel } from "./fishscreen.js";
+import { marketPanel, marketStall } from "./market.js";
+import { feature } from "../prototype.js";
 import {
   KIND, POCKETS, isOn, lockedShelf, pillsOf, pocketBlocks, pocketCounts, pocketOf, screenOf, sectionOf, shelves, wearing,
 } from "./sections.js";
@@ -97,6 +99,8 @@ export function openShop(tab, changed = () => {}, opts = {}) {
   function paint(id, keep = false) {
     const top = body.scrollTop;
     current = sectionOf(id);
+    // (prototype "market": every way to the shop leads to the Market, the whole of it; the bag is the cottage's dresser)
+    if (current === "shop" && feature("market")) { marketStall(null); current = "market"; }
     head();
     body.replaceChildren();
     PANELS[current](body, game, onChange, go);
@@ -117,6 +121,10 @@ export function openShop(tab, changed = () => {}, opts = {}) {
     fishing: (b) => fishingPanel(b, game, onChange, go, close, (section) => openShop(section, changed)),
     basket: (b) => basketPanel(b, game, onChange, go, close, (section) => openShop(section, changed)),
     fishdex: (b) => fishdexPanel(b, game),
+    // (prototype "market": every stall in one sheet; the tailor's and the herald's are this shop's shelves)
+    market: (b) => marketPanel(b, game, { changed: onChange, go, repaint: () => paint("market", true),
+      shelf: (at, only) => shopPanel(at, game, onChange, today, () => paint("market", true), only),
+      supplies: (at) => suppliesPanel(at, game, onChange, go) }),
   };
   document.body.append(wrap);
   paint(tab);
@@ -139,11 +147,12 @@ const itemPic = (game, it) => {
 
 // ---------- Buy: the shop counter ----------
 
-function shopPanel(body, game, changed, today, repaint) {
+function shopPanel(body, game, changed, today, repaint, only = null) {
   // Seen: what is affordable now no longer lights the Shop tile's dot on Home (homecard.shopDot).
   try { localStorage.setItem(SHOP_SEEN_KEY, JSON.stringify(shopSeen(game))); } catch { /* no memory here: the dot may come back */ }
   if (!today.stock) { today.stock = shopStock(game); today.moves = moveStock(game); }
-  const list = shelves(today.stock, today.moves);
+  // (`only`: "items" or "moves", one stall of the Market, prototype "market": the tailor's, or the herald's)
+  const list = shelves(today.stock, today.moves).filter((s) => !only || (only === "moves") === (s.id === "moves"));
   if (!list.length) {
     const b = block();
     b.append(h(`<p class="gs-empty">${icon("check", 32)}<span>You own everything that's on offer.</span></p>`));
@@ -180,7 +189,7 @@ function shopPanel(body, game, changed, today, repaint) {
     body.append(b);
   }
   // What the shop keeps back until something is earned.
-  const locked = lockedShelf(game);
+  const locked = only === "moves" ? [] : lockedShelf(game);
   if (locked.length) {
     const b = block("Still to unlock");
     for (const l of locked) {
@@ -273,9 +282,13 @@ function minePanel(body, game, changed, go, repaint) {
   const blocks = pocketBlocks(game, pocket);
   if (!blocks.length) {
     const b = block();
-    const empty = h(`<div class="gs-empty">${icon("ui/slot_empty", 48)}<span>Nothing yet. Things you buy in the shop are kept here.</span>
+    // (prototype "market": what is bought at the Market's stalls is kept here, in the cottage's dresser)
+    const empty = feature("market")
+      ? h(`<div class="gs-empty">${icon("ui/slot_empty", 48)}<span>Nothing yet. Things you buy at the market are kept here.</span>
+      <button type="button" class="primary">${icon("market")}<span>Open the market</span></button></div>`)
+      : h(`<div class="gs-empty">${icon("ui/slot_empty", 48)}<span>Nothing yet. Things you buy in the shop are kept here.</span>
       <button type="button" class="primary">${icon("nav_shop")}<span>Open the shop</span></button></div>`);
-    empty.querySelector("button").onclick = () => go("shop");
+    empty.querySelector("button").onclick = () => { if (feature("market")) { marketStall(null); go("market"); } else go("shop"); };
     b.append(empty);
     body.append(b);
     return;

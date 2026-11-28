@@ -19760,11 +19760,6 @@
   "f": "web/js/game/fishing-ui.js"
  },
  {
-  "id": "d0a24ee1",
-  "k": "Your basket",
-  "f": "web/js/game/fishing-ui.js"
- },
- {
   "id": "1ea575fe",
   "k": "The pond: tap the water to cast",
   "f": "web/js/game/fishing-ui.js"
@@ -19772,6 +19767,11 @@
  {
   "id": "60745aef",
   "k": "Cast",
+  "f": "web/js/game/fishing-ui.js"
+ },
+ {
+  "id": "020b4183",
+  "k": "Basket",
   "f": "web/js/game/fishing-ui.js"
  },
  {
@@ -20075,11 +20075,6 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "25166bdb",
-  "k": "Rods",
-  "f": "web/js/game/fishscreen.js"
- },
- {
   "id": "a7e1cdb3",
   "k": "Fish caught",
   "f": "web/js/game/fishscreen.js"
@@ -20097,6 +20092,16 @@
  {
   "id": "34958467",
   "k": "Biggest this week",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "25166bdb",
+  "k": "Rods",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "09aecd39",
+  "k": "Holds {0} fish",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -20172,16 +20177,6 @@
  {
   "id": "a7e65514",
   "k": "Keep your best fish here. Your friends can see your aquarium.",
-  "f": "web/js/game/fishscreen.js"
- },
- {
-  "id": "09aecd39",
-  "k": "Holds {0} fish",
-  "f": "web/js/game/fishscreen.js"
- },
- {
-  "id": "020b4183",
-  "k": "Basket",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -21340,6 +21335,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "569bbd75",
+  "k": "Market",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "55de8870",
   "k": "Shop",
   "f": "web/js/game/habitat.js"
@@ -21743,6 +21743,11 @@
   "id": "eacac3ef",
   "k": "That egg is already in the incubator.",
   "f": "web/js/game/idle.js"
+ },
+ {
+  "id": "601b175b",
+  "k": "Open the market",
+  "f": "web/js/game/info.js"
  },
  {
   "id": "73ed2987",
@@ -22980,6 +22985,181 @@
   "f": "web/js/game/luck.js"
  },
  {
+  "id": "95a49f06",
+  "k": "Today's orders",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "cded0933",
+  "k": "Orders",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "2d402495",
+  "k": "Muffles want crops from your barn. Each order pays coins and wakes one of their forgotten words.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "a67f5ce4",
+  "k": "Bring us what we ask for from your barn. We pay in coins, and you'll hear one of our old words again.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "41dc2c98",
+  "k": "Tailor",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "d7c7c760",
+  "k": "Fresh things to wear every day, and things for your home. Pick one and your creature tries it on.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "9268cab8",
+  "k": "The herald",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "c81c947a",
+  "k": "Moves",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "29aeac04",
+  "k": "Battle moves: new tricks, not bigger numbers",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "0b21e9bc",
+  "k": "New tricks for battles. Each one is bought once, for all your creatures.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "aceca78e",
+  "k": "Baker",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "8efbff84",
+  "k": "Food, potions, eggs and keys; gems for glow",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "2ec596e8",
+  "k": "Food, potions and keys, fresh today. I'll trade you a gem for glow, too.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "8dd20f4d",
+  "k": "Seeds, farm upgrades and farm decorations",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "0a1a5224",
+  "k": "Seeds for your field, and things to help your farm along.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "d4d43394",
+  "k": "Grocer",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "4f366d20",
+  "k": "Buys your harvests for glow",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "fbf36a19",
+  "k": "I buy what you grow. Rarer harvests fetch more glow.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "44223786",
+  "k": "The cook",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "562a9fd8",
+  "k": "The Cookbook: dishes from your harvests",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "419fb83c",
+  "k": "Bring me your harvests and I'll cook you something good.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "0d57bd54",
+  "k": "Fisher",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "c3e4067a",
+  "k": "Rods and bigger aquariums",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "6a3711e1",
+  "k": "Luckier rods and bigger tanks, for the pearls in your rarer fish.",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "ef5aad8f",
+  "k": "Paid with coins, from studying",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "914760cc",
+  "k": "Paid with glow",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "eb0ee71f",
+  "k": "Paid with gems",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "78c9140e",
+  "k": "Paid with pearls",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "924218a6",
+  "k": "Pays coins",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "0694a426",
+  "k": "Pays glow",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "3f19a8e0",
+  "k": "All stalls",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "cb90cc67",
+  "k": "Stalls",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "a986aee7",
+  "k": "{0} wants {1} × {2}",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "6eb59c07",
+  "k": "Filled today",
+  "f": "web/js/game/market.js"
+ },
+ {
+  "id": "e36275ec",
+  "k": "No orders today.",
+  "f": "web/js/game/market.js"
+ },
+ {
   "id": "7548ab52",
   "k": "Power",
   "f": "web/js/game/movepick.js"
@@ -22993,11 +23173,6 @@
   "id": "bc6f4bc6",
   "k": "Heals",
   "f": "web/js/game/movepick.js"
- },
- {
-  "id": "c81c947a",
-  "k": "Moves",
-  "f": "web/js/game/movesui.js"
  },
  {
   "id": "eb10a5c1",
@@ -23747,6 +23922,11 @@
  {
   "id": "ca40be16",
   "k": "You learned {0}. Give it to a creature on the Creatures page.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "a8856a81",
+  "k": "Nothing yet. Things you buy at the market are kept here.",
   "f": "web/js/game/shop.js"
  },
  {

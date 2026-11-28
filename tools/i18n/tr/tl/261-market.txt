@@ -1,0 +1,38 @@
+# The Market (prototype market), 2026-11-27. Machine-made.
+569bbd75	Palengke
+601b175b	Buksan ang palengke
+95a49f06	Mga order ngayon
+cded0933	Mga order
+2d402495	Gusto ng mga Muffle ng ani mula sa kamalig mo. Bawat order ay nagbabayad ng barya at gumigising ng isa sa mga nakalimutan nilang salita.
+a67f5ce4	Dalhin mo sa amin ang hinihingi namin mula sa kamalig mo. Nagbabayad kami ng barya, at maririnig mo ulit ang isa sa mga lumang salita namin.
+41dc2c98	Mananahi
+d7c7c760	Mga bagong maisusuot araw-araw, at mga bagay para sa bahay mo. Pumili ng isa at susubukan ito ng nilalang mo.
+9268cab8	Ang tagapagbalita
+29aeac04	Mga galaw sa laban: bagong mga diskarte, hindi mas malalaking numero
+0b21e9bc	Bagong mga diskarte para sa laban. Isang beses lang binibili ang bawat isa, para sa lahat ng nilalang mo.
+aceca78e	Panadero
+8efbff84	Pagkain, gayuma, itlog at susi; hiyas kapalit ng liwanag
+2ec596e8	Pagkain, gayuma at susi, bagong gawa ngayon. Ipagpapalit din kita ng hiyas sa liwanag.
+8dd20f4d	Mga buto, upgrade at dekorasyon ng bukid
+0a1a5224	Mga buto para sa taniman mo, at mga bagay na tutulong sa bukid mo.
+d4d43394	Tindero
+4f366d20	Binibili ang ani mo kapalit ng liwanag
+fbf36a19	Binibili ko ang itinatanim mo. Mas bihirang ani, mas maraming liwanag.
+44223786	Ang kusinera
+562a9fd8	Ang Aklat ng Lutuin: mga ulam mula sa ani mo
+419fb83c	Dalhin mo ang ani mo at lulutuan kita ng masarap.
+0d57bd54	Mangingisda
+c3e4067a	Mga pamingwit at mas malalaking aquarium
+6a3711e1	Mas sinuswerteng pamingwit at mas malalaking aquarium, kapalit ng mga perlas ng mas bihira mong isda.
+ef5aad8f	Bayad ay barya, mula sa pag-aaral
+914760cc	Bayad ay liwanag
+eb0ee71f	Bayad ay hiyas
+78c9140e	Bayad ay perlas
+924218a6	Nagbabayad ng barya
+0694a426	Nagbabayad ng liwanag
+3f19a8e0	Lahat ng puwesto
+cb90cc67	Mga puwesto
+a986aee7	Gusto ni {0} ng {1} × {2}
+6eb59c07	Naibigay ngayon
+e36275ec	Walang order ngayon.
+a8856a81	Wala pa. Dito itinatago ang mga binibili mo sa palengke.

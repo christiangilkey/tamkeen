@@ -1,0 +1,28 @@
+# market icon (the Games tile and the Market's head): a striped awning on two wooden posts over a counter, fruit on it
+O #1e1230
+p #ff2a8a
+c #f3e6c8
+w #7a4d26
+h #a8794a
+d #5e391b
+g #46e062
+y #f9c80e
+o #ff8f1f
+r #e5484d
+--
+................
+..OOOOOOOOOOOO..
+.OppccppccppccO.
+OppccppccppccppO
+OppccppccppccppO
+OOOOOOOOOOOOOOOO
+..OwO......OwO..
+..OwO......OwO..
+..OwOgyorgyOwO..
+.OOOOOOOOOOOOOO.
+.OhhhhhhhhhhhhO.
+.OwwwwwwwwwwwwO.
+.OwddwwwwwwddwO.
+.OwwwwwwwwwwwwO.
+.OOOOOOOOOOOOOO.
+................

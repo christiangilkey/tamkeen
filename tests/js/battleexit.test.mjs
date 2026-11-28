@@ -87,7 +87,9 @@ test("the new words are translated in every app language", () => {
 test("the screens before a battle keep a visible way back: the game sheet's X, and ✕ and Close on its boxes", () => {
   assert.match(read("web/js/game/shop.js"), /<button type="button" class="ghost icon gs-close" data-close title="Close" aria-label="Close">\$\{icon\("close"\)\}<\/button>/);
   const parts = read("web/js/game/screenparts.js");
-  assert.match(parts, /export function details\(fill\) \{\s+const m = openModal\(\{ title: "", cls: "gs-detail-back" \}\);/, "details boxes (rental duel, gym leader) have the ✕");
+  // (a details box is the app's popup with its ✕, except when drawn into the Market's stall: screenparts.inline)
+  assert.match(parts, /export function details\(fill\) \{[\s\S]{0,240}?const m = into \? null : openModal\(\{ title: "", cls: "gs-detail-back" \}\);/, "details boxes (rental duel, gym leader) have the ✕");
+  assert.match(parts, /let inlineInto = null;/, "only inline() draws a box without its popup");
   const battle = read("web/js/game/battle-ui.js");
   assert.ok((battle.match(/\{ word: "Close", run: \(\) => d\.close\(\) \}/g) || []).length >= 1, "the rental duel's Close");
   assert.match(read("web/js/game/gyms-ui.js"), /\{ word: "Close", run: \(\) => d\.close\(\) \}/, "a gym leader's Close");

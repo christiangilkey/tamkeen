@@ -19,7 +19,7 @@ const hatched = (seed = 61) => { const s = newState(seed); s.creature.growth = 0
 const T0 = new Date("2026-11-06T09:00:00");
 
 test("each section is a screen of its own: its picture and name, no row of tabs", () => {
-  assert.deepEqual(Object.keys(SECTIONS).sort(), ["badges", "basket", "battle", "creatures", "fishdex", "fishing", "friends", "garden", "mine", "shop", "supplies"]);
+  assert.deepEqual(Object.keys(SECTIONS).sort(), ["badges", "basket", "battle", "creatures", "fishdex", "fishing", "friends", "garden", "market", "mine", "shop", "supplies"]);
   for (const id of Object.keys(SECTIONS)) {
     const s = screenOf(id);
     assert.equal(s.id, id);
@@ -42,7 +42,8 @@ test("Shop and My things share one switch, and so do Garden and Supplies, and Cr
   assert.deepEqual(screenOf("shop").switch, [{ id: "shop", word: "Buy", on: true }, { id: "mine", word: "My things", on: false }]);
   assert.deepEqual(screenOf("supplies").switch.map((o) => [o.id, o.on]), [["garden", false], ["supplies", true]]);
   assert.deepEqual(screenOf("badges").switch.map((o) => [o.id, o.word, o.on]), [["creatures", "Creatures", false], ["badges", "Badges", true]]);
-  for (const id of Object.keys(SECTIONS)) assert.ok(screenOf(id).switch.some((o) => o.id === id && o.on), `${id} is on a switch`);
+  for (const id of Object.keys(SECTIONS)) if (id !== "market") assert.ok(screenOf(id).switch.some((o) => o.id === id && o.on), `${id} is on a switch`);
+  assert.equal(screenOf("market").switch, null, "the Market is one sheet (prototype market): its stalls are inside it");
 });
 
 test("every section can still be reached: from the home card's buttons, then a switch", () => {
@@ -86,7 +87,7 @@ test("the head counts what the screen is paid with, and its '?' explains that", 
   assert.deepEqual(pillsOf("creatures", s), []);
   assert.deepEqual(Object.fromEntries(Object.keys(SECTIONS).map((id) => [id, screenOf(id).help])),
     { shop: "coin", mine: "coin", creatures: "evolve", badges: null, garden: "glow", supplies: "gem", battle: "battle", friends: "friends",
-      fishing: "fishing", basket: "fishing", fishdex: "fishing" });
+      fishing: "fishing", basket: "fishing", fishdex: "fishing", market: "coin" });
   s.fishing = { pearls: 7 };
   assert.deepEqual(pillsOf("fishing", s), [{ kind: "pearls", icon: "pearl", n: 7 }]);
   assert.deepEqual(pillsOf("basket", s).map((p) => [p.kind, p.n]), [["coins", 42], ["pearls", 7]]);

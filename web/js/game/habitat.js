@@ -51,6 +51,7 @@ import { ROOM, blockedCells, cellKey, clampToFloor, depthScale, findPath, isIndo
 import { SHRINE } from "./yard.js";
 import { COTTAGE, PIER_CHAIR, PIER_RIPPLES, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, cameraFor, decorSpot, plotSpot, stationAt, stationById, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
 import { DECALS, PROPS, ROOFS, ROOF_EXTRAS, SHEETS, TILE, drawCorners, roofRows } from "./battlemap.js";
+import { marketStall } from "./market.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -117,7 +118,7 @@ export function habitat() {
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
-        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
+        ${feature("market") ? tile("shop", "market", "Market") : tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
         ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
@@ -291,7 +292,8 @@ export function habitat() {
   // should automatically teleport the creature to specific spots in the viewer screen ... corresponding to what part
   // they are"): Shop the tailor's stall, Garden the fruit stall, Fishing the pier, Battle the hall (the gyms),
   // Creatures home to its room. The page opens as before; closed, there it stands.
-  $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
+  // (prototype "market": the tile is the Market, every stall in one sheet)
+  $("#g-shop").onclick = () => { teleportTo("cloth"); if (feature("market")) { marketStall(null); go("market"); } else go("shop"); };
   $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
   $("#g-garden").onclick = () => { // (the farm, with its buildings: prototype "farm"; with "farm_page" the tile is Farm and opens the farm page)
     teleportTo(feature("farm") ? "farm" : "fruit");
@@ -411,6 +413,7 @@ export function habitat() {
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
   files.tank = "fish/tank.png";
+  files.dresser = "room/dresser.png"; files.table = "room/table.png"; // (prototype "market": My things' dresser, the aquarium's table)
   files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png"; files.fire = "room/fire.png";
   // the room's own sky, seen through its window and doorway: a plain sun and moon and white clouds (the owner: "normal
   // clouds and sun", not the old neon ones, which the other scenes keep)
@@ -475,8 +478,15 @@ export function habitat() {
   const TANK_IN = { x: 184, y: 93 };
   const MAILBOX = { x: 92, y: 76 };
   const roomTank = () => (fishingOf(game).caught > 0 ? [{ id: "tank", x: TANK_IN.x, y: TANK_IN.y }] : []);
+  // (prototype "market", the owner: "my things should be moved to the cottage in a dresser", and "the fish in the
+  // cottage should be on a table": the dresser by the back wall, right of the window; the aquarium on a low table)
+  const marketOn = () => feature("market");
+  const DRESSER = { x: 242, y: 92 };
+  const roomDresser = () => (marketOn() ? [{ id: "dresser", x: DRESSER.x, y: DRESSER.y }] : []);
+  /** How far up the aquarium stands: on its table with the Market, else on the floor. */
+  const tankLift = () => (marketOn() && art.table ? art.table.height - 2 : 0);
   let rolling = null; // the ball, kicked: {id, from, to, t}
-  const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
+  const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank(), ...roomDresser()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
     : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells([...buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), ...farmStanding().map(([id, at]) => ({ id, x: at.x, y: at.y }))], () => 26, FARM_WALK))
@@ -1145,9 +1155,12 @@ export function habitat() {
     const feet = feetNow();
     const pieces = inRoom() ? furniture() : [];
     const drawPiece = (d) => {
+      if (d.id === "dresser") { if (art.dresser) ctx.drawImage(art.dresser, Math.round(d.x - art.dresser.width / 2), d.y - art.dresser.height + 2); return; }
       if (d.id === "tank") { // the aquarium, its fish swimming (very small)
         if (!art.tank) return;
-        const tx = d.x - art.tank.width / 2, ty = d.y - art.tank.height + 2;
+        const lift = tankLift(); // (on its table: prototype "market")
+        if (lift) ctx.drawImage(art.table, Math.round(d.x - art.table.width / 2), d.y - art.table.height + 2);
+        const tx = d.x - art.tank.width / 2, ty = d.y - lift - art.tank.height + 2;
         ctx.drawImage(art.tank, tx, ty);
         drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
         return;
@@ -1401,6 +1414,9 @@ export function habitat() {
       sfx("tick");
       pet.mood = "happy"; pet.moodT = 3;
       setTimeout(() => { if (!disposed && inRoom()) walkTo({ x: to.x + 14, y: to.y }); }, 650);
+    } else if (what === "dresser") { // it opens a drawer: My things (prototype "market")
+      emote("idea", 1);
+      setTimeout(() => { if (!disposed) go("mine"); }, 500);
     } else if (what === "tank") { // it watches the fish a moment, then your basket opens
       emote("love", 1.2);
       setTimeout(() => { if (!disposed) go("basket"); }, 700);
@@ -1412,6 +1428,9 @@ export function habitat() {
   /** What a station in the village opens (yard.js STATIONS): a page of the game sheet, the pond, the gyms, the tavern. */
   function openStation(st) {
     sfx("tick");
+    // (prototype "market": the market's stalls open their own stall of the Market sheet)
+    const stallOf = { cloth: "tailor", bread: "baker", flowers: "florist", fruit: "grocer" }[st.id];
+    if (feature("market") && stallOf) { marketStall(stallOf); go("market"); return; }
     if (st.opens === "pond") openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
     else if (st.opens === "garden" && farmOn()) openFruitStall({ changed: () => paintHud() }); // (slice 4: selling harvests)
     else if (st.opens === "gyms" && roomOn()) goThrough("hall"); // (in through its door: the custodian keeps the register)
@@ -1734,8 +1753,13 @@ export function habitat() {
     if (inRoom() && !pressed && tapIn(x, y) === "door") { sfx("tick"); goThrough("yard"); return; } // (even with the creature in front of it)
     if (inRoom() && !pressed && !onCreature(x, y)) {
       // the aquarium: it walks over and watches the fish, then your basket opens
-      if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30) {
+      if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30 - tankLift()) {
         if (isEgg()) go("basket"); else walkTo({ x: TANK_IN.x, y: TANK_IN.y + 8 }, "use:tank");
+        return;
+      }
+      // the dresser (prototype "market"): it walks over, and My things opens
+      if (roomDresser().length && Math.abs(x - DRESSER.x) < 14 && y < DRESSER.y + 3 && y > DRESSER.y - 30) {
+        if (isEgg()) go("mine"); else walkTo({ x: DRESSER.x, y: DRESSER.y + 8 }, "use:dresser");
         return;
       }
       // (the door, above: straight out from anywhere in the room, the owner: "Clicking on the door once should just

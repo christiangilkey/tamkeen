@@ -1,0 +1,38 @@
+# The Market (prototype market), 2026-11-27. Machine-made.
+569bbd75	Marché
+601b175b	Ouvrir le marché
+95a49f06	Commandes du jour
+cded0933	Commandes
+2d402495	Les Muffles veulent des récoltes de ta grange. Chaque commande paie des pièces et réveille un de leurs mots oubliés.
+a67f5ce4	Apporte-nous ce qu'on demande de ta grange. On paie en pièces, et tu réentendras un de nos vieux mots.
+41dc2c98	Tailleur
+d7c7c760	Des choses à porter, nouvelles chaque jour, et des choses pour ta maison. Choisis-en une et ta créature l'essaie.
+9268cab8	Le héraut
+29aeac04	Attaques de combat : de nouveaux tours, pas de plus gros chiffres
+0b21e9bc	De nouveaux tours pour les combats. Chacun s'achète une fois, pour toutes tes créatures.
+aceca78e	Boulanger
+8efbff84	Nourriture, potions, œufs et clés ; des gemmes contre de la lueur
+2ec596e8	Nourriture, potions et clés, toutes fraîches aujourd'hui. Je t'échange aussi une gemme contre de la lueur.
+8dd20f4d	Graines, améliorations et décorations pour la ferme
+0a1a5224	Des graines pour ton champ, et de quoi aider ta ferme.
+d4d43394	Épicier
+4f366d20	Achète tes récoltes contre de la lueur
+fbf36a19	J'achète ce que tu fais pousser. Les récoltes plus rares rapportent plus de lueur.
+44223786	La cuisinière
+562a9fd8	Le livre de recettes : des plats avec tes récoltes
+419fb83c	Apporte-moi tes récoltes et je te cuisine quelque chose de bon.
+0d57bd54	Pêcheur
+c3e4067a	Cannes et aquariums plus grands
+6a3711e1	Des cannes plus chanceuses et des aquariums plus grands, contre les perles de tes poissons plus rares.
+ef5aad8f	Payé en pièces, gagnées en étudiant
+914760cc	Payé en lueur
+eb0ee71f	Payé en gemmes
+78c9140e	Payé en perles
+924218a6	Paie des pièces
+0694a426	Paie de la lueur
+3f19a8e0	Tous les étals
+cb90cc67	Étals
+a986aee7	{0} veut {1} × {2}
+6eb59c07	Livrée aujourd'hui
+e36275ec	Aucune commande aujourd'hui.
+a8856a81	Rien pour l'instant. Ce que tu achètes au marché est rangé ici.

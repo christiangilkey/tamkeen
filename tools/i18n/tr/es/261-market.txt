@@ -1,0 +1,38 @@
+# The Market (prototype market), 2026-11-27. Machine-made.
+569bbd75	Mercado
+601b175b	Abrir el mercado
+95a49f06	Pedidos de hoy
+cded0933	Pedidos
+2d402495	Los Muffles quieren cosechas de tu granero. Cada pedido paga monedas y despierta una de sus palabras olvidadas.
+a67f5ce4	Tráenos lo que pedimos de tu granero. Pagamos en monedas, y volverás a oír una de nuestras palabras antiguas.
+41dc2c98	Sastre
+d7c7c760	Cosas nuevas para vestir cada día, y cosas para tu casa. Elige una y tu criatura se la prueba.
+9268cab8	El heraldo
+29aeac04	Movimientos de batalla: trucos nuevos, no números más grandes
+0b21e9bc	Trucos nuevos para las batallas. Cada uno se compra una vez, para todas tus criaturas.
+aceca78e	Panadero
+8efbff84	Comida, pociones, huevos y llaves; gemas por brillo
+2ec596e8	Comida, pociones y llaves, recién hechas hoy. También te cambio una gema por brillo.
+8dd20f4d	Semillas, mejoras y decoraciones para la granja
+0a1a5224	Semillas para tu campo, y cosas que ayudan a tu granja.
+d4d43394	Tendero
+4f366d20	Compra tus cosechas por brillo
+fbf36a19	Compro lo que cultivas. Las cosechas más raras valen más brillo.
+44223786	La cocinera
+562a9fd8	El recetario: platos con tus cosechas
+419fb83c	Tráeme tus cosechas y te cocino algo rico.
+0d57bd54	Pescador
+c3e4067a	Cañas y acuarios más grandes
+6a3711e1	Cañas con más suerte y acuarios más grandes, por las perlas de tus peces más raros.
+ef5aad8f	Se paga con monedas, ganadas estudiando
+914760cc	Se paga con brillo
+eb0ee71f	Se paga con gemas
+78c9140e	Se paga con perlas
+924218a6	Paga monedas
+0694a426	Paga brillo
+3f19a8e0	Todos los puestos
+cb90cc67	Puestos
+a986aee7	{0} quiere {1} × {2}
+6eb59c07	Entregado hoy
+e36275ec	No hay pedidos hoy.
+a8856a81	Aún nada. Lo que compres en el mercado se guarda aquí.

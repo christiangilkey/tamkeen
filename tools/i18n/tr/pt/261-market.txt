@@ -1,0 +1,38 @@
+# The Market (prototype market), 2026-11-27. Machine-made.
+569bbd75	Mercado
+601b175b	Abrir o mercado
+95a49f06	Pedidos de hoje
+cded0933	Pedidos
+2d402495	Os Muffles querem colheitas do seu celeiro. Cada pedido paga moedas e desperta uma das palavras esquecidas deles.
+a67f5ce4	Traga o que pedimos do seu celeiro. Pagamos em moedas, e você vai ouvir de novo uma das nossas palavras antigas.
+41dc2c98	Alfaiate
+d7c7c760	Coisas novas para vestir todo dia, e coisas para a sua casa. Escolha uma e sua criatura experimenta.
+9268cab8	O arauto
+29aeac04	Golpes de batalha: truques novos, não números maiores
+0b21e9bc	Truques novos para batalhas. Cada um é comprado uma vez, para todas as suas criaturas.
+aceca78e	Padeiro
+8efbff84	Comida, poções, ovos e chaves; gemas por brilho
+2ec596e8	Comida, poções e chaves, fresquinhas hoje. Também troco uma gema por brilho.
+8dd20f4d	Sementes, melhorias e decorações para a fazenda
+0a1a5224	Sementes para o seu campo, e coisas que ajudam a sua fazenda.
+d4d43394	Verdureiro
+4f366d20	Compra suas colheitas por brilho
+fbf36a19	Compro o que você planta. Colheitas mais raras valem mais brilho.
+44223786	A cozinheira
+562a9fd8	O livro de receitas: pratos das suas colheitas
+419fb83c	Traga suas colheitas e eu cozinho algo gostoso.
+0d57bd54	Pescador
+c3e4067a	Varas e aquários maiores
+6a3711e1	Varas mais sortudas e aquários maiores, pelas pérolas dos seus peixes mais raros.
+ef5aad8f	Pago com moedas, ganhas estudando
+914760cc	Pago com brilho
+eb0ee71f	Pago com gemas
+78c9140e	Pago com pérolas
+924218a6	Paga moedas
+0694a426	Paga brilho
+3f19a8e0	Todas as barracas
+cb90cc67	Barracas
+a986aee7	{0} quer {1} × {2}
+6eb59c07	Entregue hoje
+e36275ec	Nenhum pedido hoje.
+a8856a81	Nada ainda. O que você comprar no mercado fica guardado aqui.
