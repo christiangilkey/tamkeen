@@ -228,6 +228,13 @@
       "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 10, "stardust": 0, "released": [], "keyed": ["memory_stone"], "plots": [{"open": true, "id": "word_sprout", "tier": 1, "stored": 0}]}},
       "keep": "merged",
       "expect": {"idle.keyed": ["echo_shell", "memory_stone"], "idle.plots.0.tier": 2, "idle.plots.0.at.x": 400}
+    },
+    {
+      "name": "the farm's plants (growth, 2026-11-28): the copy with the later farm action is kept, but a plant both copies have keeps the higher maturity (growth from studying on either device); a different planting in the same spot doesn't",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}], "farm": {"at": 500, "fence": 0, "plots": {"0,0": {"crop": "tomato", "m": 20, "days": 0, "last": 5, "planted": 5}, "1,0": {"crop": "basil", "m": 3, "days": 0, "last": 6, "planted": 6}}, "seeds": {}, "barn": {"basil:0": 2}}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "farm": {"at": 400, "fence": 0, "plots": {"0,0": {"crop": "tomato", "m": 55, "days": 2, "last": 5, "planted": 5}, "1,0": {"crop": "basil", "m": 40, "days": 1, "last": 2, "planted": 2}}, "seeds": {}, "barn": {}}},
+      "keep": "merged",
+      "expect": {"farm.at": 500, "farm.barn.basil:0": 2, "farm.plots.0,0.m": 55, "farm.plots.0,0.days": 2, "farm.plots.1,0.m": 3, "farm.plots.1,0.planted": 6}
     }
   ]
 }

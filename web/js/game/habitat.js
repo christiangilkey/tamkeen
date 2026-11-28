@@ -20,7 +20,7 @@ import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, inPen, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
 import { openFarm } from "./farmpage.js";
-import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
+import { askToDig, askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
 import { states as reviewStates } from "../review/deck.js";
@@ -1494,7 +1494,7 @@ export function habitat() {
           const by = at.y - 20 + Math.round(Math.sin(now / 260 + sp.c + sp.r) * 1.5);
           ctx.fillStyle = "#1e2a44";
           ctx.fillRect(at.x - 2, by - 1, 5, 6); ctx.fillRect(at.x - 1, by - 3, 3, 2);
-          ctx.fillStyle = st.half ? "#8ab8e8" : "#4a9ae8";
+          ctx.fillStyle = "#4a9ae8";
           ctx.fillRect(at.x - 1, by, 3, 4); ctx.fillRect(at.x, by - 2, 1, 2);
           ctx.fillStyle = "#c8e8ff"; ctx.fillRect(at.x - 1, by, 1, 1);
         }
@@ -1589,12 +1589,18 @@ export function habitat() {
     const at = (() => { const [c, r] = key.split(",").map(Number); return spotXY(c, r); })();
     if (!st) { pickSeed(key, { changed: () => paintHud(), planted: () => emote("idea", 1.2) }); return; }
     if (st.ripe) { reap(key, at); return; }
-    if (!st.thirsty) { plantCard(key, { harvest: () => reap(key, at) }); return; }
-    const r = await askToWater(key);
-    if (!r) return;
-    if (r.correct || r.grew) bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
-    if (r.revived) toast(t("It perked up again."));
-    if (r.ripe) { emote("love", 1.5); toast(t("Ripe! Tap it to harvest.")); }
+    // a growing (or resting) plant: its card, how far it has grown, Water and Dig up (each asks a word)
+    plantCard(key, {
+      water: st.growing ? async () => {
+        const r = await askToWater(key);
+        if (!r) return;
+        bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
+        if (r.revived) toast(t("It perked up again."));
+        if (r.ripe) { emote("love", 1.5); toast(t("Ripe! Tap it to harvest.")); }
+      } : null,
+      dig: async () => { const r = await askToDig(key); if (r) paintHud(); },
+      harvest: () => reap(key, at),
+    });
   }
   function reap(key, at) {
     const got = harvestPlant(game, key);

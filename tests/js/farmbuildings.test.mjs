@@ -11,8 +11,8 @@ globalThis.localStorage = { getItem: (k) => (k === "tamkeenPrototype" ? "1" : nu
 const { buildOptions, buildingName, structureArt } = await import("../../web/js/game/sections.js");
 const { build, garden, useKey } = await import("../../web/js/game/idle.js");
 const {
-  ECHO_EVERY, SPROUT_EVERY, beesToday, buildingsOn, buySeeds, farmJobs, harvest, nearTier, placeBuilding, plant, plantState,
-  stoneLuck, water,
+  ECHO_EVERY, ECHO_GROW, GROW_PER_WORD, LANTERN_GROW, SPROUT_EVERY, WATER_BOOST, beesToday, buildingsOn, buySeeds, farmJobs, grow,
+  harvest, nearTier, placeBuilding, plant, plantState, stoneLuck, water,
 } = await import("../../web/js/game/farm.js");
 const { BUILD_SPOTS, canPlace, spotXY } = await import("../../web/js/game/farmmap.js");
 const { dayKey } = await import("../../web/js/game/rules.js");
@@ -77,26 +77,27 @@ test("Word Sprout: lookups drop seeds of this week's crops, a few a day; lookups
   assert.equal(farmJobs(s, () => 0, day(1)).seeds.length, 1, "a new day");
 });
 
-test("Echo Shell: listening today waters the thirsty plants, wilted ones first", () => {
+test("Echo Shell: on a listening day every word grows every plant more (growth, 2026-11-28; it no longer waters)", () => {
   const s = game([slot("echo_shell", 1)]);
   buySeeds(s, s.idle, "basil", 2, day(0));
   plant(s, "0,0", "basil", day(0));
   plant(s, "1,0", "basil", day(0));
+  s.day = { key: dayKey(day(3)), listen: ECHO_EVERY[1] - 5 };
+  assert.deepEqual(grow(s, 1, day(3)), { "0,0": GROW_PER_WORD, "1,0": GROW_PER_WORD }, "not yet a listening day: a word's usual growth");
   s.day = { key: dayKey(day(3)), listen: ECHO_EVERY[1] + 5 };
-  const r = farmJobs(s, Math.random, day(3));
-  assert.equal(r.watered.length, 1);
-  assert.equal(plantState(s, r.watered[0], day(3)).watered, true);
-  assert.equal(farmJobs(s, Math.random, day(3)).watered.length, 0, "each stretch of listening waters once");
+  assert.deepEqual(grow(s, 1, day(3)), { "0,0": GROW_PER_WORD * ECHO_GROW[1], "1,0": GROW_PER_WORD * ECHO_GROW[1] });
+  assert.deepEqual(farmJobs(s, Math.random, day(3)).watered, [], "the shell waters nothing itself");
 });
 
-test("Page Lantern: on a reading day a plant near it grows two days for one watering; Memory Stone: better harvest luck", () => {
+test("Page Lantern: on a reading day plants near it grow twice as much from words and waterings; Memory Stone: better harvest luck", () => {
   const s = game([slot("page_lantern", 1, BUILD_SPOTS[0])]); // (its first spot by the entrance: beside the field's east columns)
   buySeeds(s, s.idle, "wheat", 1, day(0));
   plant(s, "0,2", "wheat", day(0));
   assert.ok(nearTier(s, "lantern", "0,2") > 0);
   s.day = { key: dayKey(day(0)), read: 600 };
   assert.equal(water(s, "0,2", true, day(0)).lantern, true);
-  assert.equal(plantState(s, "0,2", day(0)).days, 2);
+  assert.equal(plantState(s, "0,2", day(0)).m, WATER_BOOST * LANTERN_GROW);
+  assert.deepEqual(grow(s, 1, day(0)), { "0,2": GROW_PER_WORD * LANTERN_GROW });
   assert.equal(stoneLuck(game()), 1);
   assert.ok(stoneLuck(game([slot("memory_stone", 2)])) > 1.3);
 });
@@ -109,8 +110,7 @@ test("Spelling Bee Hive: a bee for each word saved today; crops near it give mor
   assert.equal(s.farm.honey, 1, "a jar every 6 words at tier 1");
   buySeeds(s, s.idle, "basil", 1, day(0));
   plant(s, "0,0", "basil", day(0));
-  water(s, "0,0", true, day(0));
-  water(s, "0,0", true, day(1));
+  grow(s, 50, day(1)); // (basil ripens at 50: fifty words studied)
   const got = harvest(s, "0,0", () => 0, day(1));
   assert.equal(got.n, 2 + 1, "basil's least, and one more for the bees");
 });

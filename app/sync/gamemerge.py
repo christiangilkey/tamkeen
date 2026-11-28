@@ -178,12 +178,26 @@ def _join_home(x: Any, y: Any) -> Any:
 
 
 def _join_farm(x: Any, y: Any) -> Any:
-    """The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole (as merge.js
-    joinFarm)."""
+    """The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole; but a plant
+    both copies have (the same crop, planted the same day) keeps the higher maturity (`m`, and `days` with it), since
+    growth comes from studying on any device and isn't stamped (as merge.js joinFarm)."""
     x, y = _obj(x), _obj(y)
     if x is None or y is None:
         return x if x is not None else y
-    return y if _num(y.get("at")) > _num(x.get("at")) else x
+    win, other = (y, x) if _num(y.get("at")) > _num(x.get("at")) else (x, y)
+    plots, theirs = _obj(win.get("plots")), _obj(other.get("plots"))
+    if plots is None or theirs is None:
+        return win
+    out: dict[str, Any] = {}
+    for k, p in plots.items():
+        q = _obj(theirs.get(k))
+        same = _obj(p) is not None and q is not None and q.get("crop") == p.get("crop") and _num(q.get("planted")) == _num(p.get("planted"))
+        if same and _num(q.get("m")) > _num(p.get("m")):
+            days = q.get("days") if _num(q.get("days")) > _num(p.get("days")) else p.get("days")
+            out[k] = {**p, "m": q.get("m"), "days": days}
+        else:
+            out[k] = p
+    return {**win, "plots": out}
 
 
 def _join_day_count(x: Any, y: Any) -> Any:

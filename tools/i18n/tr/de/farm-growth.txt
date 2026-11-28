@@ -1,0 +1,21 @@
+dee960dd	Reift nach etwa {0} gelernten Wörtern
+b3593b89	Sie sieht etwas welk aus: Gieß sie, damit sie sich erholt. Sie wächst trotzdem mit jedem Wort, das du lernst.
+a29dc69d	Jedes Wort, das du lernst, lässt sie ein wenig wachsen. Gießen gibt ihr einen größeren Schub.
+de9b1be4	Gießen
+22026187	Ausgraben
+32fe9f5b	Samen
+4b214b87	Keimling
+dcf20f49	Wächst
+707d1289	Reif
+e1526042	Ausgraben: {0}
+655a699b	Richtig! Ausgegraben, und ihr Samen liegt wieder bei deinen Samen.
+dcdcd1d3	Nicht ganz, aber ausgegraben ist sie trotzdem, und ihr Samen liegt wieder bei deinen Samen.
+97ea1ca3	Richtig! Sie und {0} weitere sind gegossen.
+261e21e2	Richtig! Gegossen.
+892257df	Nicht ganz, aber gegossen ist sie trotzdem.
+a1fd042d	Sie ist reif: Ernte sie lieber.
+37258b24	Jedes Gießen gießt auch eine durstige Pflanze daneben (zwei auf der zweiten Stufe).
+67e86475	Jedes Wort, das du lernst, lässt alle deine Pflanzen ein wenig wachsen. Tippe auf ein Beet: Pflanzen, Gießen, Ernten und Ausgraben fragen jeweils eines deiner Wörter ab.
+3b0a62f0	Gerade wächst nichts.
+d644c26f	Auf dem Hof ist es ein Regenglockenspiel: An einem Tag, an dem du eine Weile zuhörst, lässt jedes Wort, das du lernst, deine Pflanzen stärker wachsen.
+d73359fa	Auf dem Hof erhellt sie das Feld: An einem Tag, an dem du 10 Minuten liest, wachsen Pflanzen in ihrer Nähe doppelt so viel.

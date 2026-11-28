@@ -150,12 +150,22 @@ function joinRounds(x, y) {
 }
 
 /** The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole, as the home's
- * layout (each change to it stamps `at`). */
+ * layout (each farm action stamps `at`); but a plant both copies have (the same crop, planted the same day) keeps the
+ * higher maturity (`m`, and `days` with it): growth comes from studying on any device and isn't stamped (farm.js grow). */
 function joinFarm(x, y) {
   x = obj(x);
   y = obj(y);
   if (!x || !y) return x || y;
-  return num(y.at) > num(x.at) ? y : x;
+  const [win, other] = num(y.at) > num(x.at) ? [y, x] : [x, y];
+  const plots = obj(win.plots), theirs = obj(other.plots);
+  if (!plots || !theirs) return win;
+  const out = {};
+  for (const [k, p] of Object.entries(plots)) {
+    const q = obj(theirs[k]);
+    const same = obj(p) && q && q.crop === p.crop && num(q.planted) === num(p.planted);
+    out[k] = same && num(q.m) > num(p.m) ? { ...p, m: q.m, days: num(q.days) > num(p.days) ? q.days : p.days } : p;
+  }
+  return { ...win, plots: out };
 }
 
 /** The home's layout (home.js: where the creature has put the decorations): the one changed later, whole. */

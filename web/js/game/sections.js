@@ -81,8 +81,8 @@ export const buildingName = (s) => (s.id === "ink_well" ? "Spelling Bee Hive" : 
 /** What each building does on the farm (prototype "farm"; farm.js farmJobs), for its details box. */
 export const FARM_JOBS = {
   word_sprout: "On the farm it is a seed tree: words you look up make it drop free seeds.",
-  echo_shell: "On the farm it is a rain chime: time spent listening waters your thirsty plants.",
-  page_lantern: "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow two days for one watering.",
+  echo_shell: "On the farm it is a rain chime: on a day you listen for a while, every word you study grows your plants more.",
+  page_lantern: "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow twice as much.",
   ink_well: "Each word you save brings a bee. With bees about, crops near the hive give more, and saved words make honey.",
   memory_stone: "Words you know well make better harvests: rarer crops all over the farm.",
 };

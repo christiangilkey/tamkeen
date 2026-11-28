@@ -1,0 +1,21 @@
+dee960dd	Mahinog human sa mga {0} ka pulong nga gitun-an
+b3593b89	Morag nalaya kini gamay: bisibisi aron mobuhi pag-usab. Motubo gihapon kini sa matag pulong nga imong tun-an.
+a29dc69d	Ang matag pulong nga imong tun-an mopatubo niini og gamay. Ang pagbisibis mohatag og mas dakong duso.
+de9b1be4	Bisibisi
+22026187	Ibton
+32fe9f5b	Liso
+4b214b87	Turok
+dcf20f49	Nagtubo
+707d1289	Hinog
+e1526042	Ibton ang {0}
+655a699b	Sakto! Naibot na, ug nibalik ang liso niini sa imong mga liso.
+dcdcd1d3	Dili kaayo, apan naibot gihapon, ug nibalik ang liso niini sa imong mga liso.
+97ea1ca3	Sakto! Nabisibisan kini ug {0} pa.
+261e21e2	Sakto! Nabisibisan na.
+892257df	Dili kaayo, apan nabisibisan gihapon.
+a1fd042d	Hinog na: anihon na lang hinuon.
+37258b24	Ang matag pagbisibis mobisibis usab sa usa ka giuhaw nga tanom tupad niini (duha sa ikaduhang lebel).
+67e86475	Ang matag pulong nga imong tun-an mopatubo og gamay sa tanan nimong tanom. I-tap ang usa ka luna: ang pagtanom, pagbisibis, pag-ani ug pag-ibot, matag usa mangutana og usa sa imong mga pulong.
+3b0a62f0	Walay nagtubo karon.
+d644c26f	Sa umahan, kini usa ka kampanilya sa ulan: sa adlaw nga maminaw ka og kadiyot, ang matag pulong nga imong tun-an mopatubo og dugang sa imong mga tanom.
+d73359fa	Sa umahan, kini modan-ag sa uma: sa adlaw nga mobasa ka og 10 ka minuto, ang mga tanom duol niini motubo og doble.

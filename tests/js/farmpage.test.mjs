@@ -15,11 +15,13 @@ test("released for everybody in v0.78.0; the code still asks its switch", () => 
   assert.match(h, /if \(feature\("farm_page"\) && inPen\(x, y, fw, fh\)\) \{ sfx\("tick"\); openFarm\(/, "so does a tap anywhere in the village's farm pen");
 });
 
-test("every planting, watering and harvest asks one of your words first, and a wrong answer never loses the seed or the crop", () => {
+test("every planting, watering, harvest and dig asks one of your words first, and a wrong answer never loses the seed or the crop", () => {
   const p = src("farmpage.js");
   assert.match(p, /await ask\("plant", key, c,/);
   assert.match(p, /await ask\("harvest", key, s\.crop, \(\) => harvest\(game, key\)\)/, "harvested right or wrong");
-  assert.match(p, /await ask\("water", key, s\.crop, \(correct\) => \{ const r = water\(game, key, correct\)/, "a wrong answer gives a little water, as in the village");
+  assert.match(p, /return ask\("water", key, s\.crop, \(\) => \{ const r = water\(game, key, true\)/, "right or wrong, a full watering (the owner's rule)");
+  assert.match(p, /return ask\("dig", key, s\.crop, \(\) => \{ const err = digUp\(game, key\)/, "dug up right or wrong, the seed back");
+  assert.match(p, /plantCard\(key, \{ water: s\.growing \? \(\) => waterPlot\(key\) : null, dig: \(\) => digPlot\(key\)/, "a plant's card: Water and Dig up");
   assert.match(p, /answerQuestion\(game, q\.uid, correct\)/);
   assert.match(p, /if \(!q\) \{ finish\(kind, key, crop, true, act\(true\)\); return; \}/, "with no word to ask it is done at once");
 });

@@ -1,0 +1,21 @@
+dee960dd	Madura tras unas {0} palabras estudiadas
+b3593b89	Se ve un poco mustia: riégala para que se reanime. Sigue creciendo con cada palabra que estudias.
+a29dc69d	Cada palabra que estudias la hace crecer un poco. Regarla le da un empujón mayor.
+de9b1be4	Regar
+22026187	Desenterrar
+32fe9f5b	Semilla
+4b214b87	Brote
+dcf20f49	Creciendo
+707d1289	Madura
+e1526042	Desenterrar: {0}
+655a699b	¡Correcto! Ya está desenterrada y su semilla vuelve a tus semillas.
+dcdcd1d3	No exactamente, pero se ha desenterrado igual y su semilla vuelve a tus semillas.
+97ea1ca3	¡Correcto! Se han regado esta y {0} más.
+261e21e2	¡Correcto! Ya está regada.
+892257df	No exactamente, pero se ha regado igual.
+a1fd042d	Está madura: mejor coséchala.
+37258b24	Cada riego también riega una planta sedienta de al lado (dos en el segundo nivel).
+67e86475	Cada palabra que estudias hace crecer un poco todas tus plantas. Toca una parcela: plantar, regar, cosechar y desenterrar te piden una de tus palabras.
+3b0a62f0	Ahora mismo no crece nada.
+d644c26f	En la granja es un carillón de lluvia: el día que escuchas un rato, cada palabra que estudias hace crecer más tus plantas.
+d73359fa	En la granja ilumina el campo: el día que lees 10 minutos, las plantas cercanas crecen el doble.

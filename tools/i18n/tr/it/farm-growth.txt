@@ -1,0 +1,21 @@
+dee960dd	Matura dopo circa {0} parole studiate
+b3593b89	Sembra un po' appassita: annaffiala per rianimarla. Cresce comunque con ogni parola che studi.
+a29dc69d	Ogni parola che studi la fa crescere un po'. Annaffiarla le dà una spinta più grande.
+de9b1be4	Annaffia
+22026187	Sradica
+32fe9f5b	Seme
+4b214b87	Germoglio
+dcf20f49	In crescita
+707d1289	Maturo
+e1526042	Sradica: {0}
+655a699b	Giusto! È sradicata, e il suo seme è tornato tra i tuoi semi.
+dcdcd1d3	Non proprio, ma è sradicata lo stesso, e il suo seme è tornato tra i tuoi semi.
+97ea1ca3	Giusto! Annaffiate questa e altre {0}.
+261e21e2	Giusto! È annaffiata.
+892257df	Non proprio, ma è annaffiata lo stesso.
+a1fd042d	È matura: raccoglila invece.
+37258b24	Ogni annaffiatura annaffia anche una pianta assetata accanto (due al secondo livello).
+67e86475	Ogni parola che studi fa crescere un po' tutte le tue piante. Tocca un appezzamento: piantare, annaffiare, raccogliere e sradicare ti chiedono ciascuno una delle tue parole.
+3b0a62f0	Al momento non cresce niente.
+d644c26f	Nella fattoria è un carillon della pioggia: nel giorno in cui ascolti per un po', ogni parola che studi fa crescere di più le tue piante.
+d73359fa	Nella fattoria illumina il campo: nel giorno in cui leggi per 10 minuti, le piante vicine crescono il doppio.

@@ -1,0 +1,21 @@
+dee960dd	Madura després d'unes {0} paraules estudiades
+b3593b89	Sembla una mica pansida: rega-la perquè es refaci. Continua creixent amb cada paraula que estudies.
+a29dc69d	Cada paraula que estudies la fa créixer una mica. Regar-la li dona un impuls més gran.
+de9b1be4	Regar
+22026187	Desenterrar
+32fe9f5b	Llavor
+4b214b87	Brot
+dcf20f49	Creixent
+707d1289	Madura
+e1526042	Desenterrar: {0}
+655a699b	Correcte! Ja està desenterrada i la seva llavor torna a les teves llavors.
+dcdcd1d3	No del tot, però s'ha desenterrat igualment i la seva llavor torna a les teves llavors.
+97ea1ca3	Correcte! S'han regat aquesta i {0} més.
+261e21e2	Correcte! Ja està regada.
+892257df	No del tot, però s'ha regat igualment.
+a1fd042d	Està madura: millor cull-la.
+37258b24	Cada reg també rega una planta assedegada del costat (dues al segon nivell).
+67e86475	Cada paraula que estudies fa créixer una mica totes les teves plantes. Toca una parcel·la: plantar, regar, collir i desenterrar et demanen una de les teves paraules.
+3b0a62f0	Ara mateix no creix res.
+d644c26f	A la granja és un carilló de pluja: el dia que escoltes una estona, cada paraula que estudies fa créixer més les teves plantes.
+d73359fa	A la granja il·lumina el camp: el dia que llegeixes 10 minuts, les plantes properes creixen el doble.

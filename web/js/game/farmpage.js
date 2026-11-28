@@ -7,7 +7,7 @@
 // words on the page's own question panel; then that job's moment plays on the plot (game-art/farm/card.png): planting
 // digs, drops the seed and a sprout pops up; watering pours the can, the soil darkens and the plant grows; a wrong
 // watering drizzles; a harvest pops out with its rarity reveal (reveal.js, as fishing's catch). The owner's rules hold:
-// nothing pays for speed (the chain is a sound, not a reward), crops still ripen over different days, nothing dies.
+// nothing pays for speed (the chain is a sound, not a reward), every word studied grows every plant, nothing dies.
 
 import { h, toast } from "../app.js";
 import { t } from "../i18n.js";
@@ -19,8 +19,8 @@ import { garden } from "./idle.js";
 import { artCache, composeCreature, icon } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
-import { CROPS, barnCap, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
-import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand, sayAnswer } from "./farm-ui.js";
+import { CROPS, barnCap, barnCount, digUp, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
+import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand, plantCard, sayAnswer } from "./farm-ui.js";
 import { feature } from "../prototype.js";
 import { cardsWaiting, dockReview } from "./reviewplay.js";
 
@@ -68,7 +68,7 @@ export function openFarm({ changed = () => {} } = {}) {
   $(".farmp-next").innerHTML = dropIcon();
   $(".farmp-next").append(` ${t("Water next")}`);
   $(".farmp-stand").textContent = t("Seed stand");
-  $(".farmp-hint").textContent = t("Tap a plot. Every planting, watering and harvest asks one of your words.");
+  $(".farmp-hint").textContent = t("Every word you study grows all your plants a little. Tap a plot: planting, watering, harvesting and digging up each ask one of your words.");
   $(".farmp-chain span").textContent = t("Watering chain");
 
   let alive = true, busy = false, seed = null, chain = 0;
@@ -107,15 +107,15 @@ export function openFarm({ changed = () => {} } = {}) {
     $(".farmp-season").textContent = t(SEASON_NAME[seasonOf(now)]);
     $(".farmp-glow b").textContent = Math.floor(garden(game).glow).toLocaleString();
     $(".farmp-barn b").textContent = barnCount(game).toLocaleString();
-    let thirsty = 0, ripe = 0, empty = 0;
-    for (const k of keys()) { const s = plantState(game, k); if (!s) empty++; else if (s.ripe) ripe++; else if (s.thirsty) thirsty++; }
+    let thirsty = 0, ripe = 0, empty = 0, growing = 0;
+    for (const k of keys()) { const s = plantState(game, k); if (!s) empty++; else if (s.ripe) ripe++; else { if (s.thirsty) thirsty++; if (s.growing) growing++; } }
     const today = $(".farmp-today");
     today.replaceChildren();
     const chip = (cls, ico, text) => { const s = h(`<span class="farmp-tag ${cls}">${ico}<span></span></span>`); s.lastChild.textContent = text; today.append(s); };
     if (thirsty) chip("water", dropIcon(), t("{0} need water", thirsty));
     if (ripe) chip("ripe", lineIcon("sparkle", 16), t("{0} ripe", ripe));
     if (empty) chip("", lineIcon("plus", 16), t("{0} empty", empty));
-    $(".farmp-next").disabled = !thirsty;
+    $(".farmp-next").disabled = !growing; // (no daily cap: anything growing can be watered again)
     // (the seeds to plant, labelled as seeds: they show their crop's picture, and the owner took them for harvests;
     // harvests are in the barn, the basket at the top)
     $(".farmp-tray-head").textContent = t("Seeds to plant");
@@ -164,22 +164,25 @@ export function openFarm({ changed = () => {} } = {}) {
       ctx.fillStyle = "#3e2414"; ctx.fillRect(p.x - 12, p.y - 12, 24, 24);
       if (soil) for (const [dx, dy] of [[-11, -11], [0, -11], [-11, 0], [0, 0]]) ctx.drawImage(soil, wet ? 16 : 0, 0, 16, 16, p.x + dx, p.y + dy, 11, 11);
       if (flash && flash.key === key && now < flash.until) { ctx.fillStyle = "#fff8d0"; ctx.fillRect(p.x - 12, p.y - 12, 24, 1); ctx.fillRect(p.x - 12, p.y + 11, 24, 1); ctx.fillRect(p.x - 12, p.y - 12, 1, 24); ctx.fillRect(p.x + 11, p.y - 12, 1, 24); }
-      if (!s && !(m && m.kind === "plant")) { ctx.fillStyle = "rgba(255,255,255,.5)"; ctx.fillRect(p.x - 1, p.y - 4, 2, 8); ctx.fillRect(p.x - 4, p.y - 1, 8, 2); continue; }
-      // the plant: planting shows its sprout only once the seed is in; watering grows it a stage; a harvest pops it out
+      if (!s && !(m && (m.kind === "plant" || m.kind === "dig"))) { ctx.fillStyle = "rgba(255,255,255,.5)"; ctx.fillRect(p.x - 1, p.y - 4, 2, 8); ctx.fillRect(p.x - 4, p.y - 1, 8, 2); continue; }
+      // the plant at its stage (by how far it has grown): planting shows its sprout only once the seed is in; a
+      // watering that moves it on a stage shows the last one first; a harvest pops it out; digging up tugs it, then it
+      // comes up out of the ground
       let stage = s ? (s.wilted ? 4 : s.stage) : 0;
-      let lift = 0, show = true;
+      let lift = 0, show = true, tug = 0;
       if (m && m.kind === "plant") { show = t1 > 1900; lift = show ? Math.max(0, Math.round((2300 - t1) / 100)) : 0; stage = 0; }
-      if (m && m.kind === "water" && m.grew && t1 < 1100) stage = Math.max(0, stage - 1);
+      if (m && m.kind === "water" && m.from !== undefined && t1 < 1100) stage = m.from;
       if (m && m.kind === "harvest") { lift = -Math.round(Math.min(1, t1 / 400) * 14); show = t1 < 700; stage = 3; }
+      if (m && m.kind === "dig") { stage = m.stage; tug = t1 < 450 ? (Math.floor(t1 / 60) % 2 ? 1 : -1) : 0; lift = -Math.round(Math.min(1, Math.max(0, t1 - 450) / 350) * 18); show = t1 < 950; }
       const c = s ? s.crop : CROPS.find((x) => x.id === (m && m.crop));
       const row = c ? CROPS.indexOf(c) : -1;
       if (show && crops && row >= 0) {
         ctx.save(); ctx.beginPath(); ctx.rect(p.x - 14, 0, 28, p.y + 12); ctx.clip();
         if (s && s.resting) ctx.globalAlpha = 0.6;
-        ctx.drawImage(crops, stage * 16, row * 24, 16, 24, p.x - 8, p.y - 17 + lift, 16, 24);
+        ctx.drawImage(crops, stage * 16, row * 24, 16, 24, p.x - 8 + tug, p.y - 17 + lift, 16, 24);
         ctx.restore();
       }
-      if (s && s.thirsty && !m) { const bx = p.x + 7, by = p.y - 14 + Math.round(Math.sin(now / 260 + p.x) * 1.5); ctx.fillStyle = "#1e2a44"; ctx.fillRect(bx - 2, by - 1, 5, 6); ctx.fillRect(bx - 1, by - 3, 3, 2); ctx.fillStyle = s.half ? "#8ab8e8" : "#4a9ae8"; ctx.fillRect(bx - 1, by, 3, 4); ctx.fillRect(bx, by - 2, 1, 2); ctx.fillStyle = "#c8e8ff"; ctx.fillRect(bx - 1, by, 1, 1); }
+      if (s && s.thirsty && !m) { const bx = p.x + 7, by = p.y - 14 + Math.round(Math.sin(now / 260 + p.x) * 1.5); ctx.fillStyle = "#1e2a44"; ctx.fillRect(bx - 2, by - 1, 5, 6); ctx.fillRect(bx - 1, by - 3, 3, 2); ctx.fillStyle = "#4a9ae8"; ctx.fillRect(bx - 1, by, 3, 4); ctx.fillRect(bx, by - 2, 1, 2); ctx.fillStyle = "#c8e8ff"; ctx.fillRect(bx - 1, by, 1, 1); }
       if (s && s.ripe && !m && Math.floor(now / 400 + p.x) % 3 === 0) { ctx.fillStyle = "#fff4b4"; for (const [dx, dy] of [[-8, -10], [8, -6], [0, -16]]) { ctx.fillRect(p.x + dx, p.y + dy, 1, 3); ctx.fillRect(p.x + dx - 1, p.y + dy + 1, 3, 1); } }
       // the job's moment over the plot (the card's frames: the plot sits at 8, 16 in each 32 x 32 frame, 16 across)
       if (m && fx) {
@@ -191,6 +194,14 @@ export function openFarm({ changed = () => {} } = {}) {
         }
         else if (m.kind === "drizzle") frame(11 + (Math.floor(t1 / 200) % 2));
         else if (m.kind === "harvest") { frame(13); ctx.fillStyle = "#ffe680"; for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2, d = Math.min(1, t1 / 600) * 14; ctx.fillRect(Math.round(p.x + Math.cos(a) * d), Math.round(p.y - 6 + Math.sin(a) * d * 0.7), 1, 1); } }
+        else if (m.kind === "dig" && t1 > 400 && t1 < 1300) { // (the soil flies as it comes up: clods arcing out and falling back)
+          const q = (t1 - 400) / 900;
+          for (let k = 0; k < 8; k++) {
+            const side = k % 2 ? 1 : -1, reach = 5 + (k % 4) * 3;
+            ctx.fillStyle = k % 3 ? "#6b4426" : "#3e2414";
+            ctx.fillRect(Math.round(p.x + side * reach * q), Math.round(p.y + 2 - Math.sin(q * Math.PI) * (6 + (k % 3) * 3)), k % 3 ? 1 : 2, k % 3 ? 1 : 2);
+          }
+        }
       }
     }
     for (let i = moments.length - 1; i >= 0; i--) if (now - moments[i].t0 > 2700) moments.splice(i, 1);
@@ -229,9 +240,21 @@ export function openFarm({ changed = () => {} } = {}) {
       return;
     }
     if (s.ripe) { await ask("harvest", key, s.crop, () => harvest(game, key)); return; }
-    if (s.thirsty) { await ask("water", key, s.crop, (correct) => { const r = water(game, key, correct); if (typeof r === "string") { toast(t(r), { error: true }); return null; } const more = correct ? waterAround(game, key) : []; return { ...r, more: more.length }; }); return; }
+    // a growing (or resting) plant: its card, how far it has grown, and Water / Dig up, each asking a word
     sfx("tick");
-    toast(s.resting ? t("Resting until its season comes back.") : t("Watered today: it grows again tomorrow."));
+    plantCard(key, { water: s.growing ? () => waterPlot(key) : null, dig: () => digPlot(key), harvest: () => ask("harvest", key, s.crop, () => harvest(game, key)) });
+  }
+  /** Water a plot with a word: right or wrong, a full watering (the owner's rule); the watering can's neighbours too. */
+  function waterPlot(key) {
+    const s = plantState(game, key);
+    if (!s || !s.growing) return Promise.resolve();
+    return ask("water", key, s.crop, () => { const r = water(game, key, true); if (typeof r === "string") { toast(t(r), { error: true }); return null; } return { ...r, from: s.stage, more: waterAround(game, key).length }; });
+  }
+  /** Dig a plot up with a word (the owner, 2026-11-28): right or wrong, it comes up and its seed goes back in the tray. */
+  function digPlot(key) {
+    const s = plantState(game, key);
+    if (!s || s.ripe) return Promise.resolve();
+    return ask("dig", key, s.crop, () => { const err = digUp(game, key); if (err) { toast(t(err), { error: true }); return null; } return { stage: s.wilted ? 4 : s.stage }; });
   }
 
   /** One word asked on the page's own panel, then the job done and its moment played. */
@@ -245,7 +268,9 @@ export function openFarm({ changed = () => {} } = {}) {
       const panel = $(".farmp-ask");
       $(".farmp-tools").hidden = true;
       panel.hidden = false;
-      $(".farmp-ask-title").textContent = kind === "plant" ? t("Plant the {0}", t(crop.name).toLowerCase()) : kind === "water" ? t("Water the {0}", t(crop.name).toLowerCase()) : t("Harvest the {0}", t(crop.name).toLowerCase());
+      const name = t(crop.name).toLowerCase();
+      $(".farmp-ask-title").textContent = kind === "plant" ? t("Plant the {0}", name) : kind === "water" ? t("Water the {0}", name)
+        : kind === "dig" ? t("Dig up the {0}", name) : t("Harvest the {0}", name);
       $(".farmp-ask .lbq-ask").textContent = t("Which of your words means this?");
       const prompt = $(".farmp-ask .lbq-prompt");
       prompt.textContent = q.prompt;
@@ -276,8 +301,9 @@ export function openFarm({ changed = () => {} } = {}) {
       verdict.hidden = false;
       verdict.className = `farmp-verdict ${correct ? "ok" : "no"}`;
       verdict.textContent = kind === "plant" ? (correct ? t("Right! It's planted.") : t("Not quite, but it's planted all the same."))
-        : kind === "water" ? (correct ? t("Right! It has its water for today.") : t("Not quite: a little water. One more answer waters it."))
-          : (correct ? t("Right!") : t("Not quite, but it's harvested all the same."));
+        : kind === "water" ? (correct ? t("Right! It's watered.") : t("Not quite, but it's watered all the same."))
+          : kind === "dig" ? (correct ? t("Right! It's dug up, and its seed is back in your tray.") : t("Not quite, but it's dug up all the same, and its seed is back in your tray."))
+            : (correct ? t("Right!") : t("Not quite, but it's harvested all the same."));
       finish(kind, key, crop, correct, r);
       await new Promise((ok) => setTimeout(ok, correct ? 900 : 1700));
       if (!alive) return;
@@ -293,10 +319,11 @@ export function openFarm({ changed = () => {} } = {}) {
     saveGame();
     const now = performance.now();
     if (kind === "plant") { moments.push({ kind: "plant", key, t0: now, crop: crop.id }); sfx("tick"); setTimeout(() => alive && sfx("plant"), 1900); }
-    else if (kind === "water") {
-      if (correct) { chain++; moments.push({ kind: "water", key, t0: now, grew: !!r.grew }); sfx(`chain${Math.min(chain, CHAIN_MAX)}`); }
+    else if (kind === "water") { // (a full watering either way: a right answer's splash, a wrong one's drizzle and the right word)
+      if (correct) { chain++; moments.push({ kind: "water", key, t0: now, from: r.from }); sfx(`chain${Math.min(chain, CHAIN_MAX)}`); }
       else { chain = 0; moments.push({ kind: "drizzle", key, t0: now }); sfx("surprise"); }
-    } else if (kind === "harvest") {
+    } else if (kind === "dig") { moments.push({ kind: "dig", key, t0: now, crop: crop.id, stage: r.stage }); sfx("tick"); setTimeout(() => alive && sfx("plant"), 450); }
+    else if (kind === "harvest") {
       moments.push({ kind: "harvest", key, t0: now, crop: crop.id });
       const shown = reveal($(".farmp-field"), { rolled: true, tier: r.tier, reward: null }, { art: h(cropIcon(crop, 32)), title: t(crop.name), text: harvestLine(r), top: 10 });
       shown.then(() => {}).catch(() => {});
@@ -329,8 +356,9 @@ export function openFarm({ changed = () => {} } = {}) {
     b.textContent = t("Review your cards here ({0})", n);
   }
   $(".farmp-review").onclick = () => startReview();
-  /** The next job a card does: a ripe crop (with room in the barn), else a thirsty one, else an empty plot the picked
-   * seed can go in; the one nearest your creature. Null when everything is tended. */
+  /** The next job a card does: a ripe crop (with room in the barn), else one not watered today, else an empty plot the
+   * picked seed can go in, else a growing one nearest ripe (no daily cap); the nearest your creature. Null when
+   * nothing is growing and nothing can be planted. */
   function nextJob() {
     const near = (list) => list.sort((a, b) => Math.hypot(at(a).x - pet.x, at(a).y - pet.y) - Math.hypot(at(b).x - pet.x, at(b).y - pet.y))[0];
     const all = keys().map((k) => [k, plantState(game, k)]);
@@ -341,7 +369,8 @@ export function openFarm({ changed = () => {} } = {}) {
     const c = seed ? CROPS.find((x) => x.id === seed) : null;
     const empty = c && farmOf(game).seeds[c.id] > 0 ? all.filter(([k, s]) => !s && (inSeason(c) || underGlass(game, k))).map(([k]) => k) : [];
     if (empty.length) return { kind: "plant", key: near(empty), crop: c };
-    return null;
+    const next = waterNext();
+    return next ? { kind: "water", key: next } : null;
   }
   /** A card turned: your creature walks to the next job. */
   function reviewWalk() {
@@ -368,8 +397,9 @@ export function openFarm({ changed = () => {} } = {}) {
       return typeof r === "string" ? null : { text: t("Harvested the {0}", name), lucky: true };
     }
     if (job.kind === "water") {
+      const from = plantState(game, job.key).stage;
       const w = water(game, job.key, true);
-      finish("water", job.key, crop, true, typeof w === "string" ? w : { ...w, more: waterAround(game, job.key).length });
+      finish("water", job.key, crop, true, typeof w === "string" ? w : { ...w, from, more: waterAround(game, job.key).length });
       return typeof w === "string" ? null : { text: t("Watered the {0}", name), lucky: false };
     }
     const err = plant(game, job.key, crop.id);
@@ -378,12 +408,21 @@ export function openFarm({ changed = () => {} } = {}) {
   }
 
   // ----- the buttons, the keyboard, closing -----
-  $(".farmp-next").onclick = () => { // the nearest thirsty plot to the creature
-    const thirsty = keys().filter((k) => (plantState(game, k) || {}).thirsty);
-    if (!thirsty.length) { toast(t("Nothing needs water right now.")); return; }
-    thirsty.sort((a, b) => Math.hypot(at(a).x - pet.x, at(a).y - pet.y) - Math.hypot(at(b).x - pet.x, at(b).y - pet.y));
-    tapPlot(thirsty[0]);
+  $(".farmp-next").onclick = () => { // the nearest plot not watered today; else the growing one nearest ripe (no daily cap)
+    if (busy || rp) return;
+    const key = waterNext();
+    if (!key) { toast(t("Nothing is growing right now.")); return; }
+    flash = { key, until: performance.now() + 420 };
+    walkTo(key);
+    waterPlot(key);
   };
+  function waterNext() {
+    const near = (list) => list.sort((a, b) => Math.hypot(at(a).x - pet.x, at(a).y - pet.y) - Math.hypot(at(b).x - pet.x, at(b).y - pet.y))[0];
+    const all = keys().map((k) => [k, plantState(game, k)]).filter(([, s]) => s && s.growing);
+    const dry = all.filter(([, s]) => s.thirsty).map(([k]) => k);
+    if (dry.length) return near(dry);
+    return all.length ? all.sort((a, b) => b[1].pct - a[1].pct)[0][0] : null;
+  }
   $(".farmp-stand").onclick = () => openSeedStand({ changed: () => paint() });
   $(".farmp-barn").onclick = () => openBarn({ changed: () => paint() });
   $(".farmp-close").onclick = () => close();

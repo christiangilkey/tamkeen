@@ -10171,15 +10171,28 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   "c,r" counts c from the field's right edge, so planted spots stay put as it grows; old saves' plantings show
   mirrored, the same size). The upgrades stand west of the biggest field. A building or decoration whose saved spot
   the layout now covers is shown at the nearest open spot (`farmmap.nearestFree`, in `buildingsOn` / `decorOn`).
-- **Rules:** `web/js/game/farm.js` (pure), saved in `state.farm` = {fence, plots {"c,r": {crop, days, last, planted,
-  lastWater, wet}}, seeds, barn {"crop:tier": n}, rareWeek, dex, at}. 37 crops: 8 a season, wheat and basil all year,
+- **Rules:** `web/js/game/farm.js` (pure), saved in `state.farm` = {fence, plots {"c,r": {crop, m, days, last, planted,
+  lastWater}}, seeds, barn {"crop:tier": n}, rareWeek, dex, at}. 37 crops: 8 a season, wheat and basil all year,
   three rare ones (one a week as the rare seed packet). Seasons turn on Mondays, the same for everyone
   (`weekNumber % 4`). Seeds cost glow (8 x days, rare 60 x days). The field starts 3 x 3 and grows a column or a row
   per fence section (150 glow, x1.45 each), to 12 x 6 (the plan said "about 12 x 12"; the world is 9 tiles high).
-  Watering: one due word (rules.pickQuestion over fishing.pondWords, recorded with answerQuestion); right = the day's
-  water, wrong = half (two make a watering, and the right answer is shown); one watering a day; a crop ripens after
-  water on `days` DIFFERENT days. A day missed: wilted (its progress kept); one watering revives it. Out of season it
-  rests (no water asked, no wilting). Planting asks one word too (farm-ui `askToPlant`, the owner 2026-11-27): right or
+  **Growth (the owner, 2026-11-28: "each word you study slightly adds to the maturity of all the plants. So that way
+  it actually scales")**: a plot keeps maturity points `m`; a crop is ripe at `needOf(c)` = `days` x
+  `MATURITY_PER_DAY` (25): carrot/basil 50, tomato 75, pumpkin 125, apple 250, starfruit 200. Every flashcard answered
+  (game.js `rollCard`) and every question answered anywhere (rules.js `answerQuestion` runs its `onQuestion` hooks;
+  farm.js registers one, so rules.js needs no farm import) calls `grow(state, 1)`: +`GROW_PER_WORD` (1) to every growing
+  plant, x`ECHO_GROW[tier]` (1.25/1.5/1.75) on a day the Echo Shell's listening was reached, x`LANTERN_GROW` (2) near a
+  lit Page Lantern (`wordGrowth`). No daily cap; a bigger field grows more per word. `grow` returns {key: delta} and
+  rollCard's `undo()` calls `ungrow` with it, so Undo takes a card's growth back (one card counts once). Growing
+  doesn't touch `farm.at` (it happens on every card; see Sync). Watering (`water`): one word, `WATER_BOOST` (5, x2 near
+  a lit lantern) on top, **right or wrong the same** (the owner, 2026-11-28: "irrespective of if you got it right or
+  wrong, just like all the other minigames"; a wrong answer still shows and says the right word and plays the drizzle),
+  as often as you like. `days` is still written (whole days of maturity) so an older copy reads the plant; `farmOf`
+  converts an old save (m = days x 25, the higher of the two, `wet` dropped). The stage drawn (`stageOf`, crops.png's
+  4 frames) follows m / need: seed < 15%, sprout < 50%, growing < 100%, ripe. A plant not watered for a day looks
+  wilted (only a look: it keeps growing; a watering perks it up). Out of season it rests (no growth, no wilting).
+  **Dig up** (`digUp`, the owner 2026-11-28): asks a word (right or wrong alike), empties the spot and puts its seed
+  back in the tray, at any stage; a ripe plant says "harvest it instead". Planting asks one word too (farm-ui `askToPlant`, the owner 2026-11-27): right or
   wrong it is planted (a wrong answer shows the right word; the seed is never lost), and with no word to ask it plants
   at once. Harvest: rarity from loot.js `chances` (Common .. Legendary, `rollTier`; never
   counted in the flashcards' luck record), 1-6 of it into the barn; `dex` keeps the rarest of each crop grown.
@@ -10189,7 +10202,9 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   on a canvas) with each job's own moment from `web/game-art/farm/card.png` (game/art-src/terrain/farm_card.py,
   Aseprite source in game/art-src/terrain/aseprite/farm_card.aseprite): planting digs, drops the seed, pats the earth
   and a sprout pops up (sfx "plant"); watering pours the can, the soil darkens and the plant perks up or grows a
-  stage (sfx "water"); a wrong watering answer drizzles. Under the scene the crop's water days.)
+  stage (sfx "water"); a wrong watering answer drizzles, a full watering all the same; digging up tugs, lifts the
+  plant at its stage and scatters a few clods (`askToDig`). Under the scene how far the plant has grown.) A tap on a
+  growing plant opens its card (`plantCard`: "Growing · 60%" (`growthLine`), Water, Dig up; a ripe one is harvested).
   A tap on the field (habitat.js `tapSpot`, farmmap `plotAt`) goes to the nearest spot, before anything over it, and
   opens its card at once while the creature walks over.
 - **The farm page** (prototype `farm_page`, `web/js/game/farmpage.js`, the owner 2026-11-27, from his approved mockup):
@@ -10197,16 +10212,21 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   on the village's field. The season, glow and barn at the top; "need water / ripe / empty"; the field drawn big (about
   four plots across a phone, wider fields scroll sideways; a near miss goes to the nearest plot) with your creature
   walking to the plot it tends; the watering chain (5 pips and a rising note, `sfx("chainN")`: a sound, never pay); the
-  seed tray (choose a seed, then tap empty plots); "Water next" (the nearest thirsty plot) and the seed stand. Every
-  planting, watering and harvest asks one word on the page's own question panel (stepped pixel corners, `.px-corner`),
+  seed tray (choose a seed, then tap empty plots); "Water next" (the nearest thirsty plot, else the growing plant
+  nearest to ripe) and the seed stand. A tap on a growing plant opens its card (Water, Dig up). Every
+  planting, watering, digging up and harvest asks one word on the page's own question panel (stepped pixel corners, `.px-corner`),
   then plays its moment on the plot (the card's frames, `farm/card.png`); a harvest gets reveal.js's rarity reveal.
-  Right or wrong it is done (a wrong watering gives the half water, as in the village); with no word to ask, at once.
+  Right or wrong it is done, in full; with no word to ask, at once.
 - **Look:** `tools/game_art/farmart.py`, placed in Aseprite (sources `game/art-src/farm/`): `web/game-art/farm/`
   crops.png (5 frames a crop: seed, sprout, growing, ripe, wilted), icons.png, soil.png (dry, watered), gate.png,
   seedstand.png. habitat.js `farmScene` draws soil, crops, a water drop over a thirsty plant, a twinkle over a ripe
   one; `seasonOverlay` shows the season outside (blossom, motes, leaves, snow) with the prototype.
-- **Sync:** merge.js `joinFarm` / gamemerge.py `_join_farm`: the copy changed later wins, whole (a fixture case).
-- Tests: `tests/js/farm.test.mjs`. Translations: `tools/i18n/tr/<code>/247-farm.txt` (all machine-made).
+- **Sync:** merge.js `joinFarm` / gamemerge.py `_join_farm`: the copy changed later wins, whole, except that a plot
+  both copies have (same crop, same day planted) keeps the higher maturity `m` (growth from words doesn't stamp
+  `farm.at`, so the other device's growth isn't lost). Fixture cases in tests/fixtures/game_merge.json.
+- Tests: `tests/js/farm.test.mjs` (growth: one word grows every plant, a bigger field grows more, Undo, the stages,
+  old saves, dig up, the answerQuestion hook). Translations: `tools/i18n/tr/<code>/247-farm.txt`, growth and dig up
+  `farm-growth.txt` (all machine-made).
 - **Slice 2, the garden's buildings on the farm** (with the prototype; without it the garden is as before). No plots:
   `idle.build` takes any slot, each kind opens by its own milestone or a key (`useKey(state, id)` with the farm;
   `idle.keyed` = kinds opened with one, the union of both copies in merge.js / gamemerge.py), and stands anywhere on
@@ -10217,9 +10237,10 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   farm. Tap a building: its glow if any waits (not automated), else its card (garden.openBuilding) with its farm job
   (sections.FARM_JOBS). The yard's plots are hidden with the farm; the Garden tile goes to the farm.
   Farm jobs (`farm.farmJobs`, every 5 s from habitat's gardenBeat, counting only what is new): Word Sprout, a seed
-  per 10/7/5 lookups (2 + tier a day, this week's crops); Echo Shell, a watering per 10/8/6 minutes of listening today
-  (`state.day.listen`, added in rules.earn with `day.read`), wilted plants first; Page Lantern, on a day with 10
-  minutes of reading a plant within (3 + tier) tiles grows two days for one watering; Spelling Bee Hive, a bee per word
+  per 10/7/5 lookups (2 + tier a day, this week's crops); Echo Shell, once 10/8/6 minutes of listening today
+  (`state.day.listen`, added in rules.earn with `day.read`, `ECHO_EVERY`) every word grows plants x1.25/1.5/1.75
+  (growth, 2026-11-28; it used to water thirsty plants); Page Lantern, on a day with 10 minutes of reading plants within
+  (3 + tier) tiles grow twice as much per word and per watering; Spelling Bee Hive, a bee per word
   saved today (3 a tier at most, drawn buzzing), crops near it give 1 more (2 near a tier 3), and a jar of honey per
   6/5/4 words saved (`farm.honey`, for slice 4's recipes); Memory Stone, harvest luck x(1 + 0.2 tier + up to 0.9 for
   well-known words). Tests: `tests/js/farmbuildings.test.mjs`.

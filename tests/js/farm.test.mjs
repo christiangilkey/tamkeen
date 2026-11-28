@@ -1,12 +1,14 @@
 // The farm (prototype "farm", web/js/game/farm.js; the owner's design, tamkeen-plans/farming-plan.md section 1): crops
-// ripen after water on DIFFERENT days, watering is a word answered, nothing dies (a missed day wilts, one answer
-// revives), the seasons turn weekly for everyone, harvests roll their rarity and wait in the barn.
+// grow with every word studied and more with each watering (growth, 2026-11-28), right or wrong the same, nothing dies
+// (a missed day only wilts the look), the seasons turn weekly for everyone, harvests roll their rarity and wait in the
+// barn.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  CROPS, FENCE_MAX, MAX_SIZE, RARE_CROPS, SEASONS, barnList, buySeeds, cropById, farmOf, fenceCost, fieldSize, growFence,
-  harvest, inSeason, plant, plantState, rareSeedOf, rollTier, seasonOf, seedsOnSale, sizeAfter, spots, water,
+  CROPS, FENCE_MAX, GROW_PER_WORD, MATURITY_PER_DAY, MAX_SIZE, RARE_CROPS, SEASONS, WATER_BOOST, barnList, buySeeds, cropById, digUp,
+  farmOf, fenceCost, fieldSize, grow, growFence, harvest, inSeason, needOf, plant, plantState, rareSeedOf, rollTier, seasonOf,
+  seedsOnSale, sizeAfter, spots, stageOf, ungrow, water,
 } from "../../web/js/game/farm.js";
 import { BARN, BUILD_SPOTS, FARM_COLS, FARM_IN, FIELD, GAP_ROW, PLOT_SLACK, SEED_STAND, farmBlocked, farmMap, fieldLeft, gapCol, plotAt, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
 import { LEGENDARY } from "../../web/js/game/loot.js";
@@ -56,27 +58,74 @@ test("seeds for glow: out of season refused, the rare packet once a week; not en
   assert.match(buySeeds(s, glow(s), "tomato", 1, day(0)), /more glow/);
 });
 
-test("a crop ripens only with water on different days: one watering a day, wrong answers water a little", () => {
-  const s = planted("tomato"); // 3 days of water
+test("growth: every word studied grows every growing plant; a watering one plant more, right or wrong the same; no daily cap", () => {
+  const s = planted("tomato"); // (75 to ripen: 3 x MATURITY_PER_DAY)
+  assert.equal(buySeeds(s, glow(s), "basil", 1, day(0)), ""); // (all year, ripe at 50)
+  assert.equal(plant(s, "1,0", "basil", day(0)), "");
   let st = plantState(s, "0,0", day(0));
-  assert.ok(st.thirsty && st.stage === 0);
-  assert.deepEqual(water(s, "0,0", false, day(0)), { grew: false, ripe: false, revived: false }, "a wrong answer: a little");
-  assert.ok(plantState(s, "0,0", day(0)).half);
-  assert.equal(water(s, "0,0", false, day(0)).grew, true, "two wrong answers make a watering");
-  assert.match(water(s, "0,0", true, day(0)), /had its water today/, "never twice in one day");
-  assert.equal(water(s, "0,0", true, day(1)).grew, true);
-  const last = water(s, "0,0", true, day(2));
-  assert.deepEqual(last, { grew: true, ripe: true, revived: false, lantern: false });
-  st = plantState(s, "0,0", day(2));
-  assert.ok(st.ripe && st.stage === 3 && !st.thirsty);
+  assert.ok(st.thirsty && st.stage === 0 && st.m === 0 && st.need === needOf(cropById("tomato")) && st.need === 75);
+  assert.deepEqual(grow(s, 1, day(0)), { "0,0": GROW_PER_WORD, "1,0": GROW_PER_WORD }, "one word: every plant a little");
+  assert.deepEqual(water(s, "0,0", false, day(0)), { grew: true, ripe: false, revived: false, lantern: false }, "a wrong answer: a full watering");
+  assert.equal(plantState(s, "0,0", day(0)).m, GROW_PER_WORD + WATER_BOOST);
+  assert.equal(water(s, "0,0", true, day(0)).grew, true, "again the same day: no daily cap");
+  assert.equal(plantState(s, "0,0", day(0)).m, GROW_PER_WORD + 2 * WATER_BOOST);
+  grow(s, 49, day(0));
+  assert.ok(plantState(s, "1,0", day(0)).ripe, "50 words ripen a basil the same day");
+  assert.equal(plantState(s, "0,0", day(0)).stage, 2, "the tomato past half: growing");
+  assert.deepEqual(grow(s, 1, day(0)), { "0,0": 1 }, "a ripe plant grows no more");
+  grow(s, 100, day(0));
+  st = plantState(s, "0,0", day(0));
+  assert.ok(st.ripe && st.stage === 3 && st.m === 75 && st.pct === 100 && !st.thirsty);
+  assert.match(water(s, "0,0", true, day(0)), /ripe/);
 });
 
-test("nothing dies: a plant missed for a day wilts and waits; one answer revives it", () => {
+test("a bigger field grows more per word; Undo takes a word's growth back; the stages follow maturity", () => {
+  const s = fresh();
+  assert.equal(buySeeds(s, glow(s), "tomato", 4, day(0)), "");
+  for (const k of ["0,0", "1,0"]) plant(s, k, "tomato", day(0));
+  const small = Object.values(grow(s, 1, day(0))).reduce((a, b) => a + b, 0);
+  for (const k of ["2,0", "0,1"]) plant(s, k, "tomato", day(0));
+  const grown = grow(s, 1, day(0));
+  assert.equal(Object.values(grown).reduce((a, b) => a + b, 0), small * 2, "twice the plants, twice the growth for one word");
+  ungrow(s, grown);
+  assert.deepEqual(["0,0", "1,0", "2,0", "0,1"].map((k) => plantState(s, k, day(0)).m), [1, 1, 0, 0], "Undo: as before that word");
+  assert.deepEqual([0, 0.1, 0.15, 0.49, 0.5, 0.99, 1].map(stageOf), [0, 0, 1, 1, 2, 2, 3]);
+  grow(s, 44, day(0));
+  assert.deepEqual([plantState(s, "0,0", day(0)).stage, plantState(s, "0,0", day(0)).pct], [2, 60], "45 of 75: Growing · 60%");
+});
+
+test("an old save's plants keep their growth: water days become maturity, and an older copy of the app reads days", () => {
+  const s = fresh();
+  s.farm = { plots: { "0,0": { crop: "tomato", days: 2, last: 0, planted: 0, wet: { d: 0, n: 1 } } }, seeds: {}, barn: {}, fence: 0, at: 1 };
+  const st = plantState(s, "0,0", day(0));
+  assert.equal(st.m, 2 * MATURITY_PER_DAY);
+  assert.equal(s.farm.plots["0,0"].wet, undefined, "a half watering is gone (a wrong answer is a full one now)");
+  grow(s, 30, day(0));
+  assert.equal(s.farm.plots["0,0"].days, 3, "days kept for older copies: 80 of 75 is ripe, 3 days");
+  s.farm.plots["0,0"] = { crop: "pumpkin", m: 10, days: 2, last: 0, planted: 0 }; // (an older copy watered it since)
+  assert.equal(plantState(s, "0,0", day(0)).m, 2 * MATURITY_PER_DAY, "the older copy's days count");
+});
+
+test("dig up: the spot is empty again and its seed back in the tray, at any stage; a ripe one is harvested instead", () => {
+  const s = planted("tomato");
+  assert.equal(s.farm.seeds.tomato, undefined);
+  grow(s, 20, day(0));
+  assert.equal(digUp(s, "0,0", day(0)), "");
+  assert.equal(plantState(s, "0,0", day(0)), null);
+  assert.equal(s.farm.seeds.tomato, 1, "the seed back");
+  assert.match(digUp(s, "0,0", day(0)), /Nothing/);
+  plant(s, "0,0", "tomato", day(0));
+  grow(s, 75, day(0));
+  assert.match(digUp(s, "0,0", day(0)), /harvest it instead/);
+});
+
+test("nothing dies: a plant left unwatered for a day only looks wilted, still grows, and one watering perks it up", () => {
   const s = planted("tomato");
   water(s, "0,0", true, day(0));
   assert.equal(plantState(s, "0,0", day(1)).wilted, false, "the next day it's only thirsty");
   const st = plantState(s, "0,0", day(5));
-  assert.ok(st.wilted && st.days === 1, "days later: wilted, its progress kept");
+  assert.ok(st.wilted && st.m === WATER_BOOST, "days later: wilted, its growth kept");
+  assert.deepEqual(grow(s, 1, day(5)), { "0,0": 1 }, "a wilted plant still grows");
   assert.deepEqual(water(s, "0,0", true, day(5)), { grew: true, ripe: false, revived: true, lantern: false });
   assert.equal(plantState(s, "0,0", day(5)).wilted, false);
 });
@@ -90,10 +139,9 @@ test("out of its season a plant rests (no water asked, no wilting) and grows aga
 });
 
 test("a harvest: its rarity rolled (Legendary at most), how many it gives, into the barn; the spot empties", () => {
-  const s = planted("basil"); // (all year: 2 days of water, gives 2 or 3)
+  const s = planted("basil"); // (all year: ripe at 50, gives 2 or 3)
   assert.match(harvest(s, "0,0", Math.random, day(0)), /isn't ripe/);
-  water(s, "0,0", true, day(0));
-  water(s, "0,0", true, day(1));
+  grow(s, 50, day(1));
   const got = harvest(s, "0,0", () => 0.5, day(1));
   assert.equal(got.crop.id, "basil");
   assert.ok(got.n >= 2 && got.n <= 3);
@@ -186,7 +234,8 @@ test("planting asks one word on the farm's question card; right or wrong it is p
   const card = ui.slice(ui.indexOf("function farmCard("), ui.indexOf("export async function askToWater("));
   assert.match(card, /answerQuestion\(game, q\.uid, correct\)/, "the answer counts for the word, as watering's does");
   assert.doesNotMatch(card, /coins|gems|glow/, "no pay for answering (the owner's farm rules)");
-  for (const k of ['"plant"', '"water"', '"drizzle"']) assert.ok(card.includes(`kind: ${k}`), `its own moment: ${k}`);
+  for (const k of ['"plant"', '"dig"']) assert.ok(card.includes(`kind: ${k}`), `its own moment: ${k}`);
+  assert.ok(card.includes('kind: correct ? "water" : "drizzle"'), "a right watering's splash, a wrong one's drizzle (a full watering either way)");
 });
 
 test("the farm by its entrance: the field just west of the barn and the buildings, growing west, its spots staying put", () => {
@@ -196,4 +245,15 @@ test("the farm by its entrance: the field just west of the barn and the building
   assert.ok(FARM_IN.x - (FIELD.right + 1) * 16 < 320 - 32, "the field is in view as you come in (the window is 320 across)");
   assert.ok(fieldLeft(12) < fieldLeft(3), "a bigger field reaches further west");
   assert.deepEqual(spotXY(0, 0), { x: FIELD.right * 16 + 8, y: FIELD.y * 16 + 8 }, "spot 0,0 is the field's top right whatever its size");
+});
+
+test("a question answered anywhere (the pond's, a battle's, the farm's) grows every plant: rules.answerQuestion's hook", async () => {
+  const { answerQuestion, newState } = await import("../../web/js/game/rules.js");
+  const s = newState();
+  s.farm = { plots: { "0,0": { crop: "tomato", m: 0, days: 0, last: 0, planted: 0 }, "1,0": { crop: "basil", m: 10, days: 0, last: 0, planted: 0 } }, seeds: {}, barn: {}, fence: 0, at: 7 };
+  answerQuestion(s, "w1", false, day(0)); // (wrong or right, a word studied)
+  answerQuestion(s, "w2", true, day(0));
+  assert.deepEqual([plantState(s, "0,0", day(0)).m, plantState(s, "1,0", day(0)).m], [2, 12]);
+  assert.equal(s.farm.at, 7, "growth isn't stamped as a farm change (merge.js keeps each plant's higher maturity)");
+  assert.match(src("game.js"), /const grown = grow\(g, 1\);[\s\S]*ungrow\(g, grown\)/, "a flashcard grows the farm too, and its Undo takes it back");
 });

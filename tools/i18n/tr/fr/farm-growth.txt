@@ -1,0 +1,21 @@
+dee960dd	Mûrit après environ {0} mots étudiés
+b3593b89	Elle a l'air un peu flétrie : arrose-la pour la ragaillardir. Elle pousse toujours à chaque mot que tu étudies.
+a29dc69d	Chaque mot que tu étudies la fait pousser un peu. L'arroser lui donne un plus grand coup de pouce.
+de9b1be4	Arroser
+22026187	Déterrer
+32fe9f5b	Graine
+4b214b87	Pousse
+dcf20f49	En croissance
+707d1289	Mûr
+e1526042	Déterrer : {0}
+655a699b	Bonne réponse ! C'est déterré, et sa graine est de retour parmi tes graines.
+dcdcd1d3	Pas tout à fait, mais c'est déterré quand même, et sa graine est de retour parmi tes graines.
+97ea1ca3	Bonne réponse ! Elle et {0} autres sont arrosées.
+261e21e2	Bonne réponse ! C'est arrosé.
+892257df	Pas tout à fait, mais c'est arrosé quand même.
+a1fd042d	C'est mûr : récolte-le plutôt.
+37258b24	Chaque arrosage arrose aussi une plante assoiffée à côté (deux au deuxième niveau).
+67e86475	Chaque mot que tu étudies fait un peu pousser toutes tes plantes. Touche une parcelle : planter, arroser, récolter et déterrer te demandent chacun un de tes mots.
+3b0a62f0	Rien ne pousse pour l'instant.
+d644c26f	À la ferme, c'est un carillon de pluie : un jour où tu écoutes un moment, chaque mot que tu étudies fait davantage pousser tes plantes.
+d73359fa	À la ferme, elle éclaire le champ : un jour où tu lis 10 minutes, les plantes proches poussent deux fois plus.

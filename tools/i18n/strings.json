@@ -18210,13 +18210,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "785f548d",
-  "k": "Ripens after 1 day of water",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "56135aa4",
-  "k": "Ripens after {0} days of water",
+  "id": "dee960dd",
+  "k": "Ripens after about {0} words studied",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18375,23 +18370,13 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "bb9045fb",
-  "k": "It has had its water today. Come back tomorrow: it grows on different days, not all at once.",
+  "id": "b3593b89",
+  "k": "It looks a little wilted: water it to perk it up. It still grows with every word you study.",
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "479838e5",
-  "k": "It's thirsty: tap it to water it with a word.",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "0a06b370",
-  "k": "Water days",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "62255f56",
-  "k": "Season",
+  "id": "a29dc69d",
+  "k": "Every word you study grows it a little. Watering it gives it a bigger boost.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18400,18 +18385,53 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "de9b1be4",
+  "k": "Water",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "62255f56",
+  "k": "Season",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "22026187",
+  "k": "Dig up",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "32fe9f5b",
+  "k": "Seed",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "4b214b87",
+  "k": "Sprout",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "dcf20f49",
+  "k": "Growing",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "707d1289",
+  "k": "Ripe",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "269deb0d",
   "k": "Plant the {0}",
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "0c9cfa4d",
-  "k": "Water the {0}",
+  "id": "e1526042",
+  "k": "Dig up the {0}",
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "6a8e479c",
-  "k": "Water day {0} of {1}",
+  "id": "0c9cfa4d",
+  "k": "Water the {0}",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18430,28 +18450,33 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "422bc307",
-  "k": "Right! It and {0} more have their water for today.",
+  "id": "655a699b",
+  "k": "Right! It's dug up, and its seed is back in your tray.",
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "c987038f",
-  "k": "Right! It has its water for today.",
+  "id": "dcdcd1d3",
+  "k": "Not quite, but it's dug up all the same, and its seed is back in your tray.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "97ea1ca3",
+  "k": "Right! It and {0} more are watered.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "261e21e2",
+  "k": "Right! It's watered.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "892257df",
+  "k": "Not quite, but it's watered all the same.",
   "f": "web/js/game/farm-ui.js"
  },
  {
   "id": "22ee2f8e",
   "k": "Ripe! Tap it to harvest.",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "55761dd7",
-  "k": "Water day {0} of {1} · come back tomorrow",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "02ce020c",
-  "k": "Not quite: a little water. One more answer waters it.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -19025,6 +19050,11 @@
   "f": "web/js/game/farm.js"
  },
  {
+  "id": "a1fd042d",
+  "k": "It's ripe: harvest it instead.",
+  "f": "web/js/game/farm.js"
+ },
+ {
   "id": "f90dcd4c",
   "k": "It's ripe: harvest it.",
   "f": "web/js/game/farm.js"
@@ -19032,11 +19062,6 @@
  {
   "id": "0f5d203b",
   "k": "It's resting until its season comes back.",
-  "f": "web/js/game/farm.js"
- },
- {
-  "id": "cc2037ab",
-  "k": "It has had its water today.",
   "f": "web/js/game/farm.js"
  },
  {
@@ -19065,8 +19090,8 @@
   "f": "web/js/game/farm.js"
  },
  {
-  "id": "f93b25e7",
-  "k": "One right answer also waters a thirsty plant next to it (two at the second level).",
+  "id": "37258b24",
+  "k": "Each watering also waters a thirsty plant next to it (two at the second level).",
   "f": "web/js/game/farm.js"
  },
  {
@@ -19195,8 +19220,8 @@
   "f": "web/js/game/farmpage.js"
  },
  {
-  "id": "665e4aaf",
-  "k": "Tap a plot. Every planting, watering and harvest asks one of your words.",
+  "id": "67e86475",
+  "k": "Every word you study grows all your plants a little. Tap a plot: planting, watering, harvesting and digging up each ask one of your words.",
   "f": "web/js/game/farmpage.js"
  },
  {
@@ -19237,16 +19262,6 @@
  {
   "id": "96fab344",
   "k": "Pick a seed below first.",
-  "f": "web/js/game/farmpage.js"
- },
- {
-  "id": "3fb0654e",
-  "k": "Resting until its season comes back.",
-  "f": "web/js/game/farmpage.js"
- },
- {
-  "id": "65939c6d",
-  "k": "Watered today: it grows again tomorrow.",
   "f": "web/js/game/farmpage.js"
  },
  {
@@ -19300,8 +19315,8 @@
   "f": "web/js/game/farmpage.js"
  },
  {
-  "id": "ff8554f1",
-  "k": "Nothing needs water right now.",
+  "id": "3b0a62f0",
+  "k": "Nothing is growing right now.",
   "f": "web/js/game/farmpage.js"
  },
  {
@@ -23850,13 +23865,13 @@
   "f": "web/js/game/sections.js"
  },
  {
-  "id": "634c07b8",
-  "k": "On the farm it is a rain chime: time spent listening waters your thirsty plants.",
+  "id": "d644c26f",
+  "k": "On the farm it is a rain chime: on a day you listen for a while, every word you study grows your plants more.",
   "f": "web/js/game/sections.js"
  },
  {
-  "id": "a38a431d",
-  "k": "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow two days for one watering.",
+  "id": "d73359fa",
+  "k": "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow twice as much.",
   "f": "web/js/game/sections.js"
  },
  {

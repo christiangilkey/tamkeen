@@ -1,0 +1,21 @@
+dee960dd	Nahihinog pagkatapos ng mga {0} salitang pinag-aralan
+b3593b89	Mukhang medyo lanta: diligan ito para sumigla. Lumalaki pa rin ito sa bawat salitang pinag-aaralan mo.
+a29dc69d	Bawat salitang pinag-aaralan mo ay nagpapalaki rito nang kaunti. Mas malaking tulak ang pagdidilig dito.
+de9b1be4	Diligan
+22026187	Bunutin
+32fe9f5b	Buto
+4b214b87	Usbong
+dcf20f49	Lumalaki
+707d1289	Hinog
+e1526042	Bunutin ang {0}
+655a699b	Tama! Nabunot na, at bumalik ang buto nito sa iyong mga buto.
+dcdcd1d3	Hindi masyado, pero nabunot pa rin, at bumalik ang buto nito sa iyong mga buto.
+97ea1ca3	Tama! Nadiligan ito at {0} pa.
+261e21e2	Tama! Nadiligan na.
+892257df	Hindi masyado, pero nadiligan pa rin.
+a1fd042d	Hinog na: anihin na lang.
+37258b24	Bawat pagdidilig ay nagdidilig din ng isang uhaw na halaman sa tabi nito (dalawa sa ikalawang antas).
+67e86475	Bawat salitang pinag-aaralan mo ay nagpapalaki nang kaunti sa lahat ng iyong halaman. I-tap ang isang taniman: ang pagtatanim, pagdidilig, pag-aani at pagbunot ay bawat isang nagtatanong ng isa sa iyong mga salita.
+3b0a62f0	Walang lumalaki ngayon.
+d644c26f	Sa bukid, isa itong kampanilya ng ulan: sa araw na nakikinig ka nang ilang sandali, mas pinalalaki ng bawat salitang pinag-aaralan mo ang iyong mga halaman.
+d73359fa	Sa bukid, pinaliliwanag nito ang taniman: sa araw na nagbabasa ka nang 10 minuto, dumodoble ang paglaki ng mga halaman malapit dito.

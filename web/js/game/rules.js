@@ -990,9 +990,15 @@ export function answerQuestion(state, uid, correct, now = new Date()) {
     state.coins += 5;
   }
   if (out.xp) out.stage = grow(state, out.xp, "collector");
+  for (const fn of questionHooks) { try { fn(state, now); } catch { /* a hook must never stop an answer */ } }
   state.updated_at = now.getTime() / 1000;
   return out;
 }
+// What else an answered question does, registered by the files it belongs to so this one needn't import them (farm.js:
+// every word studied grows every plant on the farm, the owner's growth rule of 2026-11-28).
+const questionHooks = [];
+/** Run `fn(state, now)` after every question answered (the pond's, a battle's, the farm's). */
+export const onQuestion = (fn) => { if (!questionHooks.includes(fn)) questionHooks.push(fn); };
 
 /** How many of the owner's words are well known, and how many are due today. */
 export function reviewSummary(state, vocab, now = new Date()) {

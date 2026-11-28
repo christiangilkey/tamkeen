@@ -51,8 +51,7 @@ test("the barn has room; a full barn waits (the ripe crop stays ripe); a bigger 
   s.farm.barn = { "tomato:0": BARN_CAP[0] };
   buySeeds(s, s.idle, "basil", 1, day(0));
   plant(s, "0,0", "basil", day(0));
-  water(s, "0,0", true, day(0));
-  water(s, "0,0", true, day(1));
+  for (let i = 0; i < 10; i++) water(s, "0,0", true, day(0)); // (no daily cap: ten waterings ripen a basil, 50)
   assert.match(harvest(s, "0,0", Math.random, day(1)), /barn is full/);
   assert.equal(plantState(s, "0,0", day(1)).ripe, true);
   buyUpgrade(s, s.idle, "barn");

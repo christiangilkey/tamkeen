@@ -1,0 +1,21 @@
+dee960dd	Amadurece após cerca de {0} palavras estudadas
+b3593b89	Parece um pouco murcha: rega-a para a reanimar. Continua a crescer com cada palavra que estudas.
+a29dc69d	Cada palavra que estudas fá-la crescer um pouco. Regá-la dá-lhe um impulso maior.
+de9b1be4	Regar
+22026187	Arrancar
+32fe9f5b	Semente
+4b214b87	Rebento
+dcf20f49	A crescer
+707d1289	Madura
+e1526042	Arrancar: {0}
+655a699b	Certo! Foi arrancada e a semente voltou às tuas sementes.
+dcdcd1d3	Não exatamente, mas foi arrancada na mesma e a semente voltou às tuas sementes.
+97ea1ca3	Certo! Esta e mais {0} foram regadas.
+261e21e2	Certo! Está regada.
+892257df	Não exatamente, mas foi regada na mesma.
+a1fd042d	Está madura: colhe-a em vez disso.
+37258b24	Cada rega também rega uma planta com sede ao lado (duas no segundo nível).
+67e86475	Cada palavra que estudas faz crescer um pouco todas as tuas plantas. Toca num canteiro: plantar, regar, colher e arrancar pedem-te cada um uma das tuas palavras.
+3b0a62f0	Nada está a crescer agora.
+d644c26f	Na quinta é um sino de chuva: num dia em que ouves um bocado, cada palavra que estudas faz crescer mais as tuas plantas.
+d73359fa	Na quinta ilumina o campo: num dia em que lês 10 minutos, as plantas perto dela crescem o dobro.
