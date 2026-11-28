@@ -724,6 +724,11 @@ from a temporary local copy because they are not published yet). **Never run on 
   `https://christiangilkey.github.io/tamkeen/lexicon/` (`app/lexicon.py`, `mobile/src/js/lexicon-store.js`), so
   **they only work in a released app once `docs/lexicon/` has been pushed** (GitHub Pages serves `/docs`).
   Running from source, the computer copies them from `docs/lexicon/` instead. Checksums are verified.
+  **Licence rule (2026-11-27, Tamkeen will be a paid app):** the GPL v2 tables (`ar-msa`, `ar-egy`, and
+  `ar-camel-meanings.json.gz` made from them) stay **separate optional downloads**: never bundled into an app
+  package (desktop `app.spec`, the phone's `www`) or merged into Tamkeen's code, and never presented as Tamkeen's
+  own (they stay free to everyone, with `LICENSE-GPL-2.0.txt` and the README's changes and rebuild steps). The app's
+  reading code (MIT) and the course's word lists made with them are ours. See `tools/course/SOURCES.md`.
 - **Storage:** table `known_lexemes` (key, lang, lemma, pos, root, deleted, times); phone `lib.lexemes`. API
   (both platforms): `GET/POST /lexemes`, `POST /lexemes/forget`, `GET /lexemes/lookups`, `/lexicon/status`,
   `/lexicon/download`, `/lexicon/remove`, `/lexicon/data/<name>`. Synced in library.json as `lexemes`
