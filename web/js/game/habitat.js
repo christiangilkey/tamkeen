@@ -919,9 +919,10 @@ export function habitat() {
     setLang(b, lang);
     b.dir = lang === "ar" || lang === "fa" ? "rtl" : "ltr";
     b.classList.toggle("unspaced", ["ja", "zh", "th"].includes(lang)); // (written without spaces: its words close together)
-    // who is talking (the owner's name for them: "Muffles", one is a Muffle), and how many of its words are awake
-    small.textContent = read.total ? `${t("Muffle")} · ${t("Words you know: {0} of {1}", read.known, read.total)}` : t("Muffle");
-    small.hidden = false;
+    // how many of its words are awake: whole, never cut off (it wraps), and no "Muffle ·" before it (the owner,
+    // 2026-11-28: "I don't think those chats really need to say muffle on them either")
+    small.textContent = read.total ? t("Words you know: {0} of {1}", read.known, read.total) : "";
+    small.hidden = !read.total;
     msay.hidden = false;
     msay.classList.remove("show");
     void msay.offsetWidth; // (restarts its fade)
@@ -952,8 +953,9 @@ export function habitat() {
       const half = (msay.offsetWidth / Math.max(1, canvas.clientWidth)) * W / 2 + 2; // (kept inside the window)
       msay.style.left = `${(Math.max(half, Math.min(W - half, msayFor.x - cam())) / W) * 100}%`;
       const high = msayFor.y < 84; // (one up by the stalls and doors: its words below it, clear of the corner buttons)
-      msay.style.bottom = high ? "auto" : `${((H - msayFor.y + 30) / H) * 100}%`;
-      msay.style.top = high ? `${((msayFor.y + 4) / H) * 100}%` : "auto";
+      const tall = (msay.offsetHeight / Math.max(1, canvas.clientHeight)) * H; // (its height in scene pixels: a count line can wrap)
+      msay.style.bottom = high ? "auto" : `${(Math.min(H - tall - 2, H - msayFor.y + 30) / H) * 100}%`; // (kept inside the window, top
+      msay.style.top = high ? `${(Math.max(2, Math.min(H - tall - 2, msayFor.y + 4)) / H) * 100}%` : "auto"; //  and bottom too)
     }
   }
   const foodArt = {}; // food id -> image (a hungry creature's thought bubble)

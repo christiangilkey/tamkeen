@@ -3166,10 +3166,12 @@ html.sel-sheets select { pointer-events: none; }
 .muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
 .muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
   background: url("../game-art/muffle/glyphs.png") calc(var(--g, 0) * -16px) 0 / 192px 18px no-repeat; }
-.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; font-size: var(--fs-12); }
+/* (the count of words you know: whole, wrapping onto a second line rather than cut off with "…") */
+.muffle-say span:not(.mw):not(.mw-lost) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; text-wrap: balance; opacity: .8; font-size: var(--fs-12); }
+.muffle-say span[hidden] { display: none; }
 /* On a phone: the forgotten script at its own size (7 x 9), the words smaller still. */
 @media (max-width: 600px) {
-  .muffle-say { max-width: min(176px, 62%); padding: 1px var(--s-4); }
+  .muffle-say { max-width: min(208px, 66%); padding: 1px var(--s-4); } /* (room for "Words you know: 8 of 12" on one line) */
   .muffle-say b { font-size: var(--fs-12); gap: 1px var(--s-4); }
   .muffle-say .mg { width: 7px; height: 9px; background-position: calc(var(--g, 0) * -8px) 0; background-size: 96px 9px; }
 }
