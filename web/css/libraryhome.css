@@ -54,6 +54,26 @@
 /* On the computer the stage sits in the page's column, not edge to edge. */
 .library.desk .lh-stage { margin-inline: 0; }
 
-/* "Continue" above the map (moved from Home, components/continuecard.js): in the page's own theme, space below it. */
-.lh-continue { display: flex; flex-direction: column; gap: var(--s-24); margin-bottom: var(--s-24); } /* (as on Home: .hero) */
-.lh-continue[hidden] { display: none; }
+
+/* What you were last on, on the stage (components/homemap.js; the owner: Continue must "mesh well" with the map).
+   Round covers with a thin progress ring in the stage's teal, no boxes and no shadows (DESIGN.md 7). */
+.lh-stage { --progress: var(--media-teal); }
+.lh-ring { position: relative; display: block; width: 100%; aspect-ratio: 1; }
+.lh-cover { position: absolute; inset: 4px; border-radius: 50%; corner-shape: round; overflow: hidden; background: var(--surface-2);
+  display: grid; place-items: center; color: var(--ink-2); }
+.lh-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lh-pr { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.lh-pr circle { fill: none; stroke-width: 4; }
+.lh-pr-bg { stroke: var(--line); }
+.lh-pr-on { stroke: var(--progress); stroke-linecap: round; }
+
+/* A bubble beside its section's, joined by a dotted line; the newest with "Continue" and its title under it. */
+.lh-r { position: absolute; transform: translate(-50%, -50%); color: var(--ink); text-decoration: none;
+  animation: lh-settle var(--t-quick) var(--ease-out) both; }
+.lh-r.main .lh-ring { outline: 1px solid var(--progress); outline-offset: 4px; border-radius: 50%; corner-shape: round; }
+.lh-r:focus-visible { outline: 2px solid var(--teal); outline-offset: 6px; border-radius: 50%; }
+.lh-rl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: var(--s-8); width: 140px;
+  display: grid; justify-items: center; gap: var(--s-4); text-align: center; line-height: var(--lh-head); }
+.lh-rv { font-size: var(--fs-12); color: var(--progress); font-weight: 600; white-space: nowrap; }
+.lh-rt { font-size: var(--fs-12); font-weight: 600; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lh-rline { stroke: var(--progress) !important; stroke-dasharray: 2 4; }

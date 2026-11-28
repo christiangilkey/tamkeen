@@ -20,7 +20,8 @@ export async function inProgress(limit = 3) {
     if (out.length >= limit) break;
     try {
       const ep = await api(`/episodes/${item.id}`);
-      if (episodeLanguage(ep) === studyLanguage()) out.push(item);
+      // (with a picture for a round cover: its own, else its podcast's or channel's; pages have none)
+      if (episodeLanguage(ep) === studyLanguage()) out.push({ ...item, cover: item.image || ep.image || ep.feed_image || "" });
     } catch {
       forgetProgress(item.id);
     }

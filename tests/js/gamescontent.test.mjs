@@ -33,7 +33,15 @@ test("Home: no greeting with the prototype; Continue goes to the Library's Home"
   assert.match(home, /const greet = !feature\("games_content"\);/);
   assert.match(home, /\$\{greet \? `<div><div class="hero-ar ar"/);
   assert.match(home, /const moved = feature\("library_home"\);\s*if \(!moved && await continueInto\(main, more, 3\)\)/);
+  // On Content's Home it is part of the map (the owner picked the "orbit" design: "I like A more"): what is in progress,
+  // each beside its section's bubble (components/homemap.js), with no card block above the map any more.
   const library = read("web/js/pages/library.js");
-  assert.match(library, /continueInto\(box\.querySelector\("\.lh-cmain"\), box\.querySelector\("\.lh-cmore"\), 3\)/);
-  assert.ok(library.indexOf('<section class="lh-continue" hidden>') < library.indexOf('<div class="lh-mapbox"></div>'), "above the map");
+  assert.match(library, /const going = await inProgress\(3\)/);
+  assert.match(library, /section: sectionOf\(it\)/);
+  assert.match(library, /homeMap\(box\.querySelector\("\.lh-mapbox"\), \{ kinds, uses: homeUsage\(\), rings, lang: courseLang, resume \}\)/);
+  assert.ok(!library.includes("lh-continue") && !library.includes("lhResume"), "no old block, no trial switch");
+  const map = read("web/js/components/homemap.js");
+  assert.match(map, /const orbit = resume\.length > 0 && kinds\.length > 0;/, "nothing in progress: the map as before");
+  assert.match(map, /nodes\.find\(\(n\) => n\.key === it\.section\) \|\| \[\.\.\.nodes\]\.sort\(\(a, b\) => b\.r - a\.r\)\[0\]/, "no section bubble: beside the biggest");
+  assert.ok(!map.includes("resumeStrip") && !read("web/css/libraryhome.css").includes("lh-strip"), "the other design is gone");
 });

@@ -6,6 +6,8 @@
 
 // Settings' sections in their order (components/settingsui.js SECTIONS; tests/js/padscreens.test.mjs
 // checks the two agree). Not imported from there, so this file needs nothing of the pages'.
+import { continueItems } from "./progress.js";
+
 export const SECTION_IDS = ["getapp", "languages", "dli", "words", "listening", "voices", "look", "controller", "account", "apps", "data", "contact"];
 
 /** The page's path, without "#/" and the query: "", "library", "chat/abc"… */
@@ -32,7 +34,12 @@ export function screenLayer(pad) {
 
   if (p === "" || p === "home") {
     return { area: "home", handlers: {
-      continue: press("a.continue-btn"),
+      // (Games has no Continue button since it moved to the map on Content's Home: the button opens what was used
+      // last and isn't finished, as that map's "Continue" bubble does.)
+      continue: {
+        can: () => !!shown("a.continue-btn") || continueItems().length > 0,
+        run: () => { const b = shown("a.continue-btn"); if (b) b.click(); else location.hash = `#/episode/${continueItems()[0].id}`; },
+      },
       review: { run: () => startReview() },
     } };
   }

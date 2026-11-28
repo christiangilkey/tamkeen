@@ -5,7 +5,7 @@ import { sttConfig } from "../stt.js";
 import { settingsHref } from "../fixes.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
-import { allProgress, fraction, isUnfinished } from "../progress.js";
+import { allProgress, fraction, isUnfinished, leftLabel } from "../progress.js";
 import { watchedIds, watchedPill } from "../watched.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
@@ -27,7 +27,7 @@ import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
 import { classroomPanel } from "../components/classroompanel.js";
 import { homeMap } from "../components/homemap.js";
-import { continueInto } from "../components/continuecard.js";
+import { inProgress } from "../components/continuecard.js";
 import { RECENT_DAYS, ringOf, usage } from "../libraryhome.js";
 import { definerConfig } from "../define-service.js";
 import { cleanProgress } from "../grammardata.js";
@@ -1363,21 +1363,28 @@ export async function render(view, { feedId: routeFeed, query }) {
     const rings = {};
     for (const k of kinds) { const r = ringOf(k.key, { platform, aiKey, stt, netflix }); if (r) rings[k.key] = r; }
     if (closeHome) closeHome();
-    // At the top, what was played or read last and isn't finished (moved here from Home: components/continuecard.js),
-    // then the map.
+    // What was played or read last and isn't finished (moved here from Home: components/continuecard.js), on the
+    // map's own stage (the owner: it must "mesh well" with the map; components/homemap.js).
+    const going = await inProgress(3).catch(() => []);
+    if (!root.isConnected) return;
+    const resume = going.map((it) => ({ ...it, href: `#/episode/${it.id}`, left: leftLabel(it), frac: fraction(it), section: sectionOf(it) }));
     const box = $("#lib-home");
-    box.innerHTML = `<section class="lh-continue" hidden><div class="lh-cmain"></div><div class="home-more lh-cmore"></div></section><div class="lh-mapbox"></div>`;
-    continueInto(box.querySelector(".lh-cmain"), box.querySelector(".lh-cmore"), 3)
-      .then((n) => { if (n && root.isConnected) box.querySelector(".lh-continue").hidden = false; }).catch(() => {});
-    closeHome = homeMap(box.querySelector(".lh-mapbox"), { kinds, uses: homeUsage(), rings, lang: courseLang });
+    box.innerHTML = `<div class="lh-mapbox"></div>`;
+    closeHome = homeMap(box.querySelector(".lh-mapbox"), { kinds, uses: homeUsage(), rings, lang: courseLang, resume });
   }
   /** How much each kind is used, from what this device knows: the things kept in each (episodes, books, pages…), the
    *  ones opened in the last RECENT_DAYS (progress.js, matched to their feed by its title), the grammar lessons finished
    *  and the conversations had. (libraryhome.js usage weighs them.) */
+  /** The kind a feed's things are in (its bubble on the Home map). */
+  const kindOfFeed = (f) => isAudiobookFeed(f.url) ? "audiobooks" : isLocalFeed(f.url) ? (KINDS.find((k) => k.feed === f.url) || {}).key : "podcasts";
+  /** The kind something in progress is in: its feed's (found by title, as progress.js keeps it), else by what it is. */
+  function sectionOf(item) {
+    const f = feeds.find((x) => x.title === item.sub);
+    return (f && kindOfFeed(f)) || (item.kind === "page" ? "pages" : item.kind === "video" ? "youtube" : "podcasts");
+  }
   function homeUsage() {
     const items = {}, recent = {};
     const add = (to, k, n = 1) => { if (k) to[k] = (to[k] || 0) + n; };
-    const kindOfFeed = (f) => isAudiobookFeed(f.url) ? "audiobooks" : isLocalFeed(f.url) ? (KINDS.find((k) => k.feed === f.url) || {}).key : "podcasts";
     for (const f of feeds) add(items, kindOfFeed(f), f.episode_count || 0);
     const since = Date.now() - RECENT_DAYS * 86400000;
     for (const p of allProgress()) {

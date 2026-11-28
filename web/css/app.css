@@ -192,6 +192,7 @@
   --media-line: #383838; --media-line-2: #2c2c2c;
   --media-ink: #f2f1ec; --media-ink-2: #aaa8a0; --media-ink-3: #c9c8c2;
   --media-new: #dc84d4;                 /* new words over a video: the dark theme's --plum-600 */
+  --media-teal: #2bb8c6;                /* progress on the dark stage (the Content home): the dark theme's --teal */
   --media-scrim: rgba(0, 0, 0, .66);    /* behind captions on a picture */
 
   /* The game controller's drawing (Settings → Game controller): the buttons' own colours, as on the real pad. */
