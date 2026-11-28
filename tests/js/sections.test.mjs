@@ -39,11 +39,13 @@ test("Shop and My things share one switch, and so do Garden and Supplies, and Cr
     fishing: ["fishing", "basket", "fishdex"] });
   assert.deepEqual(screenOf("basket").switch.map((o) => [o.id, o.word, o.on]), [["fishing", "Ponds", false], ["basket", "Basket", true], ["fishdex", "Fishdex", false]]);
   assert.deepEqual(screenOf("friends").switch.map((o) => [o.id, o.word, o.on]), [["battle", "Battle", false], ["friends", "Friends", true]]);
-  assert.deepEqual(screenOf("shop").switch, [{ id: "shop", word: "Buy", on: true }, { id: "mine", word: "My things", on: false }]);
+  // The Market (released in v0.79.0) has every stall, and My things is the cottage dresser: the two no longer share a switch.
+  assert.equal(screenOf("shop").switch, null);
+  assert.equal(screenOf("mine").switch, null);
   assert.deepEqual(screenOf("supplies").switch.map((o) => [o.id, o.on]), [["garden", false], ["supplies", true]]);
   assert.deepEqual(screenOf("badges").switch.map((o) => [o.id, o.word, o.on]), [["creatures", "Creatures", false], ["badges", "Badges", true]]);
-  for (const id of Object.keys(SECTIONS)) if (id !== "market") assert.ok(screenOf(id).switch.some((o) => o.id === id && o.on), `${id} is on a switch`);
-  assert.equal(screenOf("market").switch, null, "the Market is one sheet (prototype market): its stalls are inside it");
+  for (const id of Object.keys(SECTIONS)) if (!["market", "shop", "mine"].includes(id)) assert.ok(screenOf(id).switch.some((o) => o.id === id && o.on), `${id} is on a switch`);
+  assert.equal(screenOf("market").switch, null, "the Market is one sheet (released in v0.79.0): its stalls are inside it");
 });
 
 test("every section can still be reached: from the home card's buttons, then a switch", () => {

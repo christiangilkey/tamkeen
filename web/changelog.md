@@ -14,6 +14,17 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.79.0 — 2026-11-28
+
+- **New:** **Review while you play.** On the fishing pond and the farm screen, your flashcards can sit right beside the game: below it on a phone, with the buttons in thumb reach, and on the left on a computer. Every card you answer lands a fish or tends a plot, the same for Remembered and Not remembered. About one in six Remembered cards gets a quick spot check (pick its meaning from four); a right pick brings luck, and a miss sends the card back for another look. A memory meter raises the odds of rare finds the more you remember. **Quick play** puts the cards away when you just want to play.
+- **New:** **The Market.** The Shop tile on Games is now the Market: one sheet with every stall in the village market (the tailor, the herald's moves, the baker's eggs and food, the florist's seeds and farm things, the grocer, the cook, the fisher's rods and today's orders), each run by its own Muffle. Your things are now in a dresser in the cottage, and the aquarium stands on a table.
+- **Changed:** Flashcards: the meaning under the word is now in Tamkeen's blue.
+- **Changed:** The orange level circle is gone from the top bar (your level still shows on Games and in the word popup). In the web app, the "Add to home screen" button no longer spins, and it goes away for good once Tamkeen is on your home screen.
+- **Changed:** Basics opens on **Frequency words** (the word list, now first in the row), with Grammar beside it. "First 1000 words" is now called "Frequency words".
+- **Changed:** The Games screen no longer shows the "words saved today · in your vocab" line; the Vocab tab still counts your words.
+- **Changed:** The review calendar on the Vocab page has its bright teal and plum dots back.
+- **Fixed:** Content's home map: the Continue bubble no longer prints over a section's name, and no title runs off the edge of a phone screen.
+- **Changed:** The Privacy page now explains what ranked battles keep (your rating, record and matches; the live battle itself is never stored) and what the leaderboard shows.
 - **Fixed:** *(phones)* On the farm screen, a field wider than the screen now scrolls back to your plants whenever it changes size (after turning the phone, growing the fence or closing the cards beside it). It used to stay scrolled to the empty end of the field.
 - **New:** On the farm, every crop says its season plainly: on its card, in the barn, at the seed stand, and in the Cropdex (tap a crop there for its card). Out of season it says when it's back (**Back in Autumn**); all-year crops say **All year**. The week's rare seed is marked **This week only**, with the days until it changes. The farm screen's title shows the season and when the next one comes (**Summer · Autumn in 3 days**); tap it to see the seeds that come with it.
 - **Changed:** **Farm plants grow with every word you study.** Each flashcard you answer (and each word the farm asks) grows every plant on your farm a little, so a bigger field grows more from the same study. There's no daily limit, and you no longer have to come back on different days. Watering a plant gives it a bigger boost on top. A carrot or basil ripens after about 50 words, a tomato after 75, a pumpkin after 125 and an apple tree after 250. Plants you'd already grown keep their growth, and Undo on a flashcard takes its growth back.

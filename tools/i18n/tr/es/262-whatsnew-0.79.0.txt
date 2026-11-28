@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Repasa mientras juegas: las tarjetas junto al estanque y la granja
+d888ae6f	El Mercado: todos los puestos del pueblo en un solo lugar
+1e1b245f	Las plantas de la granja crecen con cada palabra que estudias
+234841dd	Vende tu cosecha desde el granero, y desentierra plantas
+4e21711e	Las palabras guardadas conservan la frase entera, con traducción por IA
+e8b21949	Las cañas de pescar se compran una tras otra, como las mejoras

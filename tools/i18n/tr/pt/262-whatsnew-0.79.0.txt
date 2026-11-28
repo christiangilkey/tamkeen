@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Reveja enquanto joga: os cartões ao lado do lago e da quinta
+d888ae6f	O Mercado: todas as bancas da aldeia num só lugar
+1e1b245f	As plantas da quinta crescem com cada palavra que estudas
+234841dd	Vende a colheita a partir do celeiro, e arranca plantas
+4e21711e	As palavras guardadas mantêm a frase inteira, com tradução por IA
+e8b21949	As canas de pesca compram-se uma a seguir à outra, como melhorias

@@ -25,8 +25,8 @@ are any. Bug fixes and small tweaks don't go there (they go in CHANGELOG.md). Th
 ## Access control matrix (who may do what)
 
 Keep this true when you add a feature: enforce it where marked (database rules, the desktop server), never only
-in the page. The online part is `supabase/v8-safety.sql` (written 2026-11-06; **not yet applied to the live
-database**, which still has the v7 rules until the owner applies it). Full rules: HANDOFF "Online safety" and
+in the page. The online part is `supabase/v8-safety.sql` (written 2026-11-06; applied to the live database
+on 2026-11-27, with every later file up to v22). Full rules: HANDOFF "Online safety" and
 "Local server".
 
 **People.** *Me* = the signed-in user acting on their own data. *Friend* = an accepted friendship. *Guild-mate* =
@@ -73,7 +73,7 @@ service role or the Supabase SQL editor.
 The DLI tables have row-level security on and **no** reading or writing rule: everything goes through the `dli_*`
 functions, each of which checks who is asking (`tests/js/dliweeks.test.mjs` fails if a rule or an unlisted call
 appears). A student must agree on a screen that lists what is shared (`web/js/components/dlishare.js` SHARE_TEXT;
-raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to the live database either.
+raise `WORDING` in `dliclass.js` if what is shared changes). Applied to the live database on 2026-11-27.
 
 | The creator's view (`supabase/v14-creator.sql`, prototype `creator_bar`) | Creator (a row in `private.creators`) | Anyone else signed in | Signed out |
 |---|---|---|---|

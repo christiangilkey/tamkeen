@@ -33760,6 +33760,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "ffea9410",
+  "k": "Review while you play: flashcards beside the pond and the farm",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d888ae6f",
+  "k": "The Market: every village stall in one place",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "1e1b245f",
+  "k": "Farm plants grow with every word you study",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "234841dd",
+  "k": "Sell your harvest from the barn, and dig plants up",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "4e21711e",
+  "k": "Saved words keep the whole sentence, with an AI translation",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "e8b21949",
+  "k": "Fishing rods are bought one after another, like upgrades",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "4aed4e5f",
   "k": "A fresh look across the whole app, with new fonts",
   "f": "web/js/whatsnew.js"

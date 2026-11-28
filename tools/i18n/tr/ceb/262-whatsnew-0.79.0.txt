@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Pagrepaso samtang nagdula: ang mga flashcard tupad sa linaw ug sa uma
+d888ae6f	Ang Merkado: ang tanang tindahan sa baryo sa usa ka dapit
+1e1b245f	Ang mga tanom sa uma motubo sa matag pulong nga imong tun-an
+234841dd	Ibaligya ang imong ani gikan sa kamalig, ug ibton ang mga tanom
+4e21711e	Ang gitipigang mga pulong magtipig sa tibuok nga sentence, uban sa hubad sa AI
+e8b21949	Ang mga bingwit paliton sunod-sunod, sama sa mga pag-upgrade

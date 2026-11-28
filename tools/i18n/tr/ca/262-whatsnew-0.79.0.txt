@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Repassa mentre jugues: les targetes al costat de l'estany i la granja
+d888ae6f	El Mercat: totes les parades del poble en un sol lloc
+1e1b245f	Les plantes de la granja creixen amb cada paraula que estudies
+234841dd	Ven la collita des del graner, i desenterra plantes
+4e21711e	Les paraules desades guarden la frase sencera, amb una traducció per IA
+e8b21949	Les canyes de pescar es compren una darrere l'altra, com les millores

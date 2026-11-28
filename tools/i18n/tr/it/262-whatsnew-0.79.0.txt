@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Ripassa mentre giochi: le flashcard accanto allo stagno e alla fattoria
+d888ae6f	Il Mercato: tutte le bancarelle del villaggio in un solo posto
+1e1b245f	Le piante della fattoria crescono con ogni parola che studi
+234841dd	Vendi il raccolto dal fienile, e sradica le piante
+4e21711e	Le parole salvate tengono la frase intera, con una traduzione IA
+e8b21949	Le canne da pesca si comprano una dopo l'altra, come le migliorie

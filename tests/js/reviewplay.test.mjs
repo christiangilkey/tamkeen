@@ -28,8 +28,8 @@ function fn(text, head, next) {
 const TODAY = 20700;
 const word = (uid, meaning) => ({ uid, id: uid, text: `w-${uid}`, meaning, created_at: 1000 });
 
-test("a prototype: only the owner's devices see it until he releases it", () => {
-  assert.equal(PROTOTYPES.review_play.released, false);
+test("released for everybody in v0.79.0; the code still asks its switch", () => {
+  assert.equal(PROTOTYPES.review_play.released, true, "released for everybody in v0.79.0");
   for (const f of ["js/game/fishing-ui.js", "js/game/farmpage.js"]) {
     assert.match(src(f), /if \(!feature\("review_play"\) \|\| rp \|\|/, `${f}: the docked reviewer asks its switch`);
     assert.match(src(f), /b\.hidden = true; return; \}/, `${f}: and so does the button that brings it back`);

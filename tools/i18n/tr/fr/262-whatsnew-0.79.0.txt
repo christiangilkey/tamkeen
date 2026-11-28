@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Réviser en jouant : les cartes à côté de l'étang et de la ferme
+d888ae6f	Le Marché : tous les étals du village au même endroit
+1e1b245f	Les plantes de la ferme poussent à chaque mot que tu étudies
+234841dd	Vends ta récolte depuis la grange, et déterre des plantes
+4e21711e	Les mots enregistrés gardent la phrase entière, avec une traduction par IA
+e8b21949	Les cannes à pêche s'achètent l'une après l'autre, comme des améliorations

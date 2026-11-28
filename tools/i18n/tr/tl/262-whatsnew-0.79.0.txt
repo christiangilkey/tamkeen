@@ -1,0 +1,7 @@
+# What is new in v0.79.0 (web/js/whatsnew.js).
+ffea9410	Mag-review habang naglalaro: ang mga flashcard katabi ng lawa at bukid
+d888ae6f	Ang Palengke: lahat ng tindahan sa nayon sa iisang lugar
+1e1b245f	Lumalaki ang mga tanim sa bukid sa bawat salitang pinag-aaralan mo
+234841dd	Ibenta ang ani mula sa kamalig, at bunutin ang mga tanim
+4e21711e	Itinatago ng mga naka-save na salita ang buong pangungusap, na may salin ng AI
+e8b21949	Binibili ang mga pamingwit nang sunud-sunod, gaya ng mga upgrade

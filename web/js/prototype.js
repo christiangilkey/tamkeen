@@ -13,7 +13,7 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
-  review_play: { name: "Review while you play: on the fishing pond and the farm page, your flashcards docked over the game on a phone and beside it on a computer; each answer lands a fish or tends a plot, the same for either answer; spot checks on about 1 in 6 Remembered cards (four meanings) and a memory calls meter that raises the odds of rare finds; Quick play for the game on its own", released: false, since: "2026-11-28" },
+  review_play: { name: "Review while you play: on the fishing pond and the farm page, your flashcards docked over the game on a phone and beside it on a computer; each answer lands a fish or tends a plot, the same for either answer; spot checks on about 1 in 6 Remembered cards (four meanings) and a memory calls meter that raises the odds of rare finds; Quick play for the game on its own", released: true, since: "2026-11-28" },
   games_content: { name: "Home is Games and Library is Content (the tabs' names), and Home without the greeting", released: true, since: "2026-11-27" },
   library_physics: { name: "Content's Home: drag the bubbles about, and the others make room (kept on this device)", released: false, since: "2026-11-27" },
   library_chips: { name: "Library: one row of on/off chips (Not listened to · Transcribed) instead of two rows with All", released: true, since: "2026-11-27" },
@@ -58,7 +58,7 @@ export const PROTOTYPES = {
   ranked: { name: "Ranked battles: live against another player online, a rating from 0, matched with players of a similar rating, a leaderboard and tiers (needs supabase/v18-ranked.sql)", released: true, since: "2026-11-25" },
   farm_page: { name: "The farm page: Home's Garden tile becomes Farm and opens a full-screen farm (and so does tapping the field in the village): big plots, the seed tray and seed stand, what needs doing today, every planting, watering and harvest asking one of your words with its own moment, a watering chain (a sound only), a harvest's rarity reveal", released: true, since: "2026-11-27" },
   farm: { name: "The farm: a fenced field west of the cottage; plant seeds bought with glow; every word you study grows every plant and watering one (a word) grows it more, right or wrong alike; dig up gives the seed back; a plant left a day looks wilted (never dies), harvests by rarity into the barn; the seasons turn weekly", released: true, since: "2026-11-26" },
-  market: { name: "The Market: Home's Shop tile is the Market, one sheet with every stall of the village market (the tailor, the herald's moves, the baker, the florist's seeds and farm things, the grocer, the cook, the fisher's rods, today's orders), each with its Muffle; My things is a dresser in the cottage, and the aquarium stands on a table", released: false, since: "2026-11-27" },
+  market: { name: "The Market: Home's Shop tile is the Market, one sheet with every stall of the village market (the tailor, the herald's moves, the baker, the florist's seeds and farm things, the grocer, the cook, the fisher's rods, today's orders), each with its Muffle; My things is a dresser in the cottage, and the aquarium stands on a table", released: true, since: "2026-11-27" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 
