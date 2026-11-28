@@ -1,0 +1,11 @@
+dd0aade6	De retour en {0}
+dee0ba9e	{0} : demain
+fc0b6e34	{0} : dans {1} jours
+a110ee65	Change demain
+d0b09570	Change dans {0} jours
+9f8bb16f	Bientôt au stand de graines
+c8072dd4	C'est {0} en ce moment. Quand la saison changera, ces graines seront en vente ; celles de toute l'année restent. Une plante hors de sa saison se repose seulement, et repousse quand sa saison revient.
+b31f9896	Meilleure récolte
+52a04dfe	Graine rare
+8020cc6d	{0}. Ses graines sont le paquet rare de la semaine certaines semaines.
+0fbb6a40	Cette semaine seulement

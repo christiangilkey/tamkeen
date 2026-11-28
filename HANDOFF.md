@@ -10173,7 +10173,11 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   the layout now covers is shown at the nearest open spot (`farmmap.nearestFree`, in `buildingsOn` / `decorOn`).
 - **Rules:** `web/js/game/farm.js` (pure), saved in `state.farm` = {fence, plots {"c,r": {crop, m, days, last, planted,
   lastWater}}, seeds, barn {"crop:tier": n}, rareWeek, dex, at}. 37 crops: 8 a season, wheat and basil all year,
-  three rare ones (one a week as the rare seed packet). Seasons turn on Mondays, the same for everyone
+  three rare ones (one a week as the rare seed packet). Seasons turn on Mondays, the same for everyone (the season ahead: `nextSeasonOf`, `seedsComing`, `daysToNextSeason`;
+  farm-ui `seasonTag(c)` says a crop's season plainly, "All year" / "Summer" / "Back in Autumn", on the plant card,
+  the barn card, the seed stand and the Cropdex's crop card (`cropCard`); the rare packet says "This week only" and
+  when it changes; the farm page's title says "Summer · Autumn in 3 days", a tap opening `openSeasonPeek`, the owner
+  2026-11-28)
   (`weekNumber % 4`). Seeds cost glow (8 x days, rare 60 x days). The field starts 3 x 3 and grows a column or a row
   per fence section (150 glow, x1.45 each), to 12 x 6 (the plan said "about 12 x 12"; the world is 9 tiles high).
   **Growth (the owner, 2026-11-28: "each word you study slightly adds to the maturity of all the plants. So that way

@@ -4438,7 +4438,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 /* The farm (prototype "farm", farm-ui.js): a crop's picture (game-art/farm/icons.png, the strip placed inline), the seed
    stand's and seed picker's rows, the barn's harvests (a rarer one's edge in its tier's colour). */
 .farm-ico { display: inline-block; flex: none; image-rendering: pixelated; background-repeat: no-repeat; vertical-align: middle; }
-.farm-list { display: grid; gap: var(--s-12); }
+.farm-list { display: grid; gap: var(--s-12); align-self: stretch; /* (the sheet centres its parts: a grid inside would shrink to its content) */ }
 .farm-list .gs-block { display: grid; gap: var(--s-8); }
 .farm-buy { min-width: 76px; }
 .farm-plant { font-weight: 700; color: var(--teal); }
@@ -4476,8 +4476,11 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp { width: min(720px, 100%); height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--s-8);
   padding: var(--s-8) var(--s-12) var(--s-12); overflow-y: auto; }
 .farmp-top { display: flex; align-items: center; gap: var(--s-8); min-height: 44px; flex: none; }
-.farmp-title { display: inline-flex; align-items: baseline; gap: var(--s-8); margin-inline-end: auto; font-size: var(--fs-20); font-weight: 700; }
-.farmp-season { font-size: var(--fs-14); font-weight: 600; color: var(--ink-2); }
+.farmp-title { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; flex: 1 1 auto; margin-inline-end: auto; font-size: var(--fs-20);
+  font-weight: 700; line-height: var(--lh-head); }
+/* The season and when the next one comes ("Summer · Autumn in 3 days"), under the title: a tap peeks at next season's seeds. */
+.farmp-season { max-width: 100%; min-height: 20px; padding: 0; border: 0; background: none; color: var(--ink-2); font: inherit; font-size: var(--fs-12);
+  font-weight: 600; text-align: start; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
 .farmp-chip { display: inline-flex; align-items: center; gap: var(--s-4); min-height: 32px; padding: var(--s-4) var(--s-12); border: 0;
   border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink); font-weight: 700; font-size: var(--fs-14); font-variant-numeric: tabular-nums; }
 .farmp-close { flex: none; color: var(--ink); }

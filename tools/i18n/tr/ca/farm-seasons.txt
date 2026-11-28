@@ -1,0 +1,11 @@
+dd0aade6	Torna a {0}
+dee0ba9e	{0}: demà
+fc0b6e34	{0}: d'aquí a {1} dies
+a110ee65	Canvia demà
+d0b09570	Canvia d'aquí a {0} dies
+9f8bb16f	Aviat a la parada de llavors
+c8072dd4	Ara és {0}. Quan canviï l'estació, aquestes llavors es posaran a la venda; les de tot l'any es queden. Una planta fora de la seva estació només reposa, i torna a créixer quan la seva estació torna.
+b31f9896	El millor que has cultivat
+52a04dfe	Llavor rara
+8020cc6d	{0}. Les seves llavors són el paquet rar de la setmana algunes setmanes.
+0fbb6a40	Només aquesta setmana

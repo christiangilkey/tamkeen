@@ -1,0 +1,11 @@
+dd0aade6	Volta no {0}
+dee0ba9e	{0}: amanhã
+fc0b6e34	{0}: daqui a {1} dias
+a110ee65	Muda amanhã
+d0b09570	Muda daqui a {0} dias
+9f8bb16f	Em breve na barraca de sementes
+c8072dd4	Agora é {0}. Quando a estação mudar, estas sementes ficam à venda; as de todo o ano ficam. Uma planta fora da sua estação só descansa, e volta a crescer quando a sua estação regressa.
+b31f9896	Melhor colheita
+52a04dfe	Semente rara
+8020cc6d	{0}. As suas sementes são o pacote raro da semana em algumas semanas.
+0fbb6a40	Só esta semana

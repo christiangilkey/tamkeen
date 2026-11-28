@@ -1,0 +1,11 @@
+dd0aade6	Wieder im {0}
+dee0ba9e	{0}: morgen
+fc0b6e34	{0}: in {1} Tagen
+a110ee65	Wechselt morgen
+d0b09570	Wechselt in {0} Tagen
+9f8bb16f	Bald am Samenstand
+c8072dd4	Jetzt ist {0}. Wenn die Jahreszeit wechselt, gibt es diese Samen zu kaufen; die ganzjährigen bleiben. Eine Pflanze außerhalb ihrer Jahreszeit ruht nur und wächst wieder, wenn ihre Jahreszeit zurückkommt.
+b31f9896	Bestes Ergebnis
+52a04dfe	Seltener Samen
+8020cc6d	{0}. Seine Samen sind in manchen Wochen das seltene Päckchen der Woche.
+0fbb6a40	Nur diese Woche

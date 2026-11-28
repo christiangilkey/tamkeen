@@ -27,8 +27,10 @@ import { BUILD_SPOTS, UPGRADE_SPOTS, buildingSize, canPlace, nearestFree, spotXY
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
 export const seasonOf = (now = new Date()) => SEASONS[weekNumber(now) % SEASONS.length];
-/** How many days until the next season (the next Monday). */
+/** How many days until the next season (the next Monday). The week's rare seed packet changes then too. */
 export const daysToNextSeason = (now = new Date()) => 7 - ((dayNumber(now) + 3) % 7);
+/** Next week's season. */
+export const nextSeasonOf = (now = new Date()) => SEASONS[(weekNumber(now) + 1) % SEASONS.length];
 
 // Every crop: its season ("all": any), how slow it is (`days`: its maturity to ripen is days x MATURITY_PER_DAY; once
 // the different days it needed watering), what its seeds cost (glow), how many it gives, and `kind` (how farmart.py
@@ -108,6 +110,8 @@ export const rareSeedOf = (now = new Date()) => RARE_CROPS[weekNumber(now) % RAR
 export const inSeason = (c, now = new Date()) => !!c && (c.season === "all" || c.season === seasonOf(now));
 /** The seeds sold this week: the season's and the all-year ones (the rare packet is apart). */
 export const seedsOnSale = (now = new Date()) => CROPS.filter((c) => !c.rare && inSeason(c, now));
+/** The seeds that come on sale when the season turns (next season's own; the all-year ones stay). */
+export const seedsComing = (now = new Date()) => CROPS.filter((c) => !c.rare && c.season === nextSeasonOf(now));
 
 // ---------- the field and its fence ----------
 export const START_SIZE = [3, 3];

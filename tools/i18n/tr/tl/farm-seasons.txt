@@ -1,0 +1,11 @@
+dd0aade6	Babalik sa {0}
+dee0ba9e	{0}: bukas
+fc0b6e34	{0}: sa loob ng {1} araw
+a110ee65	Magbabago bukas
+d0b09570	Magbabago sa loob ng {0} araw
+9f8bb16f	Paparating sa tindahan ng binhi
+c8072dd4	{0} ngayon. Pagpalit ng panahon, mabibili na ang mga binhing ito; mananatili ang mga pambuong-taon. Ang halamang wala sa panahon nito ay nagpapahinga lang, at muling lalaki pagbalik ng panahon nito.
+b31f9896	Pinakamahusay na ani
+52a04dfe	Bihirang binhi
+8020cc6d	{0}. Ang binhi nito ang bihirang pakete ng linggo sa ilang linggo.
+0fbb6a40	Ngayong linggo lang

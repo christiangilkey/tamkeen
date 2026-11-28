@@ -31,9 +31,9 @@ import { getGame, saveGame, sfx } from "./game.js";
 import { amount, block, details, fact, fmt, row } from "./screenparts.js";
 import {
   CROPS, DECOR, DECOR_MAX, SPRINKLER_DAYS, UPGRADES, barnCap, barnCount, barnList, buyDecor, buySeeds, buyUpgrade, cropById,
-  daysToNextSeason, decorById, decorOn, digUp, farmOf, fenceCost, fieldSize, grind, growFence, inSeason, level, needOf, plant, plantState,
-  publicFarm, rareSeedOf, removeDecor, seasonOf, seedPrice, seedsOnSale, sprinklerOn, underGlass, upgradeById, upgradeCost,
-  water, waterAround,
+  daysToNextSeason, decorById, decorOn, digUp, farmOf, fenceCost, fieldSize, grind, growFence, inSeason, level, needOf, nextSeasonOf, plant,
+  plantState, publicFarm, rareSeedOf, removeDecor, seasonOf, seedPrice, seedsComing, seedsOnSale, sprinklerOn, underGlass, upgradeById,
+  upgradeCost, water, waterAround,
 } from "./farm.js";
 
 const ART = new URL("../../game-art/farm/", import.meta.url).href;
@@ -50,6 +50,58 @@ export function seasonLine(now = new Date()) {
 }
 // (how slow a crop is: the words studied that ripen it with no watering at all; watering makes it sooner)
 const daysLine = (c) => t("Ripens after about {0} words studied", needOf(c));
+/** A crop's season in plain words (the owner, 2026-11-28: "annotate that on the crop text"): "All year", its season's
+ * name while that season is on, and out of it "Back in Autumn" (the season it grows in next). */
+export const seasonTag = (c, now = new Date()) => (c.season === "all" ? t("All year")
+  : inSeason(c, now) ? t(SEASON_NAME[c.season]) : t("Back in {0}", t(SEASON_NAME[c.season])));
+/** "Autumn in 3 days" / "Autumn tomorrow": when the next season (and the week's next rare seed) comes. */
+export function nextSeasonLine(now = new Date()) {
+  const n = daysToNextSeason(now);
+  const next = t(SEASON_NAME[nextSeasonOf(now)]);
+  return n === 1 ? t("{0} tomorrow", next) : t("{0} in {1} days", next, n);
+}
+/** The week's rare seed packet changes with the week: "Changes tomorrow" / "Changes in 3 days". */
+const rareChanges = (now = new Date()) => (daysToNextSeason(now) === 1 ? t("Changes tomorrow") : t("Changes in {0} days", daysToNextSeason(now)));
+
+/** A peek at the next season (the farm page's header): when it comes, and the seeds that come on sale with it. */
+export function openSeasonPeek(now = new Date()) {
+  details((d) => {
+    const list = h(`<div class="farm-list"></div>`);
+    const b = block(t("Coming to the seed stand"));
+    const grid = h(`<div class="farm-barn"></div>`); // (a small grid, as the Cropdex: a peek, each crop's card a tap away)
+    for (const c of seedsComing(now)) {
+      const cell = h(`<button type="button" class="farm-barn-item">${cropIcon(c, 32)}<span class="farm-barn-n"></span></button>`);
+      cell.querySelector(".farm-barn-n").textContent = t(c.name);
+      cell.onclick = () => cropCard(c, now);
+      grid.append(cell);
+    }
+    b.append(grid);
+    list.append(b);
+    return {
+      title: nextSeasonLine(now),
+      text: t("It's {0} now. When the season turns, these seeds go on sale; the all-year ones stay. A plant out of its season only rests, and grows again when its season comes back.", t(SEASON_NAME[seasonOf(now)])),
+      more: list,
+      buttons: [{ word: "Close", primary: true, run: () => d.close() }],
+    };
+  });
+}
+
+/** One crop's card (from the Cropdex): its season, how slow it is, the rarest of it grown, what its seeds cost. */
+function cropCard(c, now = new Date()) {
+  const game = getGame();
+  details((d) => {
+    const best = (farmOf(game).dex || {})[c.id];
+    return {
+      title: c.name,
+      pic: cropIcon(c, 64),
+      facts: [fact("Season", `<span>${seasonTag(c, now)}</span>`),
+        fact("Best grown", best ? `<span style="color:${TIERS[best - 1].colour}">${t(TIERS[best - 1].name)}</span>` : `<span>${t("Not yet")}</span>`),
+        fact("Seeds", c.rare ? `<span>${t("Rare seed")}</span>` : amount("glow", seedPrice(c)))],
+      text: c.rare ? t("{0}. Its seeds are the week's rare packet some weeks.", daysLine(c)) : daysLine(c),
+      buttons: [{ word: "Close", primary: true, run: () => d.close() }],
+    };
+  });
+}
 
 /** The seed stand: this week's seeds (the season's and the all-year ones) and the week's rare seed packet. */
 export function openSeedStand({ changed = () => {} } = {}) {
@@ -63,7 +115,7 @@ export function openSeedStand({ changed = () => {} } = {}) {
     more.append(shop);
     const rare = rareSeedOf();
     const rb = block("This week's rare seed");
-    rb.append(seedRow(rare, f.rareWeek === weekNumber()));
+    rb.append(seedRow(rare, f.rareWeek === weekNumber(), true));
     more.append(rb);
     return {
       title: "Seed stand",
@@ -72,7 +124,7 @@ export function openSeedStand({ changed = () => {} } = {}) {
       note: t("You have {0} glow.", fmt(g.glow)),
       buttons: [{ word: "Close", run: () => d.close() }, { word: "Upgrades", primary: true, run: () => { d.close(); openFarmShop({ changed }); } }],
     };
-    function seedRow(c, had = false) {
+    function seedRow(c, had = false, weekly = false) {
       const price = seedPrice(c);
       const btn = h(`<button type="button" class="primary farm-buy"></button>`);
       btn.innerHTML = amount("glow", price, g.glow < price);
@@ -86,7 +138,9 @@ export function openSeedStand({ changed = () => {} } = {}) {
         d.redraw();
       };
       const have = f.seeds[c.id] || 0;
-      const sub = [daysLine(c), have ? t("You have {0}", have) : "", had ? t("Bought this week") : ""].filter(Boolean).join(" · ");
+      // its season plainly ("Summer", "All year"); the rare packet: "This week only", and when it changes
+      const when = weekly ? [t("This week only"), rareChanges()] : [seasonTag(c)];
+      const sub = [...when, daysLine(c), have ? t("You have {0}", have) : "", had ? t("Bought this week") : ""].filter(Boolean).join(" · ");
       return row({ pic: cropIcon(c, 32), name: t(c.name), sub, end: btn });
     }
   });
@@ -192,7 +246,7 @@ export function plantCard(key, { water = null, dig = null, harvest = () => {} } 
     return {
       title: c.name,
       pic: cropIcon(c, 64),
-      facts: [fact("Growth", `<span>${growthLine(s)}</span>`), fact("Season", `<span>${t(SEASON_NAME[c.season])}</span>`)],
+      facts: [fact("Growth", `<span>${growthLine(s)}</span>`), fact("Season", `<span>${seasonTag(c)}</span>`)],
       text,
       buttons: [...(dig && !s.ripe ? [{ word: "Dig up", run: () => { d.close(); dig(); } }] : []), ...act],
     };
@@ -501,7 +555,7 @@ function barnItem(key, { changed = () => {} } = {}) {
       pic: cropIcon(c, 64),
       facts: [fact("You have", `<span>${fmt(n)}</span>`), fact("Rarity", `<span style="color:${TIERS[tier].colour}">${t(TIERS[tier].name)}</span>`),
         fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Sells for", amount("glow", sellPrice(c, Number(tier) || 0))),
-        fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
+        fact("Season", `<span>${seasonTag(c)}</span>`), fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
       text: fav ? "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only)."
         : "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
       buttons: [
@@ -752,9 +806,10 @@ export function openCropdex() {
     const grid = h(`<div class="farm-barn"></div>`);
     for (const c of CROPS) {
       const best = dex[c.id] ? TIERS[dex[c.id] - 1] : null;
-      const cell = h(`<div class="farm-barn-item${best ? "" : " farm-dex-none"}" style="--tier:${best ? best.colour : "transparent"}">${cropIcon(c, 32)}<span class="farm-barn-n"></span></div>`);
+      const cell = h(`<button type="button" class="farm-barn-item${best ? "" : " farm-dex-none"}" style="--tier:${best ? best.colour : "transparent"}">${cropIcon(c, 32)}<span class="farm-barn-n"></span></button>`);
       cell.querySelector(".farm-barn-n").textContent = best ? t(best.name) : "?";
-      cell.title = best ? `${t(c.name)} · ${t(best.name)}` : `${t(c.name)} · ${t(SEASON_NAME[c.season])}`;
+      cell.title = `${t(c.name)} · ${best ? t(best.name) : seasonTag(c)}`;
+      cell.onclick = () => cropCard(c); // (its card: its season plainly, "Back in Autumn" out of it)
       grid.append(cell);
     }
     return {

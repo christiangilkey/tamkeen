@@ -18215,6 +18215,66 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "dd0aade6",
+  "k": "Back in {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "dee0ba9e",
+  "k": "{0} tomorrow",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "fc0b6e34",
+  "k": "{0} in {1} days",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a110ee65",
+  "k": "Changes tomorrow",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "d0b09570",
+  "k": "Changes in {0} days",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "9f8bb16f",
+  "k": "Coming to the seed stand",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "c8072dd4",
+  "k": "It's {0} now. When the season turns, these seeds go on sale; the all-year ones stay. A plant out of its season only rests, and grows again when its season comes back.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "62255f56",
+  "k": "Season",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b31f9896",
+  "k": "Best grown",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "505d6a6a",
+  "k": "Seeds",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "52a04dfe",
+  "k": "Rare seed",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "8020cc6d",
+  "k": "{0}. Its seeds are the week's rare packet some weeks.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "0622a419",
   "k": "This week's rare seed",
   "f": "web/js/game/farm-ui.js"
@@ -18237,6 +18297,11 @@
  {
   "id": "fc7c9106",
   "k": "Upgrades",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "0fbb6a40",
+  "k": "This week only",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18387,11 +18452,6 @@
  {
   "id": "de9b1be4",
   "k": "Water",
-  "f": "web/js/game/farm-ui.js"
- },
- {
-  "id": "62255f56",
-  "k": "Season",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -19210,11 +19270,6 @@
   "f": "web/js/game/farmpage.js"
  },
  {
-  "id": "505d6a6a",
-  "k": "Seeds",
-  "f": "web/js/game/farmpage.js"
- },
- {
   "id": "a0250e49",
   "k": "Water next",
   "f": "web/js/game/farmpage.js"
@@ -19247,11 +19302,6 @@
  {
   "id": "1e70cdfb",
   "k": "Seeds to plant",
-  "f": "web/js/game/farmpage.js"
- },
- {
-  "id": "33a00880",
-  "k": "Out of season",
   "f": "web/js/game/farmpage.js"
  },
  {

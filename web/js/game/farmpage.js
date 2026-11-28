@@ -20,7 +20,7 @@ import { artCache, composeCreature, icon } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
 import { CROPS, barnCap, barnCount, digUp, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
-import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand, plantCard, sayAnswer } from "./farm-ui.js";
+import { cropIcon, farmWords, harvestLine, nextSeasonLine, openBarn, openFence, openSeasonPeek, openSeedStand, plantCard, sayAnswer, seasonTag } from "./farm-ui.js";
 import { feature } from "../prototype.js";
 import { cardsWaiting, dockReview } from "./reviewplay.js";
 
@@ -36,7 +36,7 @@ export function openFarm({ changed = () => {} } = {}) {
   document.querySelector(".farm-wrap")?.remove();
   const wrap = h(`<div class="live-wrap farm-wrap" role="dialog" aria-label="Farm"><div class="farmp">
     <div class="farmp-top">
-      <span class="farmp-title"><b></b><span class="farmp-season"></span></span>
+      <span class="farmp-title"><b></b><button type="button" class="farmp-season"></button></span>
       <span class="farmp-chip farmp-glow" title="Glow">${icon("glow")}<b translate="no"></b></span>
       <button type="button" class="farmp-chip farmp-barn" title="Your barn">${icon("basket")}<b translate="no"></b></button>
       <button type="button" class="ghost icon farmp-close" title="Close (Esc)" aria-label="Close">${lineIcon("close", 20)}</button>
@@ -70,6 +70,7 @@ export function openFarm({ changed = () => {} } = {}) {
   $(".farmp-stand").textContent = t("Seed stand");
   $(".farmp-hint").textContent = t("Every word you study grows all your plants a little. Tap a plot: planting, watering, harvesting and digging up each ask one of your words.");
   $(".farmp-chain span").textContent = t("Watering chain");
+  $(".farmp-season").onclick = () => { sfx("tick"); openSeasonPeek(); }; // (the next season, and the seeds it brings)
 
   let alive = true, busy = false, seed = null, chain = 0;
   let rp = null; // the vocab reviewer docked over the field, while it is there (review_play)
@@ -104,7 +105,7 @@ export function openFarm({ changed = () => {} } = {}) {
   // ----- the numbers at the top, today's chips, the tray -----
   function paint() {
     const now = new Date();
-    $(".farmp-season").textContent = t(SEASON_NAME[seasonOf(now)]);
+    $(".farmp-season").textContent = `${t(SEASON_NAME[seasonOf(now)])} · ${nextSeasonLine(now)}`; // ("Summer · Autumn in 3 days")
     $(".farmp-glow b").textContent = Math.floor(garden(game).glow).toLocaleString();
     $(".farmp-barn b").textContent = barnCount(game).toLocaleString();
     let thirsty = 0, ripe = 0, empty = 0, growing = 0;
@@ -130,7 +131,7 @@ export function openFarm({ changed = () => {} } = {}) {
       const b = h(`<button type="button" class="farmp-seed${c.id === seed ? " on" : ""}" role="option" aria-selected="${c.id === seed}">${cropIcon(c, 32)}<span class="farmp-seed-name"></span><b translate="no"></b></button>`);
       b.querySelector(".farmp-seed-name").textContent = t(c.name); // (its own class: the crop's picture is a span too)
       b.querySelector("b").textContent = `×${f.seeds[c.id]}`;
-      if (!ok) { b.classList.add("off"); b.title = t("Out of season"); }
+      if (!ok) { b.classList.add("off"); b.title = seasonTag(c); } // ("Back in Autumn")
       b.onclick = () => { seed = c.id; sfx("tick"); paint(); };
       tray.append(b);
     }
@@ -235,7 +236,7 @@ export function openFarm({ changed = () => {} } = {}) {
     if (!s) {
       if (!seed) { toast(t("Pick a seed below first.")); return; }
       const c = CROPS.find((x) => x.id === seed);
-      if (!inSeason(c) && !underGlass(game, key)) { toast(t("Out of season")); return; }
+      if (!inSeason(c) && !underGlass(game, key)) { toast(seasonTag(c)); return; } // ("Back in Autumn")
       await ask("plant", key, c, () => { const err = plant(game, key, c.id); if (err) { toast(t(err), { error: true }); return null; } return {}; });
       return;
     }

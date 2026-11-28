@@ -7,8 +7,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   CROPS, FENCE_MAX, GROW_PER_WORD, MATURITY_PER_DAY, MAX_SIZE, RARE_CROPS, SEASONS, WATER_BOOST, barnList, buySeeds, cropById, digUp,
-  farmOf, fenceCost, fieldSize, grow, growFence, harvest, inSeason, needOf, plant, plantState, rareSeedOf, rollTier, seasonOf,
-  seedsOnSale, sizeAfter, spots, stageOf, ungrow, water,
+  daysToNextSeason, farmOf, fenceCost, fieldSize, grow, growFence, harvest, inSeason, needOf, nextSeasonOf, plant, plantState, rareSeedOf,
+  rollTier, seasonOf, seedsComing, seedsOnSale, sizeAfter, spots, stageOf, ungrow, water,
 } from "../../web/js/game/farm.js";
 import { BARN, BUILD_SPOTS, FARM_COLS, FARM_IN, FIELD, GAP_ROW, PLOT_SLACK, SEED_STAND, farmBlocked, farmMap, fieldLeft, gapCol, plotAt, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
 import { LEGENDARY } from "../../web/js/game/loot.js";
@@ -45,6 +45,28 @@ test("seasons turn weekly, the same for everyone; seeds on sale are the season's
   assert.ok(sale.every((c) => !c.rare && (c.season === "all" || c.season === seasonOf(day(0)))));
   assert.equal(sale.length, 10);
   assert.notEqual(rareSeedOf(day(0)).id, rareSeedOf(day(7)).id, "a different rare packet each week");
+});
+
+test("the season ahead (the owner, 2026-11-28): next week's season, the seeds it brings, the days until it turns", () => {
+  for (let d = 0; d < 7; d++) {
+    assert.equal(nextSeasonOf(day(d)), seasonOf(day(7)), "all week, next week's season");
+    assert.equal(daysToNextSeason(day(d)), 7 - d, "Monday: 7 days to go; Sunday: 1 (tomorrow)");
+    assert.equal(rareSeedOf(day(d)).id, rareSeedOf(day(0)).id, "the rare packet changes when the season does");
+  }
+  const coming = seedsComing(day(0));
+  assert.equal(coming.length, 8);
+  assert.ok(coming.every((c) => c.season === nextSeasonOf(day(0)) && !inSeason(c, day(0)) && inSeason(c, day(7))));
+  // the words for it (farm-ui.js): "All year", the season while it's on, "Back in Autumn" out of it; "This week only"
+  // and its countdown on the rare packet; "Autumn in 3 days" on the farm page's header, a tap peeking at the seeds
+  const ui = src("farm-ui.js");
+  assert.match(ui, /c\.season === "all" \? t\("All year"\)\s*: inSeason\(c, now\) \? t\(SEASON_NAME\[c\.season\]\) : t\("Back in \{0\}", t\(SEASON_NAME\[c\.season\]\)\)/);
+  assert.match(ui, /weekly \? \[t\("This week only"\), rareChanges\(\)\] : \[seasonTag\(c\)\]/);
+  for (const card of ["fact(\"Season\", `<span>${seasonTag(c)}</span>`), fact(\"Bait\"", "fact(\"Growth\", `<span>${growthLine(s)}</span>`), fact(\"Season\", `<span>${seasonTag(c)}</span>`)",
+    "cell.onclick = () => cropCard(c);"]) assert.ok(ui.includes(card), card);
+  const page = src("farmpage.js");
+  assert.match(page, /\$\("\.farmp-season"\)\.textContent = `\$\{t\(SEASON_NAME\[seasonOf\(now\)\]\)\} · \$\{nextSeasonLine\(now\)\}`/);
+  assert.match(page, /\$\("\.farmp-season"\)\.onclick = \(\) => \{ sfx\("tick"\); openSeasonPeek\(\); \}/);
+  assert.match(page, /toast\(seasonTag\(c\)\)/, "planting out of season says when it's back");
 });
 
 test("seeds for glow: out of season refused, the rare packet once a week; not enough glow refused", () => {

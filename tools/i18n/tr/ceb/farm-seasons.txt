@@ -1,0 +1,11 @@
+dd0aade6	Mobalik sa {0}
+dee0ba9e	{0}: ugma
+fc0b6e34	{0}: sa {1} ka adlaw
+a110ee65	Mausab ugma
+d0b09570	Mausab sa {0} ka adlaw
+9f8bb16f	Moabot sa tindahan sa liso
+c8072dd4	{0} karon. Inig usab sa panahon, kini nga mga liso ibaligya na; ang mga tibuok-tuig magpabilin. Ang tanom nga wala sa panahon niini mopahulay lang, ug motubo pag-usab inig balik sa panahon niini.
+b31f9896	Labing maayo nga natanom
+52a04dfe	Talagsaong liso
+8020cc6d	{0}. Ang liso niini mao ang talagsaong pakete sa semana sa pipila ka semana.
+0fbb6a40	Karong semanaha lang

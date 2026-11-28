@@ -1,0 +1,11 @@
+dd0aade6	Vuelve en {0}
+dee0ba9e	{0}: mañana
+fc0b6e34	{0}: en {1} días
+a110ee65	Cambia mañana
+d0b09570	Cambia en {0} días
+9f8bb16f	Pronto en el puesto de semillas
+c8072dd4	Ahora es {0}. Cuando cambie la estación, estas semillas saldrán a la venta; las de todo el año se quedan. Una planta fuera de su estación solo descansa, y vuelve a crecer cuando su estación regresa.
+b31f9896	Lo mejor cultivado
+52a04dfe	Semilla rara
+8020cc6d	{0}. Sus semillas son el paquete raro de la semana algunas semanas.
+0fbb6a40	Solo esta semana

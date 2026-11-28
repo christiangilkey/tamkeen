@@ -1,0 +1,11 @@
+dd0aade6	Torna in {0}
+dee0ba9e	{0}: domani
+fc0b6e34	{0}: tra {1} giorni
+a110ee65	Cambia domani
+d0b09570	Cambia tra {0} giorni
+9f8bb16f	Presto alla bancarella dei semi
+c8072dd4	Ora è {0}. Quando cambia la stagione, questi semi saranno in vendita; quelli di tutto l'anno restano. Una pianta fuori stagione si riposa soltanto, e riprende a crescere quando la sua stagione ritorna.
+b31f9896	Miglior raccolto
+52a04dfe	Seme raro
+8020cc6d	{0}. I suoi semi sono il pacchetto raro della settimana in alcune settimane.
+0fbb6a40	Solo questa settimana
