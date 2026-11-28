@@ -321,3 +321,85 @@ export function arrange(bodies, { W, H, tries = [0, 0.3, -0.3, 0.6, -0.6, 0.9, -
   }
   return best.set;
 }
+
+// ---------- the bubbles as things you can move (prototype "library_physics") ----------
+// The owner, 2026-11-27: "they try not to overlap, but they can be pulled apart and stuff, but they tend to be
+// lightly pulled inwards towards the main category. Unless they're connected to another category, then they're
+// pulled in towards that one", and "they try to reach like a static state. They're not like constantly moving".
+// So: each bubble has a velocity; a light spring pulls it towards its parent (the hub, or the bubble it hangs from)
+// once it is further than its natural length (`home`: its distance there in the arranged layout, see setHomes); overlapping bodies push apart softly (a held one can be pulled through); lines
+// push names and bubbles off them softly; strong damping. The resting layout has no pressure left: the pull stops at
+// touching distance and the pushes only act inside the clear space, so at rest nothing moves, and the simulation
+// stops (no idle animation).
+
+export const PHYSICS = { pull: 0.004, push: 0.18, damp: 0.72, rest: 0.03 };
+
+/** One frame. `held`: the key being dragged (it doesn't move here). Returns the fastest speed (px a frame). */
+export function physicsStep(bodies, { W, H, held = null, pull = PHYSICS.pull, push = PHYSICS.push, damp = PHYSICS.damp } = {}) {
+  const hub = bodies.find((b) => b.hub);
+  const byKey = new Map(bodies.map((b) => [b.key, b]));
+  const moves = (b) => !b.hub && b.key !== held;
+  for (const b of bodies) { b.vx = b.vx || 0; b.vy = b.vy || 0; }
+  // The pull towards the parent, beyond touching distance only.
+  for (const b of bodies) {
+    if (!moves(b)) continue;
+    const parent = (b.attach && byKey.get(b.attach)) || hub;
+    if (!parent) continue;
+    const dx = parent.x - b.x, dy = parent.y - b.y, d = Math.hypot(dx, dy) || 1;
+    // (its natural length: `home`, its distance in the layout as arranged, else touching distance)
+    const touch = b.home || (parent.hub ? Math.hypot(parent.w, parent.h) / 2 : parent.r) + b.r + GAP;
+    if (d > touch) { b.vx += (dx / d) * (d - touch) * pull; b.vy += (dy / d) * (d - touch) * pull; }
+  }
+  // Soft pushes apart, and off the lines: only where things really overlap, so a layout with nothing overlapping
+  // has nothing pushing in it, and stays still.
+  const soft = 0;
+  for (let i = 0; i < bodies.length; i++) {
+    for (let j = i + 1; j < bodies.length; j++) {
+      const a = bodies[i], b = bodies[j], ma = moves(a), mb = moves(b);
+      if (!ma && !mb) continue;
+      const v = separation(a, b, soft);
+      if (!v) continue;
+      const ka = ma && mb ? 0.5 : ma ? 1 : 0, kb = ma && mb ? 0.5 : mb ? 1 : 0;
+      a.vx += v[0] * push * ka; a.vy += v[1] * push * ka; b.vx -= v[0] * push * kb; b.vy -= v[1] * push * kb;
+    }
+  }
+  for (const link of linksOf(bodies)) {
+    for (const b of bodies) {
+      if (!moves(b) || b.key === link.to || b.key === link.from) continue;
+      const v = segPush(link.ends, b, soft);
+      if (v) { b.vx += v[0] * push * 0.5; b.vy += v[1] * push * 0.5; }
+    }
+  }
+  // Move, slowed by the damping, and kept on the stage.
+  let fastest = 0;
+  for (const b of bodies) {
+    if (!moves(b)) { b.vx = 0; b.vy = 0; continue; }
+    b.vx *= damp; b.vy *= damp;
+    b.x += b.vx; b.y += b.vy;
+    const e = extentOf(b);
+    if (e.l < 2) { b.x += 2 - e.l; b.vx = 0; } else if (e.r > W - 2) { b.x -= e.r - (W - 2); b.vx = 0; }
+    if (e.t < 2) { b.y += 2 - e.t; b.vy = 0; } else if (e.b > H - 2) { b.y -= e.b - (H - 2); b.vy = 0; }
+    fastest = Math.max(fastest, Math.hypot(b.vx, b.vy));
+  }
+  return fastest;
+}
+
+/** Run frames until everything is still (slower than PHYSICS.rest for a few frames in a row), at most `most`.
+ *  Returns how many frames it took. Velocities are left at 0: at rest. */
+export function settle(bodies, opts, most = 600) {
+  let still = 0, n = 0;
+  for (; n < most && still < 6; n++) still = physicsStep(bodies, opts) < PHYSICS.rest ? still + 1 : 0;
+  for (const b of bodies) { b.vx = 0; b.vy = 0; }
+  return n;
+}
+
+/** Each bubble's natural distance from its parent, as the layout now has it: the arranged layout is then at rest. */
+export function setHomes(bodies) {
+  const hub = bodies.find((b) => b.hub);
+  const byKey = new Map(bodies.map((b) => [b.key, b]));
+  for (const b of bodies) {
+    const parent = (b.attach && byKey.get(b.attach)) || hub;
+    if (!b.hub && parent) b.home = Math.hypot(parent.x - b.x, parent.y - b.y);
+  }
+  return bodies;
+}

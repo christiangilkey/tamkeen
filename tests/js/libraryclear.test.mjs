@@ -101,3 +101,64 @@ test("the page: words measured as drawn, sized to their text, lines drawn where 
   assert.match(css, /\.lh-rl \{[^}]*width: max-content; max-width: 170px;/);
   assert.match(readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8"), /library_physics: \{[^}]*released: false/);
 });
+
+// ----- bubbles you can move (prototype library_physics): the owner, "they try to reach like a static state" -----
+
+test("at rest means still: the arranged layout doesn't move by itself, frame after frame", async () => {
+  const { physicsStep, setHomes } = await import("../../web/js/libraryhome.js");
+  for (const W of [390, 412]) {
+    const { bodies, H } = ownersMap(W);
+    const out = setHomes(arrange(bodies, { W, H }));
+    const before = JSON.stringify(out.map((b) => [b.x, b.y]));
+    let fastest = 0;
+    for (let i = 0; i < 120; i++) fastest = Math.max(fastest, physicsStep(out, { W, H }));
+    assert.ok(fastest < 0.01, `${W}px: nothing drifts (${fastest})`);
+    assert.ok(JSON.stringify(out.map((b) => [Math.round(b.x), Math.round(b.y)])) === JSON.stringify(JSON.parse(before).map(([x, y]) => [Math.round(x), Math.round(y)])));
+  }
+});
+
+test("let go anywhere: it comes to rest with nothing overlapping (or eases back to where it was)", async () => {
+  const { physicsStep, setHomes } = await import("../../web/js/libraryhome.js");
+  for (const W of [360, 390, 412]) for (const who of ["books", "podcasts", "resume0"]) for (const to of [[0.1, 0.1], [0.9, 0.5], [0.5, 0.95]]) {
+    const { bodies, H } = ownersMap(W);
+    const out = setHomes(arrange(bodies, { W, H }));
+    for (const b of out) if (!b.attach) b.rest = b.home;
+    const resting = out.map((b) => ({ ...b }));
+    const held = out.find((b) => b.key === who);
+    for (let i = 1; i <= 30; i++) { held.x += (to[0] * W - held.x) / (31 - i); held.y += (to[1] * H - held.y) / (31 - i); physicsStep(out, { W, H, held: who }); }
+    // (as homemap.js does on letting go)
+    const target = out.map((b) => ({ ...b })), dropped = target.find((b) => b.key === who);
+    const parent = (dropped.attach && target.find((b) => b.key === dropped.attach)) || target.find((b) => b.hub);
+    dropped.home = Math.hypot(parent.x - dropped.x, parent.y - dropped.y);
+    for (const b of target) if (!b.attach) b.rest = b.home;
+    relax(target, { W, H, steps: 600 });
+    let goal = target;
+    if (overlaps(target, W, H).length) {
+      const again = resting.map((r) => (r.key === who ? { ...r, x: dropped.x, y: dropped.y, home: dropped.home } : { ...r }));
+      for (const r of again) if (!r.attach) r.rest = r.home;
+      relax(again, { W, H, steps: 600 });
+      goal = overlaps(again, W, H).length ? resting : again;
+    }
+    assert.deepEqual(overlaps(goal, W, H), [], `${W}px ${who} → ${to}`);
+  }
+});
+
+test("a bubble hangs towards its own parent: Continue towards its section, the rest towards the hub", async () => {
+  const { physicsStep } = await import("../../web/js/libraryhome.js");
+  const W = 390, H = 800;
+  const set = [{ key: "hub", hub: true, x: 195, y: 400, w: 150, h: 60 }, { key: "sec", x: 300, y: 150, r: 40, home: 260 },
+    { key: "go", attach: "sec", x: 40, y: 40, r: 30, home: 82 }];
+  for (let i = 0; i < 400; i++) physicsStep(set, { W, H });
+  const go = set[2], sec = set[1];
+  assert.ok(Math.hypot(go.x - sec.x, go.y - sec.y) < 120, "pulled to its section, not the hub");
+  assert.ok(Math.hypot(sec.x - 195, sec.y - 400) <= 262, "the section to the hub, no closer than its own distance needs");
+});
+
+test("no tab swiping on Content's Home while its bubbles can be dragged; release eases, then stops", () => {
+  const swipe = readFileSync(new URL("../../mobile/src/js/swipe.js", import.meta.url), "utf8");
+  assert.match(swipe, /const map = document\.querySelector\("#lib-home \.lh-map\.lh-physics"\);\s*if \(map && map\.offsetParent\) return true;/);
+  const map = readFileSync(new URL("../../web/js/components/homemap.js", import.meta.url), "utf8");
+  assert.match(map, /const goal = clean \? target : resting;/);
+  assert.match(map, /if \(k < 1\) frame = requestAnimationFrame\(tick\);/, "the easing stops when done: no idle animation");
+  assert.match(map, /setHomes\(bodies\); \/\/ \(each bubble's natural distance from its parent: this layout is at rest\)/);
+});

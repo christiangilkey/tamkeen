@@ -12,7 +12,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { settingsHref } from "../fixes.js";
 import { openModal } from "./modal.js";
 import { extensionLink, unavailableText } from "../netflix.js";
-import { arrange, bubbleSizes, extentOf, layoutBubbles, linksOf, overlaps, relax } from "../libraryhome.js";
+import { arrange, bubbleSizes, extentOf, layoutBubbles, linksOf, overlaps, physicsStep, relax, setHomes } from "../libraryhome.js";
 import { feature } from "../prototype.js";
 
 const SVG = "http://www.w3.org/2000/svg";
@@ -229,37 +229,39 @@ export function homeMap(box, { kinds, uses, rings = {}, lang, resume = [] }) {
     map.style.height = `${H}px`;
     lines.setAttribute("width", W);
     lines.setAttribute("height", H);
-    for (const b of bodies) if (!b.hub && !b.attach) b.rest = Math.hypot(b.x - bodies[0].x, b.y - bodies[0].y);
+    setHomes(bodies); // (each bubble's natural distance from its parent: this layout is at rest)
+    for (const b of bodies) if (!b.attach) b.rest = b.home;
     place();
   }
 
   // ---------- dragging (prototype "library_physics") ----------
-  // Press and move a bubble: it follows the finger and the others make room (libraryhome.js relax, a few steps a
-  // frame, shown with a little easing). Let go: it stays where it was put, the rest settle, and the arrangement is
-  // kept on this device. A tap without moving still opens the bubble.
-  let drag = null, justDragged = false, frame = 0;
-  const shown = new Map(); // where each body is drawn, easing towards where the simulation has it
-  function animate(until) {
+  // Press and move a bubble: it follows the finger, and the others give way softly (libraryhome.js physicsStep: each
+  // pulled lightly towards its parent, the hub or the bubble it hangs from, and pushed off what it overlaps). Let go:
+  // the resting layout from there is worked out at once (relax: nothing overlapping, each at its natural distance
+  // from its parent), everything eases into it in about 0.7s, and then nothing moves at all until the next drag (the
+  // owner: "they try to reach like a static state"). If there is no clean layout from there, they ease back to where
+  // they were. The arrangement is kept on this device.
+  let drag = null, justDragged = false, frame = 0, resting = null;
+  const snapshot = () => bodies.map((b) => ({ ...b }));
+  function easeTo(target, done) {
     cancelAnimationFrame(frame);
-    let quiet = 0;
-    const tick = () => {
-      relax(bodies, { W, H, steps: 3, pinned: drag && drag.key, pull: 0 });
-      let moved = 0;
-      for (const b of bodies) {
-        if (b.hub) continue;
-        const s = shown.get(b.key) || { x: b.x, y: b.y };
-        const k = drag && b.key === drag.key ? 1 : 0.3;
-        const nx = s.x + (b.x - s.x) * k, ny = s.y + (b.y - s.y) * k;
-        moved = Math.max(moved, Math.hypot(nx - s.x, ny - s.y));
-        shown.set(b.key, { x: nx, y: ny });
-      }
-      const real = bodies.map((b) => ({ ...b }));
-      for (const b of bodies) if (!b.hub) Object.assign(b, shown.get(b.key));
+    const from = snapshot(), t0 = performance.now(), ms = 700;
+    const tick = (now) => {
+      const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); // (ease-out)
+      bodies.forEach((b, i) => { b.x = from[i].x + (target[i].x - from[i].x) * e; b.y = from[i].y + (target[i].y - from[i].y) * e; });
       place();
-      for (const [i, b] of bodies.entries()) Object.assign(b, { x: real[i].x, y: real[i].y });
-      quiet = moved < 0.2 ? quiet + 1 : 0;
-      if (drag || quiet < 8) frame = requestAnimationFrame(tick);
-      else { until && until(); }
+      if (k < 1) frame = requestAnimationFrame(tick);
+      else { bodies.forEach((b, i) => Object.assign(b, { x: target[i].x, y: target[i].y, vx: 0, vy: 0 })); place(); done && done(); }
+    };
+    frame = requestAnimationFrame(tick);
+  }
+  function follow() {
+    cancelAnimationFrame(frame);
+    const tick = () => {
+      if (!drag) return;
+      physicsStep(bodies, { W, H, held: drag.key });
+      place();
+      frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
   }
@@ -282,8 +284,8 @@ export function homeMap(box, { kinds, uses, rings = {}, lang, resume = [] }) {
         drag.moving = true;
         drag.el.setPointerCapture(e.pointerId);
         drag.el.classList.add("lh-held");
-        for (const b of bodies) shown.set(b.key, { x: b.x, y: b.y });
-        animate();
+        resting = resting || snapshot();
+        follow();
       }
       const body = bodies.find((b) => b.key === drag.key);
       const e2 = extentOf(body); // (kept on the stage, words and all)
@@ -298,10 +300,26 @@ export function homeMap(box, { kinds, uses, rings = {}, lang, resume = [] }) {
       justDragged = true;
       setTimeout(() => { justDragged = false; }, 50);
       was.el.classList.remove("lh-held");
-      // It stays where it was put: every bubble's own distance from the hub becomes where it is now.
-      const hub = bodies.find((b) => b.hub);
-      for (const b of bodies) if (!b.hub && !b.attach) b.rest = Math.hypot(b.x - hub.x, b.y - hub.y);
-      animate(() => savePlaced(W, bodies, hub));
+      // Where it all comes to rest from here: the dropped bubble's new distance is its own from now on.
+      const target = snapshot();
+      const dropped = target.find((b) => b.key === was.key);
+      const parent = (dropped.attach && target.find((b) => b.key === dropped.attach)) || target.find((b) => b.hub);
+      dropped.home = Math.hypot(parent.x - dropped.x, parent.y - dropped.y); // (only the dropped one's changes)
+      for (const b of target) if (!b.attach) b.rest = b.home;
+      relax(target, { W, H, steps: 600 });
+      let clean = !overlaps(target, W, H).length;
+      if (!clean && resting) { // (again from the resting layout, with only the dropped bubble where it was let go)
+        const again = resting.map((r) => (r.key === dropped.key ? { ...r, x: dropped.x, y: dropped.y, home: dropped.home } : { ...r }));
+        for (const r of again) if (!r.attach) r.rest = r.home;
+        relax(again, { W, H, steps: 600 });
+        if (!overlaps(again, W, H).length) { target.splice(0, target.length, ...again); clean = true; }
+      }
+      const goal = clean ? target : resting;
+      resting = null;
+      easeTo(goal, () => {
+        for (const b of bodies) b.home = goal.find((g) => g.key === b.key).home;
+        savePlaced(W, bodies, bodies.find((b) => b.hub));
+      });
     };
     map.addEventListener("pointerup", end);
     map.addEventListener("pointercancel", end);
