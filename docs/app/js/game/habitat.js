@@ -16,7 +16,8 @@ import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall 
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
-import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, inPen, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { openFarm } from "./farmpage.js";
 import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
@@ -33,7 +34,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, dayKey, levelOf, receiveGift } from "./rules.js";
-import { FRAME, animAt, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
+import { FRAME, animAt, artCache, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { currencyTaps, openCurrency, openEarned, openEvolution } from "./info.js";
@@ -99,7 +100,7 @@ export function habitat() {
   // smaller outside and still crisp: 2 per pixel there, two thirds of its size (the owner: "our creatures should be a bit
   // smaller compared to the over world, it seems like they are huge compared to houses"). Without it, as before.
   const RES = feature("habitat_room") ? 3 : 1;
-  const el = h(`<section class="habitat card">
+  const el = h(`<section class="habitat">
     <div class="habitat-scene"><canvas width="${W * RES}" height="${H * RES}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
       <button type="button" class="habitat-name" title="Its name and how it grows"></button>
       <span class="habitat-about" hidden></span>
@@ -116,7 +117,7 @@ export function habitat() {
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
-        ${tile("shop", "nav_shop", "Shop")}${tile("garden", "structure/word_sprout_2", "Garden")}
+        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
         ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
@@ -292,7 +293,10 @@ export function habitat() {
   // Creatures home to its room. The page opens as before; closed, there it stands.
   $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
   $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
-  $("#g-garden").onclick = () => { teleportTo(feature("farm") ? "farm" : "fruit"); go("garden"); }; // (the farm, with its buildings: prototype "farm")
+  $("#g-garden").onclick = () => { // (the farm, with its buildings: prototype "farm"; with "farm_page" the tile is Farm and opens the farm page)
+    teleportTo(feature("farm") ? "farm" : "fruit");
+    if (feature("farm_page")) openFarm({ changed: () => paintHud() }); else go("garden");
+  };
   $("#g-battle").onclick = () => teleportTo("hall") || openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
   // The aquarium, under the Fishing tile once a fish has been caught: the fish kept in it, swimming. A tap opens the
   // Basket, where fish go in and out. It is drawn again only when what is in the tank has changed.
@@ -412,7 +416,9 @@ export function habitat() {
   // clouds and sun", not the old neon ones, which the other scenes keep)
   for (const k of ["sun", "moon", "cloud_1", "cloud_2"]) files[`room_${k}`] = `room/sky_${k}.png`;
   files.mailbox = "room/mailbox.png"; files.mailboxFlag = "room/mailbox_flag.png"; // (slice 4) // (prototype "habitat_room")
-  for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
+  // (each asked for again after a failed load, as render.artCache does, until it comes: a blip never leaves a hole)
+  const loadArt = (k, f) => loadImage(f).then((img) => { if (img) art[k] = img; else setTimeout(() => { if (!disposed) loadArt(k, f); }, 21000); });
+  for (const [k, f] of Object.entries(files)) loadArt(k, f);
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
 
   const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, mood: "", moodT: 0, hop: 0, emote: "", emoteT: 0, idleT: 6,
@@ -579,8 +585,9 @@ export function habitat() {
   // ----- the yard (prototype "habitat_room"): the battle terrain's own art, put together as the arenas are -----
   const yardImgs = {};
   let yardGround = null, yardDirty = true;
+  const yget = artCache(() => { yardDirty = true; }); // (asks again after a failed load: render.artCache)
   const yimg = (p) => {
-    if (!(p in yardImgs)) { yardImgs[p] = null; loadImage(p).then((im) => { yardImgs[p] = im; yardDirty = true; }).catch(() => {}); }
+    yardImgs[p] = yget(p);
     return yardImgs[p];
   };
   let yardMoving = []; // [{x, y, layers}]: the cells with moving ground (water), from that layer up, drawn every frame
@@ -776,8 +783,7 @@ export function habitat() {
       if (gate) out.push({ y: 97, draw: () => ctx.drawImage(gate, 0, 80 - 24) });
     }
     for (const at of inYard() ? yardDecor() : []) {
-      if (!(at.id in decorArt)) { decorArt[at.id] = null; loadImage(`${at.id}.png`).then((img) => { decorArt[at.id] = img; }); }
-      const img = decorArt[at.id];
+      const img = (decorArt[at.id] = yget(`${at.id}.png`));
       if (img) out.push({ y: at.y, draw: () => ctx.drawImage(img, Math.round(at.x - img.width / 2), at.y - img.height + 2) });
     }
     // the pier's fishing spot: ripples where the line goes in (rings now and then, a fish's shadow passing), the chair
@@ -1150,8 +1156,7 @@ export function habitat() {
         const k = Math.min(1, rolling.t), e = 1 - (1 - k) ** 2;
         d = { ...d, x: rolling.from.x + (rolling.to.x - rolling.from.x) * e, y: rolling.from.y + (rolling.to.y - rolling.from.y) * e - Math.abs(Math.sin(k * Math.PI * 2)) * 6 * (1 - k) };
       }
-      if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
-      const img = decorArt[d.id];
+      const img = (decorArt[d.id] = yget(`${d.id}.png`));
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), Math.round(d.y - img.height + 2));
     };
     for (const d of pieces) if (d.y <= feet) drawPiece(d);
@@ -1228,7 +1233,7 @@ export function habitat() {
       else if (say.hidden && isHungry(game.creature)) {
         // Hungry (prototype "hunger"): a thought bubble with its favourite food, bobbing, in place of its hearts.
         const food = wantedFood(game.creature).id;
-        if (!(food in foodArt)) { foodArt[food] = null; loadImage(`icon/${food}.png`).then((img) => { foodArt[food] = img; }); }
+        foodArt[food] = yget(`icon/${food}.png`);
         const y = top - 24 + Math.round(Math.sin(now / 500));
         const x = Math.round(pet.x + pet.dir * 10 - 11);
         ctx.fillStyle = "#1a1030";
@@ -1654,6 +1659,9 @@ export function habitat() {
     // stands over it; the spot lights up and its card opens straight away, the creature walking over meanwhile.
     if (inFarm() && !pressed && moving === null) {
       const [fw, fh] = fieldSize(game);
+      // (with the farm page, a tap anywhere in the pen, plots, paths or fence, opens it: every plot is tended there, never
+      // from a sheet over the village; the owner, "clicking anywhere within the farming pen should open up a whole pop-up")
+      if (feature("farm_page") && inPen(x, y, fw, fh)) { sfx("tick"); openFarm({ changed: () => paintHud() }); return; }
       const sp = plotAt(x, y, fw, fh);
       if (sp) { tapSpot(sp.c, sp.r); return; }
     }

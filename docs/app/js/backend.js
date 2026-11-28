@@ -4,6 +4,7 @@
 
 import { audio, kv, lib, now, saveLibrary, transcripts } from "./store.js";
 import { fetchTranscript, requestSync, syncNow, syncState } from "./sync.js";
+import { listItems, takeItems } from "./listening.js";
 import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from "./shared-logic.js";
 import { saveSettingsPatch, settings } from "./store.js";
 import { savedSites, setSite, typedSite } from "./browser-sites.js";
@@ -895,6 +896,20 @@ const routes = [
     const e = episodeOf(m[1]);
     if (!e) throw new ApiError("Episode not found.");
     return episodeOut(e);
+  }],
+  // What has been listened to, watched and read, and how far (listening.js), as the page sends it and takes it in
+  // (listensync.js): kept by episode uid, which is the episode's id here (the computer's twin is app/api/listening.py).
+  ["GET", /^\/listening$/, () => ({ items: listItems(lib.listening, new Set(liveEpisodes().map((e) => e.uid))) })],
+  ["POST", /^\/listening$/, (m, q, body) => {
+    const items = body && body.items;
+    if (!Array.isArray(items) || items.length > 2000) throw new ApiError("A list of at most 2000 records was expected.");
+    const { state, saved } = takeItems(lib.listening, items, new Set(lib.episodes.map((e) => e.uid)));
+    if (saved) {
+      lib.listening = state;
+      saveLibrary();
+      requestSync(60000); // the user's other devices learn what was heard here (not at every second of it)
+    }
+    return { saved };
   }],
   // An episode by the id it has on every device (here that is its id already; the computer's twin looks it up).
   ["GET", /^\/episodes\/uid\/([\w-]+)$/, (m) => {

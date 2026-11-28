@@ -27,6 +27,8 @@ import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
+import { applyTabNames } from "./tabnames.js";
+import { startListenSync } from "./listensync.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
@@ -127,7 +129,7 @@ function previewReelSurface() {
   return {
     async open({ url, el }) {
       box = document.createElement("div");
-      box.style.cssText = "color:#aaa;text-align:center;font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center";
+      box.style.cssText = "color:var(--ink-2);text-align:center;font-size: var(--fs-14);display:flex;flex-direction:column;gap:var(--s-12);align-items:center";
       box.innerHTML = `<span></span><div><button type="button">‹ Previous</button> <button type="button">Next ›</button></div>`;
       const [prev, next] = box.querySelectorAll("button");
       let presses = 0;
@@ -417,7 +419,7 @@ function webIdToken(host = null) {
   return new Promise(() => {});
 }
 
-const GOOGLE_G = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style="vertical-align:-3px;background:#fff;border-radius:50%; corner-shape: round;padding:2px"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13.6 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.2-8.4 2.2-6.4 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>`;
+const GOOGLE_G = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" style="vertical-align:-3px;background:#fff;border-radius:50%; corner-shape: round;padding:var(--s-4)"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13.6 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.2-8.4 2.2-6.4 0-11.7-4.1-13.6-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>`;
 
 /** The email address inside a Google ID token (its middle part is plain JSON), "" when it can't be read. */
 export function idTokenEmail(idToken) {
@@ -972,7 +974,7 @@ export async function openBrowser(url = "", { instagramSignIn = false, reading =
         await saveSettings({ youtube_follows: setFollow(settings.youtube_follows,
           { name, id: q.get("id") || "", image: q.get("image") || "", lang: studyLanguage() }, on, Math.floor(Date.now() / 1000)) });
         emit("feeds", { refreshed: true });
-        GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in your Library under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
+        GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in Content under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
       } catch (e) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't follow this channel." }).catch(() => {});
       }
@@ -1315,6 +1317,7 @@ async function route() {
   const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites || mod === books ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
+  applyTabNames(); // (Home → Games, Library → Content with the prototype "games_content": tabnames.js)
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
   // The tab highlight and swipe animation move as soon as the section changes, not after its data loads.
   window.dispatchEvent(new Event("routed"));
@@ -1658,6 +1661,7 @@ async function boot() {
   window.addEventListener("pagehide", () => { flushSync(); });
   window.addEventListener("tamkeen:review-closed", () => { flushSync(); }); // a review session ended: send it now
   startNudges(() => check());
+  startListenSync(api, on); // what was listened to, watched and read reaches the user's other devices (listensync.js)
   let lastDone = new Set(lib.episodes.filter((e) => e.transcript_rev).map((e) => e.uid));
   onSync((s) => {
     emit("sync", s);

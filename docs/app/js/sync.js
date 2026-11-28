@@ -14,6 +14,7 @@ import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanProgress, mergeProgress } from "./grammardata.js";
+import { cleanState as cleanListening, mergeState as mergeListening } from "./listening.js";
 import { cleanState as cleanLessons, mergeStates as mergeLessons } from "./lessons.js";
 import { cleanSetting as cleanController, settingWins as controllerWins } from "./padmap.js";
 import { cleanGoals, cleanSetting as cleanGoal, mergeGoals, settingWins as goalWins } from "./review/goalsetting.js";
@@ -175,6 +176,18 @@ export function merge(remote) {
     }
   }
 
+  // What has been listened to, watched and read, and how far (listening.js): item by item, the one used last wins, and
+  // "finished" is kept from either copy. The page takes it in after the sync (listensync.js).
+  if (remote.listening && typeof remote.listening === "object" && Object.keys(remote.listening).length) {
+    const before = cleanListening(lib.listening);
+    const merged = mergeListening(before, remote.listening);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      lib.listening = merged;
+      saveLibrary();
+      changed++;
+    }
+  }
+
   // The game controller's buttons (padmap.js): the mapping changed last wins.
   if (remote.controller && typeof remote.controller === "object" && controllerWins(remote.controller, settings.controller_map)) {
     settings.controller_map = cleanController(remote.controller);
@@ -258,6 +271,7 @@ export function snapshot() {
     channels: cleanFollows(settings.youtube_follows),
     sites: cleanSites(settings.browser_sites),
     grammar: cleanProgress(settings.grammar_progress),
+    listening: cleanListening(lib.listening),
     lessons: cleanLessons(settings.lesson_state),
     controller: cleanController(settings.controller_map),
     goal: cleanGoal(settings.study_goal),
@@ -277,7 +291,7 @@ function canonical(value) {
 }
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
-                                   channels: l.channels || [], sites: l.sites || [], grammar: cleanProgress(l.grammar),
+                                   channels: l.channels || [], sites: l.sites || [], grammar: cleanProgress(l.grammar), listening: cleanListening(l.listening),
                                    controller: cleanController(l.controller), goal: cleanGoal(l.goal), goals: cleanGoals(l.goals),
                                    ig_collections: cleanCollections(l.ig_collections),
                                    keys: cleanKeys(l.keys), learning: cleanPayload(l.learning) });

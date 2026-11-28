@@ -274,7 +274,7 @@ async function signedInInstagram() {
 
 // Bisaya reels are listened to only by the computer, with its Bisaya model (no cloud provider knows the
 // language): the phone doesn't try, and says where to get them.
-export const BISAYA_REELS = "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Library → Reels), "
+export const BISAYA_REELS = "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Content → Reels), "
   + "with the Bisaya transcription model downloaded there (Settings → Listening & transcripts). They show up here the next time both sync.";
 
 async function job(target, work) {

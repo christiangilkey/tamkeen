@@ -14,6 +14,21 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.78.0 — 2026-11-27
+
+- **Changed:** **A fresh look across the whole app.** Every screen follows one set of design rules (DESIGN.md): fewer boxes, lists as rows with thin lines, one main button per screen, smoother corners, and colours that each mean one thing (teal to act, plum for new words, gold for what you earn). Headings and the big study words are set in **Literata**; the game screens (the habitat, its sheets, the farm, fishing and battles) are set in the pixel font **Pixelify Sans**, and game panels get stepped pixel corners. The flashcards keep their own look.
+- **Changed:** Flashcards: "How to review" moved from the **?** in the top bar into the settings menu, and the count of cards left is a little bigger.
+- **Changed:** **Home is now Games, and Library is now Content.** Games no longer shows the greeting, and "Continue" has moved to the Content home. Old links still work.
+- **New:** **The Content home: a map of everything.** Every section sits round the language you're learning; each bubble grows with how much you use it. What you were last on sits beside its section as its own bubble, with a ring showing how far you got: tap it to carry on. A plum ring marks a section that needs a key you haven't added (tap it to go straight to where the key goes), and on phones Netflix says it needs the computer app.
+- **New:** **The farm screen.** Tap **Farming** on Games, or anywhere in the village's farm pen, and the whole farm opens big: buy seeds, plant, water and harvest there, every job asking one of your words, with a watering chain, a "Water next" button and a harvest reveal. After each answer the right word is said aloud, and a right watering lands as a big splash.
+- **Changed:** Flashcards: once a card is flipped, its meaning shows once, under the word, with your grammar and memory notes right below it (nothing saved on the card changes).
+- **Changed:** The village farm: nothing overlaps any more, the seed stand stands right in front of the pen's entrance, and the barn is at the far end. The Page Lantern, Echo Shell and Bee Hive reach 2 tiles further, so they can reach the field.
+- **Changed:** Content's filters are one row instead of two: "Not listened to" (or not watched, not read) and "Transcribed", each switched on and off with a tap.
+- **Changed:** For DLI students, Basics keeps only the Arabic dialect courses, and the Games screen no longer suggests Basics.
+- **Fixed:** Village pictures that failed to load after a moment without a connection now come back by themselves, without a restart.
+
+- **Fixed:** What you've listened to, watched and read is now shared between your devices through your Google Drive, with how far you got. Something finished on your phone now counts as finished on the computer too (the Library said **Listened to 0** before). Everything a device had before is sent the first time it syncs, and finished items are never dropped.
+
 ## v0.77.0 — 2026-11-27
 
 - **Changed:** **A calmer, clearer look, step one.** A new font for the app's text, **Commissioner** (it has Russian letters, which the old one lacked), body text a little larger, and smoother corners. More screens follow, one by one.

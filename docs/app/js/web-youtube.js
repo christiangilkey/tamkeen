@@ -180,15 +180,15 @@ export async function render(view, { query }) {
     : topicAddress(lang, topic.key, where);
   const name = langInfo(lang).name || "";
   view.innerHTML = `<div class="page stack">
-    <form class="row web-yt-search" style="gap:8px">
+    <form class="row web-yt-search" style="gap:var(--s-8)">
       <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" style="flex:1" value="${esc(q)}">
       <button class="primary" type="submit">Search</button>
     </form>
-    ${topic ? `<div class="tabs web-yt-topics" style="flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px 0 0">${topicsFor(lang).map((t) =>
-      `<button type="button" data-topic="${t.key}" class="${t.key === topic.key ? "active" : ""}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px">${icon(t.icon, 16)}<span>${esc(t.label.replace("{0}", name))}</span></button>`).join("")}</div>` : ""}
-    <label class="row small" style="gap:8px;align-items:center"${given ? " hidden" : ""}>
+    ${topic ? `<div class="tabs web-yt-topics" style="flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:var(--s-12) 0 0">${topicsFor(lang).map((t) =>
+      `<button type="button" data-topic="${t.key}" class="${t.key === topic.key ? "active" : ""}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:var(--s-8)">${icon(t.icon, 16)}<span>${esc(t.label.replace("{0}", name))}</span></button>`).join("")}</div>` : ""}
+    <label class="row small" style="gap:var(--s-8);align-items:center"${given ? " hidden" : ""}>
       <input type="checkbox" class="web-yt-handmade"${handmade ? " checked" : ""}> Only videos with handmade subtitles</label>
-    <p class="small muted" style="margin:8px 0 0">${q ? "" : given ? "This channel's videos." : topic.key === "popular" ? "Popular this week."
+    <p class="small muted" style="margin:var(--s-8) 0 0">${q ? "" : given ? "This channel's videos." : topic.key === "popular" ? "Popular this week."
       : (topic.within || TOPIC_WITHIN[lang]) === THIS_YEAR ? "Most watched this year." : "Most watched this month."} Tap a video to watch it with its captions as words you can tap. It needs captions.</p>
     <div class="web-yt-list stack"><p class="muted">Loading videos…</p></div>
   </div>`;
@@ -224,11 +224,11 @@ export async function render(view, { query }) {
     // The picture at the start of the row (the left; the right in right-to-left languages) at one width, the text in
     // the rest: a button centres what it holds, so each row's picture sat wherever its title's length put it (the
     // owner, 2026-11-21: "the thumbnail should be at the far left").
-    card.style.cssText = "display:flex;justify-content:flex-start;gap:12px;align-items:flex-start;text-align:start;padding:10px;width:100%";
+    card.style.cssText = "display:flex;justify-content:flex-start;gap:var(--s-12);align-items:flex-start;text-align:start;padding:var(--s-12);width:100%";
     card.innerHTML = `<span style="position:relative;flex:0 0 min(40%, 220px)">
-        <img src="${esc(v.thumb)}" alt="" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;display:block">
-        ${v.length ? `<span class="small" style="position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);color:#fff;border-radius:6px;padding:0 6px">${esc(v.length)}</span>` : ""}</span>
-      <span class="stack" style="display:flex;flex-direction:column;gap:4px;flex:1 1 0;min-width:0;white-space:normal">
+        <img src="${esc(v.thumb)}" alt="" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-s);display:block">
+        ${v.length ? `<span class="small" style="position:absolute;right:6px;bottom:6px;background:var(--ink);color:var(--paper);border-radius:var(--r-s);padding:0 var(--s-8)">${esc(v.length)}</span>` : ""}</span>
+      <span class="stack" style="display:flex;flex-direction:column;gap:var(--s-4);flex:1 1 0;min-width:0;white-space:normal">
         <strong dir="auto" style="overflow-wrap:anywhere;text-align:${side}">${esc(v.title)}</strong>
         <span class="small muted" dir="auto" style="text-align:${side}">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
         <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span>
@@ -270,7 +270,7 @@ export async function render(view, { query }) {
   // more…" while it does; when YouTube has no more, the list just ends with a quiet line.
   const more = document.createElement("p");
   more.className = "small muted web-yt-more";
-  more.style.cssText = "text-align:center;margin:8px 0 16px";
+  more.style.cssText = "text-align:center;margin:var(--s-8) 0 var(--s-16)";
   list.append(more);
   addVideos(first.videos);
   // `stuck`: the last try failed. Nothing more is asked for until Try again is pressed: going on by itself (the end is
@@ -296,7 +296,7 @@ export async function render(view, { query }) {
       more.textContent = "";
       if (e && e.helper) {
         const why = document.createElement("span");
-        why.style.cssText = "display:block;margin-bottom:6px";
+        why.style.cssText = "display:block;margin-bottom:var(--s-8)";
         why.textContent = t("Tamkeen's online helper needs an update before more videos can load.");
         more.append(why);
       }

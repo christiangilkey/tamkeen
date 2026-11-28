@@ -312,14 +312,14 @@ if (typeof document !== "undefined" && !document.getElementById("dls-css")) {
   style.id = "dls-css";
   style.textContent = `
     .dls[hidden], .dls [hidden] { display: none; }
-    .dls-step { display: flex; flex-direction: column; gap: 10px; }
+    .dls-step { display: flex; flex-direction: column; gap: var(--s-12); }
     .dls-step h3, .dls-step .set-hint, .dls-what-box h3 { margin: 0; }
-    .dls-step h3 { margin-top: 6px; }
-    .dls-form input, .dls-code input { min-height: 44px; font-size: 16px; min-width: 0; }
-    .dls-terms { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--surface-2); font-size: 14px; }
-    .dls-terms p { margin: 0 0 6px; }
+    .dls-step h3 { margin-top: var(--s-8); }
+    .dls-form input, .dls-code input { min-height: 44px; font-size: var(--fs-16); min-width: 0; }
+    .dls-terms { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-12) var(--s-16); background: var(--surface-2); font-size: var(--fs-14); }
+    .dls-terms p { margin: 0 0 var(--s-8); }
     .dls-terms p:last-child { margin-bottom: 0; }
-    .dls-terms ul { margin: 0 0 10px; padding-inline-start: 20px; }
+    .dls-terms ul { margin: 0 0 var(--s-12); padding-inline-start: var(--s-24); }
     .dls-wrong { color: var(--danger); margin: 0; }
     .dls-policy { margin: 0; text-align: center; }
     .dls-step .set-actions { justify-content: center; }
@@ -327,26 +327,26 @@ if (typeof document !== "undefined" && !document.getElementById("dls-css")) {
     .dls-ico { display: inline-flex; color: var(--teal); }
     .dls-signin { display: flex; justify-content: center; }
     .dls-signin .primary { min-width: 220px; justify-content: center; min-height: 44px; }
-    .dls-list { border-radius: 14px; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
-    .dls-none { margin: 0; padding: 14px; text-align: center; }
-    .dls-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; min-height: 56px; }
+    .dls-list { border-radius: var(--r-s); border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+    .dls-none { margin: 0; padding: var(--s-16); text-align: center; }
+    .dls-row { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) var(--s-16); min-height: 56px; }
     .dls-row + .dls-row { border-top: 1px solid var(--line); }
-    .dls-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .dls-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); }
     .dls-row-text strong { overflow-wrap: anywhere; }
-    .dls-code { display: flex; gap: 8px; }
+    .dls-code { display: flex; gap: var(--s-8); }
     .dls-code input { flex: 1; text-transform: uppercase; letter-spacing: 0.06em; }
     .dls-code input::placeholder { text-transform: none; letter-spacing: 0; }
     .dls-code button { min-height: 44px; flex: none; }
-    .dls-what-box { display: flex; flex-direction: column; gap: 12px; }
-    .dls-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-    .dls-facts > div { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px;
+    .dls-what-box { display: flex; flex-direction: column; gap: var(--s-12); }
+    .dls-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--s-12); }
+    .dls-facts > div { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-12) var(--s-12); display: flex; flex-direction: column; gap: var(--s-4);
       background: var(--surface); text-align: center; }
-    .dls-facts strong { font-size: 18px; overflow-wrap: anywhere; }
-    .dls-who { margin: 0; padding-inline-start: 20px; }
-    .dls-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .dls-table { border-collapse: collapse; width: 100%; font-size: 14px; }
-    .dls-table th, .dls-table td { padding: 9px 8px; text-align: center; white-space: nowrap; }
-    .dls-table th { font-weight: 600; color: var(--ink-2); font-size: 13px; border-bottom: 1px solid var(--line); }
+    .dls-facts strong { font-size: var(--fs-20); overflow-wrap: anywhere; }
+    .dls-who { margin: 0; padding-inline-start: var(--s-24); }
+    .dls-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); }
+    .dls-table { border-collapse: collapse; width: 100%; font-size: var(--fs-14); }
+    .dls-table th, .dls-table td { padding: var(--s-8) var(--s-8); text-align: center; white-space: nowrap; }
+    .dls-table th { font-weight: 600; color: var(--ink-2); font-size: var(--fs-14); border-bottom: 1px solid var(--line); }
     .dls-table td:first-child, .dls-table th:first-child { text-align: start; }
     .dls-table tbody tr + tr td { border-top: 1px solid var(--line); }
     .dls-what-box .set-actions { justify-content: center; flex-wrap: wrap; }

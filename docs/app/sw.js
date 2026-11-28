@@ -1,7 +1,7 @@
-// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.77.0-mwzdtyhc
+// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.78.0-mwznzvhs
 // (This file is the service worker's source: webapp/build-web.mjs copies it to docs/app/sw.js with the build's own
 // name in the placeholder above, so each build is a new service worker. tests/js/websw.test.mjs runs it.)
-const CACHE = "tamkeen-0.77.0-mwzdtyhc";
+const CACHE = "tamkeen-0.78.0-mwznzvhs";
 // The pictures (the game's art, the app's icons) and fonts: a copy is kept across builds, so a picture shows even
 // when the network fails to bring it (the owner, desktop Chrome on learntamkeen.com, 2026-11-25: creatures, egg and
 // element icons blank on the Creatures screen). Still asked of the network first, so new art shows at once.

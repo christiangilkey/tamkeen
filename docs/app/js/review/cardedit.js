@@ -4,7 +4,7 @@
 // This file is the part without a screen: which texts can be typed into, what the box starts with,
 // and what is saved. Shared with the phones; tested in tests/js/cardedit.test.mjs.
 //
-// Everything is saved the way the back's Meaning box saves (PATCH /vocab/<id> with the changed
+// Everything is saved the way the back's note boxes save (PATCH /vocab/<id> with the changed
 // field), so it reaches the other devices like any change to a card.
 
 import { carryMarks, stripMarks, toggleWord } from "../cardtext.js";
@@ -24,6 +24,15 @@ export const EDITABLE = [
   { field: "sentence", selector: ".rv-ans-sentence", study: true, required: false, marked: true, hold: true },
   { field: "translation", selector: ".rv-ans-trans", study: false, required: false, marked: true, hold: true },
 ];
+
+/** The meaning under the word on a card's back, the one place the back shows it (the owner, 2026-11-27: the
+ *  repeated Meaning box below went; "ensure we don't erase any of my students current meaning or notes"). Only
+ *  reads the card: { text, empty }. With no meaning yet the line still shows, faint (`hint`, "What it means"), so a
+ *  tap can type one. */
+export function meaningLine(v, hint) {
+  const meaning = String(v.meaning ?? "");
+  return meaning.trim() ? { text: meaning, empty: false } : { text: hint, empty: true };
+}
 
 /** The rules for one of a card's fields, or null when it isn't typed into on the card. */
 export const editable = (field) => EDITABLE.find((f) => f.field === field) || null;

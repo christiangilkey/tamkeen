@@ -2,21 +2,21 @@
 // screen is a big "Continue" button; otherwise it says you're caught up and offers at most
 // three things to do next. Deliberately short: no feed, nothing endless. A brand-new learner (nothing
 // in the library yet) gets "Start here" instead: a lesson, a video or a podcast.
+// With the Library's Home (prototype "library_home") "Continue" and "You're all caught up" move there
+// (components/continuecard.js); with "games_content" (the owner, 2026-11-27: "rename the home page to games") the
+// greeting goes ("I also don't think the good morning thing in the home page is necessary").
 
 import { api, esc, h } from "../app.js";
-import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.js";
-import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { langAttrs, langInfo, studyLanguage } from "../languages.js";
+import { continueInto } from "../components/continuecard.js";
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 import { feature } from "../prototype.js";
+import { dliShown } from "../components/dlipanel.js";
 import { creatorBar } from "../components/creatorbar.js";
 import { icon } from "../icons.js";
 import { firstVisitTour } from "../components/tour.js";
 import { t } from "../i18n.js";
-
-// The app's own white line icons (icons.js), the same as the tab bar's.
-const KIND_ICON = { audio: "podcast", video: "video", page: "page" };
-const KIND_VERB = { audio: "Continue listening", video: "Continue watching", page: "Continue reading" };
 
 function greeting() {
   const hour = new Date().getHours();
@@ -32,28 +32,14 @@ async function libraryEmpty() {
   try { return Number((await api("/episodes?limit=1")).total) === 0; } catch { return false; }
 }
 
-/** Items still in the library (anything deleted since is forgotten). */
-async function existing(items, limit) {
-  const out = [];
-  for (const item of items) {
-    if (out.length >= limit) break;
-    try {
-      const ep = await api(`/episodes/${item.id}`);
-      if (episodeLanguage(ep) === studyLanguage()) out.push(item);  // only the language being learned now
-    } catch {
-      forgetProgress(item.id);
-    }
-  }
-  return out;
-}
-
 export async function render(view) {
   const [ar, en] = greeting();
+  const greet = !feature("games_content");
   view.append(h(`<div class="home">
     <div id="home-creator" class="home-creator" hidden></div>
     <section class="hero">
       <div class="hero-top">
-        <div><div class="hero-ar ar" ${langAttrs(studyLanguage())}>${esc(ar)}</div><div class="hero-en">${en}</div></div>
+        ${greet ? `<div><div class="hero-ar ar" ${langAttrs(studyLanguage())}>${esc(ar)}</div><div class="hero-en">${en}</div></div>` : "<div></div>"}
         <div class="hero-streak" id="hero-streak" role="img" hidden>${icon("flame", 20)}<span></span></div>
       </div>
       <div class="hero-main" id="main"><div class="hero-loading">…</div></div>
@@ -97,34 +83,11 @@ export async function render(view) {
   const main = view.querySelector("#main");
   const more = view.querySelector("#more");
 
-  const items = await existing(continueItems(), 3);
   main.innerHTML = "";
-  if (items.length) {
-    const first = items[0];
-    const btn = h(`<a class="continue-btn" href="#/episode/${first.id}">
-      <span class="continue-play" aria-hidden="true">${icon("play", 24)}</span>
-      <span class="continue-text">
-        <span class="continue-verb">${KIND_VERB[first.kind] || "Continue"}</span>
-        <span class="continue-title" dir="auto"></span>
-        <span class="continue-sub"><span dir="auto" class="continue-from"></span><span>${esc(leftLabel(first))}</span></span>
-      </span>
-      <span class="continue-bar"><i style="width:${Math.round(fraction(first) * 100)}%"></i></span>
-    </a>`);
-    btn.querySelector(".continue-title").textContent = first.title || "";
-    btn.querySelector(".continue-from").textContent = first.sub ? `${first.sub} · ` : "";
-    main.append(btn);
-    // At most two more: three choices in total.
-    if (items.length > 1) more.append(h(`<h2 class="home-h">Also in progress</h2>`));
-    for (const item of items.slice(1)) {
-      const row = h(`<a class="continue-row" href="#/episode/${item.id}">
-        <span class="continue-ico">${icon(KIND_ICON[item.kind] || "video", 20)}</span>
-        <span class="continue-text"><span class="t" dir="auto"></span>
-          <span class="small muted">${esc(leftLabel(item))}</span></span>
-        <span class="continue-bar"><i style="width:${Math.round(fraction(item) * 100)}%"></i></span>
-      </a>`);
-      row.querySelector(".t").textContent = item.title || "";
-      more.append(row);
-    }
+  // (With the Library's Home, what is in progress shows there instead: components/continuecard.js.)
+  const moved = feature("library_home");
+  if (!moved && await continueInto(main, more, 3)) {
+    // (the button and at most two more: three choices in total)
   } else if (await libraryEmpty()) {
     const name = langInfo(studyLanguage()).name;
     main.append(h(`<div class="caught-up home-start">
@@ -140,6 +103,11 @@ export async function render(view) {
         <span class="small muted"></span></span></a>
     </div>`));
     more.querySelector('a[href="#/discover"] .muted').textContent = t("Popular {0} podcasts", t(name));
+    // A DLI student has their DLI course and no Basics (prototype "dli_basics", pages/library.js), so no Basics card either.
+    if (feature("dli_basics") && dliShown(studyLanguage())) more.querySelector('a[href="#/library?show=courses"]').remove();
+  } else if (moved) {
+    view.querySelector(".hero-main").hidden = true; // ("caught up" is the Library's to say now)
+    more.remove(); // (empty: no gap left where it was)
   } else {
     main.append(h(`<div class="caught-up">
       <div class="caught-up-mark">✓</div>

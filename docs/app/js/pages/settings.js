@@ -234,7 +234,7 @@ function look(body) {
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
       <h2>Page guides</h2>
-      <p class="set-hint">The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does. The ? at the top of any screen shows its guide whenever you like.</p>
+      <p class="set-hint">The first time you open Games, Content, Vocab and Friends, a short guide shows what each button does. The ? at the top of any screen shows its guide whenever you like.</p>
       <div class="row"><button type="button" id="guides-again">Show the guides again</button><span class="small muted" id="guides-done"></span></div>
     </section>
   </div>`));
@@ -343,7 +343,7 @@ async function getapp(body) {
         <li>On a computer: transcripts written for free with no key, Arabic vowel marks, voices that work offline, and backups of your whole library</li>
         <li>A light theme</li>
       </ul>
-      <nav class="card set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
+      <nav class="set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
         <a class="set-row" href="${esc(href(d))}" target="_blank" rel="noopener">
           <span class="set-ico">${icon(d.phone ? "link" : "computer", 22)}</span>
           <span class="set-text"><span class="set-name">${esc(d.name)}</span><span class="set-sum">${esc(d.how)}</span></span>

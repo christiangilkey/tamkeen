@@ -146,7 +146,7 @@ export function classroomPanel(el, language) {
     }
     page.querySelector(".crm-sub").textContent = c.role === "teacher"
       ? t("What you add here, your students of {0} see: its transcript as you corrected it, the words you marked important, your meanings and your notes.", c.name)
-      : t("What your teachers of {0} added for you. Open one and it goes into your Library with their transcript and their notes on its words.", c.name);
+      : t("What your teachers of {0} added for you. Open one and it goes into Content with their transcript and their notes on its words.", c.name);
     await room(c);
   }
 
@@ -182,7 +182,7 @@ export function classroomPanel(el, language) {
     }
     if (!data.items.length && !data.folders.length) {
       const p = h(`<p class="muted crm-say"></p>`);
-      p.textContent = teaching ? t("Nothing here yet. Add something from your Library, or press the paper-airplane button on any player or Library row and pick this class.")
+      p.textContent = teaching ? t("Nothing here yet. Add something from Content, or press the paper-airplane button on any player or row in Content and pick this class.")
         : t("Your teachers haven't added anything yet.");
       body.append(p);
       return;
@@ -244,7 +244,7 @@ export function classroomPanel(el, language) {
           try {
             let ep = mineOf(p.id);
             if (!ep) { const r = await acceptMediaInfo(p.item, p.item); ep = r.episode && r.episode.id; if (ep) rememberMine(p.id, ep); } // (added from another device: my copy here is found by what it is)
-            if (!ep) throw new Error(t("Open it in your Library on this device first, then update it."));
+            if (!ep) throw new Error(t("Open it in Content on this device first, then update it."));
             const full = await api(`/episodes/${ep}`);
             const media = mediaFromEpisode(full && full.episode ? full.episode : full);
             if (!media) throw new Error(t("Your copy of it couldn't be read on this device."));
@@ -363,42 +363,42 @@ if (typeof document !== "undefined" && !document.getElementById("crm-css")) {
   style.id = "crm-css";
   style.textContent = `
     .library.classroom-kind .lib-courses, .library:not(.classroom-kind) .lib-classroom { display: none; }
-    .crm { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; padding: 4px 0 24px; }
-    .crm-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .crm-top h2 { margin: 0 0 4px; }
+    .crm { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--s-16); padding: var(--s-4) 0 var(--s-24); }
+    .crm-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-12); flex-wrap: wrap; }
+    .crm-top h2 { margin: 0 0 var(--s-4); }
     .crm-top p { margin: 0; max-width: 560px; }
-    .crm-acts { display: flex; gap: 8px; flex-wrap: wrap; }
+    .crm-acts { display: flex; gap: var(--s-8); flex-wrap: wrap; }
     .crm-acts button { min-height: 44px; }
-    .crm-picker { display: flex; gap: 8px; flex-wrap: wrap; }
-    .crm-picker button { min-height: 40px; border-radius: 12px; padding: 4px 14px; font-weight: 600; }
+    .crm-picker { display: flex; gap: var(--s-8); flex-wrap: wrap; }
+    .crm-picker button { min-height: 40px; border-radius: var(--r-s); padding: var(--s-4) var(--s-16); font-weight: 600; }
     .crm-picker button.on, .crm-picker button.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
-    .crm-body { display: flex; flex-direction: column; gap: 16px; }
-    .crm-say { text-align: center; margin: 24px 0 8px; }
+    .crm-body { display: flex; flex-direction: column; gap: var(--s-16); }
+    .crm-say { text-align: center; margin: var(--s-24) 0 var(--s-8); }
     .crm .set-actions { justify-content: center; }
-    .crm-folder-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-    .crm-folder-head h3 { margin: 0; font-size: 17px; }
-    .crm-folder-acts { margin-inline-start: auto; display: flex; gap: 4px; }
-    .crm-list, .crm-pick-list { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
-    .crm-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; min-height: 60px; flex-wrap: wrap; }
+    .crm-folder-head { display: flex; align-items: baseline; gap: var(--s-12); margin-bottom: var(--s-8); flex-wrap: wrap; }
+    .crm-folder-head h3 { margin: 0; font-size: var(--fs-16); }
+    .crm-folder-acts { margin-inline-start: auto; display: flex; gap: var(--s-4); }
+    .crm-list, .crm-pick-list { border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); overflow: hidden; }
+    .crm-row { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) var(--s-16); min-height: 60px; flex-wrap: wrap; }
     .crm-row + .crm-row { border-top: 1px solid var(--line); }
     .crm-ico { display: inline-flex; color: var(--teal); flex: none; }
-    .crm-row-text { flex: 1; min-width: 180px; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
-    .crm-row-acts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .crm-row-text { flex: 1; min-width: 180px; display: flex; flex-direction: column; gap: var(--s-4); overflow-wrap: anywhere; }
+    .crm-row-acts { display: flex; gap: var(--s-8); flex-wrap: wrap; align-items: center; }
     .crm-row-acts select { min-height: 36px; max-width: 160px; }
-    .crm-tag { align-self: flex-start; padding: 2px 10px; min-height: 28px; border: 1px solid var(--line); border-radius: 999px; corner-shape: round; font-size: 13px; }
-    .crm-empty { padding: 12px 14px; margin: 0; }
-    .crm-pick { display: flex; flex-direction: column; gap: 10px; }
+    .crm-tag { align-self: flex-start; padding: var(--s-4) var(--s-12); min-height: 28px; border: 1px solid var(--line); border-radius: var(--r-pill); corner-shape: round; font-size: var(--fs-14); }
+    .crm-empty { padding: var(--s-12) var(--s-16); margin: 0; }
+    .crm-pick { display: flex; flex-direction: column; gap: var(--s-12); }
     .crm-pick p { margin: 0; }
-    .crm-pick-list > p { padding: 12px 14px; }
-    .crm-field { display: flex; align-items: center; gap: 10px; }
-    .crm-field select, .crm-search { min-height: 44px; font-size: 16px; }
-    .crm-notes { display: flex; flex-direction: column; gap: 8px; }
-    .crm-note { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--surface-2); }
-    .crm-note p { margin: 4px 0 0; }
-    .crm-note-top { display: flex; align-items: center; gap: 10px; }
-    .crm-note-top strong { font-size: 20px; }
-    .crm-imp { font-size: 12px; font-weight: 700; color: var(--teal-ink); background: var(--teal); border-radius: 999px; corner-shape: round; padding: 2px 10px; }
-    .crm-note-meaning { font-size: 17px; }
+    .crm-pick-list > p { padding: var(--s-12) var(--s-16); }
+    .crm-field { display: flex; align-items: center; gap: var(--s-12); }
+    .crm-field select, .crm-search { min-height: 44px; font-size: var(--fs-16); }
+    .crm-notes { display: flex; flex-direction: column; gap: var(--s-8); }
+    .crm-note { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-12) var(--s-12); background: var(--surface-2); }
+    .crm-note p { margin: var(--s-4) 0 0; }
+    .crm-note-top { display: flex; align-items: center; gap: var(--s-12); }
+    .crm-note-top strong { font-size: var(--fs-20); }
+    .crm-imp { font-size: var(--fs-12); font-weight: 700; color: var(--teal-ink); background: var(--teal); border-radius: var(--r-pill); corner-shape: round; padding: var(--s-4) var(--s-12); }
+    .crm-note-meaning { font-size: var(--fs-16); }
     .crm-note-text { white-space: pre-wrap; }
   `;
   document.head.append(style);

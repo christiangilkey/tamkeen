@@ -63,8 +63,8 @@ export function gameBar(row, { now = new Date(), game = true, me = false, name =
     const lang = langInfo(profile.language);
     const chip = part("gb-lang", `Learning ${lang.name}: tap for more`, () => explain(lang.name, lineIcon("page", 28), [
       me ? `You are learning ${lang.name}. Friends see it next to your name.` : `${who} is learning ${lang.name}.`,
-      me ? "Change it with the language switch on Home. The other numbers here are for the language you are learning now."
-        : "It is the language they chose on their own Home page.",
+      me ? "Change it with the language switch at the top of the screen. The other numbers here are for the language you are learning now."
+        : "It is the language they chose in their own app.",
     ]));
     chip.textContent = lang.name;
     bar.append(chip);

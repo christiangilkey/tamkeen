@@ -118,9 +118,14 @@
   "file": "commissioner.txt"
  },
  {
-  "name": "Rubik font (headings and numbers)",
+  "name": "Literata font (headings and studied words)",
   "license": "SIL Open Font License 1.1",
-  "file": "rubik.txt"
+  "file": "literata.txt"
+ },
+ {
+  "name": "Pixelify Sans font (the game's numbers and rewards)",
+  "license": "SIL Open Font License 1.1",
+  "file": "pixelify-sans.txt"
  },
  {
   "name": "Caveat font (the handwritten note by the Library's + button)",

@@ -593,19 +593,19 @@ if (typeof document !== "undefined" && !document.getElementById("dlt-css")) {
   style.textContent = `
     .dlt-card[hidden], .dlt-body[hidden] { display: none; }
     .dlt-back .modal-box.wide { width: min(940px, 100%); box-shadow: none; }
-    .dlt-class { display: flex; flex-direction: column; gap: 12px; }
-    .dlt-class h3 { margin: 6px 0 0; }
+    .dlt-class { display: flex; flex-direction: column; gap: var(--s-12); }
+    .dlt-class h3 { margin: var(--s-8) 0 0; }
     .dlt-class .set-hint { margin: 0; }
-    .dlt-codes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
-    .dlt-codetile { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 12px; display: flex; flex-direction: column;
-      align-items: center; gap: 4px; text-align: center; }
-    .dlt-codetile strong { font-size: 26px; letter-spacing: 0.08em; overflow-wrap: anywhere; }
+    .dlt-codes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--s-12); }
+    .dlt-codetile { border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); padding: var(--s-12); display: flex; flex-direction: column;
+      align-items: center; gap: var(--s-4); text-align: center; }
+    .dlt-codetile strong { font-size: var(--fs-26); letter-spacing: 0.08em; overflow-wrap: anywhere; }
     .dlt-codetile button { min-height: 36px; }
-    .dlt-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .dlt-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-12); flex-wrap: wrap; }
     .dlt-head h3 { margin: 0; }
     .dlt-filters select { min-height: 40px; max-width: 100%; }
-    .dlt-seg { display: inline-flex; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
-    .dlt-seg button { border: 0; border-radius: 0; background: none; min-height: 40px; padding: 0 14px; font-weight: 600; color: var(--ink-2); }
+    .dlt-seg { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-s); overflow: hidden; background: var(--surface); }
+    .dlt-seg button { border: 0; border-radius: 0; background: none; min-height: 40px; padding: 0 var(--s-16); font-weight: 600; color: var(--ink-2); }
     .dlt-seg button.on, .dlt-seg button.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); }
     .dlt-table tbody tr { cursor: pointer; }
     .dlt-table tbody tr:hover, .dlt-table tbody tr:focus-visible { background: var(--surface-2); outline: none; }
@@ -615,8 +615,8 @@ if (typeof document !== "undefined" && !document.getElementById("dlt-css")) {
     .dlt-sort.on { color: var(--teal); }
     .dlt-foot { margin: 0; text-align: center; }
     .dlt-acts { justify-content: center; flex-wrap: wrap; }
-    .dlt-notebox { display: flex; flex-direction: column; gap: 4px; }
-    .dlt-notebox input { min-height: 44px; font-size: 16px; }
+    .dlt-notebox { display: flex; flex-direction: column; gap: var(--s-4); }
+    .dlt-notebox input { min-height: 44px; font-size: var(--fs-16); }
     .dlt-classrow { width: 100%; text-align: start; border: 0; border-radius: 0; background: none; color: var(--ink); font: inherit; }
     .dlt-classrow:hover:not(:disabled) { background: var(--surface-2); }
     .dlt-chev { display: inline-flex; color: var(--ink-2); flex: none; }

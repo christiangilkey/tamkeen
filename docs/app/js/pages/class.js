@@ -136,7 +136,7 @@ export async function render(view) {
     part.querySelector("h2").textContent = c.name;
     part.querySelector(".cls-head span").textContent = teaching ? t("You teach this class") : (c.teachers.length ? t("With {0}", c.teachers.join(", ")) : "");
     part.querySelector(".cls-posts-hint").textContent = teaching
-      ? t("To send something, press the paper-airplane button on any player or Library row and pick this class. Its words go along when your app has them.")
+      ? t("To send something, press the paper-airplane button on any player or row in Content and pick this class. Its words go along when your app has them.")
       : t("What your teachers sent. Add one to your library and it opens with its words already there.");
     if (teaching) teacherTools(part.querySelector(".cls-teach"), c);
     else {
@@ -155,8 +155,8 @@ export async function render(view) {
       const card = part.querySelector(".cls-posts").closest(".cls-card");
       card.innerHTML = "";
       card.append(h(`<h3>Classroom</h3>`), Object.assign(h(`<p class="small muted"></p>`), { textContent: teaching
-        ? t("What you add for this class is in the Library, under Classroom: folders, your transcript, your important words, meanings and notes.")
-        : t("What your teachers added for this class is in the Library, under Classroom.") }),
+        ? t("What you add for this class is in Content, under Classroom: folders, your transcript, your important words, meanings and notes.")
+        : t("What your teachers added for this class is in Content, under Classroom.") }),
         h(`<div class="set-actions"><a class="btn primary" href="#/library?show=classroom">Open the classroom</a></div>`));
       write("tamkeenClassPick", `${c.role}:${c.id}`);
     } else posts(part.querySelector(".cls-posts"), c);
@@ -312,28 +312,28 @@ if (typeof document !== "undefined" && !document.getElementById("cls-css")) {
   const style = document.createElement("style");
   style.id = "cls-css";
   style.textContent = `
-    .cls-page { max-width: 720px; margin: 0 auto; padding: 8px 0 24px; display: flex; flex-direction: column; gap: 12px; }
-    .cls-page h1 { text-align: center; margin: 8px 0 4px; }
+    .cls-page { max-width: 720px; margin: 0 auto; padding: var(--s-8) 0 var(--s-24); display: flex; flex-direction: column; gap: var(--s-12); }
+    .cls-page h1 { text-align: center; margin: var(--s-8) 0 var(--s-4); }
     .friends-class .cls-page { padding-top: 0; }
     .friends-class .cls-page h1 { display: none; } /* (Friends has the heading and the tab says Class) */
-    .cls-body, .cls-class { display: flex; flex-direction: column; gap: 12px; }
+    .cls-body, .cls-class { display: flex; flex-direction: column; gap: var(--s-12); }
     .cls-card h2, .cls-card h3, .cls-card p { margin: 0; }
-    .cls-card h3 { font-size: 16px; }
-    .cls-head { display: flex; flex-direction: column; gap: 2px; text-align: center; }
-    .cls-teach { display: flex; flex-direction: column; gap: 10px; }
+    .cls-card h3 { font-size: var(--fs-16); }
+    .cls-head { display: flex; flex-direction: column; gap: var(--s-4); text-align: center; }
+    .cls-teach { display: flex; flex-direction: column; gap: var(--s-12); }
     .cls-card .set-actions { justify-content: center; flex-wrap: wrap; }
     .cls-card .set-actions .primary { min-height: 44px; min-width: 200px; justify-content: center; }
-    .cls-picker { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .cls-picker button { min-height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px 14px; font-weight: 600; }
+    .cls-picker { display: flex; gap: var(--s-8); flex-wrap: wrap; justify-content: center; }
+    .cls-picker button { min-height: 44px; border-radius: var(--r-s); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--s-8) var(--s-16); font-weight: 600; }
     .cls-picker button .small { font-weight: 400; color: var(--ink-2); }
     .cls-picker button.on, .cls-picker button.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
     .cls-picker button.on .small { color: var(--teal-ink); }
     .cls-new { justify-content: center; }
-    .cls-people { display: flex; flex-direction: column; gap: 10px; }
-    .cls-group { display: flex; flex-direction: column; gap: 6px; }
-    .cls-names { display: flex; gap: 6px; flex-wrap: wrap; }
-    .cls-name { border: 1px solid var(--line); border-radius: 999px; corner-shape: round; padding: 4px 12px; background: var(--surface-2); font-weight: 600; }
-    .cls-agree { display: flex; flex-direction: column; gap: 8px; text-align: center; }
+    .cls-people { display: flex; flex-direction: column; gap: var(--s-12); }
+    .cls-group { display: flex; flex-direction: column; gap: var(--s-8); }
+    .cls-names { display: flex; gap: var(--s-8); flex-wrap: wrap; }
+    .cls-name { border: 1px solid var(--line); border-radius: var(--r-pill); corner-shape: round; padding: var(--s-4) var(--s-12); background: var(--surface-2); font-weight: 600; }
+    .cls-agree { display: flex; flex-direction: column; gap: var(--s-8); text-align: center; }
     .cls-post-ico { display: inline-flex; color: var(--teal); flex: none; }
     .cls-post button { flex: none; }
     .cls-invite { text-align: center; }

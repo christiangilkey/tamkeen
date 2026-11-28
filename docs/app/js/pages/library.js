@@ -5,7 +5,7 @@ import { sttConfig } from "../stt.js";
 import { settingsHref } from "../fixes.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
-import { allProgress, fraction, isUnfinished } from "../progress.js";
+import { allProgress, fraction, isUnfinished, leftLabel } from "../progress.js";
 import { watchedIds, watchedPill } from "../watched.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
@@ -26,6 +26,11 @@ import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
 import { classroomPanel } from "../components/classroompanel.js";
+import { homeMap } from "../components/homemap.js";
+import { inProgress } from "../components/continuecard.js";
+import { RECENT_DAYS, ringOf, usage } from "../libraryhome.js";
+import { definerConfig } from "../define-service.js";
+import { cleanProgress } from "../grammardata.js";
 import { classroomShown } from "../dliclass.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
@@ -121,6 +126,9 @@ const BOOKS_FEED = "local:books";
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
 // + button. Basics and Conversation are never empty.
 const KINDS = [
+  // Home: everything in the Library at a glance, as a bubble map (prototype "library_home", components/homemap.js). Its
+  // own entry, first; the Library still reopens on the kind used last (the owner, 2026-11-27: "Last section used").
+  { key: "home", label: "Home", icon: "home", href: "#/library?show=home", when: () => feature("library_home") },
   { key: "courses", label: "Basics", icon: "learn", href: "#/library?show=courses", when: () => !noBasics() },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
@@ -173,7 +181,7 @@ function keyNote(kind) {
 }
 
 /** Kinds with a panel of their own instead of a list of episodes. */
-const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons" || k === "classroom" || k === "dli";
+const panelKind = (k) => k === "home" || k === "courses" || k === "conversation" || k === "lessons" || k === "classroom" || k === "dli";
 /** A DLI student has their DLI course for the language itself, so Basics goes (prototype "dli_basics"), except that a
  *  DLI Arabic student keeps it for the dialects (showCourses: dialectsOnly). */
 const dliStudent = () => feature("dli_basics") && dliShown(studyLanguage());
@@ -181,7 +189,7 @@ const noBasics = () => dliStudent() && studyLanguage() !== "ar";
 /** Is `key` a kind this learner has (the DLI entry is only for those with DLI material)? */
 const isKind = (key) => KINDS.some((x) => x.key === key && (!x.when || x.when()));
 /** Where the Library opens with nothing chosen: Basics, or Podcasts for someone without Basics. */
-const firstKind = () => (isKind("courses") ? "courses" : "podcasts");
+const firstKind = () => (isKind("home") ? "home" : isKind("courses") ? "courses" : "podcasts");
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
@@ -263,6 +271,8 @@ export async function render(view, { feedId: routeFeed, query }) {
   // owner: "having it default to courses each time is annoying"), or Courses the first time.
   // (DLI was a tab of Basics until 2026-11-27: its old address, ?show=courses&tab=dli, opens the DLI entry.)
   if (query.get("show") === "courses" && query.get("tab") === "dli" && isKind("dli")) query.set("show", "dli");
+  // A link to one of Basics' tabs (#/library?tab=basics: the Review banner's "Get words") opens Basics, even with Home first.
+  if (!query.get("show") && ["basics", "grammar"].includes(query.get("tab")) && isKind("courses")) query.set("show", "courses");
   let kind = isKind(query.get("show")) ? query.get("show") : feedId ? "podcasts"
     : [...query.keys()].length ? firstKind() : lastKind();
   const filter = query.get("status") || "";
@@ -295,7 +305,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           <div class="toolbar">
             <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
             <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
-            <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from your Library for good, on every device">Delete selected</button>
+            <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from Content for good, on every device">Delete selected</button>
             <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
             <span class="spacer"></span>
             ${phone ? `<button type="button" id="refresh" class="ghost icon" title="Check for new episodes and sync with Google Drive" aria-label="Refresh and sync">${icon("refresh", 20)}</button>` : ""}
@@ -319,6 +329,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="lib-lessons" id="lib-lessons" hidden></div>
         <div class="lib-classroom" id="lib-classroom" hidden></div>
         <div class="lib-dli" id="lib-dli" hidden></div>
+        <div class="lib-home" id="lib-home" hidden></div>
         <div id="lib-head"></div>
         <div class="lib-chips" id="lib-chips" hidden></div>
         <div class="upload-status" id="upload-status" hidden>
@@ -542,6 +553,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     root.classList.toggle("lessons-kind", kind === "lessons");
     root.classList.toggle("classroom-kind", kind === "classroom");
     root.classList.toggle("dli-kind", kind === "dli");
+    root.classList.toggle("home-kind", kind === "home");
     root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
@@ -553,6 +565,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (kind === "lessons") { showLessons(); return; }
     if (kind === "classroom") { showClassroom(); return; }
     if (kind === "dli") { showDli(); return; }
+    if (kind === "home") { showHome(); return; }
     const note = keyNote(kind);
     if (note) head.append(note);
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
@@ -963,6 +976,18 @@ export async function render(view, { feedId: routeFeed, query }) {
       : show.size === 2 && !show.has("done") ? "not" : "other";
     const setShow = (list) => { keepChoice(cleanChoice({ ...c, show: list })); paintFilterButton(); loadEpisodes(); };
     const p = playedNow;
+    // One row of on/off chips, no "All" (prototype "library_chips"; the owner, 2026-11-27: "Why is this bar doubled in
+    // podcast?"): "Not listened to" (or Not watched / Not read) and, where things are transcribed, "Transcribed". With
+    // neither on, everything shows; both on, only what is both. The same choices as before underneath: what to show is
+    // kept for each tab (readChoice), the transcription state is in the address (goStatus), so Back undoes it.
+    if (feature("library_chips")) {
+      const notDone = played === "not", done = filter === "done";
+      const chips = [chip(notDoneWord(kind), p.progress + p.new, notDone, () => setShow(notDone ? [...STATES] : ["progress", "new"]))];
+      if (transcribable(kind)) chips.push(chip(t("Transcribed"), statusCount("done"), done, () => goStatus(done ? "" : "done")));
+      group(t("Show only"), chips);
+      box.hidden = false;
+      return;
+    }
     group(t("Finished or not"), [
       chip(t("All"), p.progress + p.new + p.done, played === "", () => setShow([...STATES])),
       chip(doneWord(kind), p.done, played === "done", () => setShow(["done"])),
@@ -1323,6 +1348,62 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   // ----- the Classroom a DLI teacher and their students share (components/classroompanel.js, prototype "classroom") -----
   let closeClassroom = null;
+  // ----- Home: the bubble map (components/homemap.js, prototype "library_home") -----
+  let closeHome = null;
+  async function showHome() {
+    $("#lib-home").hidden = false;
+    const kinds = KINDS.filter((k) => k.key !== "home" && (!k.when || k.when()))
+      .map((k) => ({ key: k.key, label: k.label, icon: k.icon, href: hrefOf(k) }));
+    // The plum ring: only while something is missing on this device (libraryhome.js ringOf), from the app's own checks.
+    let aiKey = false;
+    try { aiKey = !!definerConfig().key; } catch { /* no settings yet */ } // (both versions of define-service.js have it)
+    const stt = sttConfig((state.status && state.status.settings) || {});
+    const netflix = await netflixSupport().catch(() => null);
+    if (!root.isConnected) return;
+    const rings = {};
+    for (const k of kinds) { const r = ringOf(k.key, { platform, aiKey, stt, netflix }); if (r) rings[k.key] = r; }
+    if (closeHome) closeHome();
+    // What was played or read last and isn't finished (moved here from Home: components/continuecard.js), on the
+    // map's own stage (the owner: it must "mesh well" with the map; components/homemap.js).
+    const going = await inProgress(3).catch(() => []);
+    if (!root.isConnected) return;
+    const resume = going.map((it) => ({ ...it, href: `#/episode/${it.id}`, left: leftLabel(it), frac: fraction(it), section: sectionOf(it) }));
+    const box = $("#lib-home");
+    box.innerHTML = `<div class="lh-mapbox"></div>`;
+    closeHome = homeMap(box.querySelector(".lh-mapbox"), { kinds, uses: homeUsage(), rings, lang: courseLang, resume });
+  }
+  /** How much each kind is used, from what this device knows: the things kept in each (episodes, books, pages…), the
+   *  ones opened in the last RECENT_DAYS (progress.js, matched to their feed by its title), the grammar lessons finished
+   *  and the conversations had. (libraryhome.js usage weighs them.) */
+  /** The kind a feed's things are in (its bubble on the Home map). */
+  const kindOfFeed = (f) => isAudiobookFeed(f.url) ? "audiobooks" : isLocalFeed(f.url) ? (KINDS.find((k) => k.feed === f.url) || {}).key : "podcasts";
+  /** The kind something in progress is in: its feed's (found by title, as progress.js keeps it), else by what it is. */
+  function sectionOf(item) {
+    const f = feeds.find((x) => x.title === item.sub);
+    return (f && kindOfFeed(f)) || (item.kind === "page" ? "pages" : item.kind === "video" ? "youtube" : "podcasts");
+  }
+  function homeUsage() {
+    const items = {}, recent = {};
+    const add = (to, k, n = 1) => { if (k) to[k] = (to[k] || 0) + n; };
+    for (const f of feeds) add(items, kindOfFeed(f), f.episode_count || 0);
+    const since = Date.now() - RECENT_DAYS * 86400000;
+    for (const p of allProgress()) {
+      if (!p.ts || p.ts < since) continue;
+      const f = feeds.find((x) => x.title === p.sub);
+      add(recent, f ? kindOfFeed(f) : p.kind === "page" ? "pages" : "");
+    }
+    try { add(recent, "courses", Object.keys(cleanProgress((state.status && state.status.settings || {}).grammar_progress)).length); } catch { /* none */ }
+    try {
+      const done = JSON.parse(localStorage.getItem("converseDone") || "{}");
+      add(recent, "conversation", Object.values(done).reduce((s, d) => s + (Number(d && d.times) || 1), 0));
+    } catch { /* storage off */ }
+    return usage(items, recent);
+  }
+  /** Where a kind's entry in the list goes (its own address, or its built-in list's feed). */
+  function hrefOf(k) {
+    const own = k.feed ? feeds.find((x) => x.url === k.feed) : null;
+    return k.href ? k.href : own ? `#/feed/${own.id}` : `#/library?show=${k.key}`;
+  }
   // ----- DLI: a DLI student's material for the language being learned (components/dlipanel.js) -----
   let closeDli = null;
   function showDli() {
@@ -1437,8 +1518,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (!n) return;
     const ask = n === 1 ? t("Delete this episode?") : t("Delete these {0} episodes?", n);
     const more = n === 1
-      ? "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
-      : "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
+      ? "This removes it from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
+      : "This removes them from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
     if (!(await confirmBox(ask, more, { ok: "Delete", danger: true }))) return;
     e.target.disabled = true;
     try {

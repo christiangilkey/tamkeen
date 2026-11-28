@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.78.0",
+  "A fresh look across the whole app, with new fonts");
+notes("0.78.0",
+  "Home is now Games, and Library is now Content");
+notes("0.78.0",
+  "Content opens on a map of everything, sized by what you use");
+notes("0.78.0",
+  "Farming: a full farm screen, and each word is said aloud");
+notes("0.78.0",
+  "One row of filters instead of two");
+notes("0.78.0",
+  "The village: nothing overlaps, and pictures load reliably");
 notes("0.77.0",
   "A calmer, clearer look, with a new font");
 notes("0.77.0",

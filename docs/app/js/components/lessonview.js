@@ -242,7 +242,7 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
       if (own) {
         const drop = h(`<button type="button" class="ghost icon small" title="Take out of the lesson" aria-label="Take out of the lesson">${icon("close", 14)}</button>`);
         drop.onclick = async () => {
-          if (!(await confirmBox(t("Take “{0}” out of the lesson?", tr.title), tr.kind === "file" ? t("Its audio file is removed too.") : t("It stays in your Library."), { ok: t("Take out"), danger: true }))) return;
+          if (!(await confirmBox(t("Take “{0}” out of the lesson?", tr.title), tr.kind === "file" ? t("Its audio file is removed too.") : t("It stays in Content."), { ok: t("Take out"), danger: true }))) return;
           if (tr.kind === "file") await api(`/episodes/${ep.id}`, { method: "DELETE" }).catch(() => null);
           rec = await saveLesson({ ...rec, tracks: rec.tracks.filter((x) => x.uid !== tr.uid) });
           tracks();

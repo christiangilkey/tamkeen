@@ -18,7 +18,7 @@
 
 import { LEGENDARY, TIERS, chances } from "./loot.js";
 import { dayNumber, weekNumber } from "./rules.js";
-import { BUILD_SPOTS, UPGRADE_SPOTS, canPlace, nearestFree, spotXY } from "./farmmap.js";
+import { BUILD_SPOTS, UPGRADE_SPOTS, buildingSize, canPlace, nearestFree, spotXY } from "./farmmap.js";
 
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
@@ -297,18 +297,20 @@ export function buildingsOn(state) {
     if (!p || !p.tier || !FARM_KIND[p.id]) return;
     const saved = p.at && Number.isFinite(p.at.x) && Number.isFinite(p.at.y) ? p.at : BUILD_SPOTS[i] || BUILD_SPOTS[0];
     // (where the farm's layout now has the field, the barn or another building: the nearest open spot instead)
-    const at = nearestFree(saved, [...out, ...UPGRADE_SPOTS]);
-    out.push({ i, id: p.id, kind: FARM_KIND[p.id], tier: p.tier, x: at.x, y: at.y });
+    const { w, h } = buildingSize(p.tier);
+    const at = nearestFree(saved, [...out, ...UPGRADE_SPOTS], w, h);
+    out.push({ i, id: p.id, kind: FARM_KIND[p.id], tier: p.tier, x: at.x, y: at.y, w, h });
   });
   return out;
 }
 /** The best tier of a farm job's building (0: none built). */
 const tierOf = (state, kind) => buildingsOn(state).filter((b) => b.kind === kind).reduce((m, b) => Math.max(m, b.tier), 0);
-/** The tier of the biggest building doing `kind` within reach of field spot `key` ((3 + tier) tiles; 0: none near). */
+/** The tier of the biggest building doing `kind` within reach of field spot `key` ((5 + tier) tiles: two more since the
+ * farm's no-overlap layout keeps buildings out of the pen as big as it grows; 0: none near). */
 export function nearTier(state, kind, key) {
   const [c, r] = String(key).split(",").map(Number);
   const at = spotXY(c, r);
-  return buildingsOn(state).filter((b) => b.kind === kind && Math.hypot(b.x - at.x, b.y - at.y) <= (3 + b.tier) * 16)
+  return buildingsOn(state).filter((b) => b.kind === kind && Math.hypot(b.x - at.x, b.y - at.y) <= (5 + b.tier) * 16)
     .reduce((m, b) => Math.max(m, b.tier), 0);
 }
 const dayKeyOf = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -390,8 +392,9 @@ export function farmJobs(state, rand = Math.random, now = new Date()) {
 export function placeBuilding(state, i, x, y, now = new Date()) {
   const p = state.idle && state.idle.plots && state.idle.plots[i];
   if (!p || !p.tier || !FARM_KIND[p.id]) return "There's no building there.";
-  const others = buildingsOn(state).filter((b) => b.i !== i);
-  if (!canPlace(x, y, others)) return "It can't stand there. Try an open patch of grass.";
+  const others = [...buildingsOn(state).filter((b) => b.i !== i), ...decorOn(state), ...UPGRADE_SPOTS];
+  const { w, h } = buildingSize(p.tier);
+  if (!canPlace(x, y, others, w, h)) return "It can't stand there. Try an open patch of grass.";
   p.at = { x: Math.round(x), y: Math.round(y) };
   touch(farmOf(state), now);
   return "";
@@ -485,7 +488,7 @@ export const decorById = (id) => DECOR.find((d) => d.id === id) || null;
 export function decorOn(state) {
   const f = farmOf(state);
   const out = [];
-  const others = [...buildingsOn(state).map((b) => ({ x: b.x, y: b.y })), ...UPGRADE_SPOTS];
+  const others = [...buildingsOn(state), ...UPGRADE_SPOTS];
   (Array.isArray(f.decor) ? f.decor : []).forEach((d, i) => {
     if (!decorById(d.id)) return;
     const at = nearestFree({ x: Number(d.x) || 0, y: Number(d.y) || 0 }, [...others, ...out]); // (as buildingsOn: after a layout change)
@@ -494,7 +497,7 @@ export function decorOn(state) {
   return out;
 }
 /** Everything standing on the farm a new thing mustn't stand on: buildings, decorations, the upgrades. */
-const standing = (state, skip = null) => [...buildingsOn(state).map((b) => ({ x: b.x, y: b.y })),
+const standing = (state, skip = null) => [...buildingsOn(state),
   ...decorOn(state).filter((d) => d.i !== skip).map((d) => ({ x: d.x, y: d.y })), ...UPGRADE_SPOTS];
 /** Buy a decoration: it stands on the first open patch of grass (move it after). Returns an error message, or "". */
 export function buyDecor(state, glow, id, now = new Date()) {

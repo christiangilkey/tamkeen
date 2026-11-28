@@ -101,10 +101,10 @@ if (typeof document !== "undefined" && !document.getElementById("gft-notice-css"
   const style = document.createElement("style");
   style.id = "gft-notice-css";
   style.textContent = `
-    .gft-notice { display: flex; flex-direction: column; gap: 12px; text-align: center; }
-    .gft-one { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--surface-2); }
-    .gft-one ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 17px; }
-    .gft-note { margin: 8px 0 0; color: var(--ink-2); }
+    .gft-notice { display: flex; flex-direction: column; gap: var(--s-12); text-align: center; }
+    .gft-one { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-12); background: var(--surface-2); }
+    .gft-one ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s-4); font-weight: 600; font-size: var(--fs-16); }
+    .gft-note { margin: var(--s-8) 0 0; color: var(--ink-2); }
     .gft-notice .set-actions { justify-content: center; }
     .gft-notice .set-actions .primary { min-width: 160px; min-height: 44px; justify-content: center; }
   `;

@@ -1,14 +1,14 @@
-Rubik font (headings and numbers), Fontsource package 5.2.8 (https://github.com/googlefonts/rubik)
+Pixelify Sans font (the game's numbers, rewards and celebrations), Google Fonts (https://github.com/eifetx/Pixelify-Sans)
 
-Tamkeen shows headings and numbers (XP, streaks, counts) in Rubik (web/fonts/Rubik-latin*.woff2): the variable
-font as Google Fonts serves it, cut into its Latin and extended-Latin letters (taken from the Fontsource package);
-nothing else is changed. The Font Software has no Reserved Font Name.
+Tamkeen shows the game's numbers, rewards and celebrations in Pixelify Sans (web/fonts/PixelifySans-*.woff2): the
+variable font as Google Fonts serves it (weights 400-700), in its Latin, extended-Latin and Cyrillic parts; nothing
+else is changed. The Font Software has no Reserved Font Name.
 
-Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik)
+Copyright 2021 The Pixelify Sans Project Authors (https://github.com/eifetx/Pixelify-Sans)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
+https://scripts.sil.org/OFL
 
 
 -----------------------------------------------------------
@@ -24,7 +24,7 @@ with others.
 
 The OFL allows the licensed fonts to be used, studied, modified and
 redistributed freely as long as they are not sold by themselves. The
-fonts, including any derivative works, can be bundled, embedded,
+fonts, including any derivative works, can be bundled, embedded, 
 redistributed and/or sold with any software provided that any reserved
 names are not used by derivative works. The fonts and derivatives,
 however, cannot be released under any other type of license. The

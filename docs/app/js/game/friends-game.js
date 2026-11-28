@@ -374,7 +374,7 @@ export function raidHelp() {
   body.append(
     helpPart("What does damage",
       "Every right answer in a battle or while fishing takes 1 off the boss's health. Wrong answers do nothing.",
-      "Flashcard reviews don't count: battle or go fishing from Home to hit the boss."),
+      "Flashcard reviews don't count: battle or go fishing from Games to hit the boss."),
     helpPart("The boss's health",
       "150 for each member of the guild. Each member's hits count for at most 300, so it takes everyone."),
     helpPart("The reward",

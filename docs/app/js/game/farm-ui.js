@@ -3,7 +3,9 @@
 // it is in a line or two (the owner: every building and recipe explains itself when tapped, plain and clean). The
 // rules are farm.js; the scene is habitat.js.
 
-import { api, h, toast } from "../app.js";
+import { api, h, state as appState, toast } from "../app.js";
+import { snippetPlayer } from "../snippetplayer.js";
+import { cardSayer } from "../voiceplay.js";
 import { openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
@@ -13,7 +15,7 @@ import { FEEDS_PER_DAY, garden, shrineRate, shrineTier, stardustBoost } from "./
 import { SHRINE_LINES } from "./shrinelines.js";
 import { TYPES } from "./data.js";
 import { describe, formOf } from "./genome.js";
-import { composeCreature } from "./render.js";
+import { artCache, composeCreature } from "./render.js";
 import { LINES, knownKeys, readLine } from "./muffles.js";
 import { warmPorridge } from "./talents.js";
 import * as social from "../social.js";
@@ -192,7 +194,7 @@ export function plantCard(key, { harvest = () => {} } = {}) {
 
 // ---------- watering: one due word on the question card ----------
 let words = null; // {vocab, at}: the words the farm asks (the game's word choice, as the pond's), kept a few minutes
-async function farmWords(game) {
+export async function farmWords(game) {
   if (words && Date.now() - words.at < 5 * 60 * 1000) return words.vocab;
   let vocab = [];
   let log = {};
@@ -205,14 +207,23 @@ async function farmWords(game) {
   return words.vocab;
 }
 
+/** The right answer's word, said after a choice (the owner: "it should play the correct words audio once a thing is
+ * selected"): as battles and the pond say it (voiceplay.cardSayer: the card's own recording, else the voice in your
+ * dialect and voice settings, else the device's). Game sound off: not said. */
+const farmPlayer = { said: null };
+export function sayAnswer(q, vocab) {
+  const s = appState.status && appState.status.settings;
+  if (s && s.game_sound === false) return;
+  const v = (vocab || []).find((w) => String(w.uid || w.id) === String(q.uid));
+  if (!v) return;
+  if (!farmPlayer.said) farmPlayer.said = cardSayer(snippetPlayer().playSnippet);
+  farmPlayer.said(v, "word").catch(() => {});
+}
+
 // ---------- the farm's question card: a little scene, one word, then the action's own moment ----------
 const CARD_W = 96, CARD_H = 48;          // the scene, in pixels (drawn three times over, crisp)
 const PLOT_AT = { x: 58, y: 24 };        // the plot's soil, top left
-const pics = {};
-const pic = (file) => {
-  if (!(file in pics)) { pics[file] = null; const im = new Image(); im.onload = () => { pics[file] = im; }; im.src = new URL(`../../game-art/${file}`, import.meta.url).href; }
-  return pics[file];
-};
+const pic = artCache(); // (the card's pictures; asks again after a failed load)
 let creatureFrame = null, creatureFor = ""; // (your creature, composed once per look)
 
 /**
@@ -223,7 +234,7 @@ let creatureFrame = null, creatureFor = ""; // (your creature, composed once per
  * watering: the can poured, the soil darkening, the plant perking up; a wrong answer: a drizzle and the right word).
  * Resolves to act's result, or null if closed first.
  */
-function farmCard({ kind, key, crop, q, act }) {
+function farmCard({ kind, key, crop, q, act, vocab = [] }) {
   const game = getGame();
   const before = plantState(game, key);
   return new Promise((resolve) => {
@@ -292,17 +303,16 @@ function farmCard({ kind, key, crop, q, act }) {
       if (creatureFrame) ctx.drawImage(creatureFrame, 0, 0, creatureFrame.width, creatureFrame.height, 6, CARD_H - 46 + Math.round(Math.sin(now / 400)), 46, 46);
       // the tools and what happens (game-art/farm/card.png: 32 x 32 frames, the plot at 8, 16 in each)
       const frame = (i) => { if (fx) ctx.drawImage(fx, i * 32, 0, 32, 32, PLOT_AT.x - 8, PLOT_AT.y - 16, 32, 32); };
-      if (!moment) frame(kind === "plant" ? (Math.floor(now / 600) % 2 ? 0 : 2) : 6);
+      if (!moment) { if (kind === "plant") frame(Math.floor(now / 600) % 2 ? 0 : 2); } // (the trowel and the seed, waiting)
       else if (moment.kind === "plant") {
         if (t1 < 900) frame(Math.floor(t1 / 150) % 2);           // digging
         else if (t1 < 1300) frame(2);                            // the seed drops
         else if (t1 < 1500) frame(3);                            // in the hole
         else if (t1 < 2000) frame(4 + (Math.floor(t1 / 120) % 2)); // patted down
         else if (t1 < 2600) frame(13);                           // a sprout, and a sparkle
-      } else if (moment.kind === "water") {
-        if (t1 < 1300) { frame(7); frame(8 + (Math.floor(t1 / 110) % 3)); }
-        else if (t1 < 1900) frame(13);
-        else frame(6);
+      } else if (moment.kind === "water") { // the splash (the owner's pick: farm/splash.png, 48 x 48 frames, the soil at 16, 26)
+        const sp = pic("farm/splash.png");
+        if (sp && t1 < 1700) ctx.drawImage(sp, Math.min(13, Math.floor(t1 / 110)) * 48, 0, 48, 48, PLOT_AT.x - 16, PLOT_AT.y - 26, 48, 48);
       } else if (moment.kind === "drizzle") frame(11 + (Math.floor(t1 / 200) % 2));
       requestAnimationFrame(draw);
     }
@@ -316,6 +326,7 @@ function farmCard({ kind, key, crop, q, act }) {
       buttons[q.answer].classList.add("right");
       if (!correct) buttons[i].classList.add("wrong");
       answerQuestion(game, q.uid, correct);
+      sayAnswer(q, vocab); // (the right word, said)
       result = act(correct);
       saveGame();
       const verdict = panel.querySelector(".lbq-verdict");
@@ -358,7 +369,7 @@ export async function askToWater(key) {
   const st = plantState(game, key);
   if (!st) return null;
   let answer = null;
-  const r = await farmCard({ kind: "water", key, crop: st.crop, q, act: (correct) => {
+  const r = await farmCard({ kind: "water", key, crop: st.crop, q, vocab, act: (correct) => {
     const out = water(game, key, correct);
     const more = correct && typeof out === "object" ? waterAround(game, key) : []; // (slice 5: the watering can)
     answer = correct;
@@ -382,7 +393,7 @@ export async function askToPlant(key, crop) {
   const vocab = await farmWords(game);
   const q = pickQuestion(game, vocab, Math.random, new Date());
   if (!q) { const r = sow(); if (r) { saveGame(); sfx("plant"); } return !!r; }
-  const r = await farmCard({ kind: "plant", key, crop, q, act: () => sow() });
+  const r = await farmCard({ kind: "plant", key, crop, q, vocab, act: () => sow() });
   return !!r;
 }
 

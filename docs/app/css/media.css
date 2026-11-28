@@ -16,16 +16,16 @@
 
 /* One header row that stays at the top while the list scrolls: the kinds (phone), the status pills
    and the title filter, then ticking several at once. The same on every kind. */
-.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--paper); padding: 4px 0 2px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
-.lib-bar .filter-row { display: flex; align-items: center; gap: 10px; }
-.lib-bar .tabs { flex: 1 1 auto; min-width: 0; margin: 6px 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--paper); padding: var(--s-4) 0 var(--s-4); margin-bottom: var(--s-8); border-bottom: 1px solid var(--line); }
+.lib-bar .filter-row { display: flex; align-items: center; gap: var(--s-12); }
+.lib-bar .tabs { flex: 1 1 auto; min-width: 0; margin: var(--s-8) 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .lib-bar .tabs::-webkit-scrollbar { display: none; }
 .lib-bar .tabs button { flex: none; white-space: nowrap; }
 .lib-bar #title-filter { flex: 0 1 220px; min-width: 120px; }
-.lib-bar .toolbar { position: static; padding: 4px 0 6px; background: none; }
+.lib-bar .toolbar { position: static; padding: var(--s-4) 0 var(--s-8); background: none; }
 .library.desk .lib-bar .tabs { flex-wrap: wrap; overflow: visible; } /* the computer has room for every pill */
 .library .lib-main.empty-kind .lib-bar .tabs, .library .lib-main.empty-kind .lib-bar .toolbar { display: flex; }
-.lib-main { padding-bottom: 104px; } /* the last row never sits under the + button */
+.lib-main { padding-bottom: var(--s-64); } /* the last row never sits under the + button */
 
 /* The round + button: every way of adding something (components/addsheet.js). */
 .add-fab {
@@ -67,24 +67,24 @@ body:has(.add-fab) .toasts { bottom: 100px; }
    it wherever it sits (computer, phone above the tab bar, any window size); library.js adds hint-flip
    when the button is on the left half of the screen, and the arrow then comes from its other side.
    It is hidden while a box is open over the page (the + sheet itself) or a page guide is showing. */
-.lib-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 440px; margin: 40px auto 24px; padding: 0 16px; text-align: center; }
-.lib-empty .le-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px; background: var(--surface-2); color: var(--ink-2); }
-.lib-empty .le-title { margin: 0; font-size: 22px; }
-.lib-empty .le-text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
+.lib-empty { display: flex; flex-direction: column; align-items: center; gap: var(--s-8); max-width: 440px; margin: var(--s-48) auto var(--s-24); padding: 0 var(--s-16); text-align: center; }
+.lib-empty .le-icon { display: grid; place-items: center; margin-bottom: var(--s-8); color: var(--ink-2); }
+.lib-empty .le-title { margin: 0; font-size: var(--fs-20); }
+.lib-empty .le-text { margin: 0; font-size: var(--fs-16); line-height: var(--lh-text); color: var(--ink-2); }
 .lib-empty .row { justify-content: center; }
 /* My audio → Listen (components/listenbox.js): the button, and the box while it records: a big clock, a red dot
    that swells with the sound, Stop and Cancel. Plain, centred, no shadow. */
-.lr-row { margin-top: 10px; }
-.lr-listen { border-radius: 99px; corner-shape: round; font-weight: 650; padding-inline: 18px; }
+.lr-row { margin-top: var(--s-12); }
+.lr-listen { border-radius: var(--r-pill); corner-shape: round; font-weight: 600; padding-inline: var(--s-16); }
 .lr-back .modal-box { width: min(420px, 100%); box-shadow: none; }
-.lr-box { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 6px 0 4px; }
-.lr-meter { display: flex; align-items: center; gap: 14px; }
+.lr-box { display: flex; flex-direction: column; align-items: center; gap: var(--s-8); text-align: center; padding: var(--s-8) 0 var(--s-4); }
+.lr-meter { display: flex; align-items: center; gap: var(--s-16); }
 .lr-dot { width: 18px; height: 18px; border-radius: 50%; corner-shape: round; background: var(--danger); transform: scale(calc(.8 + var(--level, 0) * .8)); transition: transform .06s linear; }
 .lr-dot.is-still { background: var(--ink-2); transform: none; }
-.lr-time { font-size: 44px; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.lr-box .lr-note { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.45; }
-.lr-box .lr-error { margin: 0; color: var(--danger); font-size: 15px; line-height: 1.45; }
-.lr-name { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; }
+.lr-time { font-size: var(--fs-48); font-weight: 600; font-variant-numeric: tabular-nums; line-height: var(--lh-head); }
+.lr-box .lr-note { margin: 0; color: var(--ink-2); font-size: var(--fs-16); line-height: var(--lh-text); }
+.lr-box .lr-error { margin: 0; color: var(--danger); font-size: var(--fs-16); line-height: var(--lh-text); }
+.lr-name { display: flex; flex-direction: column; gap: var(--s-4); margin-top: var(--s-16); }
 .lr-name input { width: 100%; }
 .lr-stop .ic { vertical-align: -3px; }
 .lib-main.list-empty #lib-head { display: none; } /* (the empty state below says it all) */
@@ -108,93 +108,105 @@ body:has(.modal-back) .library .fab-hint, body:has(.tour) .library .fab-hint { d
 .fab-note {
   position: absolute; left: 5%; bottom: calc(100% + 2px); width: max-content; max-width: 10em;
   transform: translateX(-50%) rotate(-6deg); text-align: center; white-space: normal;
-  font: 600 24px/1.05 "Caveat", var(--ui-font); letter-spacing: 0; text-transform: none;
+  font: 600 var(--fs-26)/1.05 "Caveat", var(--ui-font); letter-spacing: 0; text-transform: none;
 }
 .add-fab.hint-flip .fab-note { transform: translateX(-50%) rotate(-6deg) scaleX(-1); }
 .fab-note .fn-click { display: none; }
 @media (hover: hover) and (pointer: fine) { .fab-note .fn-tap { display: none; } .fab-note .fn-click { display: inline; } }
 :root:lang(ar) .fab-note { font-family: "Caveat", "Noto Naskh Arabic", var(--ui-font); }
-:root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 17px; line-height: 1.35; max-width: 9em; }
-@media (max-width: 640px) { .fab-note { font-size: 21px; } :root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 15px; } }
+:root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: var(--fs-16); line-height: var(--lh-text); max-width: 9em; }
+@media (max-width: 640px) { .fab-note { font-size: var(--fs-20); } :root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: var(--fs-16); } }
 button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon beside its words) */
 .gx-say.fx-pop { display: inline-grid; }
 
 /* The sheet the + button opens: a plain list of the ways, then each way's own small form. */
-.add-sheet .modal-body { padding-top: 10px; }
-.add-ways { display: flex; flex-direction: column; gap: 8px; }
+.add-sheet .modal-body { padding-top: var(--s-12); }
+/* The ways: rows with a line between them (no tiles inside the sheet). */
+.add-ways { display: flex; flex-direction: column; }
 .add-way {
-  display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; min-height: 64px;
-  text-align: start; white-space: normal; border-radius: 14px; background: var(--surface-2); border: 1px solid transparent;
+  display: flex; align-items: center; gap: var(--s-16); width: 100%; padding: var(--s-12) 0; min-height: 64px;
+  text-align: start; white-space: normal; border-radius: 0; background: transparent; border: 0; border-bottom: 1px solid var(--line); font-weight: 400;
 }
-.add-way:hover { border-color: var(--teal); }
+.add-way:last-child { border-bottom: 0; }
+.add-way:hover:not(:disabled) { background: transparent; }
+.add-way:hover strong { color: var(--teal); }
 /* The same plain line icons as the tab bar: the text colour (white in dark mode), no coloured tile. */
 .aw-ico { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: var(--ink); }
-.aw-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
-.aw-text strong { font-size: 16px; }
-.aw-text span { font-size: 13px; color: var(--ink-2); font-weight: 400; }
+.aw-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); overflow-wrap: anywhere; }
+.aw-text strong { font-size: var(--fs-16); }
+.aw-text span { font-size: var(--fs-14); color: var(--ink-2); font-weight: 400; }
 .aw-go { flex: none; color: var(--ink-2); display: inline-flex; }
-.aw-back { margin: 0 0 10px -6px; padding-left: 6px; padding-right: 10px; }
-.aw-step { display: flex; flex-direction: column; gap: 12px; }
-.aw-form { display: flex; gap: 8px; }
+.aw-back { margin: 0 0 var(--s-12) calc(-1 * var(--s-8)); padding-left: var(--s-8); padding-right: var(--s-12); }
+.aw-step { display: flex; flex-direction: column; gap: var(--s-12); }
+.aw-form { display: flex; gap: var(--s-8); }
 .aw-form input { flex: 1; min-width: 0; }
-.aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
-.aw-or { text-align: center; color: var(--ink-2); font-size: 13px; }
+.aw-wide { display: flex; align-items: center; justify-content: center; gap: var(--s-8); width: 100%; font-weight: 600; }
+.aw-or { text-align: center; color: var(--ink-2); font-size: var(--fs-14); }
 .aw-note { margin: 0; text-align: center; }
 /* Books (pages/books.js): a book of your own first, the free shelf under it. */
-.books-own { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 18px; }
-.books-about { margin: 0 0 10px; }
+.books-own { display: flex; flex-direction: column; gap: var(--s-8); margin: var(--s-4) 0 var(--s-16); }
+.books-about { margin: 0 0 var(--s-12); }
+/* The free shelf: one row per book, a line between them (DESIGN.md: lists are rows). */
+.books-grid { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.book-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: var(--s-16); padding: var(--s-16) 0; border-bottom: 1px solid var(--line); }
+.book-cover { width: 48px; height: 64px; border-radius: var(--r-s); display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); }
+.book-info { display: flex; flex-direction: column; gap: var(--s-4); min-width: 0; }
+.book-title { font-size: var(--fs-20); font-weight: 600; line-height: var(--lh-head); }
+.book-info .small { font-size: var(--fs-14); }
+.book-act { align-self: center; }
+@media (max-width: 520px) { .book-card { grid-template-columns: auto minmax(0, 1fr); } .book-act { grid-column: 2; justify-self: start; } }
 /* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
-.aw-unavailable { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); text-align: center; }
-.aw-unavailable p { margin: 8px 0 0; }
-.aw-country { display: flex; align-items: center; gap: 8px; }
+.aw-unavailable { padding: var(--s-16) 0; text-align: center; color: var(--ink-2); }
+.aw-unavailable p { margin: var(--s-8) 0 0; }
+.aw-country { display: flex; align-items: center; gap: var(--s-8); }
 .aw-country select { flex: 1; min-width: 0; }
 /* YouTube's topics (youtube-home.js TOPICS): plain tiles like the ways above, two or three across. */
-.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--s-8); }
 .yt-topic {
-  display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
-  text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
-  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--ink);
-}
-.yt-topic:hover:not(:disabled) { border-color: var(--teal); background: var(--surface-2); }
+  display: flex; align-items: center; gap: var(--s-8); min-height: 48px; padding: var(--s-8) var(--s-12); min-width: 0;
+  text-align: start; white-space: normal; line-height: var(--lh-head); font-weight: 600; font-size: var(--fs-14);
+  border-radius: var(--r-s); background: transparent; border: 1px solid var(--line); color: var(--ink);
+} /* (outlined buttons: no filled tiles inside the sheet) */
+.yt-topic:hover:not(:disabled) { border-color: var(--teal); background: transparent; }
 .yt-topic span { min-width: 0; overflow-wrap: anywhere; }
 .yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
 
 /* ---------- audiobooks (audiobooks.js) ----------
    The + sheet's Audiobook step: your own files (one plain card, with the Libro.fm line under it), then
    LibriVox's books (cover, title, author, length, Add); and the Library's own shelf of them. */
-.ab-own { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
-.ab-own-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
-.ab-own > button { flex: none; display: inline-flex; align-items: center; gap: 6px; }
-.ab-shop { margin-top: -4px; }
-.ab-free { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
-.ab-head2 { margin: 0; font-size: 16px; }
+.ab-own { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) 0; border-bottom: 1px solid var(--line); }
+.ab-own-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); overflow-wrap: anywhere; }
+.ab-own > button { flex: none; display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-shop { margin-top: calc(-1 * var(--s-4)); }
+.ab-free { display: flex; flex-direction: column; gap: var(--s-12); margin-top: var(--s-8); }
+.ab-head2 { margin: 0; font-size: var(--fs-16); }
 .ab-free > .aw-note:not(.ab-credit) { text-align: start; }
 @media (max-width: 480px) { .ab-own { flex-wrap: wrap; } .ab-own > button { width: 100%; justify-content: center; } }
 .ab-count { margin: 0; text-align: center; }
-.ab-name label { display: flex; flex-direction: column; gap: 6px; }
+.ab-name label { display: flex; flex-direction: column; gap: var(--s-8); }
 .ab-name input { width: 100%; }
-.ab-list, .ab-shelf { display: flex; flex-direction: column; gap: 8px; }
+.ab-list, .ab-shelf { display: flex; flex-direction: column; }
 .ab-book, .ab-mine {
-  display: flex; align-items: center; gap: 12px; padding: 8px 10px; min-width: 0;
-  border-radius: 14px; background: var(--surface-2);
+  display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) 0; min-width: 0;
+  border-bottom: 1px solid var(--line);
 }
-.ab-cover { width: 56px; height: 56px; flex: none; border-radius: 8px; object-fit: cover; background: var(--surface); }
+.ab-cover { width: 56px; height: 56px; flex: none; border-radius: var(--r-s); object-fit: cover; background: var(--surface); }
 .ab-cover.ph { display: grid; place-items: center; color: var(--ink-2); }
-.ab-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.ab-title { font-weight: 600; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+.ab-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.ab-title { font-weight: 600; font-size: var(--fs-16); line-height: var(--lh-head); overflow-wrap: anywhere; }
 .ab-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ab-act { flex: none; }
 .ab-more[hidden] { display: none; }
-.ab-credit { margin: 4px 0 0; text-align: center; }
-.ab-shelf { max-width: 760px; margin: 8px auto 0; }
-.ab-shelf .ab-credit { margin-top: 10px; }
-.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.ab-credit { margin: var(--s-4) 0 0; text-align: center; }
+.ab-shelf { max-width: 760px; margin: var(--s-8) auto 0; }
+.ab-shelf .ab-credit { margin-top: var(--s-12); }
+.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--s-12); color: var(--ink); text-decoration: none; }
 .ab-mine-open:hover { text-decoration: none; }
 .ab-mine-open:hover .ab-title { color: var(--teal); }
-.ab-mine > .btn { flex: none; display: inline-flex; align-items: center; gap: 6px; }
-.ab-head .ab-author { margin: 2px 0 6px; }
-.ab-head .ab-go .btn { display: inline-flex; align-items: center; gap: 6px; }
-.ab-head .ab-credit { text-align: start; margin-top: 8px; }
+.ab-mine > .btn { flex: none; display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-head .ab-author { margin: var(--s-4) 0 var(--s-8); }
+.ab-head .ab-go .btn { display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-head .ab-credit { text-align: start; margin-top: var(--s-8); }
 .ab-head .desc { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 /* The shelf of your audiobooks has no episode tools (each book's own page has them). */
 .library.shelf-kind .filter-row, .library.shelf-kind .toolbar, .library.shelf-kind #episodes, .library.shelf-kind #more { display: none; }
@@ -203,97 +215,98 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 /* The Web page screen (pages/websites.js, #/sites): paste an address, your saved sites, news. One
    plain surface per tile, no shadows; the column is centred. */
 .sites-page { max-width: 1040px; }
-.sites-page.with-fab { padding-bottom: 104px; } /* the web app's round import button never covers the last sites */
-.sites-import { display: flex; gap: 8px; padding: 12px; margin: 8px 0 10px; }
+.sites-page.with-fab { padding-bottom: var(--s-64); } /* the web app's round import button never covers the last sites */
+.sites-import { display: flex; gap: var(--s-8); padding: var(--s-12); margin: var(--s-8) 0 var(--s-12); }
 .sites-import input, .sites-search input { flex: 1; min-width: 0; }
-.sites-search { display: flex; gap: 8px; }
-.sites-search button { display: inline-flex; align-items: center; gap: 6px; }
-.sites-sec { margin-top: 22px; }
-.sites-sec-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; min-height: 40px; }
-.sites-sec-head h2 { margin: 0; font-size: 18px; }
-.sites-add { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.sites-search { display: flex; gap: var(--s-8); }
+.sites-search button { display: inline-flex; align-items: center; gap: var(--s-8); }
+.sites-sec { margin-top: var(--s-24); }
+.sites-sec-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-12); margin-bottom: var(--s-12); min-height: 40px; }
+.sites-sec-head h2 { margin: 0; font-size: var(--fs-20); }
+.sites-add { display: inline-flex; align-items: center; gap: var(--s-8); flex: none; }
 .sites-empty { margin: 0; }
-.sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-12); }
 .sites-grid:empty { display: none; }
 .site-tile { position: relative; min-width: 0; }
 .site-tile a {
-  display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 64px; padding: 12px;
+  display: flex; align-items: center; gap: var(--s-12); min-width: 0; min-height: 64px; padding: var(--s-12);
   border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); color: inherit; text-decoration: none;
 }
 .site-tile a:hover, .site-tile a:focus-visible { border-color: var(--teal); outline: none; }
 .site-tile a:active { transform: scale(.98); }
-.site-tile.saved a { padding-inline-end: 50px; }
+.site-tile.saved a { padding-inline-end: var(--s-48); }
 .site-ico {
-  position: relative; width: 40px; height: 40px; flex: none; border-radius: 10px; overflow: hidden;
-  display: grid; place-items: center; background: var(--teal-tint); color: var(--teal); font-weight: 700; font-size: 18px;
+  position: relative; width: 40px; height: 40px; flex: none; border-radius: var(--r-s); overflow: hidden;
+  display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); font-weight: 700; font-size: var(--fs-20);
 }
-.site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 6px; background: var(--surface); opacity: 0; transition: opacity .2s; }
+.site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: var(--s-8); background: var(--surface); opacity: 0; transition: opacity .2s; }
 .site-ico img.on { opacity: 1; }
 .site-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .site-name, .site-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.site-name { font-weight: 600; font-size: 16px; line-height: 1.3; }
-.site-note { color: var(--ink-2); font-size: 13px; }
-.site-easy { display: inline-block; margin-inline-end: 4px; padding: 0 7px; border-radius: 99px; corner-shape: round; background: var(--teal-tint); color: var(--teal); font-size: 11px; font-weight: 700; }
+.site-name { font-weight: 600; font-size: var(--fs-16); line-height: var(--lh-head); }
+.site-note { color: var(--ink-2); font-size: var(--fs-14); }
+.site-easy { display: inline-block; margin-inline-end: var(--s-4); padding: 0 var(--s-8); border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); color: var(--ink); font-size: var(--fs-12); font-weight: 700; }
 .site-rm {
   position: absolute; top: 50%; inset-inline-end: 8px; transform: translateY(-50%);
   width: 36px; height: 36px; min-height: 0; padding: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; color: var(--ink-2);
 }
 .site-rm:hover:not(:disabled) { color: var(--ink); }
-.sites-add-form { display: flex; flex-direction: column; gap: 14px; }
-.sites-add-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+.sites-add-form { display: flex; flex-direction: column; gap: var(--s-16); }
+.sites-add-form label { display: flex; flex-direction: column; gap: var(--s-8); font-weight: 600; font-size: var(--fs-14); }
 .sites-add-form input { font-weight: 400; }
 .sites-add-error { margin: 0; color: var(--danger); }
-.sites-add-form .confirm-buttons { margin-top: 4px; }
-.sites-add-form .confirm-buttons button { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; } /* the pair exactly as wide */
+.sites-add-form .confirm-buttons { margin-top: var(--s-4); }
+.sites-add-form .confirm-buttons button { flex: 1 1 0; min-width: 0; padding-left: var(--s-12); padding-right: var(--s-12); } /* the pair exactly as wide */
 @media (max-width: 520px) {
-  .sites-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .site-tile a { gap: 8px; padding: 10px; min-height: 58px; }
-  .site-tile.saved a { padding-inline-end: 40px; }
-  .site-ico { width: 32px; height: 32px; font-size: 15px; }
-  .site-ico img { padding: 4px; }
-  .site-name { font-size: 15px; }
+  .sites-grid { grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+  .site-tile a { gap: var(--s-8); padding: var(--s-12); min-height: 58px; }
+  .site-tile.saved a { padding-inline-end: var(--s-48); }
+  .site-ico { width: 32px; height: 32px; font-size: var(--fs-16); }
+  .site-ico img { padding: var(--s-4); }
+  .site-name { font-size: var(--fs-16); }
   .site-rm { width: 32px; height: 32px; inset-inline-end: 4px; }
 }
 /* Followed YouTube channels: round pictures in the phone's bar, chips on the computer. */
 .feed-item img.round, .feed-item .ph.round, .lib-head .channel-pic { border-radius: 50%; corner-shape: round; }
-.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: 20px; color: var(--teal); background: var(--teal-tint); }
+.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: var(--fs-20); color: var(--ink-2); background: var(--surface-2); }
 .lib-head .channel-pic { width: 72px; height: 72px; object-fit: cover; flex: none; }
-.yt-channels { align-items: center; margin: 0 0 4px; }
-.yt-channels button { display: inline-flex; align-items: center; gap: 6px; max-width: 240px; }
+.yt-channels { align-items: center; margin: 0 0 var(--s-4); }
+.yt-channels button { display: inline-flex; align-items: center; gap: var(--s-8); max-width: 240px; }
 .yt-channels button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; corner-shape: round; object-fit: cover; flex: none; font-size: 11px; display: inline-grid; place-items: center; background: var(--teal-tint); color: var(--teal); }
+.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; corner-shape: round; object-fit: cover; flex: none; font-size: var(--fs-12); display: inline-grid; place-items: center; background: var(--surface-2); color: var(--ink-2); }
 
 /* ---------- trending podcasts ---------- */
 .discover { max-width: 1200px; }
-.disc-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+.disc-head { display: flex; gap: var(--s-12); align-items: flex-start; margin-bottom: var(--s-8); }
 .disc-head .meta { flex: 1; min-width: 0; }
-.disc-head h1 { margin: 0 0 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.disc-rss { margin: 4px 0 8px; }
-.disc-found { margin: 4px 0 18px; }
-.disc-found-head { display: flex; align-items: center; gap: 8px; margin: 6px 0 8px; }
-.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; overflow-wrap: anywhere; }
-.disc-found-close { flex: none; padding: 6px; }
-.disc-found-none { margin: 4px 0; }
-.disc-found-credit { margin: 8px 0 0; text-align: center; }
-.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--paper); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.disc-head h1 { margin: 0 0 var(--s-4); display: flex; align-items: center; gap: var(--s-8); flex-wrap: wrap; }
+.disc-rss { margin: var(--s-4) 0 var(--s-8); }
+.disc-found { margin: var(--s-4) 0 var(--s-16); }
+.disc-found-head { display: flex; align-items: center; gap: var(--s-8); margin: var(--s-8) 0 var(--s-8); }
+.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: var(--fs-20); overflow-wrap: anywhere; }
+.disc-found-close { flex: none; padding: var(--s-8); }
+.disc-found-none { margin: var(--s-4) 0; }
+.disc-found-credit { margin: var(--s-8) 0 0; text-align: center; }
+.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--paper); padding: var(--s-8) 0; margin: 0 0 var(--s-4); flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
 .disc-cats button { flex: none; white-space: nowrap; }
-.disc-cat { margin-bottom: 22px; }
-.disc-cat h2 { margin: 10px 0 8px; font-size: 18px; }
-.disc-cat h2 .n { font-size: 13px; font-weight: 500; color: var(--ink-2); }
-.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
-.disc-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); min-width: 0; }
-.disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--surface-2); }
+.disc-cat { margin-bottom: var(--s-24); }
+.disc-cat h2 { margin: var(--s-12) 0 var(--s-8); font-size: var(--fs-20); }
+.disc-cat h2 .n { font-size: var(--fs-14); font-weight: 600; color: var(--ink-2); }
+.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 var(--s-24); }
+/* A podcast to add: a row with a line under it (two or three columns of rows on a wide screen). */
+.disc-card { display: flex; gap: var(--s-12); align-items: center; padding: var(--s-12) 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: var(--r-s); object-fit: cover; flex: none; background: var(--surface-2); }
 .disc-card .ph { display: grid; place-items: center; color: var(--ink-2); }
 .disc-card .info { flex: 1; min-width: 0; }
-.disc-card .t { font-weight: 600; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.disc-card .t { font-weight: 600; line-height: var(--lh-head); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .disc-card .a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .disc-card .a:empty, .disc-card .d:empty { display: none; }
-.disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: 2px; }
+.disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: var(--s-4); }
 .disc-card .add { flex: none; min-width: 84px; }
 .disc-card .add.done { color: var(--teal); background: var(--teal-tint); border-color: transparent; opacity: 1; }
-.disc-more { margin-top: 8px; }
-.disc-msg { max-width: 560px; margin: 32px auto; text-align: center; }
-.disc-credit { margin-top: 24px; text-align: center; }
+.disc-more { margin-top: var(--s-8); }
+.disc-msg { max-width: 560px; margin: var(--s-32) auto; text-align: center; }
+.disc-credit { margin-top: var(--s-24); text-align: center; }
 @media (max-width: 640px) {
   .disc-head { flex-wrap: wrap; }
   .disc-grid { grid-template-columns: 1fr; }
@@ -304,12 +317,12 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 /* ---------- YouTube player ----------
    The clickable captions sit below the video, never on top of it: YouTube does not allow
    anything to be drawn over its player. */
-.player.yt .yt-col { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; background: #000; }
+.player.yt .yt-col { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; background: var(--media-black); }
 .player.yt .screen { flex: 1 1 auto; }
 .player.yt .screen iframe { width: 100%; height: 100%; border: 0; display: block; }
 .player.yt .captions {
   position: static; transform: none; width: auto; max-width: none; flex: none;
-  border-radius: 0; background: #111; padding: .35em .8em; box-sizing: border-box;
+  border-radius: 0; background: var(--media-1); padding: .35em .8em; box-sizing: border-box;
   min-height: calc(1.75em * 2 + .7em); /* room for two lines, so the video doesn't jump as lines change */
 }
 .player.yt .captions:empty { display: block; }
@@ -317,26 +330,26 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .player.yt.dual .captions { min-height: calc(1.75em * 2 + .7em + 1.8em); }
 /* Which captions these are (YouTube's automatic ones, its translation, another language) and a
    dubbed audio track: one or two small lines on the same black bar, under the captions. */
-.player.yt .yt-note { background: #111; color: #a8a8a8; font-size: 12px; line-height: 1.4; padding: 0 .8em .4em; }
+.player.yt .yt-note { background: var(--media-1); color: var(--media-ink-2); font-size: var(--fs-12); line-height: var(--lh-text); padding: 0 .8em .4em; }
 .player.yt .yt-note[hidden] { display: none; }
 .player.yt .yt-note p { margin: 0; }
 /* The "can be heard in ... too" note: there for 12 s, fading out over the last second (player.js). */
 .player.yt .yt-note .yt-note-temp { animation: yt-note-out 12s linear forwards; }
 @keyframes yt-note-out { 0%, 91% { opacity: 1; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .player.yt .yt-note .yt-note-temp { animation: none; } }
-.player.yt .yt-note button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
+.player.yt .yt-note button { background: none; border: 0; min-height: 0; padding: 0; color: var(--media-ink); font: inherit; text-decoration: underline; cursor: pointer; }
 .player.yt.cc-off .captions { display: none; }
 .player.yt #more { display: none; }
 @media (max-width: 760px) {
   /* Phone: a slim one-line banner, then the video at full width in its 16:9 shape (YouTube asks
      for at least 200 x 200), then the captions; the transcript takes whatever height is left.
      The less-used banner buttons move into the "more" menu. */
-  .player.yt .player-head { flex-wrap: nowrap; gap: 8px; padding: 4px 10px; }
+  .player.yt .player-head { flex-wrap: nowrap; gap: var(--s-8); padding: var(--s-4) var(--s-12); }
   .player.yt .player-head img, .player.yt .player-head .meta .small { display: none; }
   .player.yt .player-head .meta { flex: 1 1 0; min-width: 0; }
-  .player.yt .player-head .title { display: block; white-space: nowrap; font-size: 14px; }
-  .player.yt .player-head > .row { width: auto; flex: none; flex-wrap: nowrap; gap: 4px; }
-  .player.yt .player-head button, .player.yt .player-head .btn { min-height: 28px; padding: 2px 8px; font-size: 12px; }
+  .player.yt .player-head .title { display: block; white-space: nowrap; font-size: var(--fs-14); }
+  .player.yt .player-head > .row { width: auto; flex: none; flex-wrap: nowrap; gap: var(--s-4); }
+  .player.yt .player-head button, .player.yt .player-head .btn { min-height: 28px; padding: var(--s-4) var(--s-8); font-size: var(--fs-12); }
   .player.yt #fullscreen, .player.yt #font-down, .player.yt #font-up,
   .player.yt #exp-txt, .player.yt #exp-srt, .player.yt #exp-vtt { display: none; }
   .player.yt #more { display: inline-flex; }
@@ -344,39 +357,39 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   .player.yt .yt-col { flex: 0 1 auto; }
   .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
   .player.yt.panel-open .transcript-wrap { flex: 1 1 0; height: auto; min-height: 96px; }
-  .player.yt .controls { padding: 2px 10px 6px; }
+  .player.yt .controls { padding: var(--s-4) var(--s-12) var(--s-8); }
 }
 /* ---------- a video still loading (components/mediawait.js) ----------
    A plain spinner in the middle of the video; past 20 s a short message and Try again. YouTube's player may have
    nothing in front of it: its spinner is under the player, which is hidden only until it has loaded
    (.media-loading); after that the waiting shows on the band under the video (.media-wait-line). */
 .media-wait { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center;
-  justify-content: center; gap: 10px; padding: 16px; text-align: center; color: #c9c8c2; pointer-events: none; }
+  justify-content: center; gap: var(--s-12); padding: var(--s-16); text-align: center; color: var(--media-ink-3); pointer-events: none; }
 .media-wait[hidden], .media-wait-line[hidden], .media-wait [hidden], .media-wait-line [hidden] { display: none; }
-.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
+.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: color-mix(in srgb, var(--media-ink) 22%, transparent); border-top-color: var(--teal); }
 .media-wait .media-wait-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* (said, not shown) */
-.media-wait .media-wait-slow { margin: 0; max-width: 30em; font-size: 15px; line-height: 1.5; }
+.media-wait .media-wait-slow { margin: 0; max-width: 30em; font-size: var(--fs-16); line-height: var(--lh-text); }
 .media-wait button { pointer-events: auto; }
-.player.yt .media-wait { z-index: 0; background: #000; }
+.player.yt .media-wait { z-index: 0; background: var(--media-black); }
 .player.yt .screen iframe { position: relative; z-index: 1; }
 .player.yt .screen.media-loading iframe { visibility: hidden; }
-.media-wait-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 8px; background: #111;
-  color: #a8a8a8; font-size: 13px; line-height: 1.4; padding: .3em .8em; }
-.media-wait-line .spinner { width: 13px; height: 13px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
-.media-wait-line button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
-.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
+.media-wait-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--s-4) var(--s-8); background: var(--media-1);
+  color: var(--media-ink-2); font-size: var(--fs-14); line-height: var(--lh-text); padding: .3em .8em; }
+.media-wait-line .spinner { width: 13px; height: 13px; border-color: color-mix(in srgb, var(--media-ink) 22%, transparent); border-top-color: var(--teal); }
+.media-wait-line button { background: none; border: 0; min-height: 0; padding: 0; color: var(--media-ink); font: inherit; text-decoration: underline; cursor: pointer; }
+.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: color-mix(in srgb, var(--media-ink) 22%, transparent); border-top-color: var(--teal); }
 
 /* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
    the stage says what is happening while there is no picture (opening, a sign-in needed). */
 .player.nf .nf-frame {
   position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; padding: 16px; text-align: center; color: #c9c8c2; background: #000;
+  gap: var(--s-12); padding: var(--s-16); text-align: center; color: var(--media-ink-3); background: var(--media-black);
 }
-.player.nf .nf-frame .nf-msg { margin: 0; max-width: 34em; font-size: 15px; line-height: 1.5; }
+.player.nf .nf-frame .nf-msg { margin: 0; max-width: 34em; font-size: var(--fs-16); line-height: var(--lh-text); }
 .player.nf .nf-frame .nf-msg:empty { display: none; }
 .player.nf .nf-frame button { min-width: 10em; }
 .player.nf .transcript .nf-wait {
-  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink-2); text-align: center; margin: 2em 1em;
+  font: var(--fs-16)/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink-2); text-align: center; margin: 2em 1em;
 }
 
 /* In the phone app the YouTube player has its own banner (with the way back), so the app's
@@ -388,9 +401,9 @@ body.in-player:has(.player.yt) .topbar { display: none; }
      player.js sets --dock-top (and --dock-bottom, used further down). */
   .player.yt .word-bubble.sheet {
     top: var(--dock-top, auto) !important; max-height: none;
-    border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
-    padding: 8px 14px 10px; background: #111; color: #f2f1ec;
-    --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
+    border: 0; border-top: 1px solid var(--media-line-2); border-radius: 0; box-shadow: none; animation: none;
+    padding: var(--s-8) var(--s-16) var(--s-12); background: var(--media-1); color: var(--media-ink);
+    --surface: var(--media-1); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line);
   }
 }
 
@@ -399,9 +412,9 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    gets shorter while it is open). player.js docks it there; see wordbubble.js. */
 .player.yt .word-bubble.docked {
   position: static; width: auto; flex: none; max-height: min(40vh, 360px);
-  border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
-  padding: 8px 16px 10px; background: #111; color: #f2f1ec;
-  --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
+  border: 0; border-top: 1px solid var(--media-line-2); border-radius: 0; box-shadow: none; animation: none;
+  padding: var(--s-8) var(--s-16) var(--s-12); background: var(--media-1); color: var(--media-ink);
+  --surface: var(--media-1); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line);
 }
 
 /* ---------- word popup: heading and buttons row pinned, everything between them scrolls ----------
@@ -426,39 +439,37 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 @media (max-width: 640px) {
   /* Phone, in a player: the popup stops just above the play controls, which stay in reach, so
      its buttons row rests right on top of them. player.js sets --dock-bottom. */
-  .player .word-bubble.sheet { bottom: var(--dock-bottom, 0px); padding-bottom: 8px; }
-  .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: 4px; margin-top: 6px; padding-top: 8px; }
-  .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: 4px 6px; font-size: 12px; white-space: nowrap; }
+  .player .word-bubble.sheet { bottom: var(--dock-bottom, 0px); padding-bottom: var(--s-8); }
+  .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: var(--s-4); margin-top: var(--s-8); padding-top: var(--s-8); }
+  .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: var(--s-4) var(--s-8); font-size: var(--fs-12); white-space: nowrap; }
   .player .word-bubble.sheet > .wb-actions button.icon { flex: none; min-width: 28px; }
   /* Word, Sentence and Continue show just their icons so the row isn't crowded; their
      names stay in the tooltip and for screen readers. Save keeps its word. */
   .player .word-bubble.sheet > .wb-actions .wb-label { display: none; }
-  .player .word-bubble.sheet > .wb-actions button:has(.wb-label) { flex: 1 1 0; min-width: 36px; padding: 4px 6px; }
+  .player .word-bubble.sheet > .wb-actions button:has(.wb-label) { flex: 1 1 0; min-width: 36px; padding: var(--s-4) var(--s-8); }
   .player .word-bubble.sheet > .wb-actions button[data-act="save"] { flex: 1.6 1 auto; }
   .player .word-bubble.sheet > .wb-actions button.wb-folder { flex: 1.2 1 0; max-width: 7.5em; }  /* (its name, cut short: the row stays one line) */
   .player .word-bubble.sheet > .wb-actions button.wb-folder:not(.set) { flex: 1 1 0; min-width: 36px; }
   .player .word-bubble.sheet > .wb-actions .wb-fnone { display: none; }  /* (no folder: just the icon; its name is in the tooltip) */
   .player .word-bubble.sheet > .wb-actions:has(.wb-folder.set) button[data-act="save"] { flex: 1.1 1 auto; }  /* (a folder's name needs the room more than Save) */
-  .player .word-bubble.sheet > .wb-actions button.wb-folder.set { flex: 1.7 1 0; max-width: 9em; gap: 4px; }
+  .player .word-bubble.sheet > .wb-actions button.wb-folder.set { flex: 1.7 1 0; max-width: 9em; gap: var(--s-4); }
 }
 
 /* ---------- word popup: the pause / keep-playing switch ----------
-   Top left of the popup, no words: the knob shows a pause sign (purple track: a tapped word
-   plays, then playback pauses) or a play sign (teal track: playback carries on). The two colours
-   are the two ends of the logo's gradient. */
+   Top left of the popup, no words: the knob shows a pause sign (a quiet grey track: a tapped word plays, then
+   playback pauses) or a play sign (teal track: playback carries on). A switch, so pill-shaped (DESIGN.md). */
 .word-bubble .wb-mode {
   flex: none; align-self: center; position: relative; width: 44px; height: 24px; min-height: 0; min-width: 0; padding: 0;
-  border: 0; border-radius: 99px; corner-shape: round; cursor: pointer;
-  background: linear-gradient(45deg, #4a0b47, #86308f); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+  border: 0; border-radius: var(--r-pill); corner-shape: round; cursor: pointer; background: var(--ink-2);
 }
-.word-bubble .wb-mode.on { background: linear-gradient(45deg, #1b526d, #0b8693); }
-.word-bubble .wb-mode:hover:not(:disabled) { background: linear-gradient(45deg, #4a0b47, #86308f); filter: brightness(1.12); }
-.word-bubble .wb-mode.on:hover:not(:disabled) { background: linear-gradient(45deg, #1b526d, #0b8693); }
+.word-bubble .wb-mode.on { background: var(--teal); }
+.word-bubble .wb-mode:hover:not(:disabled) { background: var(--ink-2); filter: brightness(1.1); }
+.word-bubble .wb-mode.on:hover:not(:disabled) { background: var(--teal); }
 .wb-mode .wb-knob {
-  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; corner-shape: round; background: #fff; color: #6a1f72;
-  display: grid; place-items: center; box-shadow: 0 1px 3px rgba(0, 0, 0, .35); transition: left .16s ease, color .16s ease;
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; corner-shape: round; background: var(--surface); color: var(--ink-2);
+  display: grid; place-items: center; transition: left .16s ease, color .16s ease;
 }
-.wb-mode.on .wb-knob { left: 22px; color: #0b7783; }
+.wb-mode.on .wb-knob { left: 22px; color: var(--teal); }
 .wb-mode .wb-knob svg { width: 10px; height: 10px; fill: currentColor; display: block; }
 
 /* ---------- follow the channel (YouTube player; the reel player may use the same) ----------
@@ -468,7 +479,7 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    colour until followed, filled once followed; the "Following" bubble drops below it for a moment. */
 .follow-wrap { position: relative; display: inline-flex; flex: none; }
 .follow-btn {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 16px; border-radius: 99px; corner-shape: round;
+  display: inline-flex; align-items: center; gap: var(--s-8); min-height: 34px; padding: var(--s-4) var(--s-16); border-radius: var(--r-pill); corner-shape: round;
   border: 1.5px solid var(--teal); background: transparent; color: var(--teal); font-weight: 600; white-space: nowrap;
 }
 .follow-btn:hover:not(:disabled) { background: var(--teal-tint); border-color: var(--teal); }
@@ -476,9 +487,9 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 .follow-btn.on:hover:not(:disabled) { filter: brightness(1.08); }
 .follow-btn .mark { font-weight: 700; }
 .follow-pop {
-  position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; padding: 4px 12px; border-radius: 99px; corner-shape: round;
-  background: var(--teal); color: var(--teal-ink); font-size: 12.5px; font-weight: 600; white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .28); pointer-events: none; animation: follow-pop 1.3s ease forwards;
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; padding: var(--s-4) var(--s-12); border-radius: var(--r-pill); corner-shape: round;
+  background: var(--teal); color: var(--teal-ink); font-size: var(--fs-12); font-weight: 600; white-space: nowrap;
+  box-shadow: var(--shadow-float); pointer-events: none; animation: follow-pop 1.3s ease forwards;
 }
 .follow-pop[hidden] { display: none; }
 @keyframes follow-pop {
@@ -489,7 +500,7 @@ body.in-player:has(.player.yt) .topbar { display: none; }
 }
 @media (max-width: 640px) {
   /* Phone: a small round button with just the sign, so the title keeps its room. */
-  .follow-btn, .player.yt .player-head .follow-btn { width: 30px; height: 30px; min-height: 0; padding: 0; justify-content: center; font-size: 16px; }
+  .follow-btn, .player.yt .player-head .follow-btn { width: 30px; height: 30px; min-height: 0; padding: 0; justify-content: center; font-size: var(--fs-16); }
   .follow-btn .label { display: none; }
 }
 
@@ -497,10 +508,10 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    The switch: two small round-ended buttons in one pill, a lightning bolt (quick: just the
    meaning) and a target with an arrow (detailed: the full popup). The chosen one is filled with
    the app's action colour. */
-.lookup-toggle { display: inline-flex; flex: none; align-items: center; gap: 2px; padding: 2px; border-radius: 99px; corner-shape: round;
+.lookup-toggle { display: inline-flex; flex: none; align-items: center; gap: var(--s-4); padding: var(--s-4); border-radius: var(--r-pill); corner-shape: round;
   background: var(--surface-2); border: 1px solid var(--line); vertical-align: middle; }
 div.lookup-toggle button[data-mode] { display: grid; place-items: center; width: 30px; height: 26px; min-width: 0; min-height: 0;
-  padding: 0; border: 0; border-radius: 99px; corner-shape: round; background: transparent; color: var(--ink-2); cursor: pointer; }
+  padding: 0; border: 0; border-radius: var(--r-pill); corner-shape: round; background: transparent; color: var(--ink-2); cursor: pointer; }
 div.lookup-toggle button[data-mode]:hover:not(.on) { background: transparent; color: var(--ink); filter: none; }
 div.lookup-toggle button[data-mode].on { background: var(--teal); color: var(--teal-ink); }
 div.lookup-toggle button[data-mode].on .ic .fill { opacity: .28; }
@@ -508,15 +519,15 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 /* Compact: only the chosen mode shows; a tap changes to the other. */
 .lookup-toggle.compact button[data-mode]:not(.on) { display: none; }
 /* On the reel player's dark bars. */
-.reel-top .lookup-toggle, .reel-controls .lookup-toggle { background: #1d1d1d; border-color: #383838; }
-.reel-top div.lookup-toggle button[data-mode]:not(.on) { color: #aaa8a0; }
+.reel-top .lookup-toggle, .reel-controls .lookup-toggle { background: var(--media-2); border-color: var(--media-line); }
+.reel-top div.lookup-toggle button[data-mode]:not(.on) { color: var(--media-ink-2); }
 .reel-controls div.lookup-toggle button[data-mode] { width: 30px; height: 26px; min-height: 0; padding: 0; }
 .reel-controls div.lookup-toggle button[data-mode].on { background: var(--teal); border: 0; color: var(--teal-ink); }
 /* ---------- Tap words on or off (components/tapswitch.js, prototype tap_switch) ----------
    One small round-ended button beside the other controls at the bottom: filled with the action colour while words can
    be tapped, plain with the icon struck through while the text is plain. Solid, no shadow. */
 button.tap-switch { display: inline-grid; place-items: center; flex: none; width: 36px; height: 30px; min-width: 0; min-height: 0;
-  padding: 0; border-radius: 99px; corner-shape: round; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2);
+  padding: 0; border-radius: var(--r-pill); corner-shape: round; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2);
   vertical-align: middle; cursor: pointer; }
 button.tap-switch:hover:not(.on) { background: var(--surface-2); color: var(--ink); filter: none; }
 button.tap-switch.on { background: var(--teal); border-color: var(--teal); color: var(--teal-ink); }
@@ -538,7 +549,7 @@ button.tap-switch .ic { vertical-align: 0; }
 /* The quick popup: the word, its meaning, and two buttons. */
 .word-bubble.quick:not(.sheet) { width: min(300px, calc(100% - 16px)); }
 .word-bubble.quick .wb-meaning { margin-bottom: 0; }
-.word-bubble [data-act="more"] { display: inline-flex; align-items: center; gap: 5px; }
+.word-bubble [data-act="more"] { display: inline-flex; align-items: center; gap: var(--s-4); }
 .word-bubble [data-act="more"] .ic { vertical-align: 0; }
 
 /* ---------- play controls: back 5 s / play / forward 5 s stay in the exact middle ----------
@@ -555,125 +566,125 @@ button.tap-switch .ic { vertical-align: 0; }
 .player .btnrow #fwd5 { grid-column: 4; }
 .player .btnrow #speed {
   position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-  width: auto; min-width: 0; height: 30px; padding: 2px 4px; font-size: 12px;
+  width: auto; min-width: 0; height: 30px; padding: var(--s-4) var(--s-4); font-size: var(--fs-12);
 }
 .player .btnrow .lookup-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
 /* Every player's bar is YouTube's (the owner, 2026-11-19 for YouTube, 2026-11-20 for the rest: a podcast's bar was cut
    off): no "start of the sentence" button (the R key still does it), smaller 5-second buttons, and "Type what you hear"
    hung beside the speed chooser as in the reel player, out of the row so play stays in the middle. */
-.player .btnrow #back5, .player .btnrow #fwd5 { height: 30px; min-height: 0; padding: 0 8px; font-size: 12px; }
+.player .btnrow #back5, .player .btnrow #fwd5 { height: 30px; min-height: 0; padding: 0 var(--s-8); font-size: var(--fs-12); }
 .player .btnrow .dict-btn {
   position: absolute; left: 66px; top: 50%; transform: translateY(-50%);
-  height: 30px; min-height: 0; min-width: 0; padding: 0 7px;
+  height: 30px; min-height: 0; min-width: 0; padding: 0 var(--s-8);
 }
 /* "Looping sentence": beside them where there is room for it ... */
 .player .btnrow #loop-chip { position: absolute; left: 106px; top: 50%; transform: translateY(-50%); white-space: nowrap; }
 @media (max-width: 760px) {
   .player .btnrow { margin-top: 0; }
-  .player .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
+  .player .btnrow .play { width: 38px; height: 38px; font-size: var(--fs-16); }
 }
 @media (max-width: 640px) {
   /* ... and on a phone, just above the bar's left corner. */
   .player .btnrow #loop-chip { left: 0; top: auto; bottom: calc(100% + 34px); transform: none; }
-  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 6px; }
-  .player .btnrow .dict-btn { left: 64px; padding: 0 6px; }
+  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 var(--s-8); }
+  .player .btnrow .dict-btn { left: 64px; padding: 0 var(--s-8); }
 }
 @media (max-width: 350px) {
   /* The narrowest phones: a narrower speed chooser and slimmer 5-second buttons make room. */
-  .player .btnrow #speed { max-width: 50px; padding: 2px; font-size: 11px; }
+  .player .btnrow #speed { max-width: 50px; padding: var(--s-4); font-size: var(--fs-12); }
   .player .btnrow .dict-btn { left: 52px; }
-  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 4px; }
+  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 var(--s-4); }
 }
 
 /* ---------- a misheard word put right (wordbubble.js, fixword.js) ----------
    Under the headword: what the transcript said, and Undo. */
 /* A misheard word put right (wordbubble.js): one purple pill on one line, "said → right ✕". */
-.word-bubble .wb-fix { display: flex; min-width: 0; margin: -2px 0 6px; }
-.wb-pill { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: 99px; corner-shape: round; background: #6a3d8f; color: #fff; overflow: hidden; }
+.word-bubble .wb-fix { display: flex; min-width: 0; margin: calc(-1 * var(--s-4)) 0 var(--s-8); }
+.wb-pill { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); color: var(--ink); overflow: hidden; }
 .word-bubble .wb-pill button { min-height: 0; border: 0; border-radius: 0; background: transparent; color: inherit; box-shadow: none; }
-.wb-pill .wb-pill-text { display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; padding: 2px 6px 2px 11px; font-size: 13px; line-height: 1.5; white-space: nowrap; }
-.wb-pill .wb-pill-text:only-child { padding-right: 11px; }
+.wb-pill .wb-pill-text { display: inline-flex; align-items: baseline; gap: var(--s-8); min-width: 0; padding: var(--s-4) var(--s-8) var(--s-4) var(--s-12); font-size: var(--fs-14); line-height: var(--lh-text); white-space: nowrap; }
+.wb-pill .wb-pill-text:only-child { padding-right: var(--s-12); }
 .wb-pill .wb-pill-text > * { overflow: hidden; text-overflow: ellipsis; }
 /* Short of room, what the transcript said gives way first; the right word keeps its room longest. */
 .wb-pill .wb-pill-text s { flex: 0 20 auto; min-width: 2em; }
 .wb-pill .wb-pill-text s ~ .ar { flex: 0 1 auto; min-width: 0; }
-.wb-pill .wb-pill-text .ar { font-family: var(--ar-font); font-size: 15px; }
+.wb-pill .wb-pill-text .ar { font-family: var(--ar-font); font-size: var(--fs-16); }
 .wb-pill .wb-pill-text s { opacity: .75; text-decoration-thickness: 1.5px; }
 .wb-pill .wb-pill-text span[aria-hidden] { opacity: .75; flex: none; }
-.wb-pill .wb-pill-x { flex: none; display: grid; place-items: center; width: 26px; padding: 4px 8px 4px 2px; opacity: .85; }
-.wb-pill .wb-pill-x:hover, .wb-pill .wb-pill-text:hover { background: rgba(255, 255, 255, .12); }
-.word-bubble .wb-fix-why { margin: -2px 0 8px; font-size: 13px; color: var(--ink-2); }
+.wb-pill .wb-pill-x { flex: none; display: grid; place-items: center; width: 26px; padding: var(--s-4) var(--s-8) var(--s-4) var(--s-4); opacity: .85; }
+.wb-pill .wb-pill-x:hover, .wb-pill .wb-pill-text:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.word-bubble .wb-fix-why { margin: calc(-1 * var(--s-4)) 0 var(--s-8); font-size: var(--fs-14); color: var(--ink-2); }
 
 /* ---------- player top row on a phone: icon-only buttons ----------
    The video's title needs the room, so a button that has a line icon shows just the icon there
    (its name stays as its tooltip and accessible label). Desktop keeps the words. */
 @media (max-width: 640px) {
   .player-head #toggle-panel .lbl, .player-head .next-chapter .lbl, .player-head #nf-audio .lbl, .player-head #nf-subs .lbl { display: none; }
-  .player-head #toggle-panel, .player-head .next-chapter, .player-head #nf-audio, .player-head #nf-subs { padding-left: 7px; padding-right: 7px; }
+  .player-head #toggle-panel, .player-head .next-chapter, .player-head #nf-audio, .player-head #nf-subs { padding-left: var(--s-8); padding-right: var(--s-8); }
 }
-.player-head .next-chapter { display: inline-flex; align-items: center; gap: 4px; }
+.player-head .next-chapter { display: inline-flex; align-items: center; gap: var(--s-4); }
 [dir="rtl"] .player-head .next-chapter .ic { transform: scaleX(-1); }
 
 /* Arabic vowels switch (js/vowels.js): حَ, filled in while the words show their vowel marks. */
-.vowels-btn { font-family: var(--ar-font); font-size: 18px; line-height: 1; min-width: 34px; }
+.vowels-btn { font-family: var(--ar-font); font-size: var(--fs-20); line-height: 1; min-width: 34px; }
 /* The "translation under each line" switch (components/dualline.js): filled like the vowels switch while on. */
 .dual-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
 button.ghost.dual-btn.on, button.ghost.dual-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
-.reel-controls .dual-btn { height: 26px; min-height: 0; padding: 0 8px; }
+.reel-controls .dual-btn { height: 26px; min-height: 0; padding: 0 var(--s-8); }
 button.ghost.vowels-btn.on, button.ghost.vowels-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 button.ghost.vowels-btn.on.held { background: transparent; color: var(--teal); border: 1px dashed var(--teal); }
-.reel-controls .vowels-btn { height: 26px; min-height: 0; padding: 0 8px; }
-.vowels-row label { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
+.reel-controls .vowels-btn { height: 26px; min-height: 0; padding: 0 var(--s-8); }
+.vowels-row label { display: inline-flex; align-items: center; gap: var(--s-8); flex-basis: 100%; }
 /* Add words: a row whose meaning needs the dictionary offers to download it right there (wordbuilder.js dictButton). */
-.cb-getdict-row { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; margin: 2px 0 4px; padding: 6px 14px; font-size: 14px; }
+.cb-getdict-row { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--s-8); margin: var(--s-4) 0 var(--s-4); padding: var(--s-8) var(--s-16); font-size: var(--fs-14); }
 
 /* ---------- "Type what you hear" (dictation: js/components/dictation.js) ----------
    The panel takes the place of the words: in a player the transcript, the captions and the transcript's handle
    go while it is open (the video stays), in a reel the words bar, in a course the unit's list. */
 .dict-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
 button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
-.reel-controls .dict-btn { height: 26px; min-height: 0; padding: 0 8px; }
+.reel-controls .dict-btn { height: 26px; min-height: 0; padding: 0 var(--s-8); }
 .player.dictating .transcript-wrap, .player.dictating .panel-handle, .player.dictating .captions,
 .player.dictating .back-to-current { display: none !important; }
 .player.dictating .stage { flex: 1 1 42%; min-height: 150px; }
 .player .dict { flex: 1 1 58%; min-height: 0; overflow-y: auto; border-top: 1px solid var(--line); background: var(--paper); }
 .player:not(.video):not(.yt) .dict { flex: 1 1 auto; border-top: 0; }
-.dict { display: flex; flex-direction: column; align-items: stretch; padding: 14px max(16px, calc((100% - 760px) / 2)) 20px; gap: 12px; }
-.dict-head { display: flex; align-items: center; gap: 10px; }
+.dict { display: flex; flex-direction: column; align-items: stretch; padding: var(--s-16) max(var(--s-16), calc((100% - 760px) / 2)) var(--s-24); gap: var(--s-12); }
+.dict-head { display: flex; align-items: center; gap: var(--s-12); }
 .dict-icon { color: var(--teal); display: grid; place-items: center; }
-.dict-headtext { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.dict-headtext { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: var(--lh-head); }
 .dict-close { width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; corner-shape: round; }
-.dict-body, .dict-done { display: flex; flex-direction: column; gap: 12px; }
+.dict-body, .dict-done { display: flex; flex-direction: column; gap: var(--s-12); }
 .dict-body[hidden], .dict-done[hidden] { display: none; }
-.dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: 1.8; text-align: center;
-  padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
+.dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: var(--lh-text); text-align: center;
+  padding: var(--s-12) var(--s-16); border-radius: var(--r-s); overflow-wrap: anywhere; }
 .dict-real { background: var(--surface); border: 1px solid var(--line); }
 /* What was said, and under it what they typed: both plain, nothing marked (the owner, 2026-11-20). */
 .dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--ink); padding-top: 0; }
 .dict-real[hidden], .dict-yours[hidden], .dict-input[hidden] { display: none; }
-.dict .dw { border-radius: 5px; padding: 0 .06em; }
+.dict .dw { border-radius: var(--r-s); padding: 0 .06em; }
 .dict-input { width: 100%; box-sizing: border-box; resize: none; min-height: 3.2em; font-family: var(--ar-font);
-  font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
-  border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+  font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: var(--lh-text); text-align: center; padding: var(--s-12) var(--s-16);
+  border-radius: var(--r-s); border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
 .dict-input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
 /* The hint in the box: the app's own font, centred, so it fits on a phone (not the big Arabic font). */
-.dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
-.dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
+.dict-input::placeholder { font-family: var(--ui-font); font-size: var(--fs-16); line-height: var(--lh-text); text-align: center; }
+.dict-actions { display: flex; align-items: center; gap: var(--s-8); flex-wrap: wrap; }
+.dict-actions button { display: inline-flex; align-items: center; gap: var(--s-8); }
 /* Hide: at the far end of the row (the right; the left in right-to-left languages), the row on one line. */
 .dict-body .dict-actions { flex-wrap: nowrap; }
 .dict-actions .dict-hide { margin-inline-start: auto; flex: none; }
 .dict-actions .dict-hide[hidden] { display: none; }
 /* A phone: Hide is its eye alone (its name is still said to a screen reader), so the row fits in every language. */
-@media (max-width: 640px) { .dict-actions .dict-hide { padding-inline: 10px; } .dict-actions .dict-hide span { display: none; } }
+@media (max-width: 640px) { .dict-actions .dict-hide { padding-inline: var(--s-12); } .dict-actions .dict-hide span { display: none; } }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 .dict-hint { margin: 0; text-align: center; }
 @media (hover: none) { .dict-hint { display: none; } }
-.dict-done { align-items: center; text-align: center; padding: 18px 0; }
-.dict-done-score { font-size: 18px; font-weight: 600; margin: 0; }
+.dict-done { align-items: center; text-align: center; padding: var(--s-16) 0; }
+.dict-done-score { font-size: var(--fs-20); font-weight: 600; margin: 0; }
 .dict-done .dict-actions { justify-content: center; }
 @media (max-width: 640px) {
-  .dict { padding: 10px 12px 14px; gap: 10px; }
+  .dict { padding: var(--s-12) var(--s-12) var(--s-16); gap: var(--s-12); }
   .player.dictating .stage { flex: 0 1 34%; min-height: 120px; }
 }
 /* YouTube and Netflix on a phone: their video can't be smaller than 200 px tall (YouTube asks for 200 x 200). Squeezed
@@ -689,48 +700,48 @@ button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--t
    phone's keyboard never hides it (dictation.js keeps what it scrolls to just below it). A course's panel is part of
    its page and scrolls with it. */
 .player .dict-modes, .reelplay .dict-modes { position: sticky; top: -10px; z-index: 2; background: var(--paper);
-  margin: -10px 0 0; padding: 10px 0 4px; }
+  margin: calc(-1 * var(--s-12)) 0 0; padding: var(--s-12) 0 var(--s-4); }
 /* A short screen (a phone with its keyboard up): the gist's box is two lines high and scrolls inside. */
 @media (max-height: 600px) {
   .player .dict.gist .dict-input, .reelplay .dict.gist .dict-input { min-height: 0; height: calc(2 * 1.6em + 22px); }
   /* ... and the switches are narrower, so the gist's 2–5 fit on the same line where the screen is wide enough. */
-  .player .dict-seg button, .reelplay .dict-seg button { padding: 4px 10px; }
-  .player .dict-sizes button, .reelplay .dict-sizes button { padding: 3px 8px; }
+  .player .dict-seg button, .reelplay .dict-seg button { padding: var(--s-4) var(--s-12); }
+  .player .dict-sizes button, .reelplay .dict-sizes button { padding: var(--s-4) var(--s-8); }
   .player .dict-sizes .muted, .reelplay .dict-sizes .muted { display: none; }
-  .player .dict-modes, .reelplay .dict-modes { gap: 6px 10px; }
+  .player .dict-modes, .reelplay .dict-modes { gap: var(--s-8) var(--s-12); }
 }
 /* A word of what was said, once checked: one tap opens the word popup, as in the transcript. */
 .dict-real.dict-tap [data-p] { cursor: pointer; }
 .dict-real.dict-tap [data-p]:hover { text-decoration: underline; text-underline-offset: .25em; }
 /* A reel: the popup for such a word sits on the reel's page (its words bar is put away), dark like the bar, and on
    a phone just above the controls (reels.js sets --dock-bottom). */
-.reelplay > .word-bubble { --surface: #1c1c1c; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
+.reelplay > .word-bubble { --surface: var(--media-2); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line);
   color: var(--ink); }
 .reelplay > .word-bubble.sheet { bottom: var(--dock-bottom, 0px); }
 /* A reel: the panel in place of the words bar (the reel itself stays). A course: in place of the unit's list. */
 .reelplay.dictating .reel-bar { display: none !important; } /* (reels.css lays the bar out with a rule as strong) */
-.reelplay .dict { flex: none; height: 46%; min-height: 210px; overflow-y: auto; padding: 8px 12px 10px; gap: 8px;
-  background: #111; border-top: 1px solid #2c2c2c; color: #f2f1ec;
-  --paper: #111; --surface: #1c1c1c; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838; }
+.reelplay .dict { flex: none; height: 46%; min-height: 210px; overflow-y: auto; padding: var(--s-8) var(--s-12) var(--s-12); gap: var(--s-8);
+  background: var(--media-1); border-top: 1px solid var(--media-line-2); color: var(--media-ink);
+  --paper: var(--media-1); --surface: var(--media-2); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line); }
 .cu-dict .dict { padding-left: 0; padding-right: 0; }
-.cu-dict-btn { display: inline-flex; align-items: center; gap: 6px; }
+.cu-dict-btn { display: inline-flex; align-items: center; gap: var(--s-8); }
 button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
-.cu-dict { margin: 0 0 16px; }
-.dict-yours .muted { font-family: var(--ui-font); font-size: 15px; }
+.cu-dict { margin: 0 0 var(--s-16); }
+.dict-yours .muted { font-family: var(--ui-font); font-size: var(--fs-16); }
 /* Word · Sentence · Gist, and the gist's 2–5 sentences: a row of pill switches under the title. */
-.dict-modes { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; justify-content: center; }
+.dict-modes { display: flex; align-items: center; gap: var(--s-12) var(--s-16); flex-wrap: wrap; justify-content: center; }
 .dict-modes[hidden], .dict-sizes[hidden], .dict-seg[hidden], .dict-go[hidden] { display: none; }
 /* The round button right of them: a check mark, then an arrow for the next one. Up here a phone's keyboard never
    covers it. */
-.dict-line { display: inline-flex; align-items: center; gap: 8px; }
+.dict-line { display: inline-flex; align-items: center; gap: var(--s-8); }
 .dict-go { flex: none; width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; corner-shape: round; }
-.dict-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 99px; corner-shape: round; background: var(--surface-2); }
+.dict-seg { display: inline-flex; padding: var(--s-4); gap: var(--s-4); border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); }
 .dict-seg button, .dict-sizes button { min-height: 0; border: 0; box-shadow: none; background: transparent; color: var(--ink-2);
-  border-radius: 99px; corner-shape: round; padding: 5px 14px; font-size: 14px; }
+  border-radius: var(--r-pill); corner-shape: round; padding: var(--s-4) var(--s-16); font-size: var(--fs-14); }
 .dict-seg button.on, .dict-sizes button.on { background: var(--teal); color: var(--teal-ink); }
-.dict-sizes { display: inline-flex; align-items: center; gap: 2px; }
-.dict-sizes button { padding: 4px 11px; }
-.dict-sizes .muted { margin-inline-end: 4px; }
+.dict-sizes { display: inline-flex; align-items: center; gap: var(--s-4); }
+.dict-sizes button { padding: var(--s-4) var(--s-12); }
+.dict-sizes .muted { margin-inline-end: var(--s-4); }
 /* The gist: a few sentences, read as a paragraph. One word: big, on one line. */
 .dict.gist .dict-real, .dict.gist .dict-yours { text-align: start; font-size: clamp(17px, calc(var(--ar-size) * .75), 26px); line-height: 1.9; }
 .dict.gist .dict-input { text-align: start; min-height: 6.5em; }
@@ -739,22 +750,22 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 
 /* ---------- a YouTube video with a dubbed track in the language learned: how to choose it (components/dubtip.js) ----------
    On the black band under the video, never over YouTube's player (nothing may be): the video gets shorter meanwhile. */
-.dub-tip { flex: none; background: #111; color: #f2f1ec; border-top: 1px solid #2c2c2c; padding: 10px max(14px, calc((100% - 760px) / 2)) 12px;
-  font-size: 14px; line-height: 1.5; max-height: 55vh; overflow-y: auto;
-  --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838; }
-.dub-tip-head { display: flex; align-items: center; gap: 8px; }
-.dub-tip-head h3 { flex: 1; margin: 0; font-size: 16px; }
+.dub-tip { flex: none; background: var(--media-1); color: var(--media-ink); border-top: 1px solid var(--media-line-2); padding: var(--s-12) max(var(--s-16), calc((100% - 760px) / 2)) var(--s-12);
+  font-size: var(--fs-14); line-height: var(--lh-text); max-height: 55vh; overflow-y: auto;
+  --surface: var(--media-1); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line); }
+.dub-tip-head { display: flex; align-items: center; gap: var(--s-8); }
+.dub-tip-head h3 { flex: 1; margin: 0; font-size: var(--fs-16); }
 .dub-tip-x { width: 32px; height: 32px; min-height: 0; padding: 0; color: inherit; }
-.dub-tip-text { margin: 6px 0 6px; }
-.dub-steps { margin: 0 0 8px; padding-inline-start: 1.4em; }
-.dub-tip .dub-tr { margin: 0 0 8px; color: var(--ink-2); font-size: 13px; }
-.dub-tip-end { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.dub-off { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.dub-tip-text { margin: var(--s-8) 0 var(--s-8); }
+.dub-steps { margin: 0 0 var(--s-8); padding-inline-start: 1.4em; }
+.dub-tip .dub-tr { margin: 0 0 var(--s-8); color: var(--ink-2); font-size: var(--fs-14); }
+.dub-tip-end { display: flex; align-items: center; justify-content: space-between; gap: var(--s-12); flex-wrap: wrap; }
+.dub-off { display: flex; align-items: center; gap: var(--s-8); cursor: pointer; }
 .dub-off input { width: 18px; height: 18px; margin: 0; }
 .dub-ok { min-width: 96px; }
 
 /* Audio still loading (components/mediawait.js): a quiet line under the time bar, in the page's own colours. */
-.controls .media-wait-line { background: none; color: var(--ink-2); padding: 2px 0 0; }
+.controls .media-wait-line { background: none; color: var(--ink-2); padding: var(--s-4) 0 0; }
 .controls .media-wait-line .spinner { border-color: var(--line); border-top-color: var(--teal); }
 .controls .media-wait-line button { color: var(--ink); }
 .media-wait-line.failed .media-wait-slow, .media-wait.failed .media-wait-slow { color: var(--danger); }

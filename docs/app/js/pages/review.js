@@ -2,8 +2,8 @@
 //
 // A card's front is in the learner's own language: the word's meaning with the translated
 // sentence under it. Its back has the answer on top, large and alone (the word, its sentence
-// and its audio), and under a clear gap everything else about the word: meaning, grammar notes and
-// "Memorization notes", the learner's own box for a mnemonic. There are two answers,
+// and its audio), and under a clear gap everything else about the word: grammar notes and
+// "Memorization notes", the learner's own box for a mnemonic (the meaning is the line under the word). There are two answers,
 // "Remembered" and "Not remembered": buttons, a swipe of the card, or the keyboard. A missed
 // word comes back a few cards later until it has been remembered once. A slim bar on the card
 // fills toward a time goal for it and a clock in the top bar counts the session (both can be
@@ -15,13 +15,13 @@
 // The back can be put right as it is reviewed: under the word its meaning, and under the sentence
 // its translation, small (in the learner's own language); a tap on any of the four turns it into a
 // text box, and holding a word of the sentence (or of the translation) lights it up as part of what
-// is being learned, or puts it out. Both are saved like the Meaning box (review/cardedit.js).
+// is being learned, or puts it out. Both are saved like the note boxes (review/cardedit.js).
 
 import { api, buzz, esc, fmtDate, h, platform, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { stripMarks } from "../cardtext.js";
-import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
+import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload, meaningLine } from "../review/cardedit.js";
 import { firstVisitTour, pageGuide, showGuide } from "../components/tour.js";
 import { canSay } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
@@ -205,10 +205,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <span class="rv-left"></span>
       <button type="button" class="rv-streak" title="Luck" aria-label="Luck" translate="no" hidden></button>
       <button type="button" class="rv-undo" title="Take back the last answer (Z)" aria-label="Undo the last answer" disabled>${ICON.undo}</button>
-      <button type="button" class="rv-help" title="How to review" aria-label="How to review">?</button>
       <button type="button" class="rv-gear" title="Reviewer settings" aria-label="Reviewer settings">${ICON.gear}</button>
     </header>
     <div class="rv-settings" hidden>
+      <button type="button" class="rv-help" title="How to review">How to review</button>
       <div>
         <h3>New words a day</h3>
         <div class="rv-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
@@ -647,8 +647,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   function drawMeaning(v) {
     const line = face.querySelector(".rv-ans-meaning");
     if (!line || (editing && editing.field === "meaning")) return;
-    line.textContent = v.meaning || "";
-    line.hidden = !String(v.meaning || "").trim();
+    // (the one place the back shows the meaning; with none yet, a faint "What it means" to tap and type one)
+    const shown = meaningLine(v, t("What it means"));
+    line.textContent = shown.text;
+    line.classList.toggle("empty", shown.empty);
+    line.hidden = false;
   }
   /** The sentence or its translation, drawn by the Vocab list's renderer (cardtext.js litTextHtml),
    * lit where its ⟦ ⟧ marks say (else the sentence's word where it is found), with each word in a box
@@ -672,12 +675,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     more();
   }
 
-  /** Save a change to the card the way the Meaning box does: at once, and so it syncs. */
+  /** Save a change to the card the way the note boxes do: at once, and so it syncs. */
   function saveCard(v, change) {
     for (const [field, value] of Object.entries(change)) edit(v, field, value);
     flushEdits();
-    const box = face.querySelector(".rv-details .meaning");
-    if (box && "meaning" in change && box.value !== v.meaning) { box.value = v.meaning; fit(box); }
   }
 
   // ----- tap a text on the back: it turns into its own text box -----
@@ -810,7 +811,6 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-listen"></div>
       </div>
       <div class="rv-details">
-        <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
         <label class="rv-field"><span>Grammar notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
         <div class="rv-field">
           <div class="rv-field-head"><span>Memorization notes</span><button type="button" class="rv-paste" title="Paste what you copied into Memorization notes">${ICON.paste} Paste</button></div>
@@ -858,11 +858,12 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     face.onscroll = more;
     cuts.clear();
     vowelled = "";
-    for (const field of ["meaning", "notes", "memo"]) {
+    // (the meaning is the line under the word, tapped to type over: the owner, 2026-11-27, dropped the repeated
+    // Meaning box here; the card's meaning itself is untouched)
+    for (const field of ["notes", "memo"]) {
       const box = face.querySelector(`.rv-details .${field}`);
       box.value = v[field] || "";
-      // (the Meaning box and the small meaning under the word are the same text)
-      box.oninput = () => { fit(box); edit(v, field, box.value); if (field === "meaning") drawMeaning(v); more(); };
+      box.oninput = () => { fit(box); edit(v, field, box.value); more(); };
       fit(box);
     }
     drawAnswer(v);
@@ -1631,6 +1632,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     { target: ".rv-x", title: "Close", text: "Stop for now. Your answers so far are kept." },
   ]);
   $(".rv-help").onclick = () => showGuide();
+  // (the owner, 2026-11-27: a calmer top bar; the tour sits at the top of the settings now, which close for it)
+  $(".rv-help").addEventListener("click", () => { settings.hidden = true; });
 
   document.body.append(el);
   document.body.classList.add("rv-open");

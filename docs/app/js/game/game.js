@@ -296,6 +296,11 @@ export function sfx(kind) {
   else if (kind === "pet") { tone(700, 0, 0.08); tone(940, 0.07, 0.12); }
   else if (kind === "plant") { tone(196, 0, 0.09, "triangle"); tone(523, 0.1, 0.12, "sine", 0.05); } // (the farm: a seed in, a sprout up)
   else if (kind === "water") [1175, 988, 880, 784, 698].forEach((f, i) => tone(f, i * 0.07, 0.09, "sine", 0.035)); // (the can poured)
+  else if (/^chain[1-9]$/.test(kind)) { // (the farm page's watering chain: the can poured, a note higher for each plot in a row; a sound, never pay)
+    const n = Number(kind.slice(5));
+    [1175, 988, 880].forEach((f, i) => tone(f, i * 0.06, 0.08, "sine", 0.03));
+    tone(523 * 2 ** ((n * 2) / 12), 0.2, 0.18, "triangle", 0.05);
+  }
 }
 
 // ---------- particles and pops ----------

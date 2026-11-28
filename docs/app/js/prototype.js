@@ -13,7 +13,10 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
-  dli_basics: { name: "DLI students: no Basics, except the Arabic dialects for a DLI Arabic student", released: false, since: "2026-11-27" },
+  games_content: { name: "Home is Games and Library is Content (the tabs' names), and Home without the greeting", released: true, since: "2026-11-27" },
+  library_chips: { name: "Library: one row of on/off chips (Not listened to · Transcribed) instead of two rows with All", released: true, since: "2026-11-27" },
+  library_home: { name: "Library home: a bubble map of everything in the Library, bigger the more you use it, a plum ring on what needs your own key", released: true, since: "2026-11-27" },
+  dli_basics: { name: "DLI students: no Basics, except the Arabic dialects for a DLI Arabic student", released: true, since: "2026-11-27" },
   dictation: { name: "Type what you hear", released: true, since: "2026-11-17" },
   open_weeks: { name: "Weekly battle rules without the element-only weeks", released: true, since: "2026-11-18" },
   move_variety: { name: "More kinds of battle moves: slams, sky dives, burrows, throws, waves, orbs, slashes, strikes from above", released: true, since: "2026-11-17" },
@@ -50,6 +53,7 @@ export const PROTOTYPES = {
   hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: true, since: "2026-11-25" },
   talents: { name: "Creature talents and the Element card: each creature's talent for health, attack, defence and speed (grades C to S in blue on its card, no stars), counting up to +15% only in battles against the game; stardust, a release and Warm porridge raise new eggs' odds; a quiet Perfect talent badge; the card in its element's colour with the creature walking on it", released: true, since: "2026-11-26" },
   ranked: { name: "Ranked battles: live against another player online, a rating from 0, matched with players of a similar rating, a leaderboard and tiers (needs supabase/v18-ranked.sql)", released: true, since: "2026-11-25" },
+  farm_page: { name: "The farm page: Home's Garden tile becomes Farm and opens a full-screen farm (and so does tapping the field in the village): big plots, the seed tray and seed stand, what needs doing today, every planting, watering and harvest asking one of your words with its own moment, a watering chain (a sound only), a harvest's rarity reveal", released: true, since: "2026-11-27" },
   farm: { name: "The farm: a fenced field west of the cottage; plant seeds bought with glow, water each plant by answering a due word, crops ripen after water on different days, wilt (never die) when a day is missed, harvests by rarity into the barn; the seasons turn weekly", released: true, since: "2026-11-26" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };

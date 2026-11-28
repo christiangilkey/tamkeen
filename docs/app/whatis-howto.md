@@ -8,7 +8,7 @@ Tamkeen (تمكين, "empowerment" in Arabic) helps you learn a language from re
 The first time you open Tamkeen, it asks which language you speak, which one you are learning and your level. It can also ask for an AI key, with step-by-step help, but you don't need one: Tamkeen's built-in dictionaries, memory tricks and example sentences all work without it. To learn more than one language, tick them in **Settings → Languages I'm learning** and switch between them in the top bar.
 
 ### 2. Find something to learn from
-Open the **Library** tab. Beginners can start with **Courses**: a Basics course with the 1,000 most common words and a Grammar course that starts from zero. Otherwise, press **+** to add a podcast, a YouTube video, a book, a web page or your own audio or video. Podcasts, videos and audiobooks get a transcript with every word timed to the sound, so the words light up as you hear them.
+Open the **Content** tab. Beginners can start with **Basics**: a Basics course with the 1,000 most common words and a Grammar course that starts from zero. Otherwise, press **+** to add a podcast, a YouTube video, a book, a web page or your own audio or video. Podcasts, videos and audiobooks get a transcript with every word timed to the sound, so the words light up as you hear them.
 
 ### 3. Tap the words you don't know
 Words you have never looked at are shown in **purple**. Tap one to hear it and see what it means in that sentence, then press **Save** to make it a flashcard, with its sentence and sound. Press and drag across several words to look up a whole phrase. To mark a word you already know, press and hold it, then let go.
@@ -17,7 +17,7 @@ Words you have never looked at are shown in **purple**. Tap one to hear it and s
 Your saved words come back as flashcards on a schedule timed to your memory. Each card has two answers, **Remembered** or **Not remembered**: tap, swipe right or left, or use a key or a game controller. Tap the word, meaning or sentence on the back of a card to fix it, and use the **Mnemonic maker** for a memory trick. You can also add words yourself in the **Vocab** tab, by typing them, pasting a list or scanning a photo.
 
 ### 5. Grow your creature
-Studying earns XP. The egg on **Home** hatches and grows as you look up, save and review words and reach your daily goal. Your creatures can battle, and every move needs a right answer about one of your own words.
+Studying earns XP. The egg on **Games** hatches and grows as you look up, save and review words and reach your daily goal. Your creatures can battle, and every move needs a right answer about one of your own words.
 
 ### 6. Study with friends (optional, 16 and over)
 On the **Friends** tab you can sign in with Google, add friends by username, chat, send each other things to study, battle and join guilds.
@@ -26,7 +26,7 @@ On the **Friends** tab you can sign in with Google, add friends by username, cha
 Tamkeen runs on Windows, Mac and Linux computers, Android, iPhone and the web. In **Settings → Sync with Google Drive**, connect your own Google Drive, and your library, words, reviews and game reach all your devices within seconds. Your data is kept in a private folder in your own Drive, never with Tamkeen's developer.
 
 ### Help on every screen
-Press the round **?** button in the top bar (or the ? key on a computer) and Tamkeen points to each button on the screen and says what it does. The big **Continue** button on **Home** always picks up where you left off.
+Press the round **?** button in the top bar (or the ? key on a computer) and Tamkeen points to each button on the screen and says what it does. The big **Continue** button at the top of **Content** always picks up where you left off.
 
 ---
 
@@ -49,11 +49,11 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Latin with or without long marks**: Latin words are recognised whether or not they are written with macrons, and search ignores them.
 
 ### Getting around
-- **Home**: Home greets you with your daily streak, one big Continue button that picks up where you left off, and your creature's habitat.
-- **Five main tabs**: Home, Library, Vocab, Friends and Settings hold everything, with a badge on Friends for new requests.
+- **Games**: your daily streak, your creature's habitat and the games: battles, fishing, farming and more.
+- **Five main tabs**: Games, Content, Vocab, Friends and Settings hold everything, with a badge on Friends for new requests.
 - **Top bar**: the top bar of every screen has the language switch, a refresh button and a round ? button.
 - **Help on every screen**: the ? button outlines each button on the screen in turn with a line on what it does (the ? key does the same on a computer), and in the players an animated fingertip shows how to tap a word or slide across several.
-- **First-time guides**: a short guide shows the first time you open Home, the Library, Vocab or Friends, and Settings can show them again.
+- **First-time guides**: a short guide shows the first time you open Games, Content, Vocab or Friends, and Settings can show them again.
 - **First-run questions**: when you first open Tamkeen it asks the language you speak, the one you're learning, your level and (if you want one) an AI key with step-by-step help, and if you've already started learning, the 1,000 most common words count as already seen.
 - **Search**: one search box looks through all your transcripts and pages, ignoring Arabic vowel marks and Latin long marks, and a result opens at its paragraph.
 - **Swipe between tabs**: on the phones and in the web app, swipe left or right to move between sections.
@@ -63,15 +63,15 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 
 ### Learn from real material
 
-**The Library**
-- **One place for everything**: the Library holds Courses, Podcasts, YouTube, Netflix, Reels, Audiobooks, Books, My webpages, My videos and My audio, and opens on the kind you looked at last.
+**Content**
+- **One place for everything**: Content opens on a map of everything, with what you were last on at the top, and holds Basics, Podcasts, YouTube, Netflix, Reels, Audiobooks, Books, My webpages, My videos and My audio, and opens on the kind you looked at last.
 - **One + button**: the + button opens straight on the way to add the kind you're looking at, with "All the ways to add" for the full list, and an empty section points you to it.
 - **Continue where you left off**: each kind remembers what you were watching, reading or hearing, so you can carry on.
 - **Delete selected**: tick items and delete them, whole episodes included, from all your devices at once.
-- **Send to a friend**: anything in your Library (podcasts, videos, pages, books, reels) can be sent to a friend, and its transcript goes with it.
+- **Send to a friend**: anything in Content (podcasts, videos, pages, books, reels) can be sent to a friend, and its transcript goes with it.
 
 **Podcasts**
-- **Follow podcasts**: follow any podcast and its new episodes arrive in your Library, on every device (29 Latin podcasts among them).
+- **Follow podcasts**: follow any podcast and its new episodes arrive in Content, on every device (29 Latin podcasts among them).
 - **Trending podcasts**: the Discover page lists popular podcasts in the language you're learning, from Apple's charts, with hand-picked shows for languages the charts miss, such as Bisaya.
 
 **YouTube**
@@ -85,7 +85,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 **Netflix**
 - **Netflix with tappable subtitles**: Open Netflix browses titles in the language you're learning, and a title you pick plays with its subtitles as tappable words and a transcript *(desktop app on Windows, and the web app in Chrome or Edge with the "Tamkeen for Netflix" extension)*.
 - **Choose soundtrack and subtitles**: Audio and Subtitles buttons switch Netflix's soundtrack and subtitles (for example Arabic subtitles in Standard Arabic or a dialect), the transcript and look-ups follow your choice, and a change of the language you're learning carries over to Netflix.
-- **Netflix titles on your phone**: titles watched on the computer arrive in your phone's Library with their subtitles to read.
+- **Netflix titles on your phone**: titles watched on the computer arrive in Content on your phone with their subtitles to read.
 
 **Instagram reels**
 - **Reels in your language**: the computer finds popular reels in the language you're learning and turns their speech into words, and they play one after another with the words underneath.
@@ -161,7 +161,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Undo and delete**: undo an answer, or delete a word from its card.
 - **Review timers**: a time bar on each card, a clock for the whole session and an estimate of the time left help you keep going.
 - **Daily goal bar**: a bar under the Review box shows today's new words and reviews done and about how long the rest will take, and tapping it sets how many new words you want a day.
-- **Flashcard streak**: a gold flame shows how many days in a row you met your flashcard goal, on Home and beside your name for friends.
+- **Flashcard streak**: a gold flame shows how many days in a row you met your flashcard goal, on Games and beside your name for friends.
 - **Cards left on the app icon**: the number of cards left today shows on the app's icon (the taskbar or Dock on a computer, a quiet notification and a home-screen widget on Android, the icon on iPhone, and the web app once added to the home screen).
 
 **Anki and planning**
@@ -198,7 +198,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Latin card voice**: Latin cards are read by an Italian voice using the Church pronunciation, which you can turn off.
 
 ### Courses
-- **Courses in the Library**: Library → Courses holds a Grammar course and a Basics course for the language you're learning (every language but Latin).
+- **Basics in Content**: Content → Basics holds a Grammar course and a Basics course for the language you're learning (every language but Latin).
 - **Basics**: the 1,000 most common words of the language, 50 at a time, each with an everyday sentence, its translation and audio of both.
 - **Add to your cards**: add one basics word, or a whole unit, to your cards in one tap, with its audio, and it goes into your reviews.
 - **Grammar from zero**: 45 to 54 lessons for people who know no grammar, each named after something you'll be able to do ("Say what you want", "Tell a story"), from the very beginning to everyday conversation.
@@ -215,7 +215,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 ### The creature game
 
 **Your creatures**
-- **An egg that grows as you study**: an egg on Home hatches and grows as you study, from egg to hatchling to juvenile, until it is fully grown.
+- **An egg that grows as you study**: an egg on Games hatches and grows as you study, from egg to hatchling to juvenile, until it is fully grown.
 - **18 creatures**: six elements (Ember, Tide, Grove, Spark, Stone and Dusk), each with three hand-drawn pixel-art creatures (an original, a cyberpunk and a fantasy one) that walk, blink, dip their heads and sleep.
 - **Baby looks**: hatchlings have a baby look of their own, smaller with a bigger head, until they grow into juveniles.
 - **Fully grown**: a fully grown creature leaves you a new egg and 25 coins, and can be released in the garden.
@@ -252,7 +252,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Game off switch**: a Game features switch in Settings turns the whole creature game off or on.
 
 **Fishing**
-- **Fish for the words that are due**: the Fishing tile on Home says how many fish are waiting. Each word due for review is a fish shadow in the pond, bigger for words you often miss; tap the water to cast, and when a fish bites, pick the word that means what its card says. Right lands the fish, wrong or slow lets it get away, and every answer counts as a review.
+- **Fish for the words that are due**: the Fishing tile on Games says how many fish are waiting. Each word due for review is a fish shadow in the pond, bigger for words you often miss; tap the water to cast, and when a fish bites, pick the word that means what its card says. Right lands the fish, wrong or slow lets it get away, and every answer counts as a review.
 - **Rarity**: each fish is rolled on ten tiers, Common to Eternal. A Legendary or better fights back for one or two more right answers; one that breaks free waits in that pond all day.
 - **Six ponds**: one per element with three fish each (18 in all). Two are open at the start; the others open with gym leaders beaten or fish caught. Your creature is luckier in the water of its own element.
 - **Basket, aquarium and Fishdex**: sell fish for coins, feed one to your creature for a heart, keep up to six in an aquarium friends can see, and fill the Fishdex with every fish at every tier.
@@ -272,7 +272,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Chat**: text messages and voice notes of up to 2 minutes, with unread counts and notifications on every version.
 - **Disappearing messages**: messages disappear once they're seen, played or added, or after 30 days unopened.
 - **Share words**: send saved words or a whole folder to a friend, with a short audio clip of each sentence, and they add them in one tap.
-- **Share what you're watching**: send anything from your Library to a friend, and it arrives with its words ready.
+- **Share what you're watching**: send anything from Content to a friend, and it arrives with its words ready.
 - **What I'm studying**: a card on your profile shows up to three things you're studying (a podcast episode, a YouTube video, a reel, a web page, or a Spotify, Apple Music or IMDb link), which friends open in Tamkeen's players.
 - **Feed, Friends and Guilds**: the Friends tab has a Feed of friends' study cards, your friends and requests, and your guilds.
 - **Guilds**: create a guild with a name and tag, invite friends, and join as many as you like.
