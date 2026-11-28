@@ -10304,8 +10304,11 @@ and "Side by side on computer stacked on phone and four meanings only for spot c
   Every answer still goes through the one `grade()`, whose record step is `review/answerstep.js recordAnswer`; the
   game only hears of it afterwards (`onAnswer`). No history entry when docked (the page's own back/Esc close it).
 - **The game beside it** (`game/reviewplay.js dockReview`): on the pond (`fishing-ui.js`) and the farm page
-  (`farmpage.js`), with cards waiting, the reviewer comes up by itself: over the game on a phone (11:9), beside it on a
-  computer (900 px and wider). A turned card casts the line / walks the creature to the next job; each answer lands the
+  (`farmpage.js`), with cards waiting, the reviewer comes up by itself: UNDER the game on a phone, half the height each
+  (the owner, 2026-11-28: the flashcards at the bottom, the game on top, so Remembered / Not remembered are in thumb
+  reach; `review.css` gives `.rp-dock` `order: 2` below 900 px, though it comes first in the page), beside it on a
+  computer (900 px and wider, the cards on the left, as before). Spot checks and the memory-calls chip stay in the
+  game's part. A turned card casts the line / walks the creature to the next job; each answer lands the
   fish on the line (`reviewCatch`: rarity by `farm.rollTier` at the pond's luck x the meter's, Legendary at most, not
   in the flashcards' luck record) or does the next farm job (`reviewTend`: harvest a ripe crop, else water a thirsty
   one, a full watering either way, else plant the tray's seed). The same for "Remembered" and "Not remembered". An

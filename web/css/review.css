@@ -669,9 +669,10 @@ body.rv-open { overflow: hidden; }
 .lg-empty .lg-tick { opacity: .5; }
 
 /* ---------- review while you play (prototype "review_play": game/reviewplay.js) ---------- */
-/* The reviewer docked on a game page (the fishing pond, the farm page): over the game on a phone, a little more than half
-   the height; beside it on a computer (the owner: "Side by side on computer stacked on phone"). The reviewer keeps its own
-   look there too. */
+/* The reviewer docked on a game page (the fishing pond, the farm page): under the game on a phone, a little more than half
+   the height, so Remembered / Not remembered sit at the very bottom, in thumb reach (the owner, 2026-11-28: "the
+   flashcards should probably be on the bottom and the minigame on top"); beside it on a computer (the owner: "Side by
+   side on computer stacked on phone"). The reviewer keeps its own look there too. */
 .live-wrap.rp-on { flex-direction: column; justify-content: flex-start; }
 .rp-dock { position: relative; flex: 11 1 0; min-height: 0; }
 .live-wrap.rp-on > .fish, .live-wrap.rp-on > .farmp { position: relative; flex: 9 1 0; min-height: 0; height: auto; width: 100%; }
@@ -691,6 +692,14 @@ body.rv-open { overflow: hidden; }
 .rv-docked .rv-scroll, .rv.rv-docked.speed .rv-scroll { flex: 1 1 0; height: auto; min-height: 0; }
 .rv-docked .rv-actions { min-height: 0; padding-bottom: var(--s-12); }
 .rv-docked .rv-settings { max-height: calc(100% - 64px); }
+/* On a phone the cards go under the game (they come first in the page), their buttons clear of the home bar, and no room
+   kept above them for the status bar (they aren't at the top of the screen). */
+@media (max-width: 899px) {
+  .live-wrap.rp-on > .rp-dock { order: 2; flex: 1 1 0; } /* (half each: the game's last line fits on a 360 x 780 phone) */
+  .live-wrap.rp-on > .fish, .live-wrap.rp-on > .farmp { flex: 1 1 0; }
+  .rv-docked .rv-top { padding-top: 10px; }
+  .rv-docked .rv-actions { padding-bottom: max(var(--s-12), env(safe-area-inset-bottom)); }
+}
 /* While a spot check is open in the game, the cards wait (openReview's hold), a little faded. */
 .rp-held .rv-stage, .rp-held .rv-actions { opacity: .45; pointer-events: none; transition: opacity .15s ease-out; }
 /* The game under (or beside) it: the scene a little smaller on a phone, so the scene and its line both fit. */
