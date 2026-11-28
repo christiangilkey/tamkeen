@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** The players (podcasts, audiobooks, My audio, My videos, YouTube and Netflix) no longer have the **Tap words** button in their bottom bar: words in a transcript and in the captions can always be tapped. The button is still at the bottom of books, webpages and My files, and turning it off there no longer changes the players.
+
 ## v0.78.0 — 2026-11-27
 
 - **Changed:** **A fresh look across the whole app.** Every screen follows one set of design rules (DESIGN.md): fewer boxes, lists as rows with thin lines, one main button per screen, smoother corners, and colours that each mean one thing (teal to act, plum for new words, gold for what you earn). Headings and the big study words are set in **Literata**; the game screens (the habitat, its sheets, the farm, fishing and battles) are set in the pixel font **Pixelify Sans**, and game panels get stepped pixel corners. The flashcards keep their own look.

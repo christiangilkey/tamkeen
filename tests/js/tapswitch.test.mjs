@@ -145,16 +145,14 @@ test("the button: filled while on, struck through while off, and a tap changes i
   proto.setPrototype(false);
 });
 
-test("every view of tappable words has the switch and goes plain with it; the word gestures stand aside", () => {
-  for (const p of ["web/js/pages/player.js", "web/js/pages/reader.js", "web/js/pages/book.js"]) {
+test("books and webpages have the switch and go plain with it; the word gestures stand aside", () => {
+  for (const p of ["web/js/pages/reader.js", "web/js/pages/book.js"]) {
     const src = read(p);
     assert.match(src, /import \{ plainWhenOff, tapSwitch \} from "\.\.\/components\/tapswitch\.js";/, p);
     assert.match(src, /tapSwitch\(\)/, `${p}: the button`);
     assert.match(src, /plainWhenOff\(\[/, `${p}: the text follows it`);
     assert.match(src, /stopPlain\(\);/, `${p}: and stops when the screen is left`);
   }
-  assert.match(read("web/js/pages/player.js"), /plainWhenOff\(\[tr, capEl\]/, "the transcript and the video's captions");
-  assert.match(read("web/js/pages/player.js"), /\$\("\.btnrow"\)\.append\(tapBtn\)/, "with the play controls");
   assert.match(read("web/js/pages/book.js"), /\$\("#next"\)\.after\(tapBtn\)/, "in the book's page bar");
   assert.match(read("web/js/pages/reader.js"), /reader-foot/, "in a bar under a page's text");
   assert.match(read("web/js/components/phrasepick.js"), /root\.classList\.contains\("plain-words"\)\) return;/,
@@ -163,4 +161,14 @@ test("every view of tappable words has the switch and goes plain with it; the wo
   assert.match(css, /\.plain-words \.w:not\(\.cur\):not\(\.loop\) \{ color: inherit; background: none; \}/, "no purple; the spoken word stays lit");
   assert.match(css, /user-select: text/, "selectable");
   assert.ok(!/tap-switch[^}]*box-shadow/.test(css), "no shadow");
+});
+
+test("the players have no Tap words button, and their words are always tappable (the owner, 2026-11-27)", () => {
+  // "That little click subtitles button does not need to exist on the players": podcasts, audiobooks, My audio,
+  // My videos, YouTube and Netflix all play in pages/player.js; reels have their own player and never had it.
+  for (const p of ["web/js/pages/player.js", "web/js/pages/reels.js"]) {
+    const src = read(p);
+    assert.ok(!/tapswitch\.js/.test(src), `${p}: does not use the switch`);
+    assert.ok(!/tapSwitch\(|plainWhenOff\(|tap-switch/.test(src), `${p}: no button, and its words never turn plain`);
+  }
 });
