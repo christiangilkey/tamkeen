@@ -417,6 +417,9 @@ def main() -> None:
     ap.add_argument("lang")
     ap.add_argument("--voice", choices=("azure", "piper", "mms", "none"), required=True)
     ap.add_argument("--redo", action="store_true", help="make every audio file again")
+    ap.add_argument("--no-new-audio", action="store_true",
+                    help="keep the audio already made, and put words without any yet in the course as text only (the "
+                         "app's own voice reads them until their audio is made: Frequency words 1001-3000)")
     ap.add_argument("--out", default="", help="where the course goes (default docs/course; a Piper preview: "
                     "tools/course/build/preview, which is never published)")
     args = ap.parse_args()
@@ -473,6 +476,9 @@ def main() -> None:
         path = folder / "audio" / name
         times = old_times.get(w["n"])
         ogg = None if args.redo or made.get(name) != fp or not times else made_before(w["n"])
+        if ogg is None and args.no_new_audio:
+            items.append(item)  # (text only for now: no "times", no "clip"; coursepanel.js has the app's voice say it)
+            continue
         if ogg is None:
             log(f"{w['n']:4d}  {plain(w['word'])}")
             ogg, times = make_audio(w["word"], unmarked(w["sentence"]), lang, engine, w.get("say"))

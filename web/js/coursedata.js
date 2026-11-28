@@ -178,3 +178,31 @@ export function courseTabChoice({ basics = false, grammar = false, asked = "", c
   for (const tab of [asked, chosen]) if (Object.prototype.hasOwnProperty.call(can, tab) && can[tab]) return tab;
   return can.basics ? "basics" : can.grammar ? "grammar" : "";
 }
+
+/**
+ * How far the learner is through a course's words, for the Wellspring Glyph (the Frequency words of the language
+ * being learned, up to 3,000) and for an Arabic dialect's mini glyph (that dialect course's words; dialect words
+ * never count toward the Glyph's 3,000: the owner, 2026-11-27). The same matching as progress(): a word counts when
+ * any card has it, however it got there. {total, inCards, known}: `total` the course's words written so far, `inCards`
+ * how many are in the learner's cards, `known` how many of those have a card `isKnown(card)` says is known (the game
+ * passes its own rule: rules.js knownWords, the review box). Cards deleted don't count.
+ */
+export function courseCount(course, cards, isKnown = () => false) {
+  const lang = (course && course.lang) || "";
+  const plain = new Map(), vowelled = new Map();
+  const put = (map, key, v) => { const was = map.get(key); map.set(key, !!(was || isKnown(v))); };
+  for (const v of cards || []) {
+    if (!v || v.deleted) continue;
+    if (lang === "ar" && hasMarks(v.text)) put(vowelled, vowelledKey(v.text), v);
+    else put(plain, wordKey(v.text, lang), v);
+  }
+  let inCards = 0, known = 0;
+  const words = (course && course.words) || [];
+  for (const w of words) {
+    const vk = vowelledKey(w.word), pk = wordKey(w.word, lang);
+    if (!vowelled.has(vk) && !plain.has(pk)) continue;
+    inCards++;
+    if (vowelled.get(vk) || plain.get(pk)) known++;
+  }
+  return { total: words.length, inCards, known };
+}
