@@ -41,7 +41,8 @@ test("Home: no greeting with the prototype; Continue goes to the Library's Home"
   assert.match(library, /homeMap\(box\.querySelector\("\.lh-mapbox"\), \{ kinds, uses: homeUsage\(\), rings, lang: courseLang, resume \}\)/);
   assert.ok(!library.includes("lh-continue") && !library.includes("lhResume"), "no old block, no trial switch");
   const map = read("web/js/components/homemap.js");
-  assert.match(map, /const orbit = resume\.length > 0 && kinds\.length > 0;/, "nothing in progress: the map as before");
-  assert.match(map, /nodes\.find\(\(n\) => n\.key === it\.section\) \|\| \[\.\.\.nodes\]\.sort\(\(a, b\) => b\.r - a\.r\)\[0\]/, "no section bubble: beside the biggest");
+  assert.match(map, /const going = kinds\.length \? resume : \[\];/, "nothing in progress: the map as before");
+  assert.match(map, /const biggest = \[\.\.\.nodes\]\.sort\(\(a, b\) => b\.r - a\.r\)\[0\];/);
+  assert.match(map, /attach: sections\.has\(it\.section\) \? it\.section : biggest\.key/, "no section bubble: beside the biggest");
   assert.ok(!map.includes("resumeStrip") && !read("web/css/libraryhome.css").includes("lh-strip"), "the other design is gone");
 });
