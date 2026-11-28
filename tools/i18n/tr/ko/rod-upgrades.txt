@@ -1,0 +1,3 @@
+# Fishing: rods are bought one after the other (web/js/game/fishing.js buyRod, fishscreen.js).
+a7779dbf	먼저 {0}부터 사세요.
+dd03c626	이미 더 좋은 낚싯대가 있어요.

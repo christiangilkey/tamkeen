@@ -20045,6 +20045,16 @@
   "f": "web/js/game/fishing.js"
  },
  {
+  "id": "dd03c626",
+  "k": "You already have a better rod.",
+  "f": "web/js/game/fishing.js"
+ },
+ {
+  "id": "a7779dbf",
+  "k": "Buy the {0} first.",
+  "f": "web/js/game/fishing.js"
+ },
+ {
   "id": "f3764c58",
   "k": "Go fishing",
   "f": "web/js/game/fishscreen.js"

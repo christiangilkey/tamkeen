@@ -297,12 +297,19 @@ export function combine(mine, theirs) {
   const fb = obj(b.finished) || {};
   out.finished = { ...fa };
   for (const k of new Set([...Object.keys(fa), ...Object.keys(fb)])) out.finished[k] = union(fa[k], fb[k]);
-  // Fishing: which words have had their turn in the pond today, joined (the rest of fishing is the base copy's).
+  // Fishing: which words have had their turn in the pond today, joined, and the rods of both (the rest of fishing
+  // is the base copy's).
   const fishA = obj(a.fishing);
   const fishB = obj(b.fishing);
   if (fishA && fishB) {
     const round = joinRounds(obj(fishA.round), obj(fishB.round));
     if (round) fishA.round = round;
+    // Rods are an upgrade path: every rod either copy owns is kept, and the better of the two rods in use.
+    if (Array.isArray(fishA.rods) || Array.isArray(fishB.rods)) {
+      const whole = (v) => (Array.isArray(v) ? v : []).filter((r) => Number.isInteger(r) && r >= 0);
+      fishA.rods = [...new Set([...whole(fishA.rods), ...whole(fishB.rods)])].sort((x, y) => x - y);
+      fishA.rod = Math.max(num(fishA.rod), num(fishB.rod));
+    }
   }
   const home = joinHome(a.home, b.home);
   if (home) out.home = home;

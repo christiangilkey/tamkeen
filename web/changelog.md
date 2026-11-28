@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Fishing rods are now bought **one after the other**, like upgrades: only the rod after your best one can be bought, and it becomes the rod in use. Later rods show their price behind a lock, and say which rod comes first ("Buy the Bamboo rod first."). Nothing is taken away: if you already own a later rod without an earlier one, you keep everything you have, and your next rod is the one after your best. Rods bought on two devices are combined, so you keep every rod either device has, with the better one in use.
 - **Changed:** The players (podcasts, audiobooks, My audio, My videos, YouTube and Netflix) no longer have the **Tap words** button in their bottom bar: words in a transcript and in the captions can always be tapped. The button is still at the bottom of books, webpages and My files, and turning it off there no longer changes the players.
 
 ## v0.78.0 — 2026-11-27

@@ -1,0 +1,3 @@
+# Fishing: rods are bought one after the other (web/js/game/fishing.js buyRod, fishscreen.js).
+a7779dbf	Compra primer: {0}.
+dd03c626	Ja tens una canya millor.

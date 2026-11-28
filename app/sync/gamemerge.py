@@ -329,6 +329,13 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
         rnd = _join_rounds(_obj(fish_a.get("round")), _obj(fish_b.get("round")))
         if rnd is not None:
             fish_a["round"] = rnd
+        # Rods are an upgrade path: every rod either copy owns is kept, and the better of the two rods in use.
+        if isinstance(fish_a.get("rods"), list) or isinstance(fish_b.get("rods"), list):
+            def whole(v: Any) -> list[int]:
+                return [r for r in (v if isinstance(v, list) else []) if isinstance(r, int) and not isinstance(r, bool) and r >= 0]
+            fish_a["rods"] = sorted(set(whole(fish_a.get("rods"))) | set(whole(fish_b.get("rods"))))
+            rod = max(_num(fish_a.get("rod")), _num(fish_b.get("rod")))
+            fish_a["rod"] = int(rod) if rod == int(rod) else rod
     home = _join_home(a.get("home"), b.get("home"))
     if home is not None:
         out["home"] = home

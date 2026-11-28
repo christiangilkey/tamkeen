@@ -4007,6 +4007,8 @@
 "Your aquarium is as big as it gets.":"水槽はもう最大の大きさです。",
 "You need {0} more pearls.":"真珠があと{0}個必要です。",
 "There is no such rod.":"そのような釣りざおはありません。",
+"You already have a better rod.":"もっと良い釣りざおをすでに持っています。",
+"Buy the {0} first.":"先に{0}を買ってください。",
 "Go fishing":"釣りに行く",
 "Nothing is due: fish for practice, with less luck.":"復習待ちの単語はありません。運は低めですが、練習で釣りができます。",
 "1 fish waiting: a word due for review":"魚が1匹待っています：復習待ちの単語です",

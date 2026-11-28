@@ -9873,6 +9873,26 @@ The owner: "I want an achievement for feeding a legendary fish to your creature"
   `released: true` in `prototype.js` and take `proto` off the row (or leave it: a released prototype is always on).
 - Translations: `tools/i18n/tr/<code>/legend-feast-badge.txt`. Tests in `tests/js/fishing.test.mjs`.
 
+## Fishing: rods are an upgrade path (2026-11-27; the fishing chat; live, no prototype)
+
+The owner: "Buying rods should work to where you have to buy the one after it. You can't skip rods. It should be like
+an upgrade." A shop rule he asked for directly, so it is live (no prototype).
+
+- **Rule** (`fishing.js`): `bestRod(state)` is the highest `RODS` index owned, `nextRod(state)` the one after it (-1
+  with the last rod owned). `buyRod(state, i)`: an owned rod is picked up again free; the next rod is bought if the
+  pearls are there and becomes the rod in use; a later one answers "Buy the <next rod> first."; an earlier one never
+  owned answers "You already have a better rod." Nothing is bought or paid in the last two cases.
+- **Older saves** that own a later rod without an earlier one (it could be skipped before) keep every rod they have:
+  `cleanFishing` is unchanged and nothing fills the gap in. Their next rod is the one after their best.
+- **Two devices**: `merge.js` (and its twin `app/sync/gamemerge.py`, shared case in `tests/fixtures/game_merge.json`)
+  now join `fishing.rods` (every rod either copy owns) and keep the higher `fishing.rod`. Pearls are still the base
+  copy's, as before.
+- **Shop** (`fishscreen.js`, the Ponds section's Rods block): the next rod shows its price; later rods are dimmed with
+  a lock beside their price, and their box has the Buy button off with "Buy the X first."; an earlier rod never
+  owned is dimmed with nothing to tap.
+- Translations: `tools/i18n/tr/<code>/rod-upgrades.txt`. Tests in `tests/js/fishing.test.mjs` ("rods are bought one
+  after the other", the older save, the two devices, the shop).
+
 ## DLI Class tab (2026-11-24; "Teachers" chat; prototype `class_tab`; database NOT applied)
 
 The owner's words: teachers add students under them, students are placed in a class, the teacher shares finished

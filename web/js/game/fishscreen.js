@@ -16,7 +16,7 @@ import { amount, block, details, fact, fmt, grid, row, tile } from "./screenpart
 import { RODS, SELL, fishOf, isGuardian } from "./fishdata.js";
 import { feature } from "../prototype.js";
 import {
-  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, buyRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
+  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, bestRod, buyRod, nextRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
   pondById, pondNeed, publicAquarium, sell, sellCommon, swapTank, tankSize, toTank,
 } from "./fishing.js";
 import { fishPicture, fishShape } from "./fishart.js";
@@ -95,16 +95,21 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
   ponds.append(g);
   body.append(ponds);
 
-  // Rods: bought with pearls, each one luckier.
+  // Rods: bought with pearls, each one luckier, one after the other (only the rod after your best can be bought;
+  // a later one shows its price behind a lock, and an earlier one you never had is passed).
   const rods = block("Rods", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
+  const next = nextRod(game);
   RODS.forEach((rod, i) => {
     const mine = F.rods.includes(i);
     const using = F.rod === i;
+    const locked = !mine && i > next && next >= 0;
+    const passed = !mine && i < bestRod(game);
     rods.append(row({
-      pic: icon(`rod_${rod.id}`, 32), name: rod.name,
+      pic: icon(`rod_${rod.id}`, 32), name: rod.name, dim: locked || passed,
       sub: `<span>${t("Luck")}</span> <span translate="no">×${rod.luck}</span>`,
-      end: using ? `${icon("check")}<span>In use</span>` : mine ? `<span class="gs-row-word">Use</span>` : amount("pearls", rod.pearls, F.pearls < rod.pearls),
-      open: using ? null : () => rodBox(game, i, again),
+      end: using ? `${icon("check")}<span>In use</span>` : mine ? `<span class="gs-row-word">Use</span>` : passed ? ""
+        : locked ? `${icon("lock")}${amount("pearls", rod.pearls)}` : amount("pearls", rod.pearls, F.pearls < rod.pearls),
+      open: using || passed ? null : () => rodBox(game, i, again),
     }));
   });
   body.append(rods);
@@ -147,15 +152,17 @@ function rodBox(game, i, again) {
   details((d) => {
     const F = fishingOf(game);
     const mine = F.rods.includes(i);
-    const short = !mine && F.pearls < rod.pearls;
+    const next = nextRod(game);
+    const locked = !mine && i !== next;          // (not the next rod up: the one before it comes first)
+    const short = !mine && !locked && F.pearls < rod.pearls;
     return {
       title: rod.name, pic: icon(`rod_${rod.id}`, 96),
       facts: [fact("Luck", `<span translate="no">×${rod.luck}</span>`), fact("Price", mine ? `${icon("check")}<span>Yours</span>` : amount("pearls", rod.pearls))],
       text: "A better rod makes every cast luckier, in every pond. Pearls are found inside rarer fish.",
-      note: short ? t("You need {0} more pearls.", rod.pearls - F.pearls) : "",
+      note: locked && next >= 0 ? t("Buy the {0} first.", t(RODS[next].name)) : short ? t("You need {0} more pearls.", rod.pearls - F.pearls) : "",
       buttons: [
         { word: "Close", run: () => d.close() },
-        { word: mine ? "Use it" : "Buy", primary: true, disabled: short, extra: mine ? "" : amount("pearls", rod.pearls),
+        { word: mine ? "Use it" : "Buy", primary: true, disabled: short || locked, extra: mine ? "" : amount("pearls", rod.pearls),
           run: () => { const problem = buyRod(game, i); if (problem) { toast(problem, { error: true }); return; } sfx("lucky"); d.close(); again(); } },
       ],
     };

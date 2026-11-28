@@ -16,7 +16,7 @@ import { existsSync, readFileSync } from "node:fs";
 import {
   BAG_SIZE, CATCH_FULL, DEX_TOTAL, TANK_SIZE, buyRod, canFish, catchBoard, classify, cleanFishing, dexCount, dexHas, escape, escapedIn,
   MISSED_AT_ONCE, MISS_WAIT, cleanRound, nextShadows, pondWords, roundOf, turnTaken, feedFish, fightLength, fishingOf, fromTank, hook, land, lengthOf, luckOf, pondNeed, pondShadows, publicAquarium, questionFor, record, sell,
-  sellCommon, tierOfRoll, toTank, kindOdds, pickKind,
+  sellCommon, tierOfRoll, toTank, kindOdds, pickKind, bestRod, nextRod,
 } from "../../web/js/game/fishing.js";
 
 const T0 = new Date("2026-11-10T09:00:00");
@@ -66,7 +66,8 @@ test("luck: the rod, and the creature's own element's water", () => {
   assert.equal(buyRod(s, 1), "");
   assert.equal(luckOf(s, away), 1.1);
   assert.equal(fishingOf(s).pearls, 0);
-  assert.match(buyRod(s, 3), /more pearls/);
+  assert.match(buyRod(s, 2), /more pearls/);
+  assert.match(buyRod(s, 3), /Buy the Neon rod first/);
 });
 
 test("the pond shows what's due: due words are shadows, often-missed ones bigger, boss words biggest", () => {
@@ -701,4 +702,78 @@ test("Legendary feast syncs like the other badges: two devices' games combine to
   assert.equal(keep, "merged");
   assert.equal(both.badges.filter((x) => x === "legend_feast").length, 1);
   assert.equal(both.stats.legend_fed, 2);
+});
+
+// ---------- rods are an upgrade path (2026-11-27) ----------
+
+test("rods are bought one after the other: only the rod after your best one, never a later one", () => {
+  const s = hatched();
+  const f = fishingOf(s);
+  f.pearls = 1000;
+  assert.equal(bestRod(s), 0);
+  assert.equal(nextRod(s), 1);
+  for (const skip of [2, 3]) {
+    assert.equal(buyRod(s, skip), `Buy the ${RODS[1].name} first.`);
+    assert.deepEqual([f.rods, f.rod, f.pearls], [[0], 0, 1000], "nothing is bought, nothing is paid");
+  }
+  let pearls = 1000;
+  for (let i = 1; i < RODS.length; i++) {
+    assert.equal(nextRod(s), i);
+    assert.equal(buyRod(s, i), "");
+    pearls -= RODS[i].pearls;
+    assert.equal(f.pearls, pearls);
+    assert.equal(f.rod, i, "the new rod is the one in use");
+    assert.equal(bestRod(s), i);
+  }
+  assert.deepEqual(f.rods, [0, 1, 2, 3]);
+  assert.equal(nextRod(s), -1, "the last rod: nothing more to buy");
+  // a rod you own can still be picked up again, free
+  assert.equal(buyRod(s, 1), "");
+  assert.deepEqual([f.rod, f.pearls], [1, pearls]);
+  assert.equal(buyRod(s, 9), "There is no such rod.");
+  // each rod is luckier than the one before, so the path only goes up
+  assert.deepEqual(RODS.map((r) => r.luck), [...RODS.map((r) => r.luck)].sort((a, b) => a - b));
+});
+
+test("an older save that skipped a rod keeps every rod it has; its next rod is the one after its best", () => {
+  const s = hatched();
+  s.fishing = { rods: [0, 2], rod: 2, pearls: 500 };
+  const f = fishingOf(s);
+  assert.deepEqual([f.rods, f.rod], [[0, 2], 2], "nothing is taken away");
+  assert.equal(bestRod(s), 2);
+  assert.equal(nextRod(s), 3);
+  assert.equal(buyRod(s, 1), "You already have a better rod.");
+  assert.deepEqual([f.rods, f.pearls], [[0, 2], 500], "the skipped rod isn't sold to them, and costs nothing");
+  assert.equal(buyRod(s, 3), "");
+  assert.deepEqual([f.rods, f.rod, f.pearls], [[0, 2, 3], 3, 500 - RODS[3].pearls]);
+  assert.equal(nextRod(s), -1);
+  assert.equal(buyRod(s, 1), "You already have a better rod.");
+  // and it comes through a save and load unchanged
+  assert.deepEqual(cleanFishing(JSON.parse(JSON.stringify(f))).rods, [0, 2, 3]);
+});
+
+test("two devices' rods combine to every rod either has, with the better one in use", async () => {
+  const { resolve, stamp } = await import("../../web/js/game/merge.js");
+  const a = hatched();
+  a.xp = 100;
+  const b = JSON.parse(JSON.stringify(a));
+  fishingOf(a).pearls = 10;
+  assert.equal(buyRod(a, 1), "");
+  b.fishing = { ...JSON.parse(JSON.stringify(fishingOf(a))), rods: [0, 1, 2], rod: 2 };
+  stamp(a, "desk");
+  stamp(b, "phone");
+  for (const [mine, theirs] of [[a, b], [b, a]]) {
+    const { keep, state } = resolve(JSON.parse(JSON.stringify(mine)), JSON.parse(JSON.stringify(theirs)));
+    assert.equal(keep, "merged");
+    assert.deepEqual([state.fishing.rods, state.fishing.rod], [[0, 1, 2], 2]);
+    assert.equal(nextRod(state), 3);
+  }
+});
+
+test("the rod shop shows the path: the next rod can be bought, later ones are locked with their price", () => {
+  const src = readFileSync(new URL("../../web/js/game/fishscreen.js", import.meta.url), "utf8");
+  assert.match(src, /const locked = !mine && i > next && next >= 0;/);
+  assert.match(src, /locked \? `\$\{icon\("lock"\)\}\$\{amount\("pearls", rod\.pearls\)\}`/, "a locked rod still shows its price");
+  assert.match(src, /t\("Buy the \{0\} first\.", t\(RODS\[next\]\.name\)\)/);
+  assert.match(src, /disabled: short \|\| locked/);
 });

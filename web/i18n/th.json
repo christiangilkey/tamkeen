@@ -4007,6 +4007,8 @@
 "Your aquarium is as big as it gets.":"ตู้ปลาของคุณใหญ่ที่สุดแล้ว",
 "You need {0} more pearls.":"ต้องใช้ไข่มุกอีก {0} เม็ด",
 "There is no such rod.":"ไม่มีคันเบ็ดแบบนั้น",
+"You already have a better rod.":"คุณมีคันเบ็ดที่ดีกว่าอยู่แล้ว",
+"Buy the {0} first.":"ซื้อ{0}ก่อน",
 "Go fishing":"ไปตกปลา",
 "Nothing is due: fish for practice, with less luck.":"ยังไม่มีคำที่ถึงเวลาทบทวน: ตกปลาฝึกซ้อมได้ แต่โชคน้อยกว่า",
 "1 fish waiting: a word due for review":"ปลา 1 ตัวรออยู่: คำที่ถึงเวลาทบทวน",
