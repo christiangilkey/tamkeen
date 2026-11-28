@@ -15,12 +15,21 @@ the style to copy) and its ranking script in `tools/course/<lang>/`.
 The course **is** the shared list: the Glyph counts how many of the language's Frequency words the learner has
 (`web/js/coursedata.js` `courseCount`, the same matching as Basics' own progress). So:
 - **Words 1–1000 stay exactly as they are** (numbers, order, spelling): learners' progress and the Glyph count on them.
-- Words 1001–3000 come next, **in frequency order** (your ranking script, run deeper: to about rank 4,000, since
-  some are skipped), each its **dictionary form** (the form a dictionary lists, as for 1–1000).
-- Leave out, as for 1–1000: names of people and places, words from another language that crept into the counts,
-  numbers and symbols, and any word that is only a form of a word already in the list (a plural, a feminine, a
-  conjugation, another spelling). A word is never in the list twice (the tests check).
-- `rank` is the word's place in your ranked list, so the order can be checked.
+- Words 1001–3000 come from **`tools/course/<lang>/candidates.json`**: review it, then write 1001–3000 **in that
+  order**. It is made for every language the same way by one shared step (not by you), weighted toward spoken
+  language, as the owner chose ("70% speech, 30% current"): each written form's count per million words is 0.7 ×
+  its count in film and TV subtitles (FrequencyWords, OpenSubtitles 2018) + 0.3 × wordfreq's (`forms.py --blend`),
+  grouped into dictionary words by your language's own ranking script, unchanged; the course's words 1–1000 are
+  left out (`candidates.mjs`). Numbers, stray letters and English that crept into the subtitles (hey, okay, the
+  English names of film characters) are already out (`left_out` lists them, with why). The step's report, with the
+  words the blend brought in and pushed out, is `tools/course/build/<lang>-candidates-report.md`.
+- **Review** as you go, as for 1–1000: leave out names of people and places (`flag` marks the ones the dictionary
+  table doesn't know, and Arabic proper nouns), anything still in another language, swear words a beginner's list
+  shouldn't teach first (write them later in the list only if they are truly everyday), subtitle spellings without
+  their accents (ecoute for écoute: use the right word), and any word that is only a form of a word already in the
+  list (a plural, a feminine, a conjugation, another spelling). Use each candidate's dictionary form, as for 1–1000.
+  A word is never in the list twice (the tests check). There are about 2,600 candidates for 2,000 places.
+- `rank` is the candidate's `rank` in candidates.json, so the order can be checked.
 
 ## Writing
 

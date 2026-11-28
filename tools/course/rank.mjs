@@ -30,7 +30,7 @@ for (const [form, freq] of forms) {
   e.freq += freq;
   e.forms.push([form, freq]);
 }
-const ranked = [...byKey.values()].sort((x, y) => y.freq - x.freq).slice(0, 1600)
+const ranked = [...byKey.values()].sort((x, y) => y.freq - x.freq).slice(0, Number(process.env.RANK_TOP) || 1600) // (RANK_TOP: deeper, for Frequency words 1001-3000)
   .map((e, i) => ({ rank: i + 1, ...e, freq: Number(e.freq.toPrecision(4)), forms: e.forms.slice(0, 6).map(([f, n]) => [f, Number(n.toPrecision(3))]) }));
 writeFileSync(join(here, "build", `${lang}-ranked.json`), JSON.stringify(ranked, null, 1));
 console.log(`${byKey.size} dictionary words from ${forms.length} forms; top ${ranked.length} -> build/${lang}-ranked.json`);

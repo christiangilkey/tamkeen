@@ -63,7 +63,7 @@ for (const [form, freq] of forms) {
     if (other && !ls.includes(other)) e.alt.add(other);
   }
 }
-const ranked = [...byLemma.values()].sort((x, y) => y.freq - x.freq).slice(0, 2500)
+const ranked = [...byLemma.values()].sort((x, y) => y.freq - x.freq).slice(0, Number(process.env.RANK_TOP) || 2500) // (RANK_TOP: deeper, for Frequency words 1001-3000)
   .map((e, i) => ({ rank: i + 1, lemma: e.lemma, freq: Number(e.freq.toPrecision(4)), alt: [...e.alt].slice(0, 3),
     forms: e.forms.slice(0, 6).map(([f, n]) => [f, Number(n.toPrecision(3))]) }));
 writeFileSync(join(build, "de-ranked.json"), JSON.stringify(ranked, null, 1));
