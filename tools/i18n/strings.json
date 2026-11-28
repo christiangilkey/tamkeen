@@ -19175,6 +19175,46 @@
   "f": "web/js/game/farmpage.js"
  },
  {
+  "id": "0c6a283f",
+  "k": "Review your cards here ({0})",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "c50f6691",
+  "k": "Off to harvest the {0}…",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "3bf23ac1",
+  "k": "Off to water the {0}…",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "a845e837",
+  "k": "Off to plant the {0}…",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "9075895e",
+  "k": "Everything is tended for now. Your cards still count.",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "de502784",
+  "k": "Harvested the {0}",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "611b3fad",
+  "k": "Watered the {0}",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
+  "id": "613cdcfc",
+  "k": "Planted the {0}",
+  "f": "web/js/game/farmpage.js"
+ },
+ {
   "id": "ff8554f1",
   "k": "Nothing needs water right now.",
   "f": "web/js/game/farmpage.js"
@@ -19882,6 +19922,16 @@
  {
   "id": "6a432eaa",
   "k": "Golden hour! Triple luck for 10 minutes.",
+  "f": "web/js/game/fishing-ui.js"
+ },
+ {
+  "id": "e2b60cdc",
+  "k": "The line flies out…",
+  "f": "web/js/game/fishing-ui.js"
+ },
+ {
+  "id": "a0fd4b94",
+  "k": "Landed: {0} {1}",
   "f": "web/js/game/fishing-ui.js"
  },
  {
@@ -23365,6 +23415,71 @@
   "f": "web/js/game/reveal.js"
  },
  {
+  "id": "5380d3bf",
+  "k": "Memory calls: how often your Remembered held up at spot checks",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "aff11eee",
+  "k": "Memory calls",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "dc832f96",
+  "k": "Quick play",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "ab9781ff",
+  "k": "Spot check",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "443aec07",
+  "k": "Memory calls: how often your Remembered holds up at the spot checks. Keep it high for rarer finds.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "ae45d977",
+  "k": "Memory calls: {0}% of your Remembered held up at the spot checks. Luck on every find: ×{1}.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "04448a60",
+  "k": "You said you remembered this. Which meaning is it?",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "d6c4d68f",
+  "k": "Sharp! Your next harvest is luckier.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "7b638a00",
+  "k": "Sharp! Your next catch is luckier.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "30365228",
+  "k": "Out of time: that card comes back for another look.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "871f39ab",
+  "k": "Not quite: that card comes back for another look.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "5bc02171",
+  "k": "Turn a card: each answer tends a plot.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
+  "id": "31ff88b9",
+  "k": "Turn a card: each answer lands a fish.",
+  "f": "web/js/game/reviewplay.js"
+ },
+ {
   "id": "5eb43479",
   "k": "The gift couldn't be opened.",
   "f": "web/js/game/rules.js"
@@ -24298,6 +24413,11 @@
   "id": "112eab9b",
   "k": "This Thai reading table is from a different version of the app.",
   "f": "web/js/lexicon/thai.js"
+ },
+ {
+  "id": "a9b47dfe",
+  "k": "line {0}→{1}",
+  "f": "web/js/libraryhome.js"
  },
  {
   "id": "8d5aac96",

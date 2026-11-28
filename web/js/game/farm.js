@@ -248,15 +248,16 @@ export function barnList(state) {
 /**
  * Harvest a ripe plant: its rarity rolled as fishing's catches are (loot.js roll; Legendary at most, a pumpkin's
  * golden one), how many it gives, all into the barn; the spot is empty again. Returns {crop, tier, n} or an error.
+ * `bonus`: more luck on the rarity (review_play: the memory calls meter and a spot check passed, game/spotcheck.js).
  */
-export function harvest(state, key, rand = Math.random, now = new Date()) {
+export function harvest(state, key, rand = Math.random, now = new Date(), bonus = 1) {
   const f = farmOf(state);
   const s = plantState(state, key, now);
   if (!s) return "Nothing is growing there.";
   if (!s.ripe) return "It isn't ripe yet.";
   if (barnCount(state) >= barnCap(state)) return "Your barn is full. Sell, cook or feed some first, or build a bigger barn: the crop waits, ripe.";
   const c = s.crop;
-  const tier = rollTier((1 + c.days / 10) * stoneLuck(state) * (level(state, "scarecrow") ? 1.25 : 1), rand); // (the Memory Stone, the scarecrow: luck)
+  const tier = rollTier((1 + c.days / 10) * stoneLuck(state) * (level(state, "scarecrow") ? 1.25 : 1) * Math.max(1, Math.min(2, Number(bonus) || 1)), rand); // (the Memory Stone, the scarecrow: luck)
   const [lo, hi] = c.give;
   const bees = beesToday(state, now) ? nearTier(state, "hive", key) : 0; // (bees about: one more, two near a big hive)
   const n = lo + Math.floor(rand() * (hi - lo + 1)) + (bees ? (bees >= 3 ? 2 : 1) : 0) + (level(state, "compost") && rand() < 0.5 ? 1 : 0); // (the compost bin)

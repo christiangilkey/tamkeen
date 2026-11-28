@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	Repasoha ang imong mga kard dinhi ({0})
+c50f6691	Moadto aron anihon ang {0}…
+3bf23ac1	Moadto aron bisibisan ang {0}…
+a845e837	Moadto aron itanom ang {0}…
+9075895e	Naatiman na ang tanan karon. Naihap gihapon ang imong mga kard.
+de502784	Naani ang {0}
+611b3fad	Nabisibisan ang {0}
+613cdcfc	Natanom ang {0}
+e2b60cdc	Milupad ang pasol…
+a0fd4b94	Nakuha: {1} ({0})
+5380d3bf	Katukma sa panumdom: pila ka higayon nga tinuod ang imong "Nahinumdoman" sa mga dalian nga pagsusi
+aff11eee	Katukma sa panumdom
+dc832f96	Dalian nga dula
+ab9781ff	Dalian nga pagsusi
+443aec07	Katukma sa panumdom: pila ka higayon nga tinuod ang imong "Nahinumdoman" sa mga dalian nga pagsusi. Ipabilin kini nga taas para sa mas talagsaon nga makit-an.
+ae45d977	Katukma sa panumdom: {0}% sa imong "Nahinumdoman" ang tinuod sa mga dalian nga pagsusi. Suwerte sa matag makit-an: ×{1}.
+04448a60	Miingon ka nga nahinumdoman nimo kini. Unsa ang kahulogan niini?
+d6c4d68f	Maayo kaayo! Mas suwerte ang imong sunod nga ani.
+7b638a00	Maayo kaayo! Mas suwerte ang imong sunod nga kuha.
+30365228	Nahutdan ka sa oras: mobalik kana nga kard para tan-awon pag-usab.
+871f39ab	Dili kaayo: mobalik kana nga kard para tan-awon pag-usab.
+5bc02171	Ibali ang kard: ang matag tubag moatiman ug usa ka luna.
+31ff88b9	Ibali ang kard: ang matag tubag makakuha ug usa ka isda.

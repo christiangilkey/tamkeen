@@ -10250,3 +10250,30 @@ The owner's plan: `tamkeen-plans/farming-plan.md` sections 4 and 5. Rules in `we
   before. Badge art in Aseprite: `game/art-src/badge/five_star.aseprite`, `heir.aseprite` (grids beside them).
 - Translations: `tools/i18n/tr/<code>/talents.txt` (machine-made, 16 languages).
 - Study-habit training (EV-like) was scrapped by the owner: not built.
+
+## Review while you play (prototype `review_play`, 2026-11-28, "Farm & habitat" side session)
+
+The owner's words: the split view "absolutely must have all the same functionality and allow the user to get just as
+much from playing a game as they would from using the normal vocab reviewer"; his answers "1 yes, 2 yes 3 yes 4 no";
+and "Side by side on computer stacked on phone and four meanings only for spot checks".
+- **The reviewer, docked** (`pages/review.js openReview({ dock, onTurn, onAnswer, hold })`): the very same reviewer the
+  Vocab page opens (cards, FSRS, answers, Undo, editing, audio, notes, mnemonics, the Important mark, rolls, XP, glow,
+  the day's goal, settings), drawn in a box of the game's page (`.rv-docked`, review.css) instead of over the screen.
+  Every answer still goes through the one `grade()`, whose record step is `review/answerstep.js recordAnswer`; the
+  game only hears of it afterwards (`onAnswer`). No history entry when docked (the page's own back/Esc close it).
+- **The game beside it** (`game/reviewplay.js dockReview`): on the pond (`fishing-ui.js`) and the farm page
+  (`farmpage.js`), with cards waiting, the reviewer comes up by itself: over the game on a phone (11:9), beside it on a
+  computer (900 px and wider). A turned card casts the line / walks the creature to the next job; each answer lands the
+  fish on the line (`reviewCatch`: rarity by `farm.rollTier` at the pond's luck x the meter's, Legendary at most, not
+  in the flashcards' luck record) or does the next farm job (`reviewTend`: harvest a ripe crop, else water a thirsty
+  one, a full watering either way, else plant the tray's seed). The same for "Remembered" and "Not remembered". An
+  answer taken back with Undo and given again acts once (`redo`). The pond's own taps and keys wait meanwhile.
+  "Quick play" puts the reviewer away (the game's own questions); "Review your cards here (n)" brings it back.
+- **Spot checks** (`game/spotcheck.js`): about 1 "Remembered" card in 6, asked 2 cards later in a game panel over the
+  scene (the word, four meanings, 3 s, keys 1-4); the cards wait, faded, while it is open (`hold`). Right: "Sharp!",
+  the next catch or harvest x1.5 luck. Wrong or out of time: `regrade` turns that answer into "Not remembered" by
+  taking it back (rating 0, which both sync engines keep) and adding a "Not remembered" a moment later, and the card
+  comes back a few cards on. Nothing else changes (its roll and XP stay).
+- **Memory calls** (`state.calls`: the latest 40 checks as "1"/"0", in the saved game): the gold chip in the game's
+  line; from 5 checks on, 60% or less adds nothing and 100% gives x1.5 luck on every catch and harvest.
+- Tests: `tests/js/reviewplay.test.mjs`. Translations: `tools/i18n/tr/<code>/258-review-play.txt` (machine-made).

@@ -19,8 +19,10 @@ import { garden } from "./idle.js";
 import { artCache, composeCreature, icon } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
-import { CROPS, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
+import { CROPS, barnCap, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
 import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand, sayAnswer } from "./farm-ui.js";
+import { feature } from "../prototype.js";
+import { cardsWaiting, dockReview } from "./reviewplay.js";
 
 const SEASON_NAME = { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter", all: "All year" };
 const CELL = 26;            // a plot's square in the scene, in pixels (its soil 22 across)
@@ -45,7 +47,7 @@ export function openFarm({ changed = () => {} } = {}) {
     <div class="farmp-foot">
       <div class="farmp-tools">
         <div class="farmp-tray" role="listbox" aria-label="Seeds"></div>
-        <div class="farmp-actions"><button type="button" class="primary farmp-next"></button><button type="button" class="farmp-stand"></button></div>
+        <div class="farmp-actions"><button type="button" class="primary farmp-next"></button><button type="button" class="farmp-stand"></button><button type="button" class="farmp-review" hidden></button></div>
         <p class="farmp-hint"></p>
       </div>
       <div class="farmp-ask px-corner" hidden>
@@ -69,6 +71,7 @@ export function openFarm({ changed = () => {} } = {}) {
   $(".farmp-chain span").textContent = t("Watering chain");
 
   let alive = true, busy = false, seed = null, chain = 0;
+  let rp = null; // the vocab reviewer docked over the field, while it is there (review_play)
   let pet = { x: 0, y: 0, tx: 0, ty: 0, frame: null };
   const moments = []; // {kind: "plant" | "water" | "drizzle" | "harvest", key, t0, grew}
   let flash = null;   // {key, until}
@@ -86,7 +89,9 @@ export function openFarm({ changed = () => {} } = {}) {
     canvas.width = sceneW() * 3; canvas.height = sceneH() * 3;
     const box = $(".farmp-field").getBoundingClientRect();
     const room = Math.max(160, window.innerHeight - 420); // (the rest of the page: the top, chips, chain, tray, buttons)
-    const cell = Math.max(44, Math.min(box.width / Math.min(w, 4.2), room / Math.max(3, hh))) ; // (a fingertip at least; four columns across a phone)
+    const cell = rp // (beside the cards the field fits the room the page has left, its plots never tapped)
+      ? Math.max(24, Math.min(box.width / Math.min(w, 4.2), ($(".farmp").clientHeight - 200) / (Math.max(3, hh) + 1.4)))
+      : Math.max(44, Math.min(box.width / Math.min(w, 4.2), room / Math.max(3, hh))) ; // (a fingertip at least; four columns across a phone)
     const k = cell / CELL;
     canvas.style.width = `${Math.round(sceneW() * k)}px`;
     canvas.style.height = `${Math.round(sceneH() * k)}px`;
@@ -208,7 +213,7 @@ export function openFarm({ changed = () => {} } = {}) {
   });
 
   async function tapPlot(key) {
-    if (busy) return;
+    if (busy || rp) return; // (beside the cards, the cards tend the field)
     flash = { key, until: performance.now() + 420 };
     walkTo(key);
     const s = plantState(game, key);
@@ -295,6 +300,79 @@ export function openFarm({ changed = () => {} } = {}) {
     paint();
   }
 
+  // ----- review while you play (prototype "review_play": game/reviewplay.js) -----
+  // With cards waiting, the vocab reviewer comes up over the field (beside it on a computer). Turning a card sends your
+  // creature to the next job; each answer does it, the same whichever answer: a ripe crop harvested first, then a
+  // thirsty one watered, then an empty plot planted with the seed picked in the tray.
+  async function startReview() {
+    if (!feature("review_play") || rp || !alive || busy) return;
+    $(".farmp-review").hidden = true;
+    const r = await dockReview({ wrap, foot: $(".farmp-foot"), kind: "farm", turn: () => reviewWalk(), act: (a, luck) => reviewTend(luck),
+      ended: () => { rp = null; if (!alive) return; $(".farmp-tools").hidden = false; fit(); paint(); offerReview(); } });
+    if (!r) { offerReview(); return; }
+    if (!alive || busy) { r.close(); return; } // (a question of its own began meanwhile)
+    rp = r;
+    $(".farmp-tools").hidden = true;
+    fit();
+  }
+  /** Without the cards, while some are waiting: the button that brings them back. */
+  async function offerReview() {
+    const b = $(".farmp-review");
+    if (!feature("review_play") || rp || !alive) { b.hidden = true; return; }
+    const n = await cardsWaiting();
+    if (!alive || rp) return;
+    b.hidden = !n;
+    b.textContent = t("Review your cards here ({0})", n);
+  }
+  $(".farmp-review").onclick = () => startReview();
+  /** The next job a card does: a ripe crop (with room in the barn), else a thirsty one, else an empty plot the picked
+   * seed can go in; the one nearest your creature. Null when everything is tended. */
+  function nextJob() {
+    const near = (list) => list.sort((a, b) => Math.hypot(at(a).x - pet.x, at(a).y - pet.y) - Math.hypot(at(b).x - pet.x, at(b).y - pet.y))[0];
+    const all = keys().map((k) => [k, plantState(game, k)]);
+    const ripe = all.filter(([, s]) => s && s.ripe).map(([k]) => k);
+    if (ripe.length && barnCount(game) < barnCap(game)) return { kind: "harvest", key: near(ripe) };
+    const dry = all.filter(([, s]) => s && s.thirsty).map(([k]) => k);
+    if (dry.length) return { kind: "water", key: near(dry) };
+    const c = seed ? CROPS.find((x) => x.id === seed) : null;
+    const empty = c && farmOf(game).seeds[c.id] > 0 ? all.filter(([k, s]) => !s && (inSeason(c) || underGlass(game, k))).map(([k]) => k) : [];
+    if (empty.length) return { kind: "plant", key: near(empty), crop: c };
+    return null;
+  }
+  /** A card turned: your creature walks to the next job. */
+  function reviewWalk() {
+    const job = alive ? nextJob() : null;
+    if (!job) return "";
+    walkTo(job.key);
+    flash = { key: job.key, until: performance.now() + 420 };
+    const name = t((job.crop || plantState(game, job.key).crop).name).toLowerCase();
+    return job.kind === "harvest" ? t("Off to harvest the {0}…", name) : job.kind === "water" ? t("Off to water the {0}…", name) : t("Off to plant the {0}…", name);
+  }
+  /** A card answered: the next job done, whatever the answer (the owner: the same in the game for "Remembered" and
+   * "Not remembered", so a watering is a full one either way); a harvest's rarity takes `luck` (the memory calls meter,
+   * a spot check passed). */
+  async function reviewTend(luck) {
+    if (!alive) return null;
+    const job = nextJob();
+    if (!job) { paint(); return { text: t("Everything is tended for now. Your cards still count."), lucky: false }; }
+    walkTo(job.key);
+    const crop = job.crop || plantState(game, job.key).crop;
+    const name = t(crop.name).toLowerCase();
+    if (job.kind === "harvest") {
+      const r = harvest(game, job.key, Math.random, new Date(), luck);
+      finish("harvest", job.key, crop, true, r);
+      return typeof r === "string" ? null : { text: t("Harvested the {0}", name), lucky: true };
+    }
+    if (job.kind === "water") {
+      const w = water(game, job.key, true);
+      finish("water", job.key, crop, true, typeof w === "string" ? w : { ...w, more: waterAround(game, job.key).length });
+      return typeof w === "string" ? null : { text: t("Watered the {0}", name), lucky: false };
+    }
+    const err = plant(game, job.key, crop.id);
+    finish("plant", job.key, crop, true, err || {});
+    return err ? null : { text: t("Planted the {0}", name), lucky: false };
+  }
+
   // ----- the buttons, the keyboard, closing -----
   $(".farmp-next").onclick = () => { // the nearest thirsty plot to the creature
     const thirsty = keys().filter((k) => (plantState(game, k) || {}).thirsty);
@@ -308,7 +386,7 @@ export function openFarm({ changed = () => {} } = {}) {
   const onKey = (e) => {
     if (document.querySelectorAll(".modal-back").length) return; // (a box over the page answers first)
     if (e.key === "Escape") { e.preventDefault(); if (cancelAsk) cancelAsk(); else close(); }
-    if (!$(".farmp-ask").hidden && /^[1-4]$/.test(e.key)) { const b = $(".farmp-ask .lbq-options").children[Number(e.key) - 1]; if (b && !b.disabled) b.click(); }
+    if (!rp && !$(".farmp-ask").hidden && /^[1-4]$/.test(e.key)) { const b = $(".farmp-ask .lbq-options").children[Number(e.key) - 1]; if (b && !b.disabled) b.click(); }
   };
   document.addEventListener("keydown", onKey);
   const onResize = () => fit();
@@ -316,6 +394,7 @@ export function openFarm({ changed = () => {} } = {}) {
   function close() {
     if (!alive) return;
     alive = false;
+    if (rp) { const r = rp; rp = null; r.close(); }
     if (cancelAsk) cancelAsk();
     document.removeEventListener("keydown", onKey);
     window.removeEventListener("resize", onResize);
@@ -332,6 +411,7 @@ export function openFarm({ changed = () => {} } = {}) {
   // the field's right edge first (where it starts, by the gate); right to left the scroll runs the other way
   const field = $(".farmp-field");
   field.scrollLeft = getComputedStyle(field).direction === "rtl" ? 0 : field.scrollWidth;
+  startReview(); // (with cards waiting, the reviewer comes up over the field: review_play)
   return close;
 }
 

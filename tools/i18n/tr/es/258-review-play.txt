@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	Repasa tus tarjetas aquí ({0})
+c50f6691	A cosechar: {0}…
+3bf23ac1	A regar: {0}…
+a845e837	A plantar: {0}…
+9075895e	Por ahora todo está atendido. Tus tarjetas siguen contando.
+de502784	Cosechado: {0}
+611b3fad	Regado: {0}
+613cdcfc	Plantado: {0}
+e2b60cdc	El sedal sale volando…
+a0fd4b94	Pescado: {1} ({0})
+5380d3bf	Aciertos de memoria: cuántas veces tu «Recordada» se confirmó en las comprobaciones rápidas
+aff11eee	Aciertos de memoria
+dc832f96	Juego rápido
+ab9781ff	Comprobación rápida
+443aec07	Aciertos de memoria: cuántas veces tu «Recordada» se confirma en las comprobaciones rápidas. Mantenlo alto para hallazgos más raros.
+ae45d977	Aciertos de memoria: el {0} % de tus «Recordada» se confirmaron en las comprobaciones rápidas. Suerte en cada hallazgo: ×{1}.
+04448a60	Dijiste que la recordabas. ¿Qué significa?
+d6c4d68f	¡Muy bien! Tu próxima cosecha tiene más suerte.
+7b638a00	¡Muy bien! Tu próxima captura tiene más suerte.
+30365228	Se acabó el tiempo: esa tarjeta vuelve para que la mires otra vez.
+871f39ab	No del todo: esa tarjeta vuelve para que la mires otra vez.
+5bc02171	Gira una tarjeta: cada respuesta cuida una parcela.
+31ff88b9	Gira una tarjeta: cada respuesta pesca un pez.

@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	Révise tes cartes ici ({0})
+c50f6691	En route pour récolter : {0}…
+3bf23ac1	En route pour arroser : {0}…
+a845e837	En route pour planter : {0}…
+9075895e	Tout est soigné pour l'instant. Tes cartes comptent toujours.
+de502784	Récolté : {0}
+611b3fad	Arrosé : {0}
+613cdcfc	Planté : {0}
+e2b60cdc	La ligne s'envole…
+a0fd4b94	Pêché : {1} ({0})
+5380d3bf	Justesse de mémoire : combien de fois ton « Je savais » a tenu aux vérifications éclair
+aff11eee	Justesse de mémoire
+dc832f96	Partie rapide
+ab9781ff	Vérification éclair
+443aec07	Justesse de mémoire : combien de fois ton « Je savais » tient aux vérifications éclair. Garde-la haute pour des trouvailles plus rares.
+ae45d977	Justesse de mémoire : {0} % de tes « Je savais » ont tenu aux vérifications éclair. Chance sur chaque trouvaille : ×{1}.
+04448a60	Tu as dit que tu t'en souvenais. Quel sens est-ce ?
+d6c4d68f	Bien vu ! Ta prochaine récolte a plus de chance.
+7b638a00	Bien vu ! Ta prochaine prise a plus de chance.
+30365228	Temps écoulé : cette carte revient pour un autre coup d'œil.
+871f39ab	Pas tout à fait : cette carte revient pour un autre coup d'œil.
+5bc02171	Retourne une carte : chaque réponse soigne une parcelle.
+31ff88b9	Retourne une carte : chaque réponse attrape un poisson.

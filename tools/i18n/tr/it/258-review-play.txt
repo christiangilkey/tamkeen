@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	Ripassa qui le tue carte ({0})
+c50f6691	Si va a raccogliere: {0}…
+3bf23ac1	Si va ad annaffiare: {0}…
+a845e837	Si va a piantare: {0}…
+9075895e	Per ora è tutto curato. Le tue carte contano comunque.
+de502784	Raccolto: {0}
+611b3fad	Annaffiato: {0}
+613cdcfc	Piantato: {0}
+e2b60cdc	La lenza vola via…
+a0fd4b94	Pescato: {1} ({0})
+5380d3bf	Precisione della memoria: quante volte il tuo «Ricordata» ha retto ai controlli lampo
+aff11eee	Precisione della memoria
+dc832f96	Gioco rapido
+ab9781ff	Controllo lampo
+443aec07	Precisione della memoria: quante volte il tuo «Ricordata» regge ai controlli lampo. Tienila alta per scoperte più rare.
+ae45d977	Precisione della memoria: il {0}% dei tuoi «Ricordata» ha retto ai controlli lampo. Fortuna su ogni scoperta: ×{1}.
+04448a60	Hai detto che la ricordavi. Quale significato è?
+d6c4d68f	Ottimo! Il tuo prossimo raccolto è più fortunato.
+7b638a00	Ottimo! La tua prossima pesca è più fortunata.
+30365228	Tempo scaduto: quella carta torna per un'altra occhiata.
+871f39ab	Non proprio: quella carta torna per un'altra occhiata.
+5bc02171	Gira una carta: ogni risposta cura un appezzamento.
+31ff88b9	Gira una carta: ogni risposta pesca un pesce.

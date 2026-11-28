@@ -13,7 +13,9 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
+  review_play: { name: "Review while you play: on the fishing pond and the farm page, your flashcards docked over the game on a phone and beside it on a computer; each answer lands a fish or tends a plot, the same for either answer; spot checks on about 1 in 6 Remembered cards (four meanings) and a memory calls meter that raises the odds of rare finds; Quick play for the game on its own", released: false, since: "2026-11-28" },
   games_content: { name: "Home is Games and Library is Content (the tabs' names), and Home without the greeting", released: true, since: "2026-11-27" },
+  library_physics: { name: "Content's Home: drag the bubbles about, and the others make room (kept on this device)", released: false, since: "2026-11-27" },
   library_chips: { name: "Library: one row of on/off chips (Not listened to · Transcribed) instead of two rows with All", released: true, since: "2026-11-27" },
   library_home: { name: "Library home: a bubble map of everything in the Library, bigger the more you use it, a plum ring on what needs your own key", released: true, since: "2026-11-27" },
   dli_basics: { name: "DLI students: no Basics, except the Arabic dialects for a DLI Arabic student", released: true, since: "2026-11-27" },

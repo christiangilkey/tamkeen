@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	I-review ang mga card mo rito ({0})
+c50f6691	Papunta para anihin ang {0}…
+3bf23ac1	Papunta para diligan ang {0}…
+a845e837	Papunta para itanim ang {0}…
+9075895e	Naalagaan na ang lahat sa ngayon. Bilang pa rin ang mga card mo.
+de502784	Naani ang {0}
+611b3fad	Nadiligan ang {0}
+613cdcfc	Naitanim ang {0}
+e2b60cdc	Lumilipad ang pisi…
+a0fd4b94	Nahuli: {1} ({0})
+5380d3bf	Katumpakan ng alaala: gaano kadalas tumama ang "Naalala" mo sa mabilisang pagsusuri
+aff11eee	Katumpakan ng alaala
+dc832f96	Mabilisang laro
+ab9781ff	Mabilisang pagsusuri
+443aec07	Katumpakan ng alaala: gaano kadalas tumatama ang "Naalala" mo sa mabilisang pagsusuri. Panatilihin itong mataas para sa mas bihirang mahanap.
+ae45d977	Katumpakan ng alaala: {0}% ng mga "Naalala" mo ang tumama sa mabilisang pagsusuri. Suwerte sa bawat mahanap: ×{1}.
+04448a60	Sabi mo naalala mo ito. Aling kahulugan ito?
+d6c4d68f	Galing! Mas masuwerte ang susunod mong ani.
+7b638a00	Galing! Mas masuwerte ang susunod mong huli.
+30365228	Ubos na ang oras: babalik ang card na iyan para tingnan ulit.
+871f39ab	Hindi pa: babalik ang card na iyan para tingnan ulit.
+5bc02171	Baligtarin ang isang card: bawat sagot ay nag-aalaga ng isang taniman.
+31ff88b9	Baligtarin ang isang card: bawat sagot ay nakakahuli ng isda.

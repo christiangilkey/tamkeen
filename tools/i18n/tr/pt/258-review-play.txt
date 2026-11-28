@@ -1,0 +1,24 @@
+# Review while you play (prototype review_play, the owner 2026-11-27): the docked flashcards on the pond and the farm page.
+0c6a283f	Revise seus cartões aqui ({0})
+c50f6691	Indo colher: {0}…
+3bf23ac1	Indo regar: {0}…
+a845e837	Indo plantar: {0}…
+9075895e	Por agora está tudo cuidado. Seus cartões continuam contando.
+de502784	Colhido: {0}
+611b3fad	Regado: {0}
+613cdcfc	Plantado: {0}
+e2b60cdc	A linha voa longe…
+a0fd4b94	Pescado: {1} ({0})
+5380d3bf	Acertos de memória: quantas vezes o seu «Lembrei» se confirmou nas checagens rápidas
+aff11eee	Acertos de memória
+dc832f96	Jogo rápido
+ab9781ff	Checagem rápida
+443aec07	Acertos de memória: quantas vezes o seu «Lembrei» se confirma nas checagens rápidas. Mantenha alto para achados mais raros.
+ae45d977	Acertos de memória: {0}% dos seus «Lembrei» se confirmaram nas checagens rápidas. Sorte em cada achado: ×{1}.
+04448a60	Você disse que lembrava. Qual é o significado?
+d6c4d68f	Mandou bem! Sua próxima colheita tem mais sorte.
+7b638a00	Mandou bem! Sua próxima pesca tem mais sorte.
+30365228	O tempo acabou: esse cartão volta para mais uma olhada.
+871f39ab	Não exatamente: esse cartão volta para mais uma olhada.
+5bc02171	Vire um cartão: cada resposta cuida de um canteiro.
+31ff88b9	Vire um cartão: cada resposta pesca um peixe.
