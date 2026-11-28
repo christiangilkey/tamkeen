@@ -4,3 +4,6 @@ Taken from the Thai National Corpus word counts as published by the PyThaiNLP pr
 (pythainlp/corpus/tnc_freq.txt, https://github.com/PyThaiNLP/pythainlp). PyThaiNLP releases its
 word lists under the Creative Commons Zero 1.0 Universal Public Domain Dedication (CC0 1.0,
 https://creativecommons.org/publicdomain/zero/1.0/).
+
+Also used, as data only, to rank Thai's Basics Frequency words (tools/course/th/rank.py: the Thai National
+Corpus counts, tnc_freq.txt, CC0); the file itself is not shipped with the course.

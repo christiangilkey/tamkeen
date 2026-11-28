@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -21,7 +22,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent.parent
 OUT = HERE.parent / "build"
-SIZE = 3000
+SIZE = int(os.environ.get("RANK_TOP") or 3000)  # (RANK_TOP: deeper, for Frequency words 1001-3000)
 
 THAI = re.compile(r"[ก-๎]+")
 ONE = {"ณ", "ก", "ธ"}  # one-letter words (make_wordlists.py TH_ONE)

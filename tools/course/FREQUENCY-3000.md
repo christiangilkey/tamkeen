@@ -24,10 +24,10 @@ The course **is** the shared list: the Glyph counts how many of the language's F
   English names of film characters) are already out (`left_out` lists them, with why). The step's report, with the
   words the blend brought in and pushed out, is `tools/course/build/<lang>-candidates-report.md`.
 - **Review** as you go, as for 1–1000: leave out names of people and places (`flag` marks the ones the dictionary
-  table doesn't know, and Arabic proper nouns), anything still in another language, swear words a beginner's list
-  shouldn't teach first (write them later in the list only if they are truly everyday), subtitle spellings without
+  table doesn't know, and Arabic proper nouns), anything still in another language, subtitle spellings without
   their accents (ecoute for écoute: use the right word), and any word that is only a form of a word already in the
   list (a plural, a feminine, a conjugation, another spelling). Use each candidate's dictionary form, as for 1–1000.
+  Everything else stays where its frequency puts it, swear words too (the owner: "Keep them as counted").
   A word is never in the list twice (the tests check). There are about 2,600 candidates for 2,000 places.
 - `rank` is the candidate's `rank` in candidates.json, so the order can be checked.
 - Notes per language: **Persian** subtitles are colloquial (تونم, اینکارو): write the standard written form, as for
