@@ -4440,7 +4440,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farm-list .gs-block { display: grid; gap: var(--s-8); }
 .farm-buy { min-width: 76px; }
 .farm-plant { font-weight: 700; color: var(--teal); }
-.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: var(--s-8); }
+.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: var(--s-8); align-self: stretch; /* (the sheet centres its parts: without this the grid shrank to one column) */ }
 .farm-barn-item { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); padding: var(--s-8) var(--s-4); border-radius: var(--r-s);
   background: var(--surface); border: 2px solid color-mix(in srgb, var(--tier) 55%, transparent); }
 .farm-barn-n { font-size: var(--fs-14); font-weight: 700; font-variant-numeric: tabular-nums; }
