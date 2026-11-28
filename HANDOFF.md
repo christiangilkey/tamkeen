@@ -10238,7 +10238,9 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   talents' switch, so never in friend or ranked battles); bait (`makeBait`: 3 a crop; fishing.luckOf x1.25 while
   `farm.bait`, one used per fish landed); the Cookbook (tap the cook or her pot; `RECIPES`, 15 dishes from groups of
   crops and honey, commonest harvests used first; effects in `farm.buffs` read where the game decides: loot.rollAnswer
-  Focus tea x1.5 on 20 cards, rules.grow Growing stew x1.5 today, rules.layEgg an element pie's `lean`, gyms-ui the
+  Focus tea x1.5 on 20 cards, rules.grow Growing stew x1.5 today, rules.layEgg an element pie's `lean` (2026-11-28,
+  the owner: it DECIDES the element of the next egg bought from the shop, `layEgg(..., {shop: true})` from
+  idle.buySupply; eggs from growing up, rewards or battles leave it waiting; another pie replaces it), gyms-ui the
   Champion's meal x1.1 for one gym fight (vsGame), Picnic basket pushes fedAt 2 days ahead, Berry tart / Moon jelly a
   hue for a day (habitat's ctx.filter, looks only), Lantern soup a glow outside at night and Muffles coming to talk, the
   Muffle feast on Sundays wakes 3 words, Warm porridge calls talents.js warmPorridge); three Muffle orders a day

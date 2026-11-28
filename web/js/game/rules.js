@@ -744,8 +744,11 @@ export function readPage(state, key, { from, to, total }, now = new Date()) {
   return out;
 }
 
-/** A new egg for the roster. Its element leans toward how its owner studies. */
-export function layEgg(state, rand = Math.random) {
+/** A new egg for the roster. Its element leans toward how its owner studies. `opts.shop`: the egg was bought from the
+ * shop (the Mystery egg), so an element pie cooked since decides its element (the owner, 2026-11-28: "it should hatch
+ * that type for that egg after making that pie"; "when they buy a new egg with gems, of course"). Eggs from anywhere
+ * else (a creature fully grown, a reward, a battle) leave the pie waiting for the shop's. */
+export function layEgg(state, rand = Math.random, { shop = false } = {}) {
   if (state.roster.length >= MAX_CREATURES) return null;
   const traits = { ...state.creature.traits };
   for (const t of state.tags) traits[t] = 1;
@@ -754,7 +757,7 @@ export function layEgg(state, rand = Math.random) {
     { id: "stone", weight_by: { reader: 2 } }, { id: "spark", weight_by: { early_bird: 2 } }, { id: "dusk", weight_by: { night_owl: 2 } },
   ], rand, traits).id;
   const buffs = state.farm && state.farm.buffs;
-  const lean = buffs && TYPES[buffs.lean] ? buffs.lean : null; // (an element pie from the farm's Cookbook: this egg is that element)
+  const lean = shop && buffs && TYPES[buffs.lean] ? buffs.lean : null; // (an element pie from the farm's Cookbook: the shop's egg is that element)
   if (lean) delete buffs.lean;
   const egg = newGenome((rand() * 2 ** 32) >>> 0, lean || type);
   prepareEgg(state, egg); // (talents.js: stardust's lowest roll, and the talent a release passed down)

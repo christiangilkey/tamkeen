@@ -443,7 +443,7 @@ export function dishIcon(r, px = 32) {
 }
 /** A dish's name and what it does, translated (an element's pie: its element's name put in). */
 const recipeName = (r) => (r.type ? t("{0} pie", t(TYPES[r.type].name)) : t(r.name));
-const recipeText = (r) => (r.type ? t("Your next egg leans to {0}.", t(TYPES[r.type].name)) : t(r.text));
+const recipeText = (r) => (r.type ? t("Your next egg from the shop hatches as a {0} creature.", t(TYPES[r.type].name)) : t(r.text));
 const needLine = (r) => r.needs.map(([w, n]) => `${n} × ${w === "honey" ? t("Honey") : w.startsWith("fav_") ? t("{0}'s favourite crops", t(TYPES[w.slice(4)].name)) : cropById(w) ? t(cropById(w).name) : t(GROUP_NAME[w])}`).join(", ");
 
 /** One harvest in the barn: feed it to the creature out (a favourite makes it Well fed), or make bait of it. */

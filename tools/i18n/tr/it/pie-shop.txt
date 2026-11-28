@@ -1,0 +1,1 @@
+bd01955c	Il tuo prossimo uovo del negozio si schiude come creatura di tipo {0}.

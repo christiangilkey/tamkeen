@@ -139,7 +139,7 @@ export const RECIPES = [
   { id: "focus_tea", name: "Focus tea", needs: [["herb", 2], ["honey", 1]], text: "Better luck on your next 20 flashcards." },
   { id: "stew", name: "Growing stew", needs: [["veg", 4]], text: "Today's studying grows your creature half again as fast." },
   ...Object.keys(FAVOURITES).map((type) => ({ id: `pie_${type}`, name: `${TYPES[type] ? TYPES[type].name : type} pie`, type,
-    needs: [["grain", 2], [`fav_${type}`, 2]], text: `Your next egg leans to ${TYPES[type] ? TYPES[type].name : type}.` })),
+    needs: [["grain", 2], [`fav_${type}`, 2]], text: `Your next egg from the shop hatches as a ${TYPES[type] ? TYPES[type].name : type} creature.` })),
   { id: "berry_tart", name: "Berry tart", needs: [["fruit", 3], ["grain", 1]], text: "Your creature turns a warm berry colour for a day. Only its look changes." },
   { id: "moon_jelly", name: "Moon jelly", needs: [["fruit", 2], ["honey", 1]], text: "Your creature turns a cool moonlit colour for a day. Only its look changes." },
   { id: "lantern_soup", name: "Lantern soup", needs: [["gourd", 1], ["veg", 2]], text: "Tonight your creature glows in the village, and Muffles come over to say a word." },

@@ -116,6 +116,32 @@ test("selling and orders: glow for harvests; three orders a day, the same for ev
   assert.ok(wokenKeys(s, "ar").has("سوق"));
 });
 
+test("an element pie decides the next egg bought from the shop, and only that one (the owner, 2026-11-28)", async () => {
+  const { layEgg, newState } = await import("../../web/js/game/rules.js");
+  const { buySupply } = await import("../../web/js/game/idle.js");
+  for (const r of [0.01, 0.3, 0.55, 0.8, 0.99]) { // (whatever the egg's own roll would have been)
+    const s = newState();
+    s.gems = 50;
+    farmOf(s).barn = { "wheat:0": 10, ...Object.fromEntries(FAVOURITES.tide.map((id) => [`${id}:0`, 2])), ...Object.fromEntries(FAVOURITES.ember.map((id) => [`${id}:0`, 2])) };
+    assert.deepEqual(cook(s, "pie_ember", {}, day), { effect: "pie_ember" });
+    assert.deepEqual(cook(s, "pie_tide", {}, day), { effect: "pie_tide" });
+    assert.equal(s.farm.buffs.lean, "tide", "another pie replaces the first");
+    const roster = s.roster.map((g) => g.seed);
+    const other = layEgg(s, () => r); // (an egg from growing up, a reward or a battle)
+    assert.ok(other, "an egg was laid");
+    assert.equal(s.farm.buffs.lean, "tide", "an egg from anywhere but the shop leaves the pie waiting");
+    assert.equal(buySupply(s, "egg", () => r), "");
+    const bought = s.roster[s.roster.length - 1];
+    assert.equal(bought.type, "tide", "the shop's egg hatches as the pie's element");
+    assert.ok(!s.farm.buffs.lean, "the pie is used up");
+    assert.deepEqual(s.roster.slice(0, roster.length).map((g) => g.seed), roster, "the eggs already there are unchanged");
+    assert.equal(buySupply(s, "egg", () => r), "");
+    assert.equal(s.roster.length, roster.length + 3);
+  }
+  const text = RECIPES.find((x) => x.id === "pie_tide").text;
+  assert.match(text, /next egg from the shop hatches as a .+ creature/);
+});
+
 test("the game's own rules read the dishes: Focus tea in loot.js, the stew and the pie in rules.js, the meal in gyms-ui.js", () => {
   const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
   assert.ok(src("loot.js").includes(`ctx.source === "cards" && state.farm && state.farm.buffs && state.farm.buffs.focus > 0`));

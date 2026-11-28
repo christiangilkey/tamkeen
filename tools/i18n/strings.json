@@ -18510,8 +18510,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "90d8b9d6",
-  "k": "Your next egg leans to {0}.",
+  "id": "bd01955c",
+  "k": "Your next egg from the shop hatches as a {0} creature.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -21595,11 +21595,6 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "d4b83e87",
-  "k": "Muffle",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "1e4df96a",
   "k": "Words you know: {0} of {1}",
   "f": "web/js/game/habitat.js"
@@ -21662,6 +21657,11 @@
  {
   "id": "280b1cb3",
   "k": "Eat",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "d4b83e87",
+  "k": "Muffle",
   "f": "web/js/game/habitat.js"
  },
  {

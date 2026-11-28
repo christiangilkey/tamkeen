@@ -1,0 +1,1 @@
+bd01955c	Votre prochain œuf de la boutique éclot en créature de type {0}.

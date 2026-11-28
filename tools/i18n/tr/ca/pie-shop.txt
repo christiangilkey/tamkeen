@@ -1,0 +1,1 @@
+bd01955c	El teu proper ou de la botiga fa sortir una criatura de tipus {0}.

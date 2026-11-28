@@ -1,0 +1,1 @@
+bd01955c	Dein nächstes Ei aus dem Laden schlüpft als Wesen vom Typ {0}.
