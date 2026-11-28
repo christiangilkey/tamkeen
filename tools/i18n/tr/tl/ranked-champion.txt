@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Ipakita ang team ko kung ako ang kampeon sa ranked
+271efc9d	Ang pinakamahusay na manlalaro sa mga ranked na laban ay nakatayo sa bulwagan ng mga kampeon para makita ng lahat: ang kanilang username, rating at ang team na ginagamit nila sa laban. Kapag naka-off: ang username at rating mo lang.
+67255071	Wala pang kampeon
+5bcee1b8	Kampeon sa ranked
+19316bc3	Mag-sign in sa Friends para makita kung sino ang kampeon.
+1402fb7a	Wala pang kampeon. Manalo sa mga ranked na laban para tumayo sa entabladong ito: ipinapakita rito sa lahat ang team ng pinakamahusay na manlalaro.
+be153448	Ikaw iyan: ang pinakamahusay na manlalaro sa ranked
+5839fa8c	Ang pinakamahusay na manlalaro sa ranked
+4382cf0d	{0} panalo, {1} talo
+cfad914e	Pribado ang kanilang team.

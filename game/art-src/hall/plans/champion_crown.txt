@@ -1,0 +1,19 @@
+# champion_crown, plan (hand-placed: game/art-src/hall/plans/champion_extras.mjs)
+SIZE 22 8
+K=#120c18
+a=#8a5c16
+b=#b48420
+c=#d8aa30
+d=#f0cc4a
+e=#fce47c
+f=#fff6c0
+r=#ac2a30
+s=#de6a50
+.K...K...K..K...K...K.
+KfK.KeK.KdKKeK.KeK.KfK
+KeK.KdK.KcKKeK.KdK.KeK
+KedKdddKdcKKedKdfdKdcK
+KedddrddddKKeddsrsdddK
+KeccccccccKKeccccccccK
+KcbbbbbbbaKKcbbbbbbbaK
+.KKKKKKKKK..KKKKKKKKK.

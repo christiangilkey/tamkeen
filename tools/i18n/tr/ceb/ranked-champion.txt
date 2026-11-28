@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Ipakita ang akong team kon ako ang kampeon sa ranked
+271efc9d	Ang labing maayo nga magdudula sa ranked nga mga away nagbarog sa hawanan sa mga kampeon aron makita sa tanan: ang ilang username, rating ug ang team nga ilang gigamit sa away. Kon gipalong: ang imong username ug rating ra.
+67255071	Wala pay kampeon
+5bcee1b8	Kampeon sa ranked
+19316bc3	Pag-sign in sa Friends aron makita kon kinsa ang kampeon.
+1402fb7a	Wala pay kampeon. Pagdaog og ranked nga mga away aron makabarog niining entablado: ang team sa labing maayo nga magdudula ipakita dinhi sa tanan.
+be153448	Ikaw kini: ang labing maayo nga magdudula sa ranked
+5839fa8c	Ang labing maayo nga magdudula sa ranked
+4382cf0d	{0} ka daog, {1} ka pildi
+cfad914e	Gitago nila ang ilang team.

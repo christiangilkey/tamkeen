@@ -13,8 +13,8 @@
 --   ranked_join() puts me in the queue; the app then calls ranked_poll() every few seconds, which keeps my place
 --   (a place not polled for 12 seconds is not "online" any more) and pairs me with someone else in the queue whose
 --   rating is within 100 points, 200 after 15 seconds of waiting, 400 after 30, anyone after 45. After 60 seconds
---   with nobody it answers "none" and takes me out. Never paired: someone either of us has blocked, or someone I
---   have had 3 ranked battles with in the last 24 hours. ranked_leave() takes me out.
+--   with nobody it answers "none" and takes me out. Never paired: someone either of us has blocked (the same two may
+--   meet as often as they like). ranked_leave() takes me out.
 --
 -- RESULTS (one per battle, never trusted from one device)
 --   Each of the two reports once, with ranked_report(match, said): 'won', 'lost', 'quit' (pressed Leave) or

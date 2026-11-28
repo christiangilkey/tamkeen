@@ -10319,3 +10319,37 @@ and "Side by side on computer stacked on phone and four meanings only for spot c
 - **Memory calls** (`state.calls`: the latest 40 checks as "1"/"0", in the saved game): the gold chip in the game's
   line; from 5 checks on, 60% or less adds nothing and 100% gives x1.5 luck on every catch and harvest.
 - Tests: `tests/js/reviewplay.test.mjs`. Translations: `tools/i18n/tr/<code>/258-review-play.txt` (machine-made).
+
+## The ranked champion in the championship hall (prototype `ranked_champion`, 2026-11-27, NOT released)
+
+The owner: "Similarly to how we have the trophy fish, I think the highest ranked battle player should be in the battle
+room, like to the right, and it should show you their current score. As well, like as who it is and the creature. Maybe
+their whole party. And something indicating that they're like the best."
+
+- **In the hall** (`web/js/game/hall.js` `hallMap(champion)`, `hallBlocked(.., .., champion)`, `tapHall(x, y, champion)`;
+  habitat.js passes `championOn()`): the right of the hall is the champion's. A two-tier stone and gold dais
+  (`game-art/hall/champion_dais.png`, 80 x 30) with two royal-purple pennants on the wall above it; the knight's statue and
+  the banner on that side make way, the weapon rack moves to the left, the right brazier stands beside the dais. Without
+  the prototype the hall is exactly as before.
+- **On the dais** (`web/js/game/champion-ui.js` `championScene`): the champion's ranked team, animated (idle), the lead on
+  the upper tier with a gold crown floating over it (`champion_crown.png`, 2 frames: the jewel glints), the other two on
+  the lower tier's ends. A gold name plate in front (DOM, `.champ-plate`): username, rating, tier. A champion who hides
+  their team: a shadow with a question mark (`champion_hidden.png`). Nobody yet: the crown rests on the empty dais and
+  the plate says "No champion yet".
+- **Tap it**: the creature walks to the dais's left (`DAIS_FRONT`), then the card opens (`openChampion`): crown, username,
+  "The best ranked player" ("That's you" for the champion), rating and tier, the three creatures with their names, wins
+  and losses; Leaderboard and Close.
+- **Data** (`supabase/v22-ranked-champion.sql`, self-test `test_rls_ranked_champion.sql`; the owner runs them):
+  `ranked_showcase` keeps each player's last ranked team (sent by `ranked-ui.js startRankedBattle` with
+  `ranked_showcase_set(team, show)`) and the show switch; `ranked_champion()` returns the best player the viewer hasn't
+  blocked and who hasn't blocked them, with the team only when shown. The app checks the team again as a friend's
+  (`remote.cleanTeam`, in `champion.js readChampion`). Under-16s can't sign in at all, so never appear.
+  **Until v22 is run** the app falls back to `ranked_top(1)`: just the name and rating, with the shadow.
+- **Settings → Game features**: "Show my team if I'm the ranked champion" (the setting `ranked_show_team`, on unless
+  switched off; `gameswitch.js`), sent to the server at once and at every ranked battle.
+- **Art**: hand-drawn in Aseprite through the MCP from per-pixel plans (`game/art-src/hall/plans/champion_dais.mjs`,
+  `champion_extras.mjs`, which write the `.txt` plans; sources `game/art-src/hall/*.aseprite`). The hall props' own ramps
+  (statue stone, banner and counter gold) plus a royal purple; dark violet outlines (#120c18); light from the upper left.
+  Every export matched its plan exactly (0 differences).
+- Tests: `tests/js/champion.test.mjs` (the answer's checks, the dais's place, the fallback, the SQL file's rules).
+- Open: a real check with two accounts once v22 is run (the champion's team appears for the other; the switch hides it).

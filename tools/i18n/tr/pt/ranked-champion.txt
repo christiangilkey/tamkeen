@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Mostrar minha equipe se eu estiver em primeiro no ranqueado
+271efc9d	A melhor pessoa das batalhas ranqueadas fica no salão dos campeões para todos verem: o nome de usuário, a pontuação e a equipe com que luta. Desligado: só o seu nome de usuário e a sua pontuação.
+67255071	Ainda não há campeão
+5bcee1b8	Campeão do ranqueado
+19316bc3	Entre em Amigos para ver quem é o campeão.
+1402fb7a	Ainda não há campeão. Vença batalhas ranqueadas para subir neste pódio: a equipe da melhor pessoa aparece aqui para todos.
+be153448	É você: a melhor pessoa do ranqueado
+5839fa8c	A melhor pessoa do ranqueado
+4382cf0d	{0} vitórias, {1} derrotas
+cfad914e	Mantém a equipe em privado.

@@ -5,6 +5,7 @@
 // `notReady` and the screens say "Ranked isn't switched on yet."
 
 import { readMine, readTop } from "./game/ranked.js";
+import { readChampion } from "./game/champion.js";
 
 export const POLL_MS = 3000;   // while in the queue, ask this often (the server counts 12 s of silence as gone)
 
@@ -77,3 +78,15 @@ export function readResult(x) {
 
 /** The leaderboard: [{username, rating, tier, me}]. */
 export const top = async (most = 20) => readTop(await rpc("ranked_top", { most }));
+
+// ---------- the champion in the championship hall (prototype "ranked_champion", supabase/v22-ranked-champion.sql) ----------
+/** The best player I may see: {username, rating, tier, games, wins, me, team, hidden, partial} (champion.js readChampion),
+ *  or null when nobody has played yet. Before v22 is run: the leaderboard's first row, just the name and rating. */
+export async function champion() {
+  try { return readChampion(await rpc("ranked_champion", {})); } catch (e) { if (!e.notReady) throw e; }
+  const [first] = await top(1);
+  return first ? readChampion(first, true) : null;
+}
+
+/** Keep my ranked team (as sent at a match: `team`, or null to leave it) and whether it may show if I'm the champion. */
+export const showcase = (team, show) => rpc("ranked_showcase_set", { team: Array.isArray(team) ? team : null, show: show !== false });

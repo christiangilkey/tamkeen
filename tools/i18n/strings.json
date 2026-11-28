@@ -6225,6 +6225,16 @@
   "f": "web/js/components/gameswitch.js"
  },
  {
+  "id": "8a8a3529",
+  "k": "Show my team if I'm the ranked champion",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "271efc9d",
+  "k": "The best ranked player stands in the championship hall for everyone to see: their username, rating and the team they battle with. Off: only your username and rating.",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
   "id": "79bce962",
   "k": "No captions on YouTube",
   "f": "web/js/components/geminicaptions.js"
@@ -15680,8 +15690,48 @@
   "f": "web/js/game/champion-ui.js"
  },
  {
+  "id": "67255071",
+  "k": "No champion yet",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "5bcee1b8",
+  "k": "Ranked champion",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
   "id": "dc3851b6",
   "k": "Ranked battles are online: they open with Friends.",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "19316bc3",
+  "k": "Sign in to Friends to see who the champion is.",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "1402fb7a",
+  "k": "No champion yet. Win ranked battles to stand on this dais: the best player's team is shown here for everyone.",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "be153448",
+  "k": "That's you: the best ranked player",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "5839fa8c",
+  "k": "The best ranked player",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "4382cf0d",
+  "k": "{0} wins, {1} losses",
+  "f": "web/js/game/champion-ui.js"
+ },
+ {
+  "id": "cfad914e",
+  "k": "They keep their team private.",
   "f": "web/js/game/champion-ui.js"
  },
  {
@@ -38168,15 +38218,5 @@
   "id": "c4277de7",
   "k": "Privacy policy of the extension",
   "f": "extension/install.html"
- },
- {
-  "id": "afaa0fed",
-  "k": "{0} word{1} saved today",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "d27bd152",
-  "k": "{0} in your vocab",
-  "f": "web/js/pages/home.js"
  }
 ]

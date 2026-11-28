@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Mein Team zeigen, wenn ich Ranglisten-Champion bin
+271efc9d	Der beste Spieler der Ranglistenkämpfe steht für alle sichtbar in der Halle der Champions: Benutzername, Wertung und das Team, mit dem er kämpft. Aus: nur dein Benutzername und deine Wertung.
+67255071	Noch kein Champion
+5bcee1b8	Ranglisten-Champion
+19316bc3	Melde dich bei Freunde an, um zu sehen, wer der Champion ist.
+1402fb7a	Noch kein Champion. Gewinne Ranglistenkämpfe, um auf diesem Podest zu stehen: Das Team des besten Spielers wird hier allen gezeigt.
+be153448	Das bist du: der beste Ranglistenspieler
+5839fa8c	Der beste Ranglistenspieler
+4382cf0d	{0} Siege, {1} Niederlagen
+cfad914e	Das Team bleibt privat.

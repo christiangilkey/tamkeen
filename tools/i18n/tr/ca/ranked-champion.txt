@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Mostra el meu equip si soc el campió de les classificatòries
+271efc9d	El millor jugador de les batalles classificatòries apareix a la sala dels campions perquè tothom el vegi: el seu nom d'usuari, la puntuació i l'equip amb què lluita. Desactivat: només el teu nom d'usuari i la teva puntuació.
+67255071	Encara no hi ha campió
+5bcee1b8	Campió de les classificatòries
+19316bc3	Inicia la sessió a Amics per veure qui és el campió.
+1402fb7a	Encara no hi ha campió. Guanya batalles classificatòries per pujar a aquest estrado: aquí es mostra a tothom l'equip del millor jugador.
+be153448	Ets tu: el millor jugador de les classificatòries
+5839fa8c	El millor jugador de les classificatòries
+4382cf0d	{0} victòries, {1} derrotes
+cfad914e	Manté el seu equip en privat.

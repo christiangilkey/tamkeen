@@ -13,6 +13,8 @@ import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { FOLK, knownKeys, lineFor, lineWords, poseOf, readLine } from "./muffles.js";
 import { seenOf } from "../lexicon/seen.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
+import { championOn, championScene, hideChampion, openChampion, placeChampion } from "./champion-ui.js";
+import { DAIS_FRONT } from "./champion.js";
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
@@ -452,7 +454,7 @@ export function habitat() {
   const inYard = () => roomOn() && view === "yard";
   const walkArea = () => (inRoom() ? ROOM.walk : inHall() ? HALL_WALK : inFarm() ? FARM_WALK : YARD_WALK);
   /** The map of the place outside it is in: the yard and village, the hall's inside, or the farm. */
-  const sceneMap = () => (inHall() ? hallMap() : inFarm() ? farmMap(...fieldSize(game)) : yardMap());
+  const sceneMap = () => (inHall() ? hallMap(championOn()) : inFarm() ? farmMap(...fieldSize(game)) : yardMap());
   /** The yard's gate to the farm (at its left edge, on the path): where it stands. */
   const FARM_DOOR = { x: 18, y: 94 };
   /** How near the yard's left edge (and the farm's right edge) a tap carries on into the other (the owner: "if the
@@ -488,7 +490,7 @@ export function habitat() {
   let rolling = null; // the ball, kicked: {id, from, to, t}
   const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank(), ...roomDresser()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
-    : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
+    : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK), undefined, championOn())
     : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells([...buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), ...farmStanding().map(([id, at]) => ({ id, x: at.x, y: at.y }))], () => 26, FARM_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
@@ -780,6 +782,7 @@ export function habitat() {
       }
     }
     if (inFarm()) farmScene(out, now, sparkle);
+    if (inHall() && championOn()) championScene(out, { ctx, now, img: yimg, k: creatureScale() }); // (the ranked champion's dais)
     if (inYard() && shrineTier(game)) { // the Star Shrine (slice 3), once there is stardust
       const pic = yimg(`farm/shrine_${shrineTier(game)}.png`);
       if (pic) out.push({ y: SHRINE.y, draw: () => {
@@ -1315,6 +1318,7 @@ export function habitat() {
     }
     // Something earned while a sheet or a battle covered the card flies in once it is gone.
     ctx.restore();
+    if (inHall() && championOn()) placeChampion(canvas, W, H); else hideChampion(canvas); // (the champion's name plate)
     if (pending && (pendingT -= dt) < 0) { pendingT = 0.5; if (!document.querySelector(OVERLAYS)) settle(); }
   }
 
@@ -1386,6 +1390,7 @@ export function habitat() {
     if (what === "seeds") { sfx("tick"); openSeedStand({ changed: () => paintHud() }); return; }
     if (what === "farmgate") { sfx("tick"); goThrough("farm"); return; }
     if (what === "yardgate") { sfx("tick"); goThrough("yard"); return; }
+    if (what === "champion") { sfx("tick"); openChampion(); return; }
     if (what === "register") { // at the hall's counter: the custodian says something, and the gym register opens
       const c = folk.find((f) => f.id === "custodian");
       if (c) muffleSpeak(c);
@@ -1743,8 +1748,9 @@ export function habitat() {
     }
     // Inside the hall (hall.js): its door goes back out, the counter is where it signs up, the floor is walked on.
     if (inHall() && !pressed) {
-      const w = tapHall(x, y);
+      const w = tapHall(x, y, championOn());
       if (w === "door") { sfx("tick"); goThrough("yard"); return; }
+      if (w === "champion") { if (isEgg()) useThing("champion"); else walkTo(DAIS_FRONT, "use:champion"); return; } // (the champion's card)
       if (w === "counter") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; }
       if (!isEgg()) walkTo(clampToFloor({ x, y }, HALL_WALK));
       return;

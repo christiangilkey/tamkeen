@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Mostrar mi equipo si soy el campeón de clasificatorias
+271efc9d	El mejor jugador de las batallas clasificatorias aparece en la sala de campeones para que todos lo vean: su nombre de usuario, su puntuación y el equipo con el que lucha. Desactivado: solo tu nombre de usuario y tu puntuación.
+67255071	Aún no hay campeón
+5bcee1b8	Campeón de clasificatorias
+19316bc3	Inicia sesión en Amigos para ver quién es el campeón.
+1402fb7a	Aún no hay campeón. Gana batallas clasificatorias para subir a este estrado: aquí se muestra a todos el equipo del mejor jugador.
+be153448	Eres tú: el mejor jugador de clasificatorias
+5839fa8c	El mejor jugador de clasificatorias
+4382cf0d	{0} victorias, {1} derrotas
+cfad914e	Mantiene su equipo en privado.

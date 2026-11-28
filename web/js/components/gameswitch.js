@@ -42,6 +42,21 @@ export function gameSwitch(box) {
     older.querySelector(".og-open").onclick = () => import("../game/oldgames-ui.js").then((m) => m.openOldGames());
     box.firstElementChild.append(older);
   }
+  // The ranked champion in the championship hall (game/champion-ui.js; a prototype until the owner releases it): whether
+  // the hall may show my team if I'm the best ranked player (the setting `ranked_show_team`, on unless switched off).
+  if (feature("ranked_champion")) {
+    const s = state.status && state.status.settings;
+    const champ = h(`<div class="stack">
+      <label class="check"><input type="checkbox" class="rk-show-team" ${s && s.ranked_show_team === false ? "" : "checked"}>
+        <span>Show my team if I'm the ranked champion</span></label>
+      <div class="small muted">The best ranked player stands in the championship hall for everyone to see: their username, rating and the team they battle with. Off: only your username and rating.</div>
+    </div>`);
+    champ.querySelector(".rk-show-team").onchange = (e) => {
+      saveSettings({ ranked_show_team: e.target.checked });
+      import("../game/champion-ui.js").then((m) => m.sendShowTeam(e.target.checked)).catch(() => {});
+    };
+    box.firstElementChild.append(champ);
+  }
   const sound = box.querySelector(".game-sound");
   sound.disabled = !gameOn();
   box.querySelector(".game-on").onchange = (e) => { sound.disabled = !e.target.checked; saveSettings({ game_enabled: e.target.checked }); };

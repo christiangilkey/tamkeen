@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	如果我是排位冠军，展示我的队伍
+271efc9d	排位对战中最强的玩家会站在冠军大厅里，所有人都能看到：用户名、评分和出战的队伍。关闭后：只显示你的用户名和评分。
+67255071	还没有冠军
+5bcee1b8	排位冠军
+19316bc3	登录好友，看看谁是冠军。
+1402fb7a	还没有冠军。赢下排位对战，站上这座高台：最强玩家的队伍会在这里展示给所有人。
+be153448	就是你：最强的排位玩家
+5839fa8c	最强的排位玩家
+4382cf0d	{0}胜 {1}负
+cfad914e	这位玩家没有公开队伍。

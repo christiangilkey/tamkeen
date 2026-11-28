@@ -4,7 +4,7 @@
 // The sums are in ranked.js (shown) and supabase/v18-ranked.sql (decided); the calls in ../rankedsync.js; the battle
 // itself, live between the two devices, in rankedlive.js (the owner: "I want live now", in All-time mode).
 
-import { h, toast } from "../app.js";
+import { h, state, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { feature } from "../prototype.js";
 import { onlineStatus } from "../agegate.js";
@@ -18,6 +18,7 @@ import { pickQuestion } from "./rules.js";
 import { getGame, saveGame } from "./game.js";
 import { wordPool } from "./livebattle.js";
 import { rankedLink, realtimeLink } from "./rankedlive.js";
+import { showTeamOn } from "./champion.js";
 
 /** Why this player can't battle ranked yet (a sentence), or "" when they can: enough words with meanings, a team. */
 export function notReady(game, vocab) {
@@ -248,8 +249,12 @@ export async function startRankedBattle(match, vocab, refresh = () => {}) {
     const social = await import("../social.js");
     const transport = await realtimeLink(await social.sb(), match.match);
     if (cancelled) { transport.close(); callOff(); return; }
+    const team = publicProfile(game, null).team;
+    // (the ranked champion, prototype ranked_champion: the team taken into ranked battles is the one the hall shows if
+    // this player is the best, unless they switched that off in Settings; no harm if the server can't take it yet)
+    if (feature("ranked_champion")) ranked.showcase(team, showTeamOn(state.status && state.status.settings)).catch(() => {});
     link = rankedLink({
-      host: match.host, seed: match.seed, team: publicProfile(game, null).team, cards: vocab.length, rival: { name }, transport,
+      host: match.host, seed: match.seed, team, cards: vocab.length, rival: { name }, transport,
       report: (said) => ranked.report(match.match, said).catch(() => null).finally(refresh),
       finish: async (said, lines) => { // the end card: the server's answer, once both have reported
         const line = document.createElement("div");

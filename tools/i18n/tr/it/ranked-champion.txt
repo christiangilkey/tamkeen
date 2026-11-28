@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Mostra la mia squadra se sono il campione delle classificate
+271efc9d	Il miglior giocatore delle battaglie classificate sta nella sala dei campioni, sotto gli occhi di tutti: nome utente, punteggio e la squadra con cui combatte. Disattivato: solo il tuo nome utente e il tuo punteggio.
+67255071	Ancora nessun campione
+5bcee1b8	Campione delle classificate
+19316bc3	Accedi ad Amici per vedere chi è il campione.
+1402fb7a	Ancora nessun campione. Vinci battaglie classificate per salire su questo podio: la squadra del miglior giocatore viene mostrata qui a tutti.
+be153448	Sei tu: il miglior giocatore delle classificate
+5839fa8c	Il miglior giocatore delle classificate
+4382cf0d	{0} vittorie, {1} sconfitte
+cfad914e	Tiene privata la sua squadra.

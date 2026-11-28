@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	랭크 챔피언이 되면 내 팀 보여주기
+271efc9d	랭크 배틀 최고의 플레이어는 챔피언의 홀에 서서 모두에게 보여요: 사용자 이름, 점수, 함께 싸우는 팀. 끄면: 사용자 이름과 점수만 보여요.
+67255071	아직 챔피언이 없어요
+5bcee1b8	랭크 챔피언
+19316bc3	챔피언이 누구인지 보려면 친구에 로그인하세요.
+1402fb7a	아직 챔피언이 없어요. 랭크 배틀에서 이겨 이 단상에 서세요: 최고 플레이어의 팀이 여기서 모두에게 보여요.
+be153448	바로 당신이에요: 랭크 최고의 플레이어
+5839fa8c	랭크 최고의 플레이어
+4382cf0d	{0}승 {1}패
+cfad914e	팀을 비공개로 해 두었어요.

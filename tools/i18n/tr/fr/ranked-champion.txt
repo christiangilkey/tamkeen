@@ -1,0 +1,11 @@
+# The ranked champion in the championship hall (prototype ranked_champion): champion-ui.js, the Settings switch (gameswitch.js).
+8a8a3529	Montrer mon équipe si je suis le champion classé
+271efc9d	Le meilleur joueur des combats classés se tient dans la salle des champions, à la vue de tous : son nom d'utilisateur, sa note et l'équipe avec laquelle il se bat. Désactivé : seulement ton nom d'utilisateur et ta note.
+67255071	Pas encore de champion
+5bcee1b8	Champion classé
+19316bc3	Connecte-toi à Amis pour voir qui est le champion.
+1402fb7a	Pas encore de champion. Gagne des combats classés pour monter sur cette estrade : l'équipe du meilleur joueur est montrée ici à tous.
+be153448	C'est toi : le meilleur joueur classé
+5839fa8c	Le meilleur joueur classé
+4382cf0d	{0} victoires, {1} défaites
+cfad914e	Garde son équipe privée.
