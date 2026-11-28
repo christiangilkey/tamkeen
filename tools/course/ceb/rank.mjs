@@ -66,11 +66,15 @@ function lemmaOf(form) {
 }
 
 const byRoot = new Map();
-table.lemmas.slice(0, FORMS).forEach((form, i) => {
+// RANK_FORMS: another text's counted forms ([[form, share], ...]) grouped the same way, for the Frequency words audit
+// (tools/course/audit.mjs); without it, the NLLB list's order, as for the course.
+const counted = process.env.RANK_FORMS ? JSON.parse(readFileSync(process.env.RANK_FORMS, "utf8")) : null;
+(counted || table.lemmas.slice(0, FORMS)).forEach((row, i) => {
+  const form = counted ? row[0] : row;
   const lemma = lemmaOf(form);
   let e = byRoot.get(lemma);
   if (!e) byRoot.set(lemma, (e = { lemma, freq: 0, forms: [] }));
-  e.freq += 1 / (i + 1);
+  e.freq += counted ? row[1] / 1000 : 1 / (i + 1); // (freq is written ×1000 below)
   e.forms.push([form, i + 1]);
 });
 const ranked = [...byRoot.values()].sort((x, y) => y.freq - x.freq).slice(0, Number(process.env.RANK_TOP) || 3000) // (RANK_TOP: deeper, for Frequency words 1001-3000)
