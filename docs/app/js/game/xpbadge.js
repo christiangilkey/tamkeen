@@ -35,7 +35,8 @@ function ring(cls, size) {
     <circle class="xp-track" cx="18" cy="18" r="15.5" pathLength="100"/><circle class="xp-fill" cx="18" cy="18" r="15.5" pathLength="100"/></svg>`;
 }
 
-/** Put the level badge in the top bar `bar`, just before `before` (or at its end). Once. */
+/** Put the level badge in the top bar `bar`, just before `before` (or at its end). Once. No longer called: the owner
+ * took the badge out of the top bar (2026-11-27); without it XP lands quietly (landXp) and the level shows on Home. */
 export function mountXpBadge(bar, before = null) {
   if (!bar || badge) return;
   badge = document.createElement("button");
@@ -236,6 +237,9 @@ function openGame() {
 }
 
 // ---------- room in the top bar ----------
+
+/** The top bar's room (fitBar), for the bar without the level badge. */
+export const fitTopBar = (bar) => { if (bar) fitBar(bar); };
 
 /** A narrow phone (or a long language name, or the web app's extra buttons): when the phone's top bar can't
  * hold everything at its full size, the name "Tamkeen" beside the logo gives way (the logo, which says it in

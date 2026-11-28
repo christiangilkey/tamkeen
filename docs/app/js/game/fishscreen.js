@@ -16,7 +16,7 @@ import { amount, block, details, fact, fmt, grid, row, tile } from "./screenpart
 import { RODS, SELL, fishOf, isGuardian } from "./fishdata.js";
 import { feature } from "../prototype.js";
 import {
-  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, buyRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
+  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, bestRod, buyRod, nextRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
   pondById, pondNeed, publicAquarium, sell, sellCommon, swapTank, tankSize, toTank,
 } from "./fishing.js";
 import { fishPicture, fishShape } from "./fishart.js";
@@ -95,19 +95,7 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
   ponds.append(g);
   body.append(ponds);
 
-  // Rods: bought with pearls, each one luckier.
-  const rods = block("Rods", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
-  RODS.forEach((rod, i) => {
-    const mine = F.rods.includes(i);
-    const using = F.rod === i;
-    rods.append(row({
-      pic: icon(`rod_${rod.id}`, 32), name: rod.name,
-      sub: `<span>${t("Luck")}</span> <span translate="no">×${rod.luck}</span>`,
-      end: using ? `${icon("check")}<span>In use</span>` : mine ? `<span class="gs-row-word">Use</span>` : amount("pearls", rod.pearls, F.pearls < rod.pearls),
-      open: using ? null : () => rodBox(game, i, again),
-    }));
-  });
-  body.append(rods);
+  body.append(rodsBlock(game, again));
 
   // Your record.
   const week = publicAquarium(game).best;
@@ -124,6 +112,42 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
   const slot = h(`<div class="fish-board-slot"></div>`);
   body.append(slot);
   boardBlock(game).then((b) => { if (b && slot.isConnected) slot.replaceWith(b); }).catch(() => {});
+}
+
+/** Rods: bought with pearls, each one luckier, one after the other (only the rod after your best can be bought; a
+ * later one shows its price behind a lock, and an earlier one you never had is passed). Here and at the Market's fisher
+ * (prototype "market"): the same rows, the same rules. `again()` redraws after a purchase. */
+export function rodsBlock(game, again) {
+  const F = fishingOf(game);
+  const rods = block("Rods", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
+  const next = nextRod(game);
+  RODS.forEach((rod, i) => {
+    const mine = F.rods.includes(i);
+    const using = F.rod === i;
+    const locked = !mine && i > next && next >= 0;
+    const passed = !mine && i < bestRod(game);
+    rods.append(row({
+      pic: icon(`rod_${rod.id}`, 32), name: rod.name, dim: locked || passed,
+      sub: `<span>${t("Luck")}</span> <span translate="no">×${rod.luck}</span>`,
+      end: using ? `${icon("check")}<span>In use</span>` : mine ? `<span class="gs-row-word">Use</span>` : passed ? ""
+        : locked ? `${icon("lock")}${amount("pearls", rod.pearls)}` : amount("pearls", rod.pearls, F.pearls < rod.pearls),
+      open: using || passed ? null : () => rodBox(game, i, again),
+    }));
+  });
+  return rods;
+}
+
+/** The next, bigger aquarium as a row (the Basket's aquarium, and the Market's fisher); null when the biggest is had. */
+export function tankRow(game, again) {
+  const F = fishingOf(game);
+  const next = nextTank(game);
+  if (!next) return null;
+  return row({
+    pic: icon("aquarium", 32), name: next.name,
+    sub: `<span>${t("Holds {0} fish", next.size)}</span>`,
+    end: amount("pearls", next.pearls, F.pearls < next.pearls),
+    open: () => tankUpgradeBox(game, again),
+  });
 }
 
 /** A pond still closed: what opens it and how far along you are. */
@@ -147,15 +171,17 @@ function rodBox(game, i, again) {
   details((d) => {
     const F = fishingOf(game);
     const mine = F.rods.includes(i);
-    const short = !mine && F.pearls < rod.pearls;
+    const next = nextRod(game);
+    const locked = !mine && i !== next;          // (not the next rod up: the one before it comes first)
+    const short = !mine && !locked && F.pearls < rod.pearls;
     return {
       title: rod.name, pic: icon(`rod_${rod.id}`, 96),
       facts: [fact("Luck", `<span translate="no">×${rod.luck}</span>`), fact("Price", mine ? `${icon("check")}<span>Yours</span>` : amount("pearls", rod.pearls))],
       text: "A better rod makes every cast luckier, in every pond. Pearls are found inside rarer fish.",
-      note: short ? t("You need {0} more pearls.", rod.pearls - F.pearls) : "",
+      note: locked && next >= 0 ? t("Buy the {0} first.", t(RODS[next].name)) : short ? t("You need {0} more pearls.", rod.pearls - F.pearls) : "",
       buttons: [
         { word: "Close", run: () => d.close() },
-        { word: mine ? "Use it" : "Buy", primary: true, disabled: short, extra: mine ? "" : amount("pearls", rod.pearls),
+        { word: mine ? "Use it" : "Buy", primary: true, disabled: short || locked, extra: mine ? "" : amount("pearls", rod.pearls),
           run: () => { const problem = buyRod(game, i); if (problem) { toast(problem, { error: true }); return; } sfx("lucky"); d.close(); again(); } },
       ],
     };
@@ -228,6 +254,25 @@ export function basketPanel(body, game, changed, go, close, reopen) {
   const again = () => { saveGame(); changed(); const top = body.scrollTop; basketPanel(body, game, changed, go, close, reopen); body.scrollTop = top; };
   body.replaceChildren();
 
+  // Upgrades first (the pond's basket button opens here: the owner, 2026-11-27, "incentivizing people to click on it
+  // for progression"): the next rod, then the next, bigger aquarium, each with its price in pearls.
+  const rodNext = nextRod(game);
+  const bigger = tankRow(game, again);
+  if (rodNext >= 0 || bigger) {
+    const up = block("Upgrades", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
+    if (rodNext >= 0) {
+      const rod = RODS[rodNext];
+      up.append(row({
+        pic: icon(`rod_${rod.id}`, 32), name: rod.name,
+        sub: `<span>${t("Luck")}</span> <span translate="no">×${rod.luck}</span>`,
+        end: amount("pearls", rod.pearls, F.pearls < rod.pearls),
+        open: () => rodBox(game, rodNext, again),
+      }));
+    }
+    if (bigger) up.append(bigger);
+    body.append(up);
+  }
+
   // The aquarium: your best fish, swimming. Friends see it.
   const aq = block("Aquarium", `${F.tank.length} / ${tankSize(game)}`);
   if (F.tank.length) {
@@ -243,16 +288,6 @@ export function basketPanel(body, game, changed, go, close, reopen) {
     aq.append(g);
     if (F.tank.length > TANK_SIZE) aq.append(h(`<p class="gs-state muted">Your friends see your six best fish.</p>`));
   } else aq.append(h(`<p class="gs-state muted">Keep your best fish here. Your friends can see your aquarium.</p>`));
-  // A bigger aquarium, bought with pearls (like the rods).
-  const next = nextTank(game);
-  if (next) {
-    aq.append(row({
-      pic: icon("aquarium", 32), name: next.name,
-      sub: `<span>${t("Holds {0} fish", next.size)}</span>`,
-      end: amount("pearls", next.pearls, F.pearls < next.pearls),
-      open: () => tankUpgradeBox(game, again),
-    }));
-  }
   body.append(aq);
 
   // The basket: what you caught, the rarest first.

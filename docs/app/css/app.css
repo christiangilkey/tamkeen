@@ -160,6 +160,12 @@
   --shadow-float: 0 1px 3px rgba(31, 26, 35, .08), 0 12px 32px rgba(31, 26, 35, .14);
   --scrim: rgba(31, 26, 35, .5);
 
+  /* The review calendar's colours (review.css .hm-cell), kept as they were by the owner's choice (2026-11-27: "reverse
+     the colors back to how they were"; DESIGN.md section 1): days done in the bright teal, days ahead in the plum,
+     the same in both themes. */
+  --heat-done: #22c7d6;
+  --heat-ahead: #bd3fba;
+
   /* Movement (section 10): the study side fades and slides, calm and quick. */
   --ease-out: cubic-bezier(.2, .7, .2, 1);
   --t-quick: 180ms;
@@ -1243,9 +1249,6 @@ html[dir="rtl"] .continue-bar > i { margin-inline-start: 0; } /* (fills from the
 .choice > span:last-child { display: flex; flex-direction: column; }
 .choice .small, .continue-row .small { font-size: var(--fs-14); }
 .choice-ico { display: grid; place-items: center; color: var(--ink-2); flex: none; }
-/* Today, in one quiet line. */
-.today-line { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-4) var(--s-8); margin: 0; color: var(--ink-2); font-size: var(--fs-14); }
-.today-line span + span::before { content: "·"; margin-inline-end: var(--s-8); }
 
 /* ---------- search ---------- */
 .search-form { margin: 0 0 var(--s-12); flex-wrap: nowrap; }
@@ -3163,10 +3166,12 @@ html.sel-sheets select { pointer-events: none; }
 .muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
 .muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
   background: url("../game-art/muffle/glyphs.png") calc(var(--g, 0) * -16px) 0 / 192px 18px no-repeat; }
-.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; font-size: var(--fs-12); }
+/* (the count of words you know: whole, wrapping onto a second line rather than cut off with "…") */
+.muffle-say span:not(.mw):not(.mw-lost) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; text-wrap: balance; opacity: .8; font-size: var(--fs-12); }
+.muffle-say span[hidden] { display: none; }
 /* On a phone: the forgotten script at its own size (7 x 9), the words smaller still. */
 @media (max-width: 600px) {
-  .muffle-say { max-width: min(176px, 62%); padding: 1px var(--s-4); }
+  .muffle-say { max-width: min(208px, 66%); padding: 1px var(--s-4); } /* (room for "Words you know: 8 of 12" on one line) */
   .muffle-say b { font-size: var(--fs-12); gap: 1px var(--s-4); }
   .muffle-say .mg { width: 7px; height: 9px; background-position: calc(var(--g, 0) * -8px) 0; background-size: 96px 9px; }
 }
@@ -3221,6 +3226,21 @@ button.primary .gs-amount { color: inherit; }
 .seg-btn.on .gs-seg-n { background: var(--surface-2); color: var(--ink); }
 .gs-pockets { max-width: none; margin: 0 0 var(--s-12); }
 @media (max-width: 420px) { .gs-pockets .seg-btn > .px-icon { display: none; } }
+/* On a phone the head and the switch have little room, and the pixel font runs wide (the owner, 2026-11-27: "the menu
+   here gets cropped off a little bit"). Nothing is cut: the switch's words step down a size and may take two lines
+   (whole words), and its pictures go when it has three sides; the title gives its picture up to the counters, steps
+   down a size and may take two lines; the counters sit closer. */
+.gs-seg .seg-btn { min-width: 0; }
+.gs-seg .seg-btn > span:not(.gs-seg-n) { min-width: 0; overflow-wrap: break-word; }
+@media (max-width: 480px) {
+  .gs-seg .seg-btn { padding: var(--s-4) var(--s-8); gap: var(--s-4); font-size: var(--fs-14); line-height: var(--lh-head); text-align: center; }
+  .gs-seg:has(.seg-btn:nth-child(3)) .seg-btn > .px-icon { display: none; }
+  .gs-head:has(.gs-pill) .gs-title-pic { display: none; }
+  .gs-head:has(.gs-pill) .gs-title { font-size: var(--fs-16); }
+  .gs-title-word { white-space: normal; overflow-wrap: break-word; line-height: var(--lh-head); }
+  .gs-pills { gap: var(--s-4); }
+  .gs-pill { padding: 0 var(--s-8); }
+}
 /* A block's heading row: the label, and a count or a "?" at its other end. */
 .gs-block-head { display: flex; align-items: center; gap: var(--s-8); min-height: 22px; }
 .gs-block-head .gs-label { flex: 1; min-width: 0; }
@@ -3767,6 +3787,20 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
   background: var(--game-night); color: var(--game-on); font-size: var(--fs-16); font-weight: 700; white-space: nowrap; }
 .fish-pond:hover, .fish-basket:hover, button.fish-chip:hover { background: var(--game-night-3); }
 .fish-pond svg { transform: rotate(90deg); opacity: .7; }
+/* The basket button is also the way to the upgrades: it says so, and a dot shows when the pearls in hand can pay for
+   one. The pond's name gives way to it on a narrow screen (two lines, whole words) rather than push it off the edge. */
+.fish-basket { position: relative; flex: none; }
+.fish-basket-word { font-size: var(--fs-14); }
+.fish-basket-dot { position: absolute; top: var(--s-4); inset-inline-end: var(--s-4); width: var(--s-8); height: var(--s-8); border-radius: var(--r-pill); corner-shape: round; background: var(--alert); }
+.fish-pond { min-width: 0; }
+.fish-pond-name { min-width: 0; white-space: normal; overflow-wrap: break-word; line-height: var(--lh-head); text-align: start; }
+.fish-pond svg, .fish-swatch { flex: none; }
+/* (phones: the word goes under the basket and its count, so the pond's name keeps its room) */
+@media (max-width: 480px) {
+  .fish-top .fish-pond { flex: 1 1 0; margin-inline-end: 0; font-size: var(--fs-14); gap: var(--s-4); }
+  .fish-basket { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 0 var(--s-4); padding: var(--s-4) var(--s-8); }
+  .fish-basket-word { grid-column: 1 / -1; font-size: var(--fs-12); line-height: var(--lh-head); text-align: center; }
+}
 .fish-pond-name { overflow: hidden; text-overflow: ellipsis; max-width: 34vw; }
 .fish-swatch { width: 14px; height: 14px; border-radius: var(--r-s); flex: none; }
 .fish-chips { flex: 1; display: flex; align-items: center; justify-content: center; gap: var(--s-8); flex-wrap: wrap; min-width: 0; }
@@ -3886,8 +3920,9 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
 .fish-sell-all { white-space: normal; line-height: var(--lh-head); padding-block: var(--s-8); text-align: center; }
 .fish-sell-all span { min-width: 0; overflow-wrap: anywhere; }
 .fish-go, .gs-detail .fish-tier-mark { white-space: normal; }
-.gs-tile .fish-tier-mark { white-space: normal; text-align: center; overflow-wrap: anywhere; min-width: 0; }
-.gs-tile .fish-tier-mark span { min-width: 0; }
+/* (on a tile a rarity that doesn't fit beside its dot goes under it, whole: never "Legenda / ry") */
+.gs-tile .fish-tier-mark { flex-wrap: wrap; justify-content: center; white-space: normal; text-align: center; min-width: 0; max-width: 100%; font-size: var(--fs-12); }
+.gs-tile .fish-tier-mark span { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
 .gs-row .fish-tier-mark { white-space: normal; }
 .fish-aq, .fish-board-slot { min-width: 0; max-width: 100%; }
 .fish-pips { flex-wrap: wrap; }
@@ -4403,11 +4438,11 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 /* The farm (prototype "farm", farm-ui.js): a crop's picture (game-art/farm/icons.png, the strip placed inline), the seed
    stand's and seed picker's rows, the barn's harvests (a rarer one's edge in its tier's colour). */
 .farm-ico { display: inline-block; flex: none; image-rendering: pixelated; background-repeat: no-repeat; vertical-align: middle; }
-.farm-list { display: grid; gap: var(--s-12); }
+.farm-list { display: grid; gap: var(--s-12); align-self: stretch; /* (the sheet centres its parts: a grid inside would shrink to its content) */ }
 .farm-list .gs-block { display: grid; gap: var(--s-8); }
 .farm-buy { min-width: 76px; }
 .farm-plant { font-weight: 700; color: var(--teal); }
-.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: var(--s-8); }
+.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: var(--s-8); align-self: stretch; /* (the sheet centres its parts: without this the grid shrank to one column) */ }
 .farm-barn-item { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); padding: var(--s-8) var(--s-4); border-radius: var(--r-s);
   background: var(--surface); border: 2px solid color-mix(in srgb, var(--tier) 55%, transparent); }
 .farm-barn-n { font-size: var(--fs-14); font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -4441,8 +4476,11 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp { width: min(720px, 100%); height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--s-8);
   padding: var(--s-8) var(--s-12) var(--s-12); overflow-y: auto; }
 .farmp-top { display: flex; align-items: center; gap: var(--s-8); min-height: 44px; flex: none; }
-.farmp-title { display: inline-flex; align-items: baseline; gap: var(--s-8); margin-inline-end: auto; font-size: var(--fs-20); font-weight: 700; }
-.farmp-season { font-size: var(--fs-14); font-weight: 600; color: var(--ink-2); }
+.farmp-title { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; flex: 1 1 auto; margin-inline-end: auto; font-size: var(--fs-20);
+  font-weight: 700; line-height: var(--lh-head); }
+/* The season and when the next one comes ("Summer · Autumn in 3 days"), under the title: a tap peeks at next season's seeds. */
+.farmp-season { max-width: 100%; min-height: 20px; padding: 0; border: 0; background: none; color: var(--ink-2); font: inherit; font-size: var(--fs-12);
+  font-weight: 600; text-align: start; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
 .farmp-chip { display: inline-flex; align-items: center; gap: var(--s-4); min-height: 32px; padding: var(--s-4) var(--s-12); border: 0;
   border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink); font-weight: 700; font-size: var(--fs-14); font-variant-numeric: tabular-nums; }
 .farmp-close { flex: none; color: var(--ink); }
@@ -4459,6 +4497,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp-foot { flex: 1 0 auto; display: flex; flex-direction: column; }
 .farmp-tools { display: flex; flex-direction: column; gap: var(--s-12); }
 .farmp-tools[hidden] { display: none; }
+.farmp-tray-head { margin: 0 0 calc(-1 * var(--s-8)); font-size: var(--fs-14); font-weight: 600; color: var(--ink-2); }
 .farmp-tray { display: flex; gap: var(--s-8); overflow-x: auto; padding-block: var(--s-4); scrollbar-width: none; }
 .farmp-seed { flex: none; width: 72px; display: flex; flex-direction: column; align-items: center; gap: var(--s-4); padding: var(--s-8) 0;
   border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); color: var(--ink); font-size: var(--fs-12); font-weight: 600; }
@@ -4486,3 +4525,58 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp-verdict.ok { color: var(--teal); }
 .farmp-verdict.no { color: var(--danger); }
 .farmp-verdict[hidden] { display: none; }
+
+/* The Market (prototype "market", market.js): every stall of the village market in one game sheet. The whole Market is a
+   list of rows (each stall's keeper, its name, what it sells, what it takes), today's orders first; a stall open has its
+   keepers along the top, the keeper and what they say, then what it sells (the same screens as before). No box in a
+   box: rows and space do the grouping. */
+.mk-keeper { display: inline-block; flex: none; background-repeat: no-repeat; background-position: 0 0; image-rendering: pixelated; image-rendering: crisp-edges; }
+.mk-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-4); }
+.mk-pills .gs-pill { padding: 0 var(--s-8); }
+.mk-list { display: flex; flex-direction: column; margin-top: var(--s-8); }
+.mk-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; align-items: center; gap: var(--s-12); width: 100%; min-height: 0;
+  padding: var(--s-12) 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; color: var(--ink); text-align: start; white-space: normal; }
+.mk-row:hover:not(:disabled) { background: none; }
+.mk-row-text { display: flex; flex-direction: column; gap: var(--s-4); min-width: 0; }
+.mk-row-name { font-family: var(--fun-font); font-size: var(--fs-16); line-height: var(--lh-head); }
+.mk-row-sub { font-size: var(--fs-14); color: var(--ink-2); line-height: var(--lh-head); }
+.mk-row-end { display: flex; align-items: center; gap: var(--s-4); }
+.mk-count { margin: 0; }
+.mk-heading { margin: var(--s-24) 0 0; font-family: var(--fun-font); font-size: var(--fs-14); color: var(--ink-2); }
+.mk-tabs { display: flex; gap: var(--s-4); margin: calc(-1 * var(--s-16)) calc(-1 * var(--s-16)) var(--s-12); padding: 0 var(--s-12); overflow-x: auto;
+  border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.mk-tabs::-webkit-scrollbar { display: none; }
+.mk-tab { flex: none; flex-direction: column; gap: var(--s-4); width: 64px; min-height: 0; padding: var(--s-8) 0; border: 0; border-bottom: 4px solid transparent;
+  border-radius: 0; background: none; color: var(--ink-2); font-family: var(--fun-font); font-size: var(--fs-12); }
+.mk-tab:hover:not(:disabled) { background: none; color: var(--ink); }
+.mk-tab.on, .mk-tab.on:hover:not(:disabled) { color: var(--ink); border-bottom-color: var(--teal); }
+.mk-back { margin-top: 0; }
+.mk-head { display: grid; grid-template-columns: 88px minmax(0, 1fr); align-items: end; gap: var(--s-12); }
+.mk-who { display: flex; flex-direction: column; gap: var(--s-8); padding-bottom: var(--s-12); }
+.mk-name { font-family: var(--fun-font); font-size: var(--fs-20); line-height: var(--lh-head); }
+.mk-say { position: relative; margin: 0; padding: var(--s-8) var(--s-12); border-radius: var(--r-s); background: var(--surface-2); font-size: var(--fs-14); line-height: var(--lh-text); }
+.mk-pay { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-8); margin: var(--s-8) 0 var(--s-16);
+  padding-bottom: var(--s-12); border-bottom: 1px solid var(--line); font-size: var(--fs-14); color: var(--ink-2); }
+.mk-stall { display: flex; flex-direction: column; gap: var(--s-12); }
+.mk-part + .mk-part { margin-top: var(--s-12); }
+/* (the farm's screens drawn into a stall, screenparts.inline: no box of their own) */
+.gs-detail-inline { padding: 0; }
+.gs-detail-inline .gs-detail-note:empty { display: none; }
+
+/* The ranked champion in the championship hall (game/champion-ui.js, prototype ranked_champion): the name plate in
+   front of the dais (gold: the top place is earned), and the card a tap opens. */
+.champ-plate { position: absolute; transform: translate(-50%, 0); display: grid; justify-items: center; padding: 0 var(--s-4);
+  background: var(--gold); color: var(--gold-ink); font-family: var(--fun-font); font-size: var(--fs-12); line-height: var(--lh-head);
+  white-space: nowrap; pointer-events: none; z-index: 1; }
+.champ-plate b { font-weight: 700; }
+.champ-card { display: grid; justify-items: center; gap: var(--s-8); text-align: center; }
+.champ-name { margin: 0; font-family: var(--fun-font); font-size: var(--fs-26); line-height: var(--lh-head); overflow-wrap: anywhere; }
+.champ-crown { width: 44px; height: 32px; background: url("../game-art/hall/champion_crown.png") 0 0 / 88px 32px no-repeat; image-rendering: pixelated; }
+.champ-best { margin: 0; color: var(--ink-2); font-size: var(--fs-14); }
+.champ-record { margin: 0; color: var(--ink-2); font-size: var(--fs-14); }
+.champ-team { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--s-16); margin-top: var(--s-8); }
+.champ-one { margin: 0; display: grid; justify-items: center; gap: var(--s-4); font-family: var(--fun-font); font-size: var(--fs-14); }
+.champ-one.champ-hidden { font-family: var(--ui-font); color: var(--ink-2); }
+.champ-hidden img { image-rendering: pixelated; }
+.champ-rating { display: flex; align-items: center; gap: var(--s-8); margin: 0; font-family: var(--fun-font); font-size: var(--fs-20); }
+.champ-rating span { color: var(--ink-2); font-size: var(--fs-14); }

@@ -13,12 +13,14 @@ import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { FOLK, knownKeys, lineFor, lineWords, poseOf, readLine } from "./muffles.js";
 import { seenOf } from "../lexicon/seen.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
+import { championOn, championScene, hideChampion, openChampion, placeChampion } from "./champion-ui.js";
+import { DAIS_FRONT } from "./champion.js";
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, inPen, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
 import { openFarm } from "./farmpage.js";
-import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
+import { askToDig, askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
 import { states as reviewStates } from "../review/deck.js";
@@ -51,6 +53,7 @@ import { ROOM, blockedCells, cellKey, clampToFloor, depthScale, findPath, isIndo
 import { SHRINE } from "./yard.js";
 import { COTTAGE, PIER_CHAIR, PIER_RIPPLES, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, cameraFor, decorSpot, plotSpot, stationAt, stationById, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
 import { DECALS, PROPS, ROOFS, ROOF_EXTRAS, SHEETS, TILE, drawCorners, roofRows } from "./battlemap.js";
+import { marketStall } from "./market.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -117,7 +120,7 @@ export function habitat() {
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
-        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
+        ${feature("market") ? tile("shop", "market", "Market") : tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
         ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
@@ -291,7 +294,8 @@ export function habitat() {
   // should automatically teleport the creature to specific spots in the viewer screen ... corresponding to what part
   // they are"): Shop the tailor's stall, Garden the fruit stall, Fishing the pier, Battle the hall (the gyms),
   // Creatures home to its room. The page opens as before; closed, there it stands.
-  $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
+  // (prototype "market": the tile is the Market, every stall in one sheet)
+  $("#g-shop").onclick = () => { teleportTo("cloth"); if (feature("market")) { marketStall(null); go("market"); } else go("shop"); };
   $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
   $("#g-garden").onclick = () => { // (the farm, with its buildings: prototype "farm"; with "farm_page" the tile is Farm and opens the farm page)
     teleportTo(feature("farm") ? "farm" : "fruit");
@@ -411,6 +415,7 @@ export function habitat() {
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
   files.tank = "fish/tank.png";
+  files.dresser = "room/dresser.png"; files.table = "room/table.png"; // (prototype "market": My things' dresser, the aquarium's table)
   files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png"; files.fire = "room/fire.png";
   // the room's own sky, seen through its window and doorway: a plain sun and moon and white clouds (the owner: "normal
   // clouds and sun", not the old neon ones, which the other scenes keep)
@@ -449,7 +454,7 @@ export function habitat() {
   const inYard = () => roomOn() && view === "yard";
   const walkArea = () => (inRoom() ? ROOM.walk : inHall() ? HALL_WALK : inFarm() ? FARM_WALK : YARD_WALK);
   /** The map of the place outside it is in: the yard and village, the hall's inside, or the farm. */
-  const sceneMap = () => (inHall() ? hallMap() : inFarm() ? farmMap(...fieldSize(game)) : yardMap());
+  const sceneMap = () => (inHall() ? hallMap(championOn()) : inFarm() ? farmMap(...fieldSize(game)) : yardMap());
   /** The yard's gate to the farm (at its left edge, on the path): where it stands. */
   const FARM_DOOR = { x: 18, y: 94 };
   /** How near the yard's left edge (and the farm's right edge) a tap carries on into the other (the owner: "if the
@@ -475,10 +480,17 @@ export function habitat() {
   const TANK_IN = { x: 184, y: 93 };
   const MAILBOX = { x: 92, y: 76 };
   const roomTank = () => (fishingOf(game).caught > 0 ? [{ id: "tank", x: TANK_IN.x, y: TANK_IN.y }] : []);
+  // (prototype "market", the owner: "my things should be moved to the cottage in a dresser", and "the fish in the
+  // cottage should be on a table": the dresser by the back wall, right of the window; the aquarium on a low table)
+  const marketOn = () => feature("market");
+  const DRESSER = { x: 242, y: 92 };
+  const roomDresser = () => (marketOn() ? [{ id: "dresser", x: DRESSER.x, y: DRESSER.y }] : []);
+  /** How far up the aquarium stands: on its table with the Market, else on the floor. */
+  const tankLift = () => (marketOn() && art.table ? art.table.height - 2 : 0);
   let rolling = null; // the ball, kicked: {id, from, to, t}
-  const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
+  const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank(), ...roomDresser()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
-    : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
+    : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK), undefined, championOn())
     : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells([...buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), ...farmStanding().map(([id, at]) => ({ id, x: at.x, y: at.y }))], () => 26, FARM_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
@@ -770,6 +782,7 @@ export function habitat() {
       }
     }
     if (inFarm()) farmScene(out, now, sparkle);
+    if (inHall() && championOn()) championScene(out, { ctx, now, img: yimg, k: creatureScale() }); // (the ranked champion's dais)
     if (inYard() && shrineTier(game)) { // the Star Shrine (slice 3), once there is stardust
       const pic = yimg(`farm/shrine_${shrineTier(game)}.png`);
       if (pic) out.push({ y: SHRINE.y, draw: () => {
@@ -906,9 +919,10 @@ export function habitat() {
     setLang(b, lang);
     b.dir = lang === "ar" || lang === "fa" ? "rtl" : "ltr";
     b.classList.toggle("unspaced", ["ja", "zh", "th"].includes(lang)); // (written without spaces: its words close together)
-    // who is talking (the owner's name for them: "Muffles", one is a Muffle), and how many of its words are awake
-    small.textContent = read.total ? `${t("Muffle")} · ${t("Words you know: {0} of {1}", read.known, read.total)}` : t("Muffle");
-    small.hidden = false;
+    // how many of its words are awake: whole, never cut off (it wraps), and no "Muffle ·" before it (the owner,
+    // 2026-11-28: "I don't think those chats really need to say muffle on them either")
+    small.textContent = read.total ? t("Words you know: {0} of {1}", read.known, read.total) : "";
+    small.hidden = !read.total;
     msay.hidden = false;
     msay.classList.remove("show");
     void msay.offsetWidth; // (restarts its fade)
@@ -939,8 +953,9 @@ export function habitat() {
       const half = (msay.offsetWidth / Math.max(1, canvas.clientWidth)) * W / 2 + 2; // (kept inside the window)
       msay.style.left = `${(Math.max(half, Math.min(W - half, msayFor.x - cam())) / W) * 100}%`;
       const high = msayFor.y < 84; // (one up by the stalls and doors: its words below it, clear of the corner buttons)
-      msay.style.bottom = high ? "auto" : `${((H - msayFor.y + 30) / H) * 100}%`;
-      msay.style.top = high ? `${((msayFor.y + 4) / H) * 100}%` : "auto";
+      const tall = (msay.offsetHeight / Math.max(1, canvas.clientHeight)) * H; // (its height in scene pixels: a count line can wrap)
+      msay.style.bottom = high ? "auto" : `${(Math.min(H - tall - 2, H - msayFor.y + 30) / H) * 100}%`; // (kept inside the window, top
+      msay.style.top = high ? `${(Math.max(2, Math.min(H - tall - 2, msayFor.y + 4)) / H) * 100}%` : "auto"; //  and bottom too)
     }
   }
   const foodArt = {}; // food id -> image (a hungry creature's thought bubble)
@@ -1145,9 +1160,12 @@ export function habitat() {
     const feet = feetNow();
     const pieces = inRoom() ? furniture() : [];
     const drawPiece = (d) => {
+      if (d.id === "dresser") { if (art.dresser) ctx.drawImage(art.dresser, Math.round(d.x - art.dresser.width / 2), d.y - art.dresser.height + 2); return; }
       if (d.id === "tank") { // the aquarium, its fish swimming (very small)
         if (!art.tank) return;
-        const tx = d.x - art.tank.width / 2, ty = d.y - art.tank.height + 2;
+        const lift = tankLift(); // (on its table: prototype "market")
+        if (lift) ctx.drawImage(art.table, Math.round(d.x - art.table.width / 2), d.y - art.table.height + 2);
+        const tx = d.x - art.tank.width / 2, ty = d.y - lift - art.tank.height + 2;
         ctx.drawImage(art.tank, tx, ty);
         drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
         return;
@@ -1302,6 +1320,7 @@ export function habitat() {
     }
     // Something earned while a sheet or a battle covered the card flies in once it is gone.
     ctx.restore();
+    if (inHall() && championOn()) placeChampion(canvas, W, H); else hideChampion(canvas); // (the champion's name plate)
     if (pending && (pendingT -= dt) < 0) { pendingT = 0.5; if (!document.querySelector(OVERLAYS)) settle(); }
   }
 
@@ -1373,6 +1392,7 @@ export function habitat() {
     if (what === "seeds") { sfx("tick"); openSeedStand({ changed: () => paintHud() }); return; }
     if (what === "farmgate") { sfx("tick"); goThrough("farm"); return; }
     if (what === "yardgate") { sfx("tick"); goThrough("yard"); return; }
+    if (what === "champion") { sfx("tick"); openChampion(); return; }
     if (what === "register") { // at the hall's counter: the custodian says something, and the gym register opens
       const c = folk.find((f) => f.id === "custodian");
       if (c) muffleSpeak(c);
@@ -1401,6 +1421,9 @@ export function habitat() {
       sfx("tick");
       pet.mood = "happy"; pet.moodT = 3;
       setTimeout(() => { if (!disposed && inRoom()) walkTo({ x: to.x + 14, y: to.y }); }, 650);
+    } else if (what === "dresser") { // it opens a drawer: My things (prototype "market")
+      emote("idea", 1);
+      setTimeout(() => { if (!disposed) go("mine"); }, 500);
     } else if (what === "tank") { // it watches the fish a moment, then your basket opens
       emote("love", 1.2);
       setTimeout(() => { if (!disposed) go("basket"); }, 700);
@@ -1412,6 +1435,9 @@ export function habitat() {
   /** What a station in the village opens (yard.js STATIONS): a page of the game sheet, the pond, the gyms, the tavern. */
   function openStation(st) {
     sfx("tick");
+    // (prototype "market": the market's stalls open their own stall of the Market sheet)
+    const stallOf = { cloth: "tailor", bread: "baker", flowers: "florist", fruit: "grocer" }[st.id];
+    if (feature("market") && stallOf) { marketStall(stallOf); go("market"); return; }
     if (st.opens === "pond") openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
     else if (st.opens === "garden" && farmOn()) openFruitStall({ changed: () => paintHud() }); // (slice 4: selling harvests)
     else if (st.opens === "gyms" && roomOn()) goThrough("hall"); // (in through its door: the custodian keeps the register)
@@ -1468,7 +1494,7 @@ export function habitat() {
           const by = at.y - 20 + Math.round(Math.sin(now / 260 + sp.c + sp.r) * 1.5);
           ctx.fillStyle = "#1e2a44";
           ctx.fillRect(at.x - 2, by - 1, 5, 6); ctx.fillRect(at.x - 1, by - 3, 3, 2);
-          ctx.fillStyle = st.half ? "#8ab8e8" : "#4a9ae8";
+          ctx.fillStyle = "#4a9ae8";
           ctx.fillRect(at.x - 1, by, 3, 4); ctx.fillRect(at.x, by - 2, 1, 2);
           ctx.fillStyle = "#c8e8ff"; ctx.fillRect(at.x - 1, by, 1, 1);
         }
@@ -1563,12 +1589,18 @@ export function habitat() {
     const at = (() => { const [c, r] = key.split(",").map(Number); return spotXY(c, r); })();
     if (!st) { pickSeed(key, { changed: () => paintHud(), planted: () => emote("idea", 1.2) }); return; }
     if (st.ripe) { reap(key, at); return; }
-    if (!st.thirsty) { plantCard(key, { harvest: () => reap(key, at) }); return; }
-    const r = await askToWater(key);
-    if (!r) return;
-    if (r.correct || r.grew) bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
-    if (r.revived) toast(t("It perked up again."));
-    if (r.ripe) { emote("love", 1.5); toast(t("Ripe! Tap it to harvest.")); }
+    // a growing (or resting) plant: its card, how far it has grown, Water and Dig up (each asks a word)
+    plantCard(key, {
+      water: st.growing ? async () => {
+        const r = await askToWater(key);
+        if (!r) return;
+        bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
+        if (r.revived) toast(t("It perked up again."));
+        if (r.ripe) { emote("love", 1.5); toast(t("Ripe! Tap it to harvest.")); }
+      } : null,
+      dig: async () => { const r = await askToDig(key); if (r) paintHud(); },
+      harvest: () => reap(key, at),
+    });
   }
   function reap(key, at) {
     const got = harvestPlant(game, key);
@@ -1724,8 +1756,9 @@ export function habitat() {
     }
     // Inside the hall (hall.js): its door goes back out, the counter is where it signs up, the floor is walked on.
     if (inHall() && !pressed) {
-      const w = tapHall(x, y);
+      const w = tapHall(x, y, championOn());
       if (w === "door") { sfx("tick"); goThrough("yard"); return; }
+      if (w === "champion") { if (isEgg()) useThing("champion"); else walkTo(DAIS_FRONT, "use:champion"); return; } // (the champion's card)
       if (w === "counter") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; }
       if (!isEgg()) walkTo(clampToFloor({ x, y }, HALL_WALK));
       return;
@@ -1734,8 +1767,13 @@ export function habitat() {
     if (inRoom() && !pressed && tapIn(x, y) === "door") { sfx("tick"); goThrough("yard"); return; } // (even with the creature in front of it)
     if (inRoom() && !pressed && !onCreature(x, y)) {
       // the aquarium: it walks over and watches the fish, then your basket opens
-      if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30) {
+      if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30 - tankLift()) {
         if (isEgg()) go("basket"); else walkTo({ x: TANK_IN.x, y: TANK_IN.y + 8 }, "use:tank");
+        return;
+      }
+      // the dresser (prototype "market"): it walks over, and My things opens
+      if (roomDresser().length && Math.abs(x - DRESSER.x) < 14 && y < DRESSER.y + 3 && y > DRESSER.y - 30) {
+        if (isEgg()) go("mine"); else walkTo({ x: DRESSER.x, y: DRESSER.y + 8 }, "use:dresser");
         return;
       }
       // (the door, above: straight out from anywhere in the room, the owner: "Clicking on the door once should just

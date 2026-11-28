@@ -22,6 +22,7 @@ import { courseWords, tappable } from "./coursewords.js";
 import { clipOf, packStore } from "../coursepacks.js";
 import { dictationOn, dictationPanel } from "./dictation.js";
 import { appSound } from "../appvolume.js";
+import { sayText } from "../saytext.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -29,6 +30,10 @@ const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* storage
 // A word with its own audio (every word, except in a course built without any: build_course.py --voice none):
 // its clip in the unit's pack, or its own file in a course from before the packs (coursepacks.js clipOf).
 const hasAudio = (w) => !!clipOf(w);
+// A word written before its audio is made (Frequency words 1001-3000, built with build_course.py --no-new-audio) in a
+// course that has a voice: the app's own voice says it meanwhile (saytext.js sayText). A course with no voice at all
+// (Moroccan) has no buttons.
+const sayable = (w, course) => hasAudio(w) || !!(course && course.voice);
 // The units' audio packs, downloaded once (the computer's server keeps them itself: app/course.py). Made on
 // first use: this file is loaded while app.js (and its `platform`) is still loading.
 let store = null;
@@ -178,7 +183,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
         <div class="cw-sent ar" ${attrs} translate="no">${sentence}</div>
         <div class="cw-trans" translate="no">${markedHtml(w.translation, esc)}</div>
         <div class="cw-actions">
-          ${hasAudio(w) ? `<button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
+          ${sayable(w, course) ? `<button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
           <button type="button" class="ghost cw-play" data-part="sentence">${icon("sound", 15)} Sentence</button>` : ""}
           <span class="spacer"></span>
           <button type="button" class="cw-add"></button>
@@ -331,6 +336,12 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
   }
 
   async function play(w, part) {
+    if (!hasAudio(w)) { // (no audio made yet: the app's own voice)
+      const text = part === "word" ? (typeof w.say === "string" && w.say ? w.say : w.word) : w.sentence;
+      const id = courseIdOf(course), dialect = id.includes("-") ? id.split("-")[1] : "";
+      await sayText(text, lang, { dialect });
+      return;
+    }
     const t = w.times || {};
     const [from, to] = part === "word" ? [t.start, t.end] : [t.sent_start, t.sent_end];
     if (!Number.isFinite(from)) return;

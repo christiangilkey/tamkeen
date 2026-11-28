@@ -517,12 +517,33 @@ export function buyTank(state) {
 
 // ---------- rods ----------
 
-/** Buy rod `i` with pearls (it is used straight away): "" or why not. */
+// Rods are an upgrade path (the owner, 2026-11-27: "you have to buy the one after it. You can't skip rods. It should
+// be like an upgrade"): only the rod after your best one can be bought. A save from before that rule may own a later
+// rod without an earlier one: it keeps every rod it has, and its next rod is still the one after its best.
+
+/** The best rod owned (a RODS index). */
+export const bestRod = (state) => Math.max(0, ...fishingOf(state).rods);
+/** The one rod that can be bought now, the one after the best owned (a RODS index), or -1 with the last rod owned. */
+export const nextRod = (state) => (bestRod(state) + 1 < RODS.length ? bestRod(state) + 1 : -1);
+
+/** Is there an upgrade the pearls in hand can pay for: the next rod, or the next, bigger aquarium? (The pond's basket
+ * button shows a dot for it.) */
+export function upgradeReady(state) {
+  const f = fishingOf(state);
+  const rod = RODS[nextRod(state)];
+  const tank = nextTank(state);
+  return !!(rod && f.pearls >= rod.pearls) || !!(tank && f.pearls >= tank.pearls);
+}
+
+/** Buy rod `i` with pearls, or pick up one already owned (either way it is the rod in use): "" or why not. */
 export function buyRod(state, i) {
   const f = fishingOf(state);
   const rod = RODS[i];
   if (!rod) return "There is no such rod.";
   if (f.rods.includes(i)) { f.rod = i; return ""; }
+  const next = nextRod(state);
+  if (i < next || next < 0) return "You already have a better rod.";
+  if (i > next) return `Buy the ${RODS[next].name} first.`;
   if (f.pearls < rod.pearls) return `You need ${rod.pearls - f.pearls} more pearls.`;
   f.pearls -= rod.pearls;
   f.rods.push(i);

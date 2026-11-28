@@ -15,6 +15,11 @@
   "file": "wordfreq.txt"
  },
  {
+  "name": "Frequency words 1001-3000: film and TV subtitle counts (FrequencyWords, OpenSubtitles 2018)",
+  "license": "CC BY-SA 4.0",
+  "file": "frequencywords.txt"
+ },
+ {
   "name": "CAMeL Tools analyzer method; Arabic dictionaries (optional download)",
   "license": "MIT; GPL v2 / CC BY 4.0",
   "file": "camel-tools.txt"

@@ -1,5 +1,9 @@
 // The web app's "add to home screen" button: a small icon in the top bar, shown only in a browser
 // tab (not once Tamkeen has been added and opens on its own), with steps for the device in hand:
+// (the owner, 2026-11-27: "I already have Tamkeen added to my home screen and the purple spinning button on the
+// top is still there". A home-screen icon that opens in the browser (a plain shortcut, say one added from the
+// website's front page) looks like a tab, so the button also goes for good once Tamkeen has run as an app on
+// this device, once it was installed, or once "It's on my home screen already" is tapped in its steps.)
 // iPhone or iPad (Safari, or another browser there), Android (Chrome's own install prompt when it
 // offers one, or the menu steps), or a computer.
 
@@ -7,13 +11,25 @@ import { h } from "./app.js";
 import { isWeb } from "./native.js";
 import { openModal } from "./components/modal.js";
 
+const INSTALLED = "tamkeenInstalled"; // (this device has Tamkeen on its home screen: the button stays away)
+/** Remember that Tamkeen is on this device's home screen, and take the button away. */
+function remember() {
+  try { localStorage.setItem(INSTALLED, "1"); } catch { /* storage off: it just shows again next time */ }
+  document.querySelector(".top-install")?.remove();
+}
+
 let installPrompt = null; // Chrome's "install this app" prompt, kept for the button (Android, computers)
 if (typeof window !== "undefined") {
   window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
-  window.addEventListener("appinstalled", () => { installPrompt = null; document.querySelector(".top-install")?.remove(); });
+  window.addEventListener("appinstalled", () => { installPrompt = null; remember(); });
 }
 
+/** Opened as an app (from its home-screen icon; the manifest asks for "standalone"), not in a browser tab. */
 const standalone = () => window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+/** Already on this device's home screen, as far as the app can tell. */
+function installed() {
+  try { return localStorage.getItem(INSTALLED) === "1"; } catch { return false; }
+}
 
 /** Which device and browser: {os: "ios"|"android"|"computer", browser: "safari"|"chrome"|"samsung"|"firefox"|"edge"|"other"}. */
 export function device(ua = navigator.userAgent, touchMac = false) {
@@ -66,7 +82,9 @@ function showSteps() {
     <p class="muted" style="margin:0">Tamkeen then opens from its own icon, full screen, like an app. On this ${where}:</p>
     <ol class="install-steps">${steps(d).map((s) => `<li>${s}</li>`).join("")}</ol>
     ${installPrompt ? `<button type="button" class="primary big" data-install>Install now</button>` : ""}
+    <button type="button" class="ghost" data-have>It's on my home screen already</button>
   </div>`);
+  box.querySelector("[data-have]").addEventListener("click", () => { remember(); modal.close(); });
   box.querySelector("[data-install]")?.addEventListener("click", async () => {
     const prompt = installPrompt;
     installPrompt = null;
@@ -80,7 +98,9 @@ function showSteps() {
 
 /** Put the button in the top bar (web app only, and not when it is already on the home screen). */
 export function mountInstallButton(topbar) {
-  if (!isWeb || !topbar || standalone()) return;
+  if (!isWeb || !topbar) return;
+  if (standalone()) { remember(); return; } // (running as an app: a browser tab here won't ask either)
+  if (installed()) return;
   const b = h(`<button type="button" class="top-install ghost icon" title="Add Tamkeen to your home screen" aria-label="Add Tamkeen to your home screen">${ADD}</button>`);
   b.onclick = showSteps;
   const search = topbar.querySelector(".top-search");

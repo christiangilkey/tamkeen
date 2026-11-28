@@ -45,7 +45,6 @@ export async function render(view) {
       <div class="hero-main" id="main"><div class="hero-loading">…</div></div>
     </section>
     <div class="home-more" id="more"></div>
-    <div class="home-today" id="today"></div>
     <div id="home-oldgame" class="home-oldgame" hidden></div>
     <div id="habitat"></div>
     <div id="home-tavern" class="home-tavern" hidden></div>
@@ -138,18 +137,6 @@ export async function render(view) {
       text: "Find a word in everything you've read or listened to." },
   ]);
 
-  // A small, honest summary of today: no streak pressure, nothing to lose.
-  try {
-    const words = await api("/vocab");
-    const midnight = new Date();
-    midnight.setHours(0, 0, 0, 0);
-    const today = words.filter((v) => v.created_at * 1000 >= midnight.getTime()).length;
-    const box = view.querySelector("#today");
-    if (box) {
-      box.append(h(`<p class="today-line">
-        <span>${today} word${today === 1 ? "" : "s"} saved today</span>
-        <span>${words.length} in your vocab</span>
-      </p>`));
-    }
-  } catch { /* vocab unavailable: the summary is optional */ }
+  // (No "N words saved today · N in your vocab" line here any more: the owner, 2026-11-28, "should be removed from
+  // games screen". The words are counted on the Vocab tab.)
 }

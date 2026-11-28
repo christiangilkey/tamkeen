@@ -8,6 +8,7 @@ import { VARIANTS, prizeOf } from "./data.js";
 import { t } from "../i18n.js";
 import { cardsGlow } from "./idle.js";
 import { restore, rollAnswer, snapshot } from "./loot.js";
+import { grow, ungrow } from "./farm.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
 import { deviceId, noteStudy } from "../dlitime.js";
@@ -170,7 +171,8 @@ export function rollCard(ctx) {
   rollDay(g);
   const before = snapshot(g, ctx.uid);
   const out = rollAnswer(g, { source: "cards", ...ctx });
-  out.undo = () => { restore(g, before); saveGame(); };
+  const grown = grow(g, 1); // (every word studied grows every plant on the farm a little: the owner, 2026-11-28)
+  out.undo = () => { restore(g, before); ungrow(g, grown); saveGame(); }; // (Undo takes the growth back too)
   saveGame();
   if (out.rolled) for (const fn of listeners) { try { fn({ type: "loot", ...out }, g); } catch { /* a listener must not break studying */ } }
   return out;

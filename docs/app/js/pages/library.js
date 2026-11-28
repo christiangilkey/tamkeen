@@ -318,8 +318,8 @@ export async function render(view, { feedId: routeFeed, query }) {
             <select id="variety-pick" aria-label="Which Arabic to learn"></select>
           </label>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span class="words-label">Frequency words</span></button>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
-            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span class="words-label">First 1000 words</span></button>
           </div>
           <div class="course" id="course" hidden></div>
           <div class="course grammar" id="grammar" hidden></div>
@@ -1469,9 +1469,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       return;
     }
     root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
-    // "First 1000 words", or as many as the list has (a dialect's is 300).
-    const planned = basics ? Number(courses.courses[basicsCourse].planned) || 1000 : 1000;
-    root.querySelector('#course-tabs [data-tab="basics"] .words-label').textContent = t("First {0} words", planned);
+    // (its name is "Frequency words" whatever the list's length, a dialect's 300 too: the owner, 2026-11-27)
     root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !choice;
     $("#course-tabs").hidden = false;
     let chosen = "";
@@ -1717,7 +1715,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#feed-list", title: "What to show",
       text: "Switch between Basics, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
     { target: "#course-tabs", title: "Basics, for a start",
-      text: "New to the language? First 1000 words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books." },
+      text: "New to the language? Frequency words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

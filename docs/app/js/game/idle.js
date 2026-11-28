@@ -264,7 +264,7 @@ export function buySupply(state, id, rand = Math.random) {
   if (id === "egg" && state.roster.length >= MAX_CREATURES) return "Your roster is full.";
   if (s.glow) { if (g.glow < s.glow) return `You need ${Math.ceil(s.glow - g.glow)} more glow.`; g.glow -= s.glow; }
   if (s.gems) { if (state.gems < s.gems) return `You need ${s.gems - state.gems} more gem${s.gems - state.gems === 1 ? "" : "s"}.`; state.gems -= s.gems; }
-  if (id === "egg") layEgg(state, rand);
+  if (id === "egg") layEgg(state, rand, { shop: true }); // (an element pie cooked since decides its element)
   else state.items[id] = (state.items[id] || 0) + 1;
   return "";
 }

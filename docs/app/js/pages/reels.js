@@ -10,7 +10,7 @@
 import { api, esc, h, on, toast, platform, buzz, reelSurface, fmtDuration, openInstagramSignIn } from "../app.js";
 import { voiceNewCard } from "../voiceplay.js";
 import { icon } from "../icons.js";
-import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
+import { activeWordIndex, isPunctuated, spokenSentence, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
@@ -751,9 +751,11 @@ async function renderPlayer(view, { query }) {
 
   /** Word i of the current reel, with its sentence: what a lookup is asked about. */
   function contextAt(i, j = i) {
-    const [si, sj] = sentenceBounds(cur.texts, cur.segOf, i, j);
-    const prev = si > 0 ? sentenceBounds(cur.texts, cur.segOf, si - 1) : null;
-    const next = sj < cur.texts.length - 1 ? sentenceBounds(cur.texts, cur.segOf, sj + 1) : null;
+    // The whole sentence it was heard in, across the reel's lines (wordlookup.js spokenSentence).
+    const o = { starts: cur.starts, ends: cur.ends, punctuated: isPunctuated(cur.texts) };
+    const [si, sj] = spokenSentence(cur.texts, cur.segOf, i, j, o);
+    const prev = si > 0 ? spokenSentence(cur.texts, cur.segOf, si - 1, si - 1, o) : null;
+    const next = sj < cur.texts.length - 1 ? spokenSentence(cur.texts, cur.segOf, sj + 1, sj + 1, o) : null;
     const word = phraseText(cur.texts, i, j, cur.lang);
     return { si, sj, word, ctx: {
       word, lang: cur.lang, marked: markWord(cur.texts.slice(si, sj + 1), i - si, j - si, cur.lang),

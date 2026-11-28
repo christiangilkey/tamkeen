@@ -44,7 +44,8 @@ function links(close, items) {
   const row = h(`<div class="row"></div>`);
   items.forEach((it, i) => {
     const b = h(`<button type="button" class="${i ? "" : "primary"}">${it.pic.startsWith("<") ? it.pic : icon(it.pic)} <span></span></button>`);
-    b.querySelector("span").textContent = it.label;
+    // (prototype "market": the shop is the Market now, and a link to it says so)
+    b.querySelector("span").textContent = feature("market") && it.label === "Open the shop" ? "Open the market" : it.label;
     b.onclick = () => { close(); it.run(); };
     row.append(b);
   });

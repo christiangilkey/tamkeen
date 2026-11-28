@@ -1,0 +1,13 @@
+Frequency words 1001-3000 in Basics: film and TV subtitle counts (FrequencyWords)
+
+Tamkeen's Basics courses choose words 1001-3000 of each language ("Frequency words") from a blend weighted
+toward spoken language: 70% the word counts of film and TV subtitles, 30% wordfreq's counts (see wordfreq.txt).
+The subtitle counts are FrequencyWords by Hermit Dave (https://github.com/hermitdave/FrequencyWords), the 2018
+lists counted from the OpenSubtitles 2018 collection (http://www.opensubtitles.org/, as published in OPUS:
+P. Lison and J. Tiedemann, "OpenSubtitles2016: Extracting Large Parallel Corpora from Movie and TV Subtitles",
+LREC 2016). Tamkeen reads the "<language>_50k.txt" lists as data only; they are not shipped with the app. The
+counts are blended, grouped by dictionary word and checked by hand (tools/course/forms.py, candidates.mjs);
+the course's words, meanings and sentences are Tamkeen's own.
+
+FrequencyWords' content is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License
+(https://creativecommons.org/licenses/by-sa/4.0/), and so are the ranked word lists made from it.

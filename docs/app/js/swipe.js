@@ -54,6 +54,10 @@ function scrollsSideways(el) {
 
 function blocked(target) {
   if (document.body.classList.contains("in-player")) return true;
+  // Content's Home with bubbles you can drag (prototype "library_physics", components/homemap.js): no swiping
+  // between tabs on that screen, so moving a bubble never changes tab (the owner).
+  const map = document.querySelector("#lib-home .lh-map.lh-physics");
+  if (map && map.offsetParent) return true;
   if (target.closest("input, textarea, select, [contenteditable], .word-bubble, #ctxmenu, iframe, video, .transcript, .reader-text")) return true;
   const sel = window.getSelection();
   if (sel && !sel.isCollapsed) return true;

@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.79.0",
+  "Review while you play: flashcards beside the pond and the farm");
+notes("0.79.0",
+  "The Market: every village stall in one place");
+notes("0.79.0",
+  "Farm plants grow with every word you study");
+notes("0.79.0",
+  "Sell your harvest from the barn, and dig plants up");
+notes("0.79.0",
+  "Saved words keep the whole sentence, with an AI translation");
+notes("0.79.0",
+  "Fishing rods are bought one after another, like upgrades");
 notes("0.78.0",
   "A fresh look across the whole app, with new fonts");
 notes("0.78.0",

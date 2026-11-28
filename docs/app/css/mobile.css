@@ -106,15 +106,8 @@ button, .btn { min-height: 44px; } /* a fingertip (DESIGN.md) */
 
 /* The web app's "add to home screen" button and its steps (web-install.js) */
 .top-install { margin-inline-start: auto; color: var(--ink); padding: 0; width: 36px; height: 36px; min-width: 0; display: inline-grid; place-items: center; position: relative; border-radius: 50%; corner-shape: round; isolation: isolate; }
-/* A purple ring travelling round the button, so it is noticed (only shown in a browser tab, see web-install.js) */
-.top-install::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; corner-shape: round; z-index: -1; padding: var(--s-4);
-  background: conic-gradient(from var(--ring-turn, 0deg), transparent 0deg, var(--plum-600) 90deg, var(--plum-900) 180deg, transparent 270deg);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: top-install-ring 2.4s linear infinite; }
-@property --ring-turn { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-@keyframes top-install-ring { to { --ring-turn: 360deg; } }
-@media (prefers-reduced-motion: reduce) { .top-install::before { animation: none; background: var(--plum-600); } }
-.top-install + .top-search { margin-inline-start: var(--s-4); }
+/* (a plain icon like its neighbours: the spinning purple ring went, the owner 2026-11-27; DESIGN.md: a calm bar) */
+.top-install + .top-search, .top-install ~ .top-help { margin-inline-start: var(--s-4); }
 .install-steps { margin: 0; padding-inline-start: var(--s-24); display: grid; gap: var(--s-8); line-height: var(--lh-text); }
 
 

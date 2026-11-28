@@ -32,7 +32,8 @@ import { clock as luckClock, openLuck } from "../game/luck.js";
 import { gameOn } from "../components/gameswitch.js";
 import { icon as gameIcon } from "../game/render.js";
 import { vowelCard } from "../vowels.js";
-import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
+import { AGAIN, GOOD, dayNumber, nextWait } from "../review/fsrs.js";
+import { recordAnswer, regradeAnswer } from "../review/answerstep.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_MAX, NEW_PER_DAY, cleanNewPerDay, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
@@ -179,11 +180,22 @@ async function play(el, frames, options) {
  *   setFolder    (word, uid, on) => Promise, puts a word in a folder or takes it out
  *   newFolder    () => Promise<folder | null>, makes a folder (its name asked)
  *   onClose      called when the reviewer is put away
+ * Docked beside a game (prototype "review_play", game/reviewplay.js), the same reviewer with every card answered the
+ * same way (the one `grade` below), drawn in a box of the game's page instead of over the whole screen:
+ *   dock         the box to draw it in (null: over the whole screen, as from the Vocab page)
+ *   onTurn       (word) => void, told as a card is turned (the game casts, or walks to its plot)
+ *   onAnswer     ({word, uid, rating, remembered, entry, lucky, earned, redo}) => void, told after each answer has done
+ *                everything it does in the full-screen reviewer; `redo`: it answers again a card whose answer was
+ *                taken back (Undo), so the game doesn't act a second time for it
+ *   hold         () => boolean: while true (a spot check is open in the game) the cards wait: no turning, no answer,
+ *                no keys, and the time bar holds
+ * Returns {close, regrade (word) => boolean, el}, or null when a reviewer is open already.
  * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
 export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {},
-  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {}, extraNew = 0 }) {
-  if (document.querySelector(".rv")) return;
+  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {}, extraNew = 0,
+  dock = null, onTurn = null, onAnswer = null, hold = () => false }) {
+  if (document.querySelector(".rv")) return null;
   const cards = states(log);
   let perDay = newPerDay();
   // Extra new words allowed this session: asked for at the end of a session ("Learn 10 more"), or by a
@@ -196,7 +208,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let record = loadRecord();           // the speed streak, the best ones and the boosts banked (this device)
   const pace = model(log, deviceTimes());  // how long this learner takes, for the "Auto" time goal
 
-  const el = h(`<div class="rv" role="dialog" aria-modal="true" aria-label="Review your vocab">
+  const el = h(`<div class="rv${dock ? " rv-docked" : ""}" role="dialog" aria-modal="true" aria-label="Review your vocab">
     <div class="rv-bg"></div><div class="rv-glow"></div>
     <header class="rv-top">
       <button type="button" class="rv-x" title="Close (Esc)" aria-label="Close">${ICON.close}</button>
@@ -256,6 +268,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     <div class="rv-fx"></div>
     <div class="rv-loot"></div>
   </div>`);
+  if (dock) { el.setAttribute("role", "region"); el.removeAttribute("aria-modal"); }  // (docked: a part of the game's page)
   const $ = (s) => el.querySelector(s);
   const card = $(".rv-card"), face = $(".rv-scroll"), actions = $(".rv-actions"), fx = $(".rv-fx"), panel = $(".rv-panel");
 
@@ -267,6 +280,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const session = { answered: 0, firstTry: 0, started: 0, finished: 0, streak: 0, best: 0, xp: 0 };
   const tried = new Set();  // words answered at least once this session
   const undo = [];
+  const retaken = new Set();  // words whose answer was taken back: answering one again is no new moment in a game beside
   // Time with the reviewer in front (review/cardtimer.js): the card on the table, and the session.
   const cardWatch = stopwatch(), sessionWatch = stopwatch();
   // The countdown (review/speedstreak.js): each side of the card has its own time; it waits while a text box
@@ -441,7 +455,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const toolPanel = flipped ? face.querySelector(".rv-tool-panel") : null;
     const line = flipped ? face.querySelector(".rv-details") : null;
     return {
-      overlay: !settings.hidden || Boolean(asking) || Boolean(document.querySelector(".tour, .game-sheet-wrap, .modal-back, [role=\"alertdialog\"]")),
+      overlay: !settings.hidden || Boolean(asking) || hold() || Boolean(document.querySelector(".tour, .game-sheet-wrap, .modal-back, [role=\"alertdialog\"]")),
       editing: Boolean(editing),
       typing: Boolean(f && f !== el && el.contains(f) && f.matches(TYPED)),
       flipped,
@@ -909,13 +923,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
 
   async function flip() {
-    if (flipped || busy || !todo.length || $(".rv-wrap").hidden) return;
+    if (flipped || busy || !todo.length || $(".rv-wrap").hidden || hold()) return;
     busy = true;
     clearChips();  // (whatever the last answer earned leaves the corner: the back has no empty one)
     // (try/finally: whatever goes wrong while the card turns, the answer buttons are never left dead)
     try {
       const v = todo[0];
       SOUND.flip();
+      if (onTurn) { try { onTurn(v); } catch { /* the game beside the cards must never stop them */ } }
       tilt(0, 0);
       await play(card, [{ transform: "rotateY(0deg)" }, { transform: "rotateY(90deg)" }], { duration: 140, easing: "ease-in" });
       back(v);
@@ -958,20 +973,19 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     .catch((e) => toast(`That answer wasn't saved: ${e.message}`, { error: true }));
 
   async function grade(rating, from = "") {
-    if (!flipped || busy || !todo.length) return;
+    if (!flipped || busy || !todo.length || hold()) return;
     if (editing) closeEditor(true);  // (an answer button pressed while a text box was open: the text is kept first)
     busy = true;
     flushEdits();
     memoDone(todo[0]);  // (notes typed and answered without leaving the box: their capitals still count)
-    const word = todo[0], uid = uidOf(word), t = Date.now();
-    const before = cards.get(uid) || null;
-    const day = before ? Math.max(dayNumber(), before.day) : dayNumber();
+    const word = todo[0], uid = uidOf(word);
     cardWatch.stop();  // the time the card was looked at, without any time the app was hidden
-    const entry = [t, rating, day, Math.min(60000, Math.round(cardWatch.ms()))];
+    // (the answer's entry and the word's new memory state: review/answerstep.js. A card answered docked beside a game
+    // comes through this same grade, so it changes exactly as it does here.)
+    const { before, entry } = recordAnswer({ cards, log, uid, rating, ms: cardWatch.ms(), now: Date.now(), today: dayNumber() });
+    const day = entry[2];
     const step = { word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid), lucky: null, speed: record };
     undo.push(step);
-    (log[uid] = log[uid] || []).push(entry);
-    cards.set(uid, answer(before, rating, day));
     send(uid, entry);
     noteAnswer(log[uid], day);  // the time this word took today, for the estimate under the banner
 
@@ -1012,6 +1026,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const told = chipsFor(remembered, earned, lucky);
     clearChips();  // (the last card's, if it was answered this quickly)
     header();
+    // Docked beside a game: the game plays its moment for this answer, everything above done as always.
+    const redo = retaken.delete(uid);
+    if (onAnswer) { try { onAnswer({ word, uid, rating, remembered, entry, lucky, earned, redo }); } catch { /* the game must never stop the cards */ } }
     if (remembered) { const bar = $(".rv-progress"); bar.classList.remove("bump"); void bar.offsetWidth; bar.classList.add("bump"); }
 
     const dir = remembered ? 1 : -1;
@@ -1102,10 +1119,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
 
   function takeBack() {
-    if (busy || !undo.length) return;
+    if (busy || !undo.length || hold()) return;
     flushEdits();
     if (todo.length) memoDone(todo[0]);
     const last = undo.pop(), uid = uidOf(last.word);
+    retaken.add(uid);
     last.entry[1] = 0;                       // the log holds this same list: 0 means "taken back"
     send(uid, last.entry);
     forgetAnswer(last.entry[0]);
@@ -1119,6 +1137,35 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     SOUND.undo();
     show(true);
     carryMs = last.entry[3];            // the card has been looked at already: answering it again isn't "too fast"
+  }
+
+  /** A spot check in the game beside a docked reviewer (game/reviewplay.js) found that a card answered "Remembered"
+   * wasn't: it becomes "Not remembered" as if that had been pressed (review/answerstep.js regradeAnswer, in a way
+   * every device's sync keeps), and comes back a few cards on, or next when the session had ended. Nothing else
+   * changes (the owner: "with no other penalty"): what its roll paid and its XP stay. Returns whether it changed. */
+  function regrade(word) {
+    if (closed) return false;
+    const i = undo.map((s) => s.word).lastIndexOf(word);
+    const step = undo[i];
+    const uid = uidOf(word);
+    const entry = step && step.entry[1] === GOOD ? regradeAnswer({ cards, log, uid, step, now: Date.now() }) : null;
+    if (!entry) return false;
+    send(uid, step.entry);  // the "Remembered", taken back...
+    send(uid, entry);       // ...and "Not remembered" in its place
+    // (an answer a check has changed has no Undo; Undo of a later answer keeps the word in what is left to do)
+    undo.splice(i, 1);
+    for (const s of undo.slice(i)) if (!s.todo.includes(word)) s.todo.splice(Math.min(1, s.todo.length), 0, word);
+    session.finished = Math.max(0, session.finished - 1);
+    if (step.firstTime) session.firstTry = Math.max(0, session.firstTry - 1);
+    if (!word.deleted) {
+      if (todo.length) todo = [todo[0], ...requeue(todo.slice(1), word)];
+      else {
+        todo = [word];
+        if (!busy) { sessionWatch.go(); show(); }  // (the summary was showing: one more card)
+      }
+    }
+    header();
+    return true;
   }
 
   // ----- deleting the word on the table -----
@@ -1330,7 +1377,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (d.tok) d.tok.classList.remove("pressing");
   };
   card.addEventListener("pointerdown", (e) => {
-    if (busy || e.button > 0 || interactive(e.target)) return;
+    if (busy || hold() || e.button > 0 || interactive(e.target)) return;
     if (editing) return;  // a text box is open: a tap beside it only puts it away (it saves as it loses the focus)
     drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, moved: false, at: performance.now(), target: e.target };
     const tok = flipped && e.target.closest ? e.target.closest(".rv-ans-sentence .rv-tok, .rv-ans-trans .rv-tok") : null;
@@ -1471,13 +1518,18 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       if (e.key === "Escape") { e.preventDefault(); asking(); }
       return;
     }
+    if (hold()) return;  // (docked: a spot check in the game has the keys)
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.target.closest && e.target.closest("input, textarea, select")) {  // typing: only Esc means anything, and it leaves the box
-      if (e.key === "Escape") { e.preventDefault(); e.target.blur(); }
+      if (e.key === "Escape") { e.preventDefault(); if (dock) e.stopPropagation(); e.target.blur(); }
       return;
     }
     const key = (e.key || "").length === 1 ? e.key.toLowerCase() : e.key;
-    if (key === "Escape") { e.preventDefault(); if (!settings.hidden) settings.hidden = true; else close(); return; }
+    if (key === "Escape") {
+      // (docked, Esc closes the settings when they are open; else it is the game page's own, which closes the page)
+      if (dock) { if (!settings.hidden) { e.preventDefault(); e.stopPropagation(); settings.hidden = true; } return; }
+      e.preventDefault(); if (!settings.hidden) settings.hidden = true; else close(); return;
+    }
     if (!panel.hidden) { if (key === "Enter") { e.preventDefault(); close(); } return; }
     const v = todo[0];
     if (!v) return;
@@ -1496,7 +1548,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     else if (settled && key === "Delete") { e.preventDefault(); askDelete(v); }
     else if (flipped && key === "n") { e.preventDefault(); const memo = face.querySelector(".memo"); if (memo) memo.focus(); }
   };
-  document.addEventListener("keydown", onKey);
+  // (docked, before the game page's own keys: an Esc that closes the settings must not also close the page)
+  document.addEventListener("keydown", onKey, !!dock);
 
   // ----- game controller (gamepad.js; Settings → Controller): the same as the keys above -----
   const padReady = () => !document.querySelector(".tour") && !asking && !editing && !document.querySelector(".game-sheet-wrap");
@@ -1584,7 +1637,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // ----- opening and closing -----
   // The phone's back button (and the browser's) closes the reviewer instead of leaving the page.
   let inHistory = false;
-  try { history.pushState({ tamkeenReview: true }, ""); inHistory = true; } catch { /* no history here */ }
+  // (docked, the game's page is what the back button closes)
+  if (!dock) try { history.pushState({ tamkeenReview: true }, ""); inHistory = true; } catch { /* no history here */ }
   const onPop = () => close(true);
   window.addEventListener("popstate", onPop);
   window.addEventListener("hashchange", onPop);
@@ -1604,7 +1658,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     clearInterval(ticker);
     clearInterval(sideTicker);
     document.removeEventListener("visibilitychange", onVisible);
-    document.removeEventListener("keydown", onKey);
+    document.removeEventListener("keydown", onKey, !!dock);
     offPad();
     window.removeEventListener("popstate", onPop);
     window.removeEventListener("hashchange", onPop);
@@ -1635,9 +1689,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // (the owner, 2026-11-27: a calmer top bar; the tour sits at the top of the settings now, which close for it)
   $(".rv-help").addEventListener("click", () => { settings.hidden = true; });
 
-  document.body.append(el);
-  document.body.classList.add("rv-open");
+  (dock || document.body).append(el);
+  if (!dock) document.body.classList.add("rv-open");
   el.tabIndex = -1;
   el.focus({ preventScroll: true });  // so keys go to the reviewer, not to the button that opened it
   begin();
+  return { close: () => close(), regrade, el };
 }

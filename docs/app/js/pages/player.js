@@ -14,14 +14,13 @@ import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, sta
   netflixBridge, netflixSupport, openNetflix } from "../app.js";
 import { saveProgress } from "../progress.js";
 import { atEnd, markWatched } from "../watched.js";
-import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
+import { activeWordIndex, isPunctuated, spokenSentence, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
 import { computerOnlyNotice, progressBars, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
-import { plainWhenOff, tapSwitch } from "../components/tapswitch.js";
 import { markWord } from "../definer.js";
 import * as reader from "./reader.js";
 import { isBook } from "../books.js";
@@ -1063,7 +1062,7 @@ export async function render(view, { id, query }) {
     if (!target) return;
     const { i, j } = target;
     const clean = target.text.replace(EDGE_PUNCT, "") || target.text;
-    const [si, sj] = sentenceBounds(texts, segOf, i, j);
+    const [si, sj] = heardSentence(i, j);
     const sentence = sentenceText(si, sj);
     showMenu(x, y, clean, [
       {
@@ -1096,11 +1095,15 @@ export async function render(view, { id, query }) {
   let bubbleInPanel = true; // the popup's word was tapped in the transcript panel (not the captions)
 
   function sentenceText(a, b) { return joinWords(texts.slice(a, b + 1), lang); }
+  // The whole sentence a word was heard in, across the transcript's lines (wordlookup.js spokenSentence): what a
+  // lookup is asked about and what a saved card keeps, not only the line on screen.
+  const punctuated = isPunctuated(texts);
+  const heardSentence = (a, b = a) => spokenSentence(texts, segOf, a, b, { starts, ends, punctuated });
 
   function contextFor(i, j) {
-    const [si, sj] = sentenceBounds(texts, segOf, i, j);
-    const prev = si > 0 ? sentenceBounds(texts, segOf, si - 1) : null;
-    const next = sj < n - 1 ? sentenceBounds(texts, segOf, sj + 1) : null;
+    const [si, sj] = heardSentence(i, j);
+    const prev = si > 0 ? heardSentence(si - 1) : null;
+    const next = sj < n - 1 ? heardSentence(sj + 1) : null;
     const word = phraseText(texts, i, j, lang);
     return {
       si, sj, word,
@@ -1121,9 +1124,8 @@ export async function render(view, { id, query }) {
   // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
-  // Tap words on or off (prototype tap_switch): in the same row, after the lookup switch.
-  const tapBtn = tapSwitch();
-  if (tapBtn) $(".btnrow").append(tapBtn);
+  // (No "Tap words" switch here: the owner, 2026-11-27, "that little click subtitles button does not need to exist on
+  // the players". A transcript and the captions are always tappable; the switch stays on books, webpages and My files.)
   // Arabic: the vowels themselves once the computer has made them (vowels.js). Showing them is Settings' switch: the
   // player's own button was taken out (the owner, 2026-11-18: "remove it").
   const redrawVowels = () => {
@@ -1391,9 +1393,6 @@ export async function render(view, { id, query }) {
         && !e.target.closest("#screen") && !e.target.closest(".modal-back")) bubble.hide();  // (.modal-back: a box it opened)
   };
   document.addEventListener("pointerdown", onOutside);
-  // "Tap words" off: the transcript and the captions are plain text (the transcript can be selected and copied); the
-  // word being spoken is still lit and followed (components/tapswitch.js).
-  const stopPlain = plainWhenOff([tr, capEl], { onPlain: () => { if (bubble.open) bubble.hide(); } });
 
   // ---------- header actions ----------
   const safe = ep.title.replace(/[\\/:*?"<>|]+/g, " ").trim().slice(0, 120) || "transcript";
@@ -1582,7 +1581,6 @@ export async function render(view, { id, query }) {
   return () => {
     disposed = true;
     stopWait();
-    stopPlain();
     if (dict) dict.close();
     stopStudy();
     stopVowels();

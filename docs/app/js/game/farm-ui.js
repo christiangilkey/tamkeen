@@ -31,9 +31,9 @@ import { getGame, saveGame, sfx } from "./game.js";
 import { amount, block, details, fact, fmt, row } from "./screenparts.js";
 import {
   CROPS, DECOR, DECOR_MAX, SPRINKLER_DAYS, UPGRADES, barnCap, barnCount, barnList, buyDecor, buySeeds, buyUpgrade, cropById,
-  daysToNextSeason, decorById, decorOn, farmOf, fenceCost, fieldSize, grind, growFence, inSeason, level, plant, plantState,
-  publicFarm, rareSeedOf, removeDecor, seasonOf, seedPrice, seedsOnSale, sprinklerOn, underGlass, upgradeById, upgradeCost,
-  water, waterAround,
+  daysToNextSeason, decorById, decorOn, digUp, farmOf, fenceCost, fieldSize, grind, growFence, inSeason, level, needOf, nextSeasonOf, plant,
+  plantState, publicFarm, rareSeedOf, removeDecor, seasonOf, seedPrice, seedsComing, seedsOnSale, sprinklerOn, underGlass, upgradeById,
+  upgradeCost, water, waterAround,
 } from "./farm.js";
 
 const ART = new URL("../../game-art/farm/", import.meta.url).href;
@@ -48,7 +48,60 @@ export function seasonLine(now = new Date()) {
   const n = daysToNextSeason(now);
   return n === 1 ? t("{0}: a new season tomorrow", t(SEASON_NAME[seasonOf(now)])) : t("{0}: a new season in {1} days", t(SEASON_NAME[seasonOf(now)]), n);
 }
-const daysLine = (c) => (c.days === 1 ? t("Ripens after 1 day of water") : t("Ripens after {0} days of water", c.days));
+// (how slow a crop is: the words studied that ripen it with no watering at all; watering makes it sooner)
+const daysLine = (c) => t("Ripens after about {0} words studied", needOf(c));
+/** A crop's season in plain words (the owner, 2026-11-28: "annotate that on the crop text"): "All year", its season's
+ * name while that season is on, and out of it "Back in Autumn" (the season it grows in next). */
+export const seasonTag = (c, now = new Date()) => (c.season === "all" ? t("All year")
+  : inSeason(c, now) ? t(SEASON_NAME[c.season]) : t("Back in {0}", t(SEASON_NAME[c.season])));
+/** "Autumn in 3 days" / "Autumn tomorrow": when the next season (and the week's next rare seed) comes. */
+export function nextSeasonLine(now = new Date()) {
+  const n = daysToNextSeason(now);
+  const next = t(SEASON_NAME[nextSeasonOf(now)]);
+  return n === 1 ? t("{0} tomorrow", next) : t("{0} in {1} days", next, n);
+}
+/** The week's rare seed packet changes with the week: "Changes tomorrow" / "Changes in 3 days". */
+const rareChanges = (now = new Date()) => (daysToNextSeason(now) === 1 ? t("Changes tomorrow") : t("Changes in {0} days", daysToNextSeason(now)));
+
+/** A peek at the next season (the farm page's header): when it comes, and the seeds that come on sale with it. */
+export function openSeasonPeek(now = new Date()) {
+  details((d) => {
+    const list = h(`<div class="farm-list"></div>`);
+    const b = block(t("Coming to the seed stand"));
+    const grid = h(`<div class="farm-barn"></div>`); // (a small grid, as the Cropdex: a peek, each crop's card a tap away)
+    for (const c of seedsComing(now)) {
+      const cell = h(`<button type="button" class="farm-barn-item">${cropIcon(c, 32)}<span class="farm-barn-n"></span></button>`);
+      cell.querySelector(".farm-barn-n").textContent = t(c.name);
+      cell.onclick = () => cropCard(c, now);
+      grid.append(cell);
+    }
+    b.append(grid);
+    list.append(b);
+    return {
+      title: nextSeasonLine(now),
+      text: t("It's {0} now. When the season turns, these seeds go on sale; the all-year ones stay. A plant out of its season only rests, and grows again when its season comes back.", t(SEASON_NAME[seasonOf(now)])),
+      more: list,
+      buttons: [{ word: "Close", primary: true, run: () => d.close() }],
+    };
+  });
+}
+
+/** One crop's card (from the Cropdex): its season, how slow it is, the rarest of it grown, what its seeds cost. */
+function cropCard(c, now = new Date()) {
+  const game = getGame();
+  details((d) => {
+    const best = (farmOf(game).dex || {})[c.id];
+    return {
+      title: c.name,
+      pic: cropIcon(c, 64),
+      facts: [fact("Season", `<span>${seasonTag(c, now)}</span>`),
+        fact("Best grown", best ? `<span style="color:${TIERS[best - 1].colour}">${t(TIERS[best - 1].name)}</span>` : `<span>${t("Not yet")}</span>`),
+        fact("Seeds", c.rare ? `<span>${t("Rare seed")}</span>` : amount("glow", seedPrice(c)))],
+      text: c.rare ? t("{0}. Its seeds are the week's rare packet some weeks.", daysLine(c)) : daysLine(c),
+      buttons: [{ word: "Close", primary: true, run: () => d.close() }],
+    };
+  });
+}
 
 /** The seed stand: this week's seeds (the season's and the all-year ones) and the week's rare seed packet. */
 export function openSeedStand({ changed = () => {} } = {}) {
@@ -62,7 +115,7 @@ export function openSeedStand({ changed = () => {} } = {}) {
     more.append(shop);
     const rare = rareSeedOf();
     const rb = block("This week's rare seed");
-    rb.append(seedRow(rare, f.rareWeek === weekNumber()));
+    rb.append(seedRow(rare, f.rareWeek === weekNumber(), true));
     more.append(rb);
     return {
       title: "Seed stand",
@@ -71,7 +124,7 @@ export function openSeedStand({ changed = () => {} } = {}) {
       note: t("You have {0} glow.", fmt(g.glow)),
       buttons: [{ word: "Close", run: () => d.close() }, { word: "Upgrades", primary: true, run: () => { d.close(); openFarmShop({ changed }); } }],
     };
-    function seedRow(c, had = false) {
+    function seedRow(c, had = false, weekly = false) {
       const price = seedPrice(c);
       const btn = h(`<button type="button" class="primary farm-buy"></button>`);
       btn.innerHTML = amount("glow", price, g.glow < price);
@@ -85,33 +138,38 @@ export function openSeedStand({ changed = () => {} } = {}) {
         d.redraw();
       };
       const have = f.seeds[c.id] || 0;
-      const sub = [daysLine(c), have ? t("You have {0}", have) : "", had ? t("Bought this week") : ""].filter(Boolean).join(" · ");
+      // its season plainly ("Summer", "All year"); the rare packet: "This week only", and when it changes
+      const when = weekly ? [t("This week only"), rareChanges()] : [seasonTag(c)];
+      const sub = [...when, daysLine(c), have ? t("You have {0}", have) : "", had ? t("Bought this week") : ""].filter(Boolean).join(" · ");
       return row({ pic: cropIcon(c, 32), name: t(c.name), sub, end: btn });
     }
   });
 }
 
-/** The barn: every harvest waiting, by rarity (nothing in it spoils). */
-export function openBarn() {
+/** The barn: every harvest waiting, by rarity (nothing in it spoils). Sell from here too (the owner, 2026-11-28:
+ * selling shouldn't depend on finding the fruit stall): the same sell() as the stall. */
+export function openBarn({ changed = () => {} } = {}) {
   const game = getGame();
   details((d) => {
     const list = barnList(game);
+    const again = () => { changed(); d.redraw(); };
     const more = h(`<div class="farm-barn"></div>`);
     for (const it of list) {
       const tier = TIERS[it.tier];
       const cell = h(`<button type="button" class="farm-barn-item" style="--tier:${tier.colour}">${cropIcon(it.crop, 32)}<span class="farm-barn-n">×${fmt(it.n)}</span></button>`);
       cell.title = `${t(it.crop.name)} · ${t(tier.name)}`;
-      cell.onclick = () => barnItem(`${it.crop.id}:${it.tier}`, { changed: () => d.redraw() }); // (slice 4: feed it, or make bait)
+      cell.onclick = () => barnItem(`${it.crop.id}:${it.tier}`, { changed: again }); // (feed it, make bait, or sell it)
       more.append(cell);
     }
-    if (!list.length) more.append(h(`<p class="farm-empty">${t("Nothing yet. Ripe crops you harvest wait here.")}</p>`));
+    if (!list.length) more.append(h(`<p class="farm-empty">${t("Nothing yet. Ripe crops you harvest wait here. The seeds you buy are in the tray under the field.")}</p>`));
     return {
       title: "Barn",
-      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
+      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature, make bait or sell it.",
       facts: [fact("In the barn", `<span>${fmt(barnCount(game))} / ${fmt(barnCap(game))}</span>`), fact("Honey", `<span>${fmt(farmOf(game).honey || 0)}</span>`),
         fact("Bait", `<span>${fmt(farmOf(game).bait || 0)}</span>`), fact("Flour", `<span>${fmt(farmOf(game).flour || 0)}</span>`)],
       more,
-      buttons: [{ word: "Cropdex", run: () => openCropdex() }, { word: "Harvest board", primary: true, run: () => openHarvestBoard() }],
+      buttons: [{ word: "Cropdex", run: () => openCropdex() }, { word: "Harvest board", primary: !list.length, run: () => openHarvestBoard() },
+        ...(list.length ? [{ word: "Sell", primary: true, run: () => openFruitStall({ changed: again }) }] : [])],
     };
   });
 }
@@ -171,8 +229,9 @@ export function pickSeed(key, { changed = () => {}, planted = () => {} } = {}) {
   });
 }
 
-/** A plant that isn't thirsty: how it is doing (its water days, resting out of season, ripe), and Harvest. */
-export function plantCard(key, { harvest = () => {} } = {}) {
+/** A plant's card: how far it has grown ("Growing · 60%"), and what can be done: Water and Dig up (each asks a word:
+ * `water()`, `dig()`), or Harvest once ripe (never Dig up: the owner, "Harvest instead?" rather than an accident). */
+export function plantCard(key, { water = null, dig = null, harvest = () => {} } = {}) {
   const game = getGame();
   details((d) => {
     const s = plantState(game, key);
@@ -180,17 +239,22 @@ export function plantCard(key, { harvest = () => {} } = {}) {
     const c = s.crop;
     const text = s.ripe ? "It's ripe. Harvest it into your barn."
       : s.resting ? t("It rests out of its season and grows again when {0} comes back.", t(SEASON_NAME[c.season]))
-        : s.watered ? "It has had its water today. Come back tomorrow: it grows on different days, not all at once."
-          : "It's thirsty: tap it to water it with a word.";
+        : s.wilted ? "It looks a little wilted: water it to perk it up. It still grows with every word you study."
+          : "Every word you study grows it a little. Watering it gives it a bigger boost.";
+    const act = s.ripe ? [{ word: "Harvest", primary: true, run: () => { d.close(); harvest(); } }]
+      : water && s.growing ? [{ word: "Water", primary: true, run: () => { d.close(); water(); } }] : [{ word: "Close", run: () => d.close() }];
     return {
       title: c.name,
       pic: cropIcon(c, 64),
-      facts: [fact("Water days", `<span>${Math.min(s.days, s.need)} / ${s.need}</span>`), fact("Season", `<span>${t(SEASON_NAME[c.season])}</span>`)],
+      facts: [fact("Growth", `<span>${growthLine(s)}</span>`), fact("Season", `<span>${seasonTag(c)}</span>`)],
       text,
-      buttons: [{ word: "Close", run: () => d.close() }, ...(s.ripe ? [{ word: "Harvest", primary: true, run: () => { d.close(); harvest(); } }] : [])],
+      buttons: [...(dig && !s.ripe ? [{ word: "Dig up", run: () => { d.close(); dig(); } }] : []), ...act],
     };
   });
 }
+/** How far a plant has grown, in words: "Growing · 60%" (the stage the field shows, and how far to ripe). */
+const STAGE_NAME = ["Seed", "Sprout", "Growing", "Ripe"];
+export const growthLine = (s) => (s.ripe ? t("Ripe") : `${t(STAGE_NAME[s.stage])} · ${s.pct}%`);
 
 // ---------- watering: one due word on the question card ----------
 let words = null; // {vocab, at}: the words the farm asks (the game's word choice, as the pond's), kept a few minutes
@@ -251,9 +315,10 @@ function farmCard({ kind, key, crop, q, act, vocab = [] }) {
       <div class="lbq-verdict" hidden></div>
     </div>`);
     panel.querySelector(".farm-q-x").onclick = () => m.close();
-    panel.querySelector(".farm-q-title").textContent = kind === "plant" ? t("Plant the {0}", t(crop.name).toLowerCase()) : t("Water the {0}", t(crop.name).toLowerCase());
+    const name = t(crop.name).toLowerCase();
+    panel.querySelector(".farm-q-title").textContent = kind === "plant" ? t("Plant the {0}", name) : kind === "dig" ? t("Dig up the {0}", name) : t("Water the {0}", name);
     const progress = panel.querySelector(".farm-q-progress");
-    progress.textContent = kind === "plant" ? daysLine(crop) : t("Water day {0} of {1}", Math.min(before.days + 1, before.need), before.need);
+    progress.textContent = kind === "plant" ? daysLine(crop) : growthLine(before);
     panel.querySelector(".lbq-ask").textContent = t("Which of your words means this?");
     const prompt = panel.querySelector(".lbq-prompt");
     prompt.textContent = q.prompt;
@@ -277,7 +342,7 @@ function farmCard({ kind, key, crop, q, act, vocab = [] }) {
     const egg = formOf(game.creature).id === "egg";
     const lookKey = JSON.stringify(look);
     if (!egg && lookKey !== creatureFor) { creatureFor = lookKey; creatureFrame = null; composeCreature(look, { eyes: "open", mouth: "smile" }).then((c) => { creatureFrame = c; }).catch(() => {}); }
-    let moment = null; // {kind: "plant" | "water" | "drizzle", t0, grew}
+    let moment = null; // {kind: "plant" | "water" | "drizzle" | "dig", t0, up (a stage grown)}
     const row = CROPS.indexOf(crop);
     function draw(now) {
       if (!alive) return;
@@ -288,16 +353,29 @@ function farmCard({ kind, key, crop, q, act, vocab = [] }) {
       const t1 = moment ? now - moment.t0 : 0;
       const wet = (before && before.watered) || (moment && moment.kind === "water" && t1 > 700);
       if (soil) ctx.drawImage(soil, wet ? 16 : 0, 0, 16, 16, PLOT_AT.x, PLOT_AT.y, 16, 16);
-      // the crop: none yet when planting until its sprout pops up; when watering, its stage (one up once it grew)
-      let stage = kind === "plant" ? (moment && t1 > 2000 ? 0 : -1) : before.stage + (moment && moment.grew && t1 > 1100 ? 1 : 0);
-      stage = Math.min(3, stage);
-      if (crops && stage >= 0 && row >= 0) {
+      // the crop: none yet when planting until its sprout pops up; when watering, its stage (one up once it grew a
+      // stage); digging up: tugged at, then up out of the earth and away
+      let stage = kind === "plant" ? (moment && t1 > 2000 ? 0 : -1) : kind === "dig" ? (before.wilted ? 4 : before.stage)
+        : before.stage + (moment && moment.up && t1 > 1100 ? 1 : 0);
+      stage = kind === "dig" ? stage : Math.min(3, stage);
+      const dug = kind === "dig" && moment;
+      if (crops && stage >= 0 && row >= 0 && !(dug && t1 > 950)) {
         const pop = kind === "plant" && t1 < 2300 ? Math.round((2300 - t1) / 100) : 0; // (the sprout rises out of the earth)
         const perk = kind === "water" && moment && moment.kind === "water" && t1 > 1100 && t1 < 1400 ? -1 : 0;
+        const tug = dug && t1 < 450 ? (Math.floor(t1 / 60) % 2 ? 1 : -1) : 0;
+        const lift = dug ? -Math.round(Math.min(1, Math.max(0, t1 - 450) / 350) * 18) : 0;
         ctx.save();
         ctx.beginPath(); ctx.rect(PLOT_AT.x - 4, 0, 24, PLOT_AT.y + 16); ctx.clip();
-        ctx.drawImage(crops, stage * 16, row * 24, 16, 24, PLOT_AT.x, PLOT_AT.y - 11 + pop + perk, 16, 24);
+        ctx.drawImage(crops, stage * 16, row * 24, 16, 24, PLOT_AT.x + tug, PLOT_AT.y - 11 + pop + perk + lift, 16, 24);
         ctx.restore();
+      }
+      if (dug && t1 > 400 && t1 < 1300) { // (the soil flies as it comes up: clods arcing out and falling back)
+        const q2 = (t1 - 400) / 900, cx = PLOT_AT.x + 8, cy = PLOT_AT.y + 10;
+        for (let k = 0; k < 8; k++) {
+          const side = k % 2 ? 1 : -1, reach = 5 + (k % 4) * 3;
+          ctx.fillStyle = k % 3 ? "#6b4426" : "#3e2414";
+          ctx.fillRect(Math.round(cx + side * reach * q2), Math.round(cy - Math.sin(q2 * Math.PI) * (6 + (k % 3) * 3)), k % 3 ? 1 : 2, k % 3 ? 1 : 2);
+        }
       }
       // your creature beside it (not an egg: it can't hold a can)
       if (creatureFrame) ctx.drawImage(creatureFrame, 0, 0, creatureFrame.width, creatureFrame.height, 6, CARD_H - 46 + Math.round(Math.sin(now / 400)), 46, 46);
@@ -339,27 +417,28 @@ function farmCard({ kind, key, crop, q, act, vocab = [] }) {
         sfx("tick"); setTimeout(() => sfx("tick"), 300);
         setTimeout(() => { if (alive) sfx("plant"); }, 2000);
         progress.textContent = daysLine(crop);
-      } else if (correct) {
-        moment = { kind: "water", t0: now, grew: !!(result && result.grew) };
-        const more = (result && result.more) || 0;
-        verdict.textContent = more ? t("Right! It and {0} more have their water for today.", more) : t("Right! It has its water for today.");
-        sfx("water");
+      } else if (kind === "dig") {
+        moment = { kind: "dig", t0: now };
+        verdict.textContent = correct ? t("Right! It's dug up, and its seed is back in your tray.") : t("Not quite, but it's dug up all the same, and its seed is back in your tray.");
+        sfx("tick"); setTimeout(() => { if (alive) sfx("plant"); }, 450);
+        progress.textContent = "";
+      } else { // (a full watering, right or wrong: the owner's rule; a wrong answer's drizzle shows the right word)
         const after = plantState(game, key);
-        if (after) progress.textContent = after.ripe ? t("Ripe! Tap it to harvest.") : t("Water day {0} of {1} · come back tomorrow", after.days, after.need);
-      } else {
-        moment = { kind: "drizzle", t0: now };
-        verdict.textContent = t("Not quite: a little water. One more answer waters it.");
-        sfx("surprise");
+        const more = (result && result.more) || 0;
+        moment = { kind: correct ? "water" : "drizzle", t0: now, up: !!(after && after.stage > before.stage) };
+        verdict.textContent = correct ? (more ? t("Right! It and {0} more are watered.", more) : t("Right! It's watered.")) : t("Not quite, but it's watered all the same.");
+        sfx(correct ? "water" : "surprise");
+        if (after) progress.textContent = after.ripe ? t("Ripe! Tap it to harvest.") : growthLine(after);
       }
-      setTimeout(() => { m.close(); resolve(result); }, kind === "plant" ? (correct ? 2800 : 3400) : correct ? 2100 : 2600);
+      setTimeout(() => { m.close(); resolve(result); }, kind === "plant" ? (correct ? 2800 : 3400) : kind === "dig" ? (correct ? 2200 : 2800) : correct ? 2100 : 2600);
     }
   });
 }
 
 /**
- * Water a plant: one due word asked on the farm's question card. Right: it has its water for today; wrong: a little
- * (two make a watering), and the right answer is shown. Resolves to {correct, grew, ripe, revived} or null (no word
- * could be asked, or the card was closed).
+ * Water a plant: one due word asked on the farm's question card. Right or wrong, a full watering (the owner: "it should
+ * be irrespective of if you got it right or wrong"); a wrong answer shows the right word. Resolves to {correct, grew,
+ * ripe, revived} or null (no word could be asked, or the card was closed).
  */
 export async function askToWater(key) {
   const game = getGame();
@@ -371,11 +450,27 @@ export async function askToWater(key) {
   let answer = null;
   const r = await farmCard({ kind: "water", key, crop: st.crop, q, vocab, act: (correct) => {
     const out = water(game, key, correct);
-    const more = correct && typeof out === "object" ? waterAround(game, key) : []; // (slice 5: the watering can)
+    const more = typeof out === "object" ? waterAround(game, key) : []; // (slice 5: the watering can, right or wrong alike)
     answer = correct;
     return typeof out === "string" ? null : { ...out, more: more.length };
   } });
   return r ? { correct: answer, ...r } : null;
+}
+
+/**
+ * Dig a plant up (the owner, 2026-11-28): one word on the farm's question card, then right or wrong it comes up and its
+ * seed goes back in the tray. A ripe plant isn't dug up (harvest it instead). With no word to ask, straight away.
+ * Resolves to {dug: true} once it is up, or null.
+ */
+export async function askToDig(key) {
+  const game = getGame();
+  const st = plantState(game, key);
+  if (!st || st.ripe) return null;
+  const dig = () => { const err = digUp(game, key); if (err) { toast(t(err), { error: true }); return null; } return { dug: true }; };
+  const vocab = await farmWords(game);
+  const q = pickQuestion(game, vocab, Math.random, new Date());
+  if (!q) { const r = dig(); if (r) { saveGame(); sfx("plant"); } return r; }
+  return farmCard({ kind: "dig", key, crop: st.crop, q, vocab, act: () => dig() });
 }
 
 /**
@@ -440,7 +535,7 @@ export function dishIcon(r, px = 32) {
 }
 /** A dish's name and what it does, translated (an element's pie: its element's name put in). */
 const recipeName = (r) => (r.type ? t("{0} pie", t(TYPES[r.type].name)) : t(r.name));
-const recipeText = (r) => (r.type ? t("Your next egg leans to {0}.", t(TYPES[r.type].name)) : t(r.text));
+const recipeText = (r) => (r.type ? t("Your next egg from the shop hatches as a {0} creature.", t(TYPES[r.type].name)) : t(r.text));
 const needLine = (r) => r.needs.map(([w, n]) => `${n} × ${w === "honey" ? t("Honey") : w.startsWith("fav_") ? t("{0}'s favourite crops", t(TYPES[w.slice(4)].name)) : cropById(w) ? t(cropById(w).name) : t(GROUP_NAME[w])}`).join(", ");
 
 /** One harvest in the barn: feed it to the creature out (a favourite makes it Well fed), or make bait of it. */
@@ -459,12 +554,14 @@ function barnItem(key, { changed = () => {} } = {}) {
       title: c.name,
       pic: cropIcon(c, 64),
       facts: [fact("You have", `<span>${fmt(n)}</span>`), fact("Rarity", `<span style="color:${TIERS[tier].colour}">${t(TIERS[tier].name)}</span>`),
-        fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
+        fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Sells for", amount("glow", sellPrice(c, Number(tier) || 0))),
+        fact("Season", `<span>${seasonTag(c)}</span>`), fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
       text: fav ? "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only)."
         : "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
       buttons: [
         ...(id === "wheat" && level(game, "windmill") ? [{ word: "Grind", run: () => { const r = grind(game, n); if (typeof r === "string") { toast(t(r), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } }] : []),
         { word: "Make bait", run: () => { const err = makeBait(game, key); if (err) { toast(t(err), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
+        { word: "Sell", run: () => { const got = sell(game, garden(game), key, 1); if (typeof got === "string") { toast(t(got), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
         { word: "Feed", primary: true, run: () => {
           const r = feedCrop(game, key, null, new Date(), FEEDS_PER_DAY);
           if (typeof r === "string") { toast(t(r), { error: true }); return; }
@@ -709,9 +806,10 @@ export function openCropdex() {
     const grid = h(`<div class="farm-barn"></div>`);
     for (const c of CROPS) {
       const best = dex[c.id] ? TIERS[dex[c.id] - 1] : null;
-      const cell = h(`<div class="farm-barn-item${best ? "" : " farm-dex-none"}" style="--tier:${best ? best.colour : "transparent"}">${cropIcon(c, 32)}<span class="farm-barn-n"></span></div>`);
+      const cell = h(`<button type="button" class="farm-barn-item${best ? "" : " farm-dex-none"}" style="--tier:${best ? best.colour : "transparent"}">${cropIcon(c, 32)}<span class="farm-barn-n"></span></button>`);
       cell.querySelector(".farm-barn-n").textContent = best ? t(best.name) : "?";
-      cell.title = best ? `${t(c.name)} · ${t(best.name)}` : `${t(c.name)} · ${t(SEASON_NAME[c.season])}`;
+      cell.title = `${t(c.name)} · ${best ? t(best.name) : seasonTag(c)}`;
+      cell.onclick = () => cropCard(c); // (its card: its season plainly, "Back in Autumn" out of it)
       grid.append(cell);
     }
     return {

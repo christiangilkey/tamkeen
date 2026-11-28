@@ -150,12 +150,22 @@ function joinRounds(x, y) {
 }
 
 /** The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole, as the home's
- * layout (each change to it stamps `at`). */
+ * layout (each farm action stamps `at`); but a plant both copies have (the same crop, planted the same day) keeps the
+ * higher maturity (`m`, and `days` with it): growth comes from studying on any device and isn't stamped (farm.js grow). */
 function joinFarm(x, y) {
   x = obj(x);
   y = obj(y);
   if (!x || !y) return x || y;
-  return num(y.at) > num(x.at) ? y : x;
+  const [win, other] = num(y.at) > num(x.at) ? [y, x] : [x, y];
+  const plots = obj(win.plots), theirs = obj(other.plots);
+  if (!plots || !theirs) return win;
+  const out = {};
+  for (const [k, p] of Object.entries(plots)) {
+    const q = obj(theirs[k]);
+    const same = obj(p) && q && q.crop === p.crop && num(q.planted) === num(p.planted);
+    out[k] = same && num(q.m) > num(p.m) ? { ...p, m: q.m, days: num(q.days) > num(p.days) ? q.days : p.days } : p;
+  }
+  return { ...win, plots: out };
 }
 
 /** The home's layout (home.js: where the creature has put the decorations): the one changed later, whole. */
@@ -297,12 +307,19 @@ export function combine(mine, theirs) {
   const fb = obj(b.finished) || {};
   out.finished = { ...fa };
   for (const k of new Set([...Object.keys(fa), ...Object.keys(fb)])) out.finished[k] = union(fa[k], fb[k]);
-  // Fishing: which words have had their turn in the pond today, joined (the rest of fishing is the base copy's).
+  // Fishing: which words have had their turn in the pond today, joined, and the rods of both (the rest of fishing
+  // is the base copy's).
   const fishA = obj(a.fishing);
   const fishB = obj(b.fishing);
   if (fishA && fishB) {
     const round = joinRounds(obj(fishA.round), obj(fishB.round));
     if (round) fishA.round = round;
+    // Rods are an upgrade path: every rod either copy owns is kept, and the better of the two rods in use.
+    if (Array.isArray(fishA.rods) || Array.isArray(fishB.rods)) {
+      const whole = (v) => (Array.isArray(v) ? v : []).filter((r) => Number.isInteger(r) && r >= 0);
+      fishA.rods = [...new Set([...whole(fishA.rods), ...whole(fishB.rods)])].sort((x, y) => x - y);
+      fishA.rod = Math.max(num(fishA.rod), num(fishB.rod));
+    }
   }
   const home = joinHome(a.home, b.home);
   if (home) out.home = home;

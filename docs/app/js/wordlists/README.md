@@ -40,3 +40,7 @@ README.
 - Lower case throughout, so a few names are in there (*france*, *محمد*).
 - Japanese is counted in the pieces a word-splitter makes, so some entries are parts of
   conjugated verbs (言わ, 知ら).
+
+Basics' Frequency words 1001-3000 (not these lists) are chosen from a blend weighted toward spoken language: 70%
+film and TV subtitle counts (FrequencyWords, OpenSubtitles 2018, CC BY-SA 4.0) and 30% wordfreq; see
+licenses/frequencywords.txt and tools/course/FREQUENCY-3000.md.

@@ -500,7 +500,8 @@ body.rv-open { overflow: hidden; }
    (review.js drawAnswer / openEditor / holdWord) */
 /* (no meaning yet: the line shows faintly, "What it means", for a tap to type one) */
 .rv-ans-meaning.empty { font-weight: 400; font-style: italic; opacity: .6; }
-.rv-ans-meaning { margin-top: -4px; font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: 1.35; color: var(--ink-2); max-width: 26em; overflow-wrap: anywhere; }
+/* The meaning in the brand blue (the owner, 2026-11-27: "I think the definition should be our brands blue color"). */
+.rv-ans-meaning { margin-top: -4px; font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: 1.35; color: var(--teal); max-width: 26em; overflow-wrap: anywhere; }
 .rv-ans-trans { margin-top: -2px; font-size: clamp(14px, 3.8vw, 16px); line-height: 1.5; color: var(--ink-2); opacity: .85; max-width: 30em; overflow-wrap: anywhere; }
 .rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans {
   cursor: text; border-radius: 12px; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;
@@ -624,15 +625,16 @@ body.rv-open { overflow: hidden; }
 .hm-week { display: flex; flex-direction: column; gap: var(--hm-gap); }
 .hm-cell, .hm-none { display: block; width: var(--hm-size); height: var(--hm-size); border-radius: var(--r-s); }
 .hm-cell { background: var(--surface-2); cursor: pointer; }
-.hm-cell.l1 { background: color-mix(in srgb, var(--gold) 35%, var(--surface-2)); }
-.hm-cell.l2 { background: color-mix(in srgb, var(--gold) 58%, var(--surface-2)); }
-.hm-cell.l3 { background: color-mix(in srgb, var(--gold) 80%, var(--surface-2)); }
-.hm-cell.l4 { background: var(--gold); }
+/* The colours as they were before the design sweep (the owner's choice, 2026-11-27): --heat-done, --heat-ahead. */
+.hm-cell.l1 { background: color-mix(in srgb, var(--heat-done) 35%, transparent); }
+.hm-cell.l2 { background: color-mix(in srgb, var(--heat-done) 58%, transparent); }
+.hm-cell.l3 { background: color-mix(in srgb, var(--heat-done) 80%, transparent); }
+.hm-cell.l4 { background: var(--heat-done); }
 .hm-cell.ahead { background: transparent; outline: 1px solid var(--line); outline-offset: -1px; }
-.hm-cell.ahead.l1 { background: color-mix(in srgb, var(--ink-2) 12%, transparent); }
-.hm-cell.ahead.l2 { background: color-mix(in srgb, var(--ink-2) 22%, transparent); }
-.hm-cell.ahead.l3 { background: color-mix(in srgb, var(--ink-2) 32%, transparent); }
-.hm-cell.ahead.l4 { background: color-mix(in srgb, var(--ink-2) 42%, transparent); }
+.hm-cell.ahead.l1 { background: color-mix(in srgb, var(--heat-ahead) 14%, transparent); }
+.hm-cell.ahead.l2 { background: color-mix(in srgb, var(--heat-ahead) 24%, transparent); }
+.hm-cell.ahead.l3 { background: color-mix(in srgb, var(--heat-ahead) 34%, transparent); }
+.hm-cell.ahead.l4 { background: color-mix(in srgb, var(--heat-ahead) 44%, transparent); }
 .hm-cell.today { outline: 1.5px solid var(--ink); outline-offset: -1.5px; }
 .hm-cell.on { outline: 2px solid var(--teal); outline-offset: 1px; }
 .hm-day { margin: 0; min-height: 1.4em; font-size: var(--fs-14); color: var(--ink-2); font-variant-numeric: tabular-nums; }
@@ -665,3 +667,79 @@ body.rv-open { overflow: hidden; }
 .lg-empty { cursor: pointer; }
 .lg-empty .lg-title { font-weight: 600; color: var(--ink-2); }
 .lg-empty .lg-tick { opacity: .5; }
+
+/* ---------- review while you play (prototype "review_play": game/reviewplay.js) ---------- */
+/* The reviewer docked on a game page (the fishing pond, the farm page): under the game on a phone, a little more than half
+   the height, so Remembered / Not remembered sit at the very bottom, in thumb reach (the owner, 2026-11-28: "the
+   flashcards should probably be on the bottom and the minigame on top"); beside it on a computer (the owner: "Side by
+   side on computer stacked on phone"). The reviewer keeps its own look there too. */
+.live-wrap.rp-on { flex-direction: column; justify-content: flex-start; }
+.rp-dock { position: relative; flex: 11 1 0; min-height: 0; }
+.live-wrap.rp-on > .fish, .live-wrap.rp-on > .farmp { position: relative; flex: 9 1 0; min-height: 0; height: auto; width: 100%; }
+@media (min-width: 900px) {
+  .live-wrap.rp-on { flex-direction: row; }
+  .rp-dock { flex: 1 1 0; }
+  .live-wrap.rp-on > .fish, .live-wrap.rp-on > .farmp { flex: 1 1 0; height: 100%; }
+}
+.rv.rv-docked { position: absolute; inset: 0; z-index: 1; animation: none; }
+/* The cards keep their own look beside the game (the owner's exception, DESIGN.md), not the game screen's pixel font. */
+.live-wrap .rv-docked { font-family: var(--ui-font); -webkit-user-select: auto; user-select: auto; -webkit-touch-callout: default; }
+.live-wrap .rv-docked :is(h1, h2, .display-font) { font-family: var(--display-font); }
+.live-wrap .rv-docked :is(h3, h4) { font-family: var(--ui-font); }
+.rv-docked .rv-stage { place-items: stretch center; }
+.rv-docked .rv-wrap:not([hidden]) { display: flex; flex-direction: column; min-height: 0; }
+.rv-docked .rv-card { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; }
+.rv-docked .rv-scroll, .rv.rv-docked.speed .rv-scroll { flex: 1 1 0; height: auto; min-height: 0; }
+.rv-docked .rv-actions { min-height: 0; padding-bottom: var(--s-12); }
+.rv-docked .rv-settings { max-height: calc(100% - 64px); }
+/* On a phone the cards go under the game (they come first in the page), their buttons clear of the home bar, and no room
+   kept above them for the status bar (they aren't at the top of the screen). */
+@media (max-width: 899px) {
+  .live-wrap.rp-on > .rp-dock { order: 2; flex: 1 1 0; } /* (half each: the game's last line fits on a 360 x 780 phone) */
+  .live-wrap.rp-on > .fish, .live-wrap.rp-on > .farmp { flex: 1 1 0; }
+  .rv-docked .rv-top { padding-top: 10px; }
+  .rv-docked .rv-actions { padding-bottom: max(var(--s-12), env(safe-area-inset-bottom)); }
+}
+/* While a spot check is open the cards wait under it (openReview's hold), out of sight: nothing of them shows round it. */
+.rp-held > .rv-docked { visibility: hidden; }
+/* The game under (or beside) it: the scene a little smaller on a phone, so the scene and its line both fit. */
+.rp-on .fish { gap: var(--s-8); }
+.rp-on .fish-stage canvas { width: min(100%, max(220px, calc((45dvh - 150px) * 320 / 180))); }
+@media (min-width: 900px) { .rp-on .fish-stage canvas { width: min(100%, calc((100dvh - 220px) * 320 / 180)); } }
+.rp-on .fish-foot { min-height: 0; }
+/* The game's line: the memory calls meter, what the game is doing, Quick play. */
+.rp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4) var(--s-8); width: 100%; padding-top: var(--s-4); }
+.rp-bar[hidden] { display: none; }
+.rp-calls { flex: none; margin-inline-end: auto; display: inline-flex; align-items: center; gap: var(--s-4); min-height: 32px; padding: var(--s-4) var(--s-12); border: 0;
+  border-radius: var(--r-pill); background: var(--gold); color: var(--gold-ink); font-size: var(--fs-14); font-weight: 700; }
+.rp-calls b { font-family: var(--fun-font); font-weight: 600; font-variant-numeric: tabular-nums; }
+.rp-doing { order: 3; flex: 1 1 100%; min-width: 0; font-size: var(--fs-14); text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp-quick { flex: none; min-height: 32px; padding: var(--s-4) var(--s-8); border: 0; background: none; color: var(--teal); font-size: var(--fs-14); font-weight: 600; }
+/* A spot check: a plain solid cover over the whole of the cards (the owner, 2026-11-28: "a clean cover ... It should just
+   cover the whole thing"), edge to edge, the game left as it is; the word, four meanings, a 3-second bar, in the cards'
+   font. It goes when the check is answered and the cards come back. */
+.rp-check { position: absolute; inset: 0; z-index: 3; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
+  gap: var(--s-12); padding: var(--s-16) max(var(--s-16), calc((100% - 520px) / 2)); overflow-y: auto; text-align: center;
+  background: var(--surface); color: var(--ink); font-family: var(--ui-font); }
+@media (max-width: 899px) { .rp-check { padding-bottom: max(var(--s-16), env(safe-area-inset-bottom)); } }
+.rp-check[hidden] { display: none; }
+.rp-check-head { display: flex; align-items: baseline; justify-content: space-between; font-size: var(--fs-16); font-weight: 700; }
+.rp-check-head span { font-weight: 400; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.rp-check-bar { height: 4px; background: var(--surface-2); }
+.rp-check-bar i { display: block; height: 100%; width: 100%; background: var(--teal); }
+.rp-check-ask { margin: 0; font-size: var(--fs-14); color: var(--ink-2); }
+.rp-check-word { font-family: var(--ar-font); font-size: var(--fs-34); line-height: var(--lh-head); overflow-wrap: anywhere; }
+.rp-check-options { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+.rp-opt { position: relative; display: flex; align-items: center; justify-content: center; gap: var(--s-8); min-height: 52px; padding: var(--s-8) var(--s-12);
+  border: 0; border-radius: var(--r-s); background: var(--surface-2); color: var(--ink); font-size: var(--fs-16); font-weight: 600; overflow-wrap: anywhere; }
+.rp-opt:disabled { cursor: default; }
+.rp-opt.right { background: var(--teal); color: var(--teal-ink); }
+.rp-opt.wrong { background: var(--danger-tint); color: var(--danger); }
+.rp-key { position: absolute; top: var(--s-4); inset-inline-start: var(--s-8); font-size: var(--fs-12); opacity: .6; }
+@media (hover: none) { .rp-key { display: none; } }
+.rp-check-verdict { margin: 0; font-size: var(--fs-14); font-weight: 700; }
+.rp-check-verdict[hidden] { display: none; }
+/* Quick play, with cards waiting: the button that brings them back (a second button: outlined). */
+.fish-review, .farmp-review { min-height: 44px; padding: var(--s-8) var(--s-16); border: 1px solid var(--line); border-radius: var(--r-s); background: none;
+  color: var(--teal); font-size: var(--fs-16); font-weight: 600; }
+.fish-review[hidden], .farmp-review[hidden] { display: none; }

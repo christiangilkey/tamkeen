@@ -33,7 +33,7 @@ import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 /** Pressing a word of the sentence this long lights it up (or puts it out). */
 export const HOLD_MS = 450;
 /** What a screen reader says for each text box a tap opens on a card. */
-export const EDIT_LABELS = { text: "Edit the word", meaning: "Edit the meaning", sentence: "Edit the sentence", translation: "Edit the translation",
+export const EDIT_LABELS = { text: "Edit the word", meaning: "Edit the meaning", sentence: "Edit the sentence", translation: "Edit the sentence translation",
   notes: "Edit the grammar notes", memo: "Edit the memorization notes" };
 
 /** The card's own small drawings (the review card's look: a little heavier than icons.js's). */

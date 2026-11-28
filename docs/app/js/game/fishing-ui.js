@@ -29,15 +29,17 @@ import { dayNumber, markDue, pickQuestion } from "./rules.js";
 import { FRAME, animAt, beastHeight, beastOrigin, composeCreature, drawLiving, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { getGame, saveGame, sfx, trackStudy } from "./game.js";
 import { battleDictionary } from "./battle-ui.js";
-import { EPIC, TIERS, golden, isBoss } from "./loot.js";
+import { DUE_LUCK, EPIC, GOLDEN_LUCK, TIERS, golden, isBoss } from "./loot.js";
 import { reveal } from "./reveal.js";
 import { RODS, SHADOWS, isGuardian } from "./fishdata.js";
 import { feature } from "../prototype.js";
 import {
-  canFish, classify, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pondById, pondNeed, pondShadows, pondWords,
+  canFish, classify, upgradeReady, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pickKind, pondById, pondNeed, pondShadows, pondWords,
   questionFor, record, roundOf, tierOfRoll, turnTaken, PONDS,
 } from "./fishing.js";
 import { SPRITE, fishPicture, fishSprite, fishTile } from "./fishart.js";
+import { rollTier } from "./farm.js";
+import { cardsWaiting, dockReview } from "./reviewplay.js";
 
 const W = 320;
 const H = 180;
@@ -125,7 +127,7 @@ export function openPond(opts = {}) {
         <button type="button" class="fish-chip fish-pearls" data-cur="pearls" title="Pearls: tap to see how to get them">${icon("pearl")}<b translate="no"></b></button>
         <span class="fish-chip fish-golden" hidden title="Golden hour: triple luck">${icon("star")}<b translate="no"></b></span>
       </span>
-      <button type="button" class="fish-basket" title="Your basket">${icon("basket")}<b translate="no"></b></button>
+      <button type="button" class="fish-basket">${icon("basket")}<b translate="no"></b><span class="fish-basket-word">Upgrades</span><i class="fish-basket-dot" hidden></i></button>
       <button type="button" class="ghost icon fish-close" title="Close" aria-label="Close">${icon("close")}</button>
     </div>
     <div class="fish-stage"><canvas width="${W}" height="${H}" role="button" tabindex="-1" aria-label="The pond: tap the water to cast"></canvas>
@@ -135,6 +137,7 @@ export function openPond(opts = {}) {
     <div class="fish-foot">
       <div class="fish-act">
         <button type="button" class="primary fish-cast">Cast</button>
+        <button type="button" class="fish-review" hidden></button>
         <p class="fish-hint"></p>
       </div>
       <div class="fish-card" hidden></div>
@@ -197,6 +200,11 @@ export function openPond(opts = {}) {
     $(".fish-luck b").textContent = `×${luckOf(game, pondId)}`;
     $(".fish-pearls b").textContent = F.pearls.toLocaleString();
     $(".fish-basket b").textContent = String(F.bag.length);
+    // (the basket is also where the upgrades are; a dot says the pearls in hand can pay for one: the owner, 2026-11-27)
+    const ready = upgradeReady(game);
+    $(".fish-basket-dot").hidden = !ready;
+    $(".fish-basket").title = [t("Basket"), t("Upgrades")].join(" · ");
+    $(".fish-basket").setAttribute("aria-label", $(".fish-basket").title);
     const left = golden(game);
     $(".fish-golden").hidden = !left;
     if (left) $(".fish-golden b").textContent = `${Math.floor(left / 60000)}:${String(Math.floor((left % 60000) / 1000)).padStart(2, "0")}`;
@@ -437,7 +445,7 @@ export function openPond(opts = {}) {
       const since = now - tg.at;
       const beat = Math.floor(since / 600);
       if (beat !== tg.beat) { tg.beat = beat; if (beat < tg.nibbles) { sfx("tick"); sc.rings.push({ x: sc.bob.x, y: sc.bob.y, r: 2, life: 0.5 }); } }
-      if (since >= tg.nibbles * 600 + 250 && !busy) bite(tg);
+      if (since >= tg.nibbles * 600 + 250 && !busy && !rp) bite(tg); // (beside the cards, it bites at their answer: reviewCatch)
     }
     if (sc.mode === "wait" && !tg && now - sc.t0 > 300) attract();
     if (sc.mode === "cast" && now - sc.t0 >= 860) { // the bobber lands
@@ -803,14 +811,16 @@ export function openPond(opts = {}) {
     if (words) { say(words, 1700); sc.emote = { id: "sweat", until: performance.now() + 1500 }; }
     await wait(words ? 1200 : 300);
   }
-  /** Reel it in: the shadow is pulled to the dock, then the fish leaps out and is held up. */
-  async function reel(sh, sp) {
+  /** Reel it in: the shadow is pulled to the dock, then the fish leaps out and is held up. `fast`: beside the cards
+   * (review_play), in about half the time. */
+  async function reel(sh, sp, fast = false) {
+    const k = fast ? 0.55 : 1;
     setMode("reel");
     const from = { ...sc.bob };
     const to = { x: DOCK[0] + 66, y: FEET_Y + 8 };
     const t0 = performance.now();
-    while (!closed && performance.now() - t0 < 900) {
-      const q = ease((performance.now() - t0) / 900);
+    while (!closed && performance.now() - t0 < 900 * k) {
+      const q = ease((performance.now() - t0) / (900 * k));
       sc.bob.x = lerp(from.x, to.x, q) + Math.sin(q * 16) * 4 * (1 - q);
       sc.bob.y = lerp(from.y, to.y, q);
       if (rand() < 0.3) splash(sc.bob.x, sc.bob.y, 1, 0.6);
@@ -818,16 +828,16 @@ export function openPond(opts = {}) {
     }
     if (closed) return;
     splash(to.x, to.y, 12, 1.3);
-    sh.mode = "gone";
+    if (sh) sh.mode = "gone";
     sc.fish = { sprite: null, from: [to.x - SPRITE[0] / 2, to.y - SPRITE[1]] };
     fishSprite(sp, 0).then((s) => { if (sc.fish && !sc.fish.sprite) sc.fish.sprite = s; }); // (plain until its tier is revealed)
     sc.bob = null;
     setMode("leap");
     sfx("common");
-    await wait(560);
+    await wait(560 * k);
     setMode("cheer");
-    sc.emote = { id: "love", until: performance.now() + 1200 };
-    await wait(500);
+    sc.emote = { id: "love", until: performance.now() + 1200 * k };
+    await wait(500 * k);
   }
 
   // ----- the catch, shown -----
@@ -876,6 +886,80 @@ export function openPond(opts = {}) {
   let catchOpen = null;
   let fighting = null; // the fish being fought ({sp, tier}): walking away from the fight lets it go, as a wrong answer does
   let lootOpen = null; // the reveal playing (reveal.js), so it can be taken away if the pond is closed under it
+
+  // ----- review while you play (prototype "review_play": game/reviewplay.js) -----
+  // With cards waiting, the vocab reviewer comes up over the pond (beside it on a computer). Turning a card casts; each
+  // answer lands the fish on the line, the same whichever answer. Quick play (the pond's own questions) is one tap away.
+  let rp = null; // the docked reviewer, while it is there
+  async function startReview() {
+    if (!feature("review_play") || rp || closed || busy || sc.mode !== "idle") return;
+    $(".fish-review").hidden = true;
+    const r = await dockReview({ wrap, foot: $(".fish-foot"), kind: "fish", turn: () => reviewCast(), act: (a, luck) => reviewCatch(luck),
+      ended: () => { rp = null; if (closed) return; $(".fish-act").hidden = false; hint(); offerReview(); } });
+    if (!r) { offerReview(); return; }
+    if (closed || busy || sc.mode !== "idle") { r.close(); return; } // (a cast of its own began meanwhile)
+    rp = r;
+    $(".fish-act").hidden = true;
+  }
+  /** In quick play with cards waiting: the button that brings the reviewer back. */
+  async function offerReview() {
+    const b = $(".fish-review");
+    if (!feature("review_play") || rp || closed) { b.hidden = true; return; }
+    const n = await cardsWaiting();
+    if (closed || rp) return;
+    b.hidden = !n;
+    b.textContent = t("Review your cards here ({0})", n);
+  }
+  $(".fish-review").onclick = () => startReview();
+  /** A card turned beside the pond: the line goes out to the biggest fish swimming (or the middle of the water). */
+  function reviewCast() {
+    if (closed || busy || sc.mode !== "idle") return "";
+    const s = sc.shadows.filter((x) => x.mode === "swim" && x.alpha > 0.5).sort((a, b) => SHADOWS[b.cls].len - SHADOWS[a.cls].len)[0];
+    sc.bob = s ? { x: clamp(s.x + 12 * s.dir, SWIM.x0, SWIM.x1), y: clamp(s.y, SWIM.y0, SWIM.y1) } : { x: lerp(SWIM.x0, SWIM.x1, 0.4), y: lerp(SWIM.y0, SWIM.y1, 0.5) };
+    sc.target = null;
+    setMode("cast");
+    sfx("pet");
+    return t("The line flies out…");
+  }
+  /** A card answered beside the pond: the fish on the line is landed whatever the answer (the owner: the same in the
+   * game for "Remembered" and "Not remembered"), its rarity rolled at the pond's luck (a due card's, the rod, the
+   * creature's home water, a Golden hour) times `luck` (the memory calls meter, a spot check passed), Legendary at most,
+   * and not counted in the flashcards' own luck record (farm.rollTier). No fights here: the cards set the pace. */
+  async function reviewCatch(luck) {
+    if (closed || busy) return null;
+    if (!sc.bob) reviewCast();
+    if (!sc.bob) return null;
+    busy = true;
+    try {
+      const free = sc.shadows.filter((x) => x.mode === "swim" || x.mode === "approach" || x.mode === "nibble")
+        .sort((a, b) => Math.hypot(a.x - sc.bob.x, a.y - sc.bob.y) - Math.hypot(b.x - sc.bob.x, b.y - sc.bob.y));
+      const sh = sc.target || free[0] || null;
+      const sp = sh && sh.sp ? sh.sp : pickKind(pondId, sh ? sh.cls : "m", rand);
+      const tier = rollTier(DUE_LUCK * luckOf(game, pondId) * (golden(game) > 0 ? GOLDEN_LUCK : 1) * luck);
+      const got = land(game, { pond: pondId, sp, tier });
+      saveGame();
+      changed();
+      if (sh) sh.mode = "hooked";
+      sc.emote = { id: "exclaim", until: performance.now() + 600 };
+      splash(sc.bob.x, sc.bob.y, 8);
+      sfx("surprise");
+      await reel(sh, sp, true);
+      if (closed) return null;
+      const fish = fishById(sp);
+      fishSprite(sp, tier).then((pic) => { if (sc.fish) sc.fish.sprite = pic; });
+      reveal($(".fish-stage"), { rolled: true, tier, reward: null }, { art: fishTile(sp, tier), title: t(fish.name),
+        text: [got.fish.cm.toLocaleString(), "cm"].join(" "), top: 10, mode: "chip", hold: 1400, keys: false });
+      paintHud();
+      return { text: t("Landed: {0} {1}", t(TIERS[tier].name), t(fish.name)), lucky: true };
+    } finally {
+      sc.fish = null;
+      sc.aura = null;
+      sc.bob = null;
+      sc.target = null;
+      busy = false;
+      if (!closed) { setMode("idle"); refresh(); }
+    }
+  }
 
   // ----- changing pond, the luck explained -----
   function pondBox() {
@@ -946,7 +1030,7 @@ export function openPond(opts = {}) {
 
   // ----- input -----
   canvas.addEventListener("pointerdown", (e) => {
-    if (e.button) return;
+    if (e.button || rp) return; // (beside the cards, the cards cast)
     const [x, y] = scenePoint(e);
     if (sc.mode === "idle" && y >= WATER_Y) cast(x, y);
     else if (sc.mode === "idle") castAtBest();
@@ -959,6 +1043,7 @@ export function openPond(opts = {}) {
   const onKey = (e) => {
     if (closed || document.querySelector(".modal-back")) return;
     if (e.key === "Escape") { if (!lootOpen) { e.preventDefault(); close(); } return; } // (a reveal on screen is put away first)
+    if (rp) return; // (the cards beside the pond have the keys)
     if (card && !card.done) {
       const i = KEYS.indexOf(e.key);
       if (i >= 0) { e.preventDefault(); choose(i); }
@@ -1004,6 +1089,7 @@ export function openPond(opts = {}) {
     }
     if (fighting) { escape(game, { pond: pondId, sp: fighting.sp, tier: fighting.tier }); fighting = null; saveGame(); }
     closed = true;
+    if (rp) { const r = rp; rp = null; r.close(); }
     cancelAnimationFrame(raf);
     clearTimeout(sayTimer);
     stopStudy();
@@ -1028,6 +1114,7 @@ export function openPond(opts = {}) {
     refresh(true);
     const e = escapedIn(game, pondId);
     if (e) say(t("Something big got away here today. It is still out there…"), 2600);
+    startReview(); // (with cards waiting, the reviewer comes up beside the pond: review_play)
   });
   return close;
 }

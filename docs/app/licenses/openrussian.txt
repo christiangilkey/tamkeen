@@ -15,3 +15,6 @@ What was changed: only the word forms, their dictionary forms, stress positions 
 were kept (no translations or sentences), and perfective verbs are listed under their
 imperfective partner. The table is distributed under CC BY-SA 4.0. The file, the licence and how
 to rebuild it: https://github.com/christiangilkey/tamkeen/tree/main/docs/lexicon
+
+Also used, as data only, to group the Russian counts into dictionary words when choosing Basics' Frequency words
+(tools/course/ru/rank.py, tools/course/FREQUENCY-3000.md); the tables themselves are not shipped with the course.

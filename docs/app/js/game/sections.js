@@ -6,6 +6,7 @@ import {
   CATALOG, DECOR, ITEMS, MOVES, SLOTS, STRUCTURES, SUPPLIES, TAGS, itemById, moveIcon,
 } from "./data.js";
 import { AUTO_GOALS, FARM_KINDS, automated, buildingOpen, costOf, garden, rateOf, totalRate } from "./idle.js";
+import { feature } from "../prototype.js";
 
 /**
  * Every section of the game sheet, each its own screen.
@@ -28,6 +29,8 @@ export const SECTIONS = {
   fishing: { title: "Fishing", icon: "fishing", pills: ["pearls"], help: "fishing", pair: "fishing", word: "Ponds" },
   basket: { title: "Basket", icon: "basket", pills: ["coins", "pearls"], help: "fishing", pair: "fishing", word: "Basket" },
   fishdex: { title: "Fishdex", icon: "fishdex", pills: [], help: "fishing", pair: "fishing", word: "Fishdex" },
+  // (prototype "market": every stall of the village market in one sheet, market.js; My things is the cottage's dresser)
+  market: { title: "Market", icon: "market", pills: [], help: "coin", pair: null, word: "Market" }, // (its counters: in the sheet)
 };
 /** Screens that share one switch, in the switch's order: a shop and your bag; a garden and what its glow buys;
  * your creatures and your badges; battles and battling friends; the ponds, your basket of fish and the Fishdex. */
@@ -41,9 +44,11 @@ export const sectionOf = (tab) => (typeof tab === "string" && Object.hasOwn(SECT
 export function screenOf(tab) {
   const id = sectionOf(tab);
   const s = SECTIONS[id];
+  // (with the Market, the shop and the bag are apart: the Market has every stall, My things is the cottage's dresser)
+  const pair = feature("market") && s.pair === "shop" ? null : s.pair;
   return {
     id, title: s.title, icon: s.icon, help: s.help || null, pills: [...s.pills],
-    switch: s.pair ? PAIRS[s.pair].map((x) => ({ id: x, word: SECTIONS[x].word, on: x === id })) : null,
+    switch: pair ? PAIRS[pair].map((x) => ({ id: x, word: SECTIONS[x].word, on: x === id })) : null,
   };
 }
 
@@ -76,8 +81,8 @@ export const buildingName = (s) => (s.id === "ink_well" ? "Spelling Bee Hive" : 
 /** What each building does on the farm (prototype "farm"; farm.js farmJobs), for its details box. */
 export const FARM_JOBS = {
   word_sprout: "On the farm it is a seed tree: words you look up make it drop free seeds.",
-  echo_shell: "On the farm it is a rain chime: time spent listening waters your thirsty plants.",
-  page_lantern: "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow two days for one watering.",
+  echo_shell: "On the farm it is a rain chime: on a day you listen for a while, every word you study grows your plants more.",
+  page_lantern: "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow twice as much.",
   ink_well: "Each word you save brings a bee. With bees about, crops near the hive give more, and saved words make honey.",
   memory_stone: "Words you know well make better harvests: rarer crops all over the farm.",
 };

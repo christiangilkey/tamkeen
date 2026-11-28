@@ -3,12 +3,16 @@
 //
 // A fenced field west of the cottage, through a gate at the yard's edge. It starts 3 x 3 and grows one fence section
 // at a time (bought with glow). Crops are ordinary crops. The owner's rules:
-//   - a thirsty plant is watered by answering one due word (the question card fishing and battles use): a right answer
-//     waters it for the day, a wrong one waters it a little (two wrong answers make a watering) and shows the answer;
-//   - a crop ripens only after being watered on several DIFFERENT days (carrot 2, pumpkin 5, fruit tree 10): it can't
-//     be rushed in one sitting, it asks to come back;
-//   - nothing dies or rots: a plant missed for a day wilts and waits, and one watering revives it; harvests wait in
-//     the barn;
+//   - GROWTH (2026-11-28, replacing "water on N different days"): a plant has maturity points and ripens at its crop's
+//     total (`needOf`: the old days x MATURITY_PER_DAY). "Each word you study slightly adds to the maturity of all the
+//     plants": every word answered anywhere (a flashcard, review_play, the farm's, the pond's and battles' questions)
+//     adds GROW_PER_WORD to EVERY growing plant (`grow`; undone with the card's Undo: `ungrow`), so a bigger field grows
+//     more per word. Watering one plant (one word) adds WATER_BOOST to it on top. No daily cap: study enough and a crop
+//     ripens the same day;
+//   - right or wrong is equal (the owner: "irrespective of if you got it right or wrong, just like all the other
+//     minigames"): a wrong watering is a full one, and shows the right word;
+//   - nothing dies or rots: a plant left unwatered for a day looks wilted (only a look: it never loses maturity and
+//     still grows), and one watering perks it up; harvests wait in the barn. Dig up gives the seed back;
 //   - the seasons turn weekly, the same for everyone (the calendar week); a crop out of its season rests until it
 //     comes back (all-year crops never rest);
 //   - a harvest rolls its rarity through loot.js, Common up to Legendary (a golden pumpkin now and then);
@@ -17,17 +21,20 @@
 // app/sync/gamemerge.py _join_farm).
 
 import { LEGENDARY, TIERS, chances } from "./loot.js";
-import { dayNumber, weekNumber } from "./rules.js";
+import { dayNumber, onQuestion, weekNumber } from "./rules.js";
 import { BUILD_SPOTS, UPGRADE_SPOTS, buildingSize, canPlace, nearestFree, spotXY } from "./farmmap.js";
 
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
 export const seasonOf = (now = new Date()) => SEASONS[weekNumber(now) % SEASONS.length];
-/** How many days until the next season (the next Monday). */
+/** How many days until the next season (the next Monday). The week's rare seed packet changes then too. */
 export const daysToNextSeason = (now = new Date()) => 7 - ((dayNumber(now) + 3) % 7);
+/** Next week's season. */
+export const nextSeasonOf = (now = new Date()) => SEASONS[(weekNumber(now) + 1) % SEASONS.length];
 
-// Every crop: its season ("all": any), the different days it needs watering to ripen, what its seeds cost (glow), how
-// many it gives, and `kind` (how farmart.py draws it). `rare`: only sold as the week's rare seed packet.
+// Every crop: its season ("all": any), how slow it is (`days`: its maturity to ripen is days x MATURITY_PER_DAY; once
+// the different days it needed watering), what its seeds cost (glow), how many it gives, and `kind` (how farmart.py
+// draws it). `rare`: only sold as the week's rare seed packet.
 export const CROPS = [
   // spring
   { id: "carrot", name: "Carrot", season: "spring", days: 2, kind: "root", give: [2, 3] },
@@ -75,6 +82,26 @@ export const CROPS = [
 ];
 export const cropById = (id) => CROPS.find((c) => c.id === id) || null;
 export const RARE_CROPS = CROPS.filter((c) => c.rare);
+
+// ---------- growth (the owner, 2026-11-28): maturity points ----------
+// A typical day's study (50 to 100 words) ripens a quick crop (a carrot: 50) and takes a slow one a good way (an apple
+// tree, 250: a fifth to two fifths), before any watering. Watering one plant: its word (1) plus WATER_BOOST, 6 in all.
+export const MATURITY_PER_DAY = 25;  // a crop's `days` x this = the maturity it ripens at
+export const GROW_PER_WORD = 1;      // every word studied, to every growing plant
+export const WATER_BOOST = 5;        // a watering (one word), to that plant, on top
+export const LANTERN_GROW = 2;       // near a lit Page Lantern (a reading day): words and waterings grow it twice as much
+export const ECHO_GROW = [1, 1.25, 1.5, 1.75]; // a listening day (the Echo Shell's tier): words grow every plant this much more
+/** The maturity a crop ripens at. */
+export const needOf = (c) => c.days * MATURITY_PER_DAY;
+/** The growth stages drawn (crops.png's frames 0-3: seed, sprout, growing, ripe; frame 4 is the wilted look), by how
+ * far a plant has grown: a fraction under STAGE_AT[i] is stage i. */
+export const STAGE_AT = [0.15, 0.5, 1];
+export const stageOf = (frac) => (frac >= 1 ? 3 : STAGE_AT.findIndex((x) => frac < x));
+/** A plant's maturity, kept for older copies of the app too (they read `days`, whole days of water). */
+function setMaturity(p, c, m) {
+  p.m = Math.max(0, Math.min(needOf(c), Math.round(m * 100) / 100));
+  p.days = Math.min(c.days, Math.floor(p.m / MATURITY_PER_DAY));
+}
 /** What a crop's seeds cost in glow (one seed, one plant). */
 export const seedPrice = (c) => (c.rare ? 60 : 8) * c.days;
 /** This week's rare seed packet (one may be bought a week). */
@@ -83,6 +110,8 @@ export const rareSeedOf = (now = new Date()) => RARE_CROPS[weekNumber(now) % RAR
 export const inSeason = (c, now = new Date()) => !!c && (c.season === "all" || c.season === seasonOf(now));
 /** The seeds sold this week: the season's and the all-year ones (the rare packet is apart). */
 export const seedsOnSale = (now = new Date()) => CROPS.filter((c) => !c.rare && inSeason(c, now));
+/** The seeds that come on sale when the season turns (next season's own; the all-year ones stay). */
+export const seedsComing = (now = new Date()) => CROPS.filter((c) => !c.rare && c.season === nextSeasonOf(now));
 
 // ---------- the field and its fence ----------
 export const START_SIZE = [3, 3];
@@ -110,6 +139,13 @@ export function farmOf(state) {
   if (!f.seeds || typeof f.seeds !== "object" || Array.isArray(f.seeds)) f.seeds = {};
   if (!f.barn || typeof f.barn !== "object" || Array.isArray(f.barn)) f.barn = {};
   if (!Number.isFinite(f.at)) f.at = 0;
+  for (const p of Object.values(f.plots)) { // (growth, 2026-11-28: a plant's water days become maturity, nothing lost;
+    const c = p && cropById(p.crop);       //  an older copy of the app that watered it since counts too)
+    if (!c) continue;
+    const fromDays = (Number(p.days) || 0) * MATURITY_PER_DAY;
+    if (!Number.isFinite(p.m) || p.m < fromDays) setMaturity(p, c, Math.max(Number(p.m) || 0, fromDays));
+    if (p.wet) delete p.wet; // (two wrong answers made a watering: gone, a wrong answer is a full one)
+  }
   return f;
 }
 /** The field's width and height now. */
@@ -167,37 +203,100 @@ export function plant(state, key, id, now = new Date()) {
   f.seeds[id]--;
   if (!f.seeds[id]) delete f.seeds[id];
   const today = dayNumber(now);
-  f.plots[key] = { crop: id, days: 0, last: today, planted: today };
+  f.plots[key] = { crop: id, m: 0, days: 0, last: today, planted: today };
   touch(f, now);
   return "";
 }
 
 /**
- * How a plant is doing: {crop, stage (0 seed, 1 sprout, 2 growing, 3 ripe), ripe, thirsty (it can be watered now),
- * wilted (missed a day: it waits for its water), resting (out of season: it waits for its season), watered (has had
- * today's water), days, need}. Null for an empty spot.
+ * Dig a plant up (the owner, 2026-11-28: "Yes, you should get the seed back"): the spot is empty again and its seed
+ * goes back to the tray, whatever its stage. A ripe one isn't dug up (harvest it instead). Returns an error, or "".
+ */
+export function digUp(state, key, now = new Date()) {
+  const f = farmOf(state);
+  const s = plantState(state, key, now);
+  if (!s) return "Nothing is growing there.";
+  if (s.ripe) return "It's ripe: harvest it instead.";
+  delete f.plots[key];
+  f.seeds[s.crop.id] = (f.seeds[s.crop.id] || 0) + 1;
+  touch(f, now);
+  return "";
+}
+
+/**
+ * How a plant is doing: {crop, m (its maturity), need (the maturity it ripens at), pct (how far, 0-100), stage (0 seed,
+ * 1 sprout, 2 growing, 3 ripe), ripe, growing (not ripe, not resting: words and waterings grow it), thirsty (not
+ * watered today: the next watering's), wilted (left unwatered for a day: only a look, it still grows), resting (out of
+ * season: it waits for its season), watered (watered today), days (whole days' worth, for older code)}. Null for an
+ * empty spot.
  */
 export function plantState(state, key, now = new Date()) {
   const p = farmOf(state).plots[key];
   const c = p && cropById(p.crop);
   if (!c) return null;
   const today = dayNumber(now);
-  const ripe = p.days >= c.days;
+  const need = needOf(c);
+  const m = Math.min(need, Math.max(0, Number(p.m) || 0));
+  const ripe = m >= need;
   const resting = !ripe && !inSeason(c, now) && !underGlass(state, key); // (slice 5: the greenhouse's row grows any season)
   const watered = p.lastWater === today; // (`last`: the day it was planted or last watered, for wilting)
-  const stage = ripe ? 3 : p.days === 0 ? 0 : p.days * 2 >= c.days ? 2 : 1;
   return {
-    crop: c, stage, ripe, resting, watered, days: p.days, need: c.days,
+    crop: c, m, need, pct: Math.floor((m / need) * 100), stage: stageOf(m / need), ripe, resting, watered, growing: !ripe && !resting,
+    days: Math.floor(m / MATURITY_PER_DAY),
     thirsty: !ripe && !resting && !watered,
     wilted: !ripe && !resting && !watered && today - p.last >= 2 && !sprinklerOn(state), // (slice 5: the sprinkler keeps them fresh)
-    half: !!(p.wet && p.wet.d === today && p.wet.n > 0 && !watered), // (one wrong answer: a little water)
   };
 }
 
+/** How much a word grows plant `key` today: the Echo Shell's listening day for every plant, the Page Lantern's reading
+ * day near it. */
+function wordGrowth(state, key, now) {
+  const echo = tierOf(state, "echo");
+  const listened = echo && isToday(state, now) && (Number(state.day.listen) || 0) >= ECHO_EVERY[echo];
+  const lit = lanternLit(state, now) && nearTier(state, "lantern", key) > 0;
+  return GROW_PER_WORD * (listened ? ECHO_GROW[echo] : 1) * (lit ? LANTERN_GROW : 1);
+}
+
 /**
- * Water a plant with an answer: right, it has its water for today (one more day towards ripening); wrong, a little
- * (two wrong answers make a watering). Returns {grew (a day counted), ripe, revived (it had wilted)} or an error
- * message string.
+ * A word studied (any answered word: a flashcard, review_play, the farm's, the pond's or a battle's question): every
+ * growing plant grows a little (the owner: "each word you study slightly adds to the maturity of all the plants. So
+ * that way it actually scales so the user can make new, bigger plots with more plants"). `words`: how many. Returns
+ * what each plant grew ({key: n}), for `ungrow` when the answer is taken back. Not stamped as a change (`at`): growth
+ * comes from studying on any device, and the copy with the later farm action is kept whole while merge.js keeps each
+ * plant's higher maturity from either copy.
+ */
+export function grow(state, words = 1, now = new Date()) {
+  const out = {};
+  const n = Math.max(0, Number(words) || 0);
+  if (!n || !state.farm || !state.farm.plots || !Object.keys(state.farm.plots).length) return out; // (no farm: nothing to grow)
+  const f = farmOf(state);
+  for (const [key, p] of Object.entries(f.plots)) {
+    const s = plantState(state, key, now);
+    if (!s || !s.growing) continue;
+    setMaturity(p, s.crop, s.m + wordGrowth(state, key, now) * n);
+    const got = p.m - s.m;
+    if (got > 0) out[key] = got;
+  }
+  return out;
+}
+// Every question answered (the pond's, a battle's, the farm's own: rules.answerQuestion) is a word studied. (The
+// flashcards' answers come through game.js rollCard, which grows the farm too and takes it back on Undo.)
+onQuestion((state, now) => { grow(state, 1, now); });
+/** Take back what `grow` gave (the card's Undo). Plants harvested or dug up since are left as they are. */
+export function ungrow(state, grown) {
+  const f = farmOf(state);
+  for (const [key, n] of Object.entries(grown || {})) {
+    const p = f.plots[key];
+    const c = p && cropById(p.crop);
+    if (c && Number(n) > 0) setMaturity(p, c, (Number(p.m) || 0) - Number(n));
+  }
+}
+
+/**
+ * Water a plant with an answer: right or wrong the same, a full watering (the owner: "irrespective of if you got it
+ * right or wrong"): WATER_BOOST more maturity (twice near a lit Page Lantern), on top of what the word grows every plant
+ * (`grow`, by the caller's question). No daily cap. Returns {grew, ripe, revived (it had wilted), lantern} or an error
+ * message string. (`correct` only decides the moment the screen plays.)
  */
 export function water(state, key, correct, now = new Date()) {
   const f = farmOf(state);
@@ -206,21 +305,15 @@ export function water(state, key, correct, now = new Date()) {
   if (!p || !s) return "Nothing is growing there.";
   if (s.ripe) return "It's ripe: harvest it.";
   if (s.resting) return "It's resting until its season comes back.";
-  if (s.watered) return "It has had its water today.";
   const today = dayNumber(now);
-  if (!p.wet || p.wet.d !== today) p.wet = { d: today, n: 0 };
-  p.wet.n += correct ? 2 : 1;
-  touch(f, now);
-  if (p.wet.n < 2) return { grew: false, ripe: false, revived: false };
   const revived = s.wilted;
-  const need = cropById(p.crop).days;
   const lit = lanternLit(state, now) && nearTier(state, "lantern", key) > 0; // (the Page Lantern: a reading day)
-  p.days = Math.min(need, p.days + (lit ? 2 : 1));
+  setMaturity(p, s.crop, s.m + WATER_BOOST * (lit ? LANTERN_GROW : 1));
   p.last = today;
   p.lastWater = today;
-  delete p.wet;
+  touch(f, now);
   if (f.lastFarmDay !== today) { f.lastFarmDay = today; f.farmDays = (Number(f.farmDays) || 0) + 1; } // (days watered: the sprinkler is earned)
-  return { grew: true, ripe: p.days >= need, revived, lantern: lit };
+  return { grew: true, ripe: p.m >= s.need, revived, lantern: lit };
 }
 
 /** A harvest's rarity: the flashcards' odds at this luck (loot.js chances), Legendary at most. Not counted in the
@@ -248,15 +341,16 @@ export function barnList(state) {
 /**
  * Harvest a ripe plant: its rarity rolled as fishing's catches are (loot.js roll; Legendary at most, a pumpkin's
  * golden one), how many it gives, all into the barn; the spot is empty again. Returns {crop, tier, n} or an error.
+ * `bonus`: more luck on the rarity (review_play: the memory calls meter and a spot check passed, game/spotcheck.js).
  */
-export function harvest(state, key, rand = Math.random, now = new Date()) {
+export function harvest(state, key, rand = Math.random, now = new Date(), bonus = 1) {
   const f = farmOf(state);
   const s = plantState(state, key, now);
   if (!s) return "Nothing is growing there.";
   if (!s.ripe) return "It isn't ripe yet.";
   if (barnCount(state) >= barnCap(state)) return "Your barn is full. Sell, cook or feed some first, or build a bigger barn: the crop waits, ripe.";
   const c = s.crop;
-  const tier = rollTier((1 + c.days / 10) * stoneLuck(state) * (level(state, "scarecrow") ? 1.25 : 1), rand); // (the Memory Stone, the scarecrow: luck)
+  const tier = rollTier((1 + c.days / 10) * stoneLuck(state) * (level(state, "scarecrow") ? 1.25 : 1) * Math.max(1, Math.min(2, Number(bonus) || 1)), rand); // (the Memory Stone, the scarecrow: luck)
   const [lo, hi] = c.give;
   const bees = beesToday(state, now) ? nearTier(state, "hive", key) : 0; // (bees about: one more, two near a big hive)
   const n = lo + Math.floor(rand() * (hi - lo + 1)) + (bees ? (bees >= 3 ? 2 : 1) : 0) + (level(state, "compost") && rand() < 0.5 ? 1 : 0); // (the compost bin)
@@ -276,8 +370,10 @@ export function harvest(state, key, rand = Math.random, now = new Date()) {
 // Each building does a farm job matched to its study habit (the owner's plan):
 //   Word Sprout (looking words up): a seed tree; looked-up words drop free seeds (one each `SPROUT_EVERY[tier]`
 //     lookups, at most 2 + tier a day, of this week's crops).
-//   Echo Shell (listening): a rain chime; each `ECHO_EVERY[tier]` seconds of listening today waters one thirsty plant.
-//   Page Lantern (reading): on a day with 10 minutes of reading, a plant near it grows two days for one watering.
+//   Echo Shell (listening): a rain chime; on a listening day (`ECHO_EVERY[tier]` seconds of listening today) every word
+//     studied grows every plant `ECHO_GROW[tier]` times as much (growth, 2026-11-28; it used to water thirsty plants).
+//   Page Lantern (reading): on a day with 10 minutes of reading, plants near it grow twice as much from words and
+//     waterings.
 //   Spelling Bee Hive (saving words; the Ink Well's place): each word saved today brings a bee (3 a tier at most);
 //     with bees about, crops near it give one more (two near a big hive); every few words saved make honey (recipes).
 //   Memory Stone (knowing words well): well-known words make better harvests everywhere (more luck on the roll).
@@ -324,9 +420,9 @@ export const stoneLuck = (state) => { const t = tierOf(state, "stone"); return t
 export const lanternLit = (state, now = new Date()) => isToday(state, now) && (Number(state.day.read) || 0) >= LANTERN_READ;
 
 /**
- * Let the farm jobs happen: the Word Sprout's seeds for lookups, the Echo Shell's waterings for listening, the hive's
- * honey for saved words. Safe to call often (it counts only what is new). Returns {seeds: [crop ids], watered: [keys],
- * honey: n} for the screen to show.
+ * Let the farm jobs happen: the Word Sprout's seeds for lookups, the sprinkler's two waterings a day, the hive's honey
+ * for saved words (the Echo Shell's listening day is read by `grow`). Safe to call often (it counts only what is new).
+ * Returns {seeds: [crop ids], watered: [keys], honey: n} for the screen to show.
  */
 export function farmJobs(state, rand = Math.random, now = new Date()) {
   const f = farmOf(state);
@@ -350,19 +446,6 @@ export function farmJobs(state, rand = Math.random, now = new Date()) {
       out.seeds.push(c.id);
     }
     if (j.seeds >= 2 + sprout) j.acc = 0; // (the day's seeds are all dropped: nothing banks for tomorrow)
-  }
-  // the Echo Shell: today's listening waters the thirstiest plants (wilted ones first)
-  const echo = tierOf(state, "echo");
-  if (echo && isToday(state, now)) {
-    const due = Math.floor((Number(state.day.listen) || 0) / ECHO_EVERY[echo]);
-    while (j.echo < due) {
-      const thirsty = spots(state).map((s) => ({ s, st: plantState(state, s.key, now) })).filter((x) => x.st && x.st.thirsty)
-        .sort((a, b) => Number(b.st.wilted) - Number(a.st.wilted) || a.st.days - b.st.days);
-      if (!thirsty.length) break;
-      j.echo++;
-      water(state, thirsty[0].s.key, true, now);
-      out.watered.push(thirsty[0].s.key);
-    }
   }
   // the sprinkler (earned): two thirsty plants watered each day
   if (sprinklerOn(state) && j.sprinkled !== day) {
@@ -404,7 +487,7 @@ export function placeBuilding(state, i, x, y, now = new Date()) {
 // Bought with glow (the owner's plan), except the sprinkler, which is EARNED: SPRINKLER_DAYS farm days (days a plant was
 // watered). Nothing here adds strength in battles, and none of it is for sale for money.
 export const UPGRADES = [
-  { id: "can", name: "Watering can", cost: [300, 1200], text: "One right answer also waters a thirsty plant next to it (two at the second level)." },
+  { id: "can", name: "Watering can", cost: [300, 1200], text: "Each watering also waters a thirsty plant next to it (two at the second level)." },
   { id: "greenhouse", name: "Greenhouse", cost: [2500], text: "Glass over the top row of your field: anything grows there in any season." },
   { id: "scarecrow", name: "Scarecrow", cost: [600], text: "It keeps the birds off: your harvests come out rarer more often." },
   { id: "compost", name: "Compost bin", cost: [800], text: "Richer soil: a harvest sometimes gives one more." },
@@ -441,7 +524,8 @@ export const sprinklerOn = (state) => (Number(farmOf(state).farmDays) || 0) >= S
 /** Is field spot `key` under the greenhouse's glass (its top row, once built)? */
 export const underGlass = (state, key) => level(state, "greenhouse") > 0 && String(key).split(",")[1] === "0";
 
-/** The watering can: after a right answer, water up to its level's thirsty neighbours of `key`. Returns their keys. */
+/** The watering can: after a watering (right or wrong alike), water up to its level's thirsty neighbours of `key` (not
+ * watered yet today). Returns their keys. */
 export function waterAround(state, key, now = new Date()) {
   const n = level(state, "can");
   if (!n) return [];

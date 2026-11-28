@@ -88,7 +88,7 @@ export function goalBar(root, { sendSlot = null } = {}) {
     custom.paint();
     const short = !(t.newDone + t.newLeft < goal) ? ""
       : t.waiting ? `Only ${t.waiting} new word${t.waiting === 1 ? " is" : "s are"} waiting. `
-      : "No new words are waiting to be learned: add some with Add words, or from Content → Basics → First 1000 words. ";
+      : "No new words are waiting to be learned: add some with Add words, or from Content → Basics → Frequency words. ";
     $(".goal-help").textContent = `${short}Reviews are simply the words due today. In the long run expect about 10 a day per new word (Anki's manual): ${goal} new a day ≈ ${expectedReviews(goal)} reviews a day.`;
     // Per word, counting the looks a missed word takes coming back. Where the times come from: the
     // least measured of the kinds involved.

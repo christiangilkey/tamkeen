@@ -110,15 +110,19 @@ export function switcher(options, current, pick, cls = "") {
  *    buttons: [{word, pic (markup before it), extra (markup after it: a price), primary, danger, disabled, run(d)}]}
  * Facts are labelled cells, two to a row. `note` (a word on why a button can't be pressed) keeps its line even
  * when empty, so the buttons never move. Returns d: {close, redraw}.
+ * Inside `inline(container, open)` the box is drawn into `container` instead (the Market's stalls, prototype "market":
+ * the farm's own stall screens, unchanged): no title, no Close button, and `d.close()` does nothing.
  */
 export function details(fill) {
-  const m = openModal({ title: "", cls: "gs-detail-back" });
-  const d = { close: m.close, redraw };
+  const into = inlineInto;
+  inlineInto = null; // (only the first box opened inside inline(): what it opens later pops up as usual)
+  const m = into ? null : openModal({ title: "", cls: "gs-detail-back" });
+  const d = { close: m ? m.close : () => {}, redraw };
   function redraw() {
     const v = fill(d);
-    if (!v) { m.close(); return; }
-    m.setTitle(v.title || "");
-    const box = h(`<div class="gs-detail"></div>`);
+    if (!v) { if (m) m.close(); return; }
+    if (m) m.setTitle(v.title || "");
+    const box = h(`<div class="gs-detail${into ? " gs-detail-inline" : ""}"></div>`);
     if (v.pic) {
       const pic = h(`<div class="gs-detail-pic"></div>`);
       if (typeof v.pic === "string") pic.innerHTML = v.pic; else pic.append(v.pic);
@@ -140,16 +144,25 @@ export function details(fill) {
     note.textContent = v.note || "";
     box.append(note);
     const buttons = h(`<div class="confirm-buttons"></div>`);
-    for (const b of v.buttons || []) {
+    for (const b of (v.buttons || []).filter((x) => !(into && x.word === "Close"))) {
       const el = h(`<button type="button" class="${b.primary ? "primary" : b.danger ? "danger-solid" : ""}">${b.pic || ""}<span></span>${b.extra || ""}</button>`);
       el.querySelector("span").textContent = b.word;
       el.disabled = !!b.disabled;
       el.onclick = () => b.run(d);
       buttons.append(el);
     }
-    box.append(buttons);
-    m.body.replaceChildren(box);
+    if (buttons.childElementCount) box.append(buttons);
+    (into || m.body).replaceChildren(box);
   }
   redraw();
   return d;
+}
+
+let inlineInto = null;
+/** Run `open()`, a function that opens one details() box, drawing that box into `container` instead of over the
+ * screen (see details). */
+export function inline(container, open) {
+  inlineInto = container;
+  try { open(); } finally { inlineInto = null; }
+  return container;
 }

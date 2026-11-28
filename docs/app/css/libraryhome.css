@@ -18,6 +18,7 @@
 .lh-hub { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: var(--s-4);
   text-align: center; line-height: var(--lh-head); pointer-events: none; }
 .lh-lang { font-size: var(--fs-34); font-weight: 700; }
+.lh-hub.narrow .lh-lang { font-size: var(--fs-26); }
 .lh-sub { font-size: var(--fs-12); color: var(--ink-2); }
 
 .lh-b { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; corner-shape: round;
@@ -37,7 +38,10 @@
 /* What a ringed bubble needs (Netflix: the computer app), in a short line under its name. */
 .lh-need { font-size: var(--fs-12); font-weight: 400; color: var(--ink-2); white-space: normal; text-align: center; }
 /* A small bubble's name (and that line) sit under it. */
-.lh-b.small .lh-n { position: absolute; top: 100%; margin-top: var(--s-4); width: 128px; white-space: nowrap; }
+/* (as wide as its words, at most 150px: the map measures this box, libraryhome.js arrange, so nothing overlaps it) */
+.lh-b.small .lh-n { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: var(--s-4);
+  width: max-content; max-width: 150px; }
+.lh-b.small .lh-name { white-space: nowrap; }
 .lh-b.small .lh-name { font-size: var(--fs-12); }
 
 /* The box a ringed bubble opens: what is missing, then the way to set it up (the main button) and the kind anyway. */
@@ -72,8 +76,13 @@
   animation: lh-settle var(--t-quick) var(--ease-out) both; }
 .lh-r.main .lh-ring { outline: 1px solid var(--progress); outline-offset: 4px; border-radius: 50%; corner-shape: round; }
 .lh-r:focus-visible { outline: 2px solid var(--teal); outline-offset: 6px; border-radius: 50%; }
-.lh-rl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: var(--s-8); width: 140px;
+.lh-rl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: var(--s-8); width: max-content; max-width: 170px;
   display: grid; justify-items: center; gap: var(--s-4); text-align: center; line-height: var(--lh-head); }
 .lh-rv { font-size: var(--fs-12); color: var(--progress); font-weight: 600; white-space: nowrap; }
 .lh-rt { font-size: var(--fs-12); font-weight: 600; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lh-rline { stroke: var(--progress) !important; stroke-dasharray: 2 4; }
+
+/* Dragging the bubbles (prototype "library_physics", components/homemap.js): a finger on a bubble moves it, not the
+   page; the one held is drawn above the others and stops its settle animation. */
+.lh-physics .lh-b, .lh-physics .lh-r { touch-action: none; cursor: grab; }
+.lh-held { z-index: 1; cursor: grabbing; animation: none; }
