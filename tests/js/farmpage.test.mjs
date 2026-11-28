@@ -40,6 +40,14 @@ test("big plots: at most about four columns across a phone, never under a finger
   assert.match(p, /return bd < CELL \? best : null;/);
 });
 
+test("a wider field than the screen scrolls to its first plots whenever its size changes (as when the cards beside it close)", () => {
+  // (the bug: closing the docked cards made the field bigger but left it scrolled to its empty western end)
+  const p = src("farmpage.js");
+  assert.match(p, /if \(canvas\.style\.width !== was\) toStart\(\);/, "fit() re-anchors on any new size");
+  assert.match(p, /function toStart\(\) \{\n {4}const field = \$\("\.farmp-field"\);\n {4}field\.scrollLeft = getComputedStyle\(field\)\.direction === "rtl" \? 0 : field\.scrollWidth;/);
+  assert.match(p, /ended: \(\) => \{ rp = null; if \(!alive\) return; \$\("\.farmp-tools"\)\.hidden = false; fit\(\);/, "the cards closing refits the field");
+});
+
 test("in the village, a tap anywhere in the farm's pen (plots, paths, its fence) opens the farm page; no plot's sheet opens there", async () => {
   const { FIELD, fieldLeft, inPen, spotXY } = await import("../../web/js/game/farmmap.js");
   for (const [w, hh] of [[3, 3], [12, 6]]) {

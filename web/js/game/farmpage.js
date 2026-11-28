@@ -95,9 +95,17 @@ export function openFarm({ changed = () => {} } = {}) {
       ? Math.max(24, Math.min(box.width / Math.min(w, 4.2), ($(".farmp").clientHeight - 200) / (Math.max(3, hh) + 1.4)))
       : Math.max(44, Math.min(box.width / Math.min(w, 4.2), room / Math.max(3, hh))) ; // (a fingertip at least; four columns across a phone)
     const k = cell / CELL;
+    const was = canvas.style.width;
     canvas.style.width = `${Math.round(sceneW() * k)}px`;
     canvas.style.height = `${Math.round(sceneH() * k)}px`;
     ctx.imageSmoothingEnabled = false;
+    if (canvas.style.width !== was) toStart(); // (a new size, as when the cards beside it close: back to its first plots)
+  }
+  /** Scroll the field to its right edge, where it starts by the gate and its first plots are (it grows west as the
+   * fence grows); right to left the scroll runs the other way. */
+  function toStart() {
+    const field = $(".farmp-field");
+    field.scrollLeft = getComputedStyle(field).direction === "rtl" ? 0 : field.scrollWidth;
   }
   const keys = () => { const [w, hh] = size(); const out = []; for (let r = 0; r < hh; r++) for (let c = 0; c < w; c++) out.push(`${c},${r}`); return out; };
   const at = (key) => { const [c, r] = key.split(",").map(Number); return plotXY(c, r); };
@@ -452,9 +460,7 @@ export function openFarm({ changed = () => {} } = {}) {
   pet = { ...pet, x: start.x + 12, y: start.y + 22, tx: start.x + 12, ty: start.y + 22 };
   paint();
   requestAnimationFrame(draw);
-  // the field's right edge first (where it starts, by the gate); right to left the scroll runs the other way
-  const field = $(".farmp-field");
-  field.scrollLeft = getComputedStyle(field).direction === "rtl" ? 0 : field.scrollWidth;
+  toStart(); // (the field's right edge first, where it starts by the gate)
   startReview(); // (with cards waiting, the reviewer comes up over the field: review_play)
   return close;
 }
